@@ -57,6 +57,8 @@
       align-items: center;
       justify-content: space-between;
       padding: 24px 32px 0;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
     .home-link {
@@ -76,7 +78,8 @@
       filter: drop-shadow(0 0 6px rgba(0, 191, 255, 0.45));
     }
 
-    .cta {
+    .cta,
+    .social-link {
       padding: 0.6em 1.2em;
       border: 1px solid #00afff88;
       border-radius: 999px;
@@ -90,10 +93,18 @@
       text-decoration: none;
     }
 
-    .cta:hover {
+    .cta:hover,
+    .social-link:hover {
       color: #fff;
       border-color: #4dd3ff;
       box-shadow: 0 0 18px rgba(77, 211, 255, 0.6);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     main {
@@ -178,6 +189,87 @@
       color: #6c7b8c;
     }
 
+    .community-section {
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(143, 215, 255, 0.35);
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .community-section h2 {
+      margin: 0;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: #8fd7ff;
+      letter-spacing: 0.05em;
+    }
+
+    .community-lead {
+      margin: 0;
+      font-size: 1.05rem;
+      color: #c7e4ff;
+    }
+
+    .like-panel {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .like-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.55em 1.3em;
+      border-radius: 999px;
+      border: 1px solid rgba(143, 215, 255, 0.5);
+      background: rgba(0, 40, 60, 0.6);
+      color: #f0f6ff;
+      font-size: 1rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .like-button:hover:not([disabled]) {
+      border-color: rgba(77, 211, 255, 0.85);
+      box-shadow: 0 0 18px rgba(77, 211, 255, 0.5);
+      transform: translateY(-1px);
+    }
+
+    .like-button[disabled] {
+      cursor: default;
+      opacity: 0.65;
+    }
+
+    .like-button.is-liked {
+      border-color: rgba(255, 99, 146, 0.75);
+      box-shadow: 0 0 18px rgba(255, 99, 146, 0.35);
+    }
+
+    .like-count {
+      min-width: 3ch;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #8fd7ff;
+    }
+
+    .comment-container {
+      border-radius: 18px;
+      border: 1px solid rgba(143, 215, 255, 0.35);
+      background: rgba(0, 15, 30, 0.6);
+      padding: 1.5rem 1.2rem;
+      box-shadow: 0 0 24px rgba(0, 120, 190, 0.25);
+    }
+
+    .moderation-note {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #8bbce8;
+    }
+
     @media (max-width: 640px) {
       header {
         flex-direction: column;
@@ -185,13 +277,22 @@
         align-items: flex-start;
       }
 
-      .cta {
-        align-self: flex-end;
+      .header-actions {
+        width: 100%;
       }
 
       main {
         margin-top: 24px;
         padding: 28px 20px 48px;
+      }
+
+      .like-panel {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .like-count {
+        text-align: right;
       }
     }
   </style>
@@ -203,7 +304,10 @@
         <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" />
         <span>Back to Blog</span>
       </a>
-      <a class="cta" href="mailto:contact@blackframeai.org">Contact Studio</a>
+      <div class="header-actions">
+        <a class="social-link" href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow on X</a>
+        <a class="cta" href="mailto:contact@blackframeai.org">Contact Studio</a>
+      </div>
     </header>
     <main>
       <article>
@@ -278,6 +382,114 @@
 
         <p><strong>— BlackFrame AI Studio</strong></p>
       </article>
+
+      <section class="community-section" aria-labelledby="community-heading">
+        <h2 id="community-heading">Join the community</h2>
+        <p class="community-lead">Tap the heart to drop a like, follow us on social, and keep the conversation going.</p>
+        <div class="like-panel">
+          <button class="like-button" type="button" aria-pressed="false" data-counter-key="birth-of-vibe-coding">
+            <span aria-hidden="true">❤️</span>
+            <span class="like-label">Like this article</span>
+          </button>
+          <span class="like-count" data-like-count aria-live="polite">—</span>
+        </div>
+        <p class="community-lead">
+          Want more dispatches? <a href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow @blackframeai on X</a> for realtime drops.
+        </p>
+        <div class="comment-container" id="comments" aria-live="polite">
+          <script src="https://utteranc.es/client.js"
+            data-repo="BlackFrameAI/BlackFrameAI"
+            data-issue-term="pathname"
+            data-label="blog-comments"
+            data-theme="github-dark"
+            crossorigin="anonymous"
+            async>
+          </script>
+        </div>
+        <p class="moderation-note">Moderate or remove comments anytime from the linked GitHub issue — delete, lock, or hide with a couple clicks.</p>
+      </section>
+      <script>
+        (function () {
+          const namespace = 'blackframeai.blog';
+          const button = document.querySelector('.like-button[data-counter-key]');
+          const countEl = document.querySelector('[data-like-count]');
+          if (!button || !countEl) return;
+
+          const key = button.getAttribute('data-counter-key');
+          const storageKey = `bf-like-${key}`;
+          const endpoint = 'https://api.countapi.xyz';
+
+          const formatCount = (value) => {
+            if (Number.isFinite(value)) {
+              countEl.textContent = value.toLocaleString();
+            } else {
+              countEl.textContent = '—';
+            }
+          };
+
+          const markLiked = () => {
+            button.setAttribute('disabled', 'true');
+            button.setAttribute('aria-pressed', 'true');
+            button.classList.add('is-liked');
+          };
+
+          const callApi = (path) => fetch(path).then((response) => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          });
+
+          const ensureCounter = () => callApi(`${endpoint}/get/${namespace}/${key}`)
+            .catch(() => callApi(`${endpoint}/set/${namespace}/${key}?value=0`))
+            .then((data) => {
+              formatCount(data.value);
+              return data.value;
+            })
+            .catch(() => {
+              formatCount(NaN);
+            });
+
+          const incrementCounter = () => callApi(`${endpoint}/hit/${namespace}/${key}`)
+            .then((data) => {
+              formatCount(data.value);
+              return data.value;
+            })
+            .catch(() => {
+              formatCount(NaN);
+            });
+
+          let hasLocalLike = false;
+          try {
+            hasLocalLike = window.localStorage.getItem(storageKey) === '1';
+          } catch (err) {
+            console.warn('Local storage unavailable', err);
+          }
+
+          if (hasLocalLike) {
+            markLiked();
+          }
+
+          ensureCounter();
+
+          button.addEventListener('click', () => {
+            if (button.hasAttribute('disabled')) {
+              return;
+            }
+
+            incrementCounter().then((value) => {
+              if (Number.isFinite(value)) {
+                try {
+                  window.localStorage.setItem(storageKey, '1');
+                } catch (err) {
+                  console.warn('Unable to persist like locally', err);
+                }
+                markLiked();
+              }
+            });
+          });
+        })();
+      </script>
     </main>
     <footer>© 2025 BlackFrame AI Studio</footer>
   </div>

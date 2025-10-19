@@ -46,6 +46,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 24px 32px 0;
+      gap: 16px;
     }
 
     .home-link {
@@ -64,7 +65,8 @@
       filter: drop-shadow(0 0 6px rgba(0, 191, 255, 0.45));
     }
 
-    .cta {
+    .cta,
+    .social-link {
       padding: 0.6em 1.2em;
       border: 1px solid #00afff88;
       border-radius: 999px;
@@ -77,10 +79,18 @@
       backdrop-filter: blur(4px);
     }
 
-    .cta:hover {
+    .cta:hover,
+    .social-link:hover {
       color: #fff;
       border-color: #4dd3ff;
       box-shadow: 0 0 18px rgba(77, 211, 255, 0.6);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     main {
@@ -199,6 +209,18 @@
       font-size: 0.85rem;
       color: #6c7b8c;
     }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+      }
+
+      .header-actions {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -208,7 +230,10 @@
         <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" />
         <span>Back to Landing</span>
       </a>
-      <a class="cta" href="mailto:contact@blackframeai.org">Contact Studio</a>
+      <div class="header-actions">
+        <a class="social-link" href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow on X</a>
+        <a class="cta" href="mailto:contact@blackframeai.org">Contact Studio</a>
+      </div>
     </header>
     <main>
       <h1>Studio Blog</h1>
