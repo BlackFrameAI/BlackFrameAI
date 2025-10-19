@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">BlackFrame AI Vibe Lab Placeholder</title>
+  <desc id="desc">Abstract gradient background with wireframe tunnel and BlackFrame AI logotype</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#05060a" />
+      <stop offset="55%" stop-color="#111a2b" />
+      <stop offset="100%" stop-color="#1d2a3f" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#2d9cdb" />
+      <stop offset="100%" stop-color="#7f5af0" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)" />
+  <g fill="none" stroke="rgba(77,179,255,0.35)" stroke-width="1">
+    <path d="M0 337.5 Q200 150 400 337.5 T800 337.5 T1200 337.5" />
+    <path d="M0 337.5 Q200 525 400 337.5 T800 337.5 T1200 337.5" />
+    <path d="M0 200 Q200 337.5 400 200 T800 200 T1200 200" />
+    <path d="M0 475 Q200 337.5 400 475 T800 475 T1200 475" />
+  </g>
+  <g stroke="rgba(255,255,255,0.12)" stroke-width="1">
+    <circle cx="600" cy="337.5" r="260" fill="none" />
+    <circle cx="600" cy="337.5" r="330" fill="none" />
+    <circle cx="600" cy="337.5" r="400" fill="none" />
+  </g>
+  <g font-family="Inter, Helvetica, Arial, sans-serif" text-anchor="middle">
+    <text x="600" y="320" font-size="74" fill="white" font-weight="700">BlackFrame AI Lab</text>
+    <text x="600" y="380" font-size="28" fill="url(#accent)">Vibe Coding Prototype Console</text>
+  </g>
+  <rect x="420" y="430" width="360" height="70" rx="18" fill="rgba(17,26,43,0.75)" stroke="rgba(125,94,240,0.55)" />
+  <text x="600" y="474" font-size="22" fill="#d6d9ff" text-anchor="middle">Press ⏵ to synthesize traversal beats</text>
+</svg>

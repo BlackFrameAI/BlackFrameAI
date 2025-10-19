@@ -1,0 +1,23 @@
+---
+permalink: sitemap.xml
+eleventyExcludeFromCollections: true
+---
+{% set newest = collections.posts | first %}
+{% set newestDate = newest ? newest.date : page.date %}
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ site.url }}/</loc>
+    <lastmod>{{ newestDate | isoDate }}</lastmod>
+  </url>
+  <url>
+    <loc>{{ site.url }}/posts/</loc>
+    <lastmod>{{ newestDate | isoDate }}</lastmod>
+  </url>
+  {% for post in collections.posts %}
+  <url>
+    <loc>{{ site.url }}{{ post.url }}</loc>
+    <lastmod>{{ post.date | isoDate }}</lastmod>
+  </url>
+  {% endfor %}
+</urlset>

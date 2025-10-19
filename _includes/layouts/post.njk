@@ -1,0 +1,29 @@
+{% extends "layouts/base.njk" %}
+{% set ogType = "article" %}
+{% block content %}
+  <article class="content-wrapper">
+    <div class="post-header">
+      <div class="intro-eyebrow">Studio Log</div>
+      <h1>{{ title }}</h1>
+      {% if summary %}
+      <p class="post-summary">{{ summary }}</p>
+      {% endif %}
+      <div class="post-meta">
+        <time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time>
+        <span>•</span>
+        <span>{{ content | readingTime }}</span>
+        {% if tags %}
+          {% for tag in tags %}
+            <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        {% endif %}
+      </div>
+      {% if cover %}
+      <img src="{{ cover }}" alt="{{ title }} cover image" />
+      {% endif %}
+    </div>
+    <div class="post-body">
+      {{ content | safe }}
+    </div>
+  </article>
+{% endblock %}
