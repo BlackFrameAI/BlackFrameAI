@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BlackFrame AI — Studio Blog</title>
+  <meta name="description" content="Follow the BlackFrame AI studio blog for development updates and announcements." />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="/manifest.json">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: Arial, sans-serif;
+      background:
+        url('/assets/bg_blackleather_processed.jpg') center center / cover no-repeat,
+        #000;
+      color: #f0f0f0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('/assets/tracer_animated_glow.svg') center center / cover no-repeat;
+      z-index: 0;
+      opacity: 0.65;
+      pointer-events: none;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      backdrop-filter: blur(2px);
+      background: rgba(0, 0, 0, 0.45);
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 32px 0;
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #f0f6ff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.9em;
+    }
+
+    .home-link img {
+      height: 54px;
+      width: auto;
+      filter: drop-shadow(0 0 6px rgba(0, 191, 255, 0.45));
+    }
+
+    .cta {
+      padding: 0.6em 1.2em;
+      border: 1px solid #00afff88;
+      border-radius: 999px;
+      color: #f0f6ff;
+      font-size: 0.95em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(0, 30, 50, 0.55);
+      box-shadow: 0 0 12px rgba(0, 191, 255, 0.35);
+      backdrop-filter: blur(4px);
+    }
+
+    .cta:hover {
+      color: #fff;
+      border-color: #4dd3ff;
+      box-shadow: 0 0 18px rgba(77, 211, 255, 0.6);
+    }
+
+    main {
+      flex: 1;
+      width: min(900px, 92vw);
+      margin: 40px auto 80px;
+      background: rgba(0, 10, 20, 0.72);
+      border: 1px solid rgba(0, 160, 255, 0.25);
+      border-radius: 20px;
+      box-shadow: 0 0 35px rgba(0, 120, 190, 0.25);
+      padding: 48px 8vw;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 3.1rem);
+      margin-top: 0;
+      margin-bottom: 0.6em;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8fd7ff;
+      text-shadow: 0 0 14px rgba(0, 191, 255, 0.55);
+    }
+
+    p {
+      line-height: 1.7;
+      font-size: 1.05rem;
+      color: #d6e9ff;
+    }
+
+    .posts-placeholder {
+      margin-top: 2.5em;
+      padding: 2em;
+      border-radius: 16px;
+      border: 1px dashed rgba(143, 215, 255, 0.45);
+      background: rgba(0, 30, 50, 0.45);
+      color: #a9d3ff;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      padding: 0 0 40px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6c7b8c;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a href="/" class="home-link">
+        <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" />
+        <span>Back to Landing</span>
+      </a>
+      <a class="cta" href="mailto:contact@blackframeai.org">Contact Studio</a>
+    </header>
+    <main>
+      <h1>Studio Blog</h1>
+      <p>Welcome to the BlackFrame AI studio blog. This is where we'll chronicle the evolution of our AI-powered engines, share behind-the-scenes looks at original games, and post important announcements.</p>
+      <div class="posts-placeholder">
+        The blog archive will appear here as soon as we publish our first story. Stay tuned!
+      </div>
+    </main>
+    <footer>© 2025 BlackFrame AI Studio</footer>
+  </div>
+</body>
+</html>
