@@ -110,15 +110,71 @@
       color: #d6e9ff;
     }
 
-    .posts-placeholder {
+    .post-list {
       margin-top: 2.5em;
-      padding: 2em;
-      border-radius: 16px;
-      border: 1px dashed rgba(143, 215, 255, 0.45);
-      background: rgba(0, 30, 50, 0.45);
+      display: grid;
+      gap: 1.8em;
+    }
+
+    .post-card {
+      padding: 1.8em;
+      border-radius: 18px;
+      border: 1px solid rgba(143, 215, 255, 0.28);
+      background: rgba(0, 25, 45, 0.6);
+      box-shadow: 0 0 22px rgba(77, 211, 255, 0.18);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .post-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 26px rgba(143, 215, 255, 0.35);
+    }
+
+    .post-card h2 {
+      margin: 0 0 0.4em;
+      font-size: clamp(1.4rem, 3vw, 2.1rem);
+      letter-spacing: 0.05em;
+      color: #8fd7ff;
+    }
+
+    .post-card p {
+      margin: 0.6em 0 0;
+      color: #d6e9ff;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6em 1.2em;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: #a9d3ff;
-      text-align: center;
-      font-size: 0.95rem;
+    }
+
+    .post-link {
+      display: inline-flex;
+      margin-top: 1.2em;
+      align-items: center;
+      gap: 0.5em;
+      padding: 0.5em 1.1em;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 191, 255, 0.4);
+      color: #f0f6ff;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.9rem;
+      text-decoration: none;
+      background: rgba(0, 40, 70, 0.6);
+      box-shadow: 0 0 12px rgba(0, 191, 255, 0.25);
+    }
+
+    .post-link:hover {
+      color: #fff;
+      border-color: rgba(77, 211, 255, 0.8);
+      box-shadow: 0 0 18px rgba(77, 211, 255, 0.55);
     }
 
     footer {
@@ -141,9 +197,19 @@
     <main>
       <h1>Studio Blog</h1>
       <p>Welcome to the BlackFrame AI studio blog. This is where we'll chronicle the evolution of our AI-powered engines, share behind-the-scenes looks at original games, and post important announcements.</p>
-      <div class="posts-placeholder">
-        The blog archive will appear here as soon as we publish our first story. Stay tuned!
-      </div>
+      <section class="post-list" aria-label="Latest posts">
+        <article class="post-card">
+          <header>
+            <div class="post-meta">
+              <span>Studio Dispatch</span>
+              <span>Published January 17, 2025</span>
+            </div>
+            <h2>The Birth of Vibe Coding: How We Built a Living Engine Out of Pure Text</h2>
+          </header>
+          <p>We built a working engine from Markdown and tests months before the hype. This is the loop, the guardrails, and why we stayed quiet until now.</p>
+          <a class="post-link" href="/blog/birth-of-vibe-coding/">Read the story →</a>
+        </article>
+      </section>
     </main>
     <footer>© 2025 BlackFrame AI Studio</footer>
   </div>
