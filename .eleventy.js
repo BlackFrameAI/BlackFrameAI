@@ -1,33 +1,6 @@
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 
-function readableDate(dateObj) {
-  const date = new Date(dateObj);
-  return date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "2-digit",
-  });
-}
-
-function isoDate(dateObj) {
-  return new Date(dateObj).toISOString();
-}
-
-function estimateReadingTime(text) {
-  if (!text) {
-    return "1 min read";
-  }
-
-  const words = text
-    .replace(/<[^>]*>?/gm, " ")
-    .replace(/&[a-z]+;/gi, " ")
-    .trim()
-    .split(/\s+/).filter(Boolean).length;
-  const minutes = Math.max(1, Math.round(words / 200));
-  return `${minutes} min read`;
-}
-
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(pluginRss);
@@ -37,14 +10,24 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "docs/favicon.ico": "favicon.ico" });
   eleventyConfig.addPassthroughCopy({ "docs/manifest.json": "manifest.json" });
   eleventyConfig.addPassthroughCopy({ "docs/robots.txt": "robots.txt" });
-  eleventyConfig.addPassthroughCopy({ "docs/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "assets": "assets" });
   eleventyConfig.addPassthroughCopy({ logs: "logs" });
   eleventyConfig.addPassthroughCopy({ "docs/bimi": "bimi" });
 
-  eleventyConfig.addFilter("readableDate", readableDate);
-  eleventyConfig.addFilter("isoDate", isoDate);
-  eleventyConfig.addFilter("readingTime", estimateReadingTime);
+  eleventyConfig.addFilter("head", (arr, n) => (arr || []).slice(0, n));
+  eleventyConfig.addFilter(
+    "readableDate",
+    (dateObj, opts = { dateStyle: "medium" }) =>
+      new Intl.DateTimeFormat("en-US", opts).format(dateObj)
+  );
+  eleventyConfig.addFilter("htmlDateString", (dateObj) =>
+    new Date(dateObj).toISOString().split("T")[0]
+  );
+  eleventyConfig.addFilter("readTime", (content) => {
+    const words = (content || "").toString().split(/\s+/).filter(Boolean).length;
+    const mins = Math.max(1, Math.round(words / 200));
+    return `${mins} min read`;
+  });
 
   eleventyConfig.addCollection("posts", (collectionApi) =>
     collectionApi

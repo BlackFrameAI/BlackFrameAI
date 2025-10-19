@@ -8,5 +8,5 @@ eleventyExcludeFromCollections: true
   author: site.author,
   description: site.description
 } %}
-{% set feedItems = collections.posts | head(20) %}
+{% set feedItems = collections.posts | reverse | head(20) %}
 {{ feedItems | rssFeed(metadata) }}

@@ -19,9 +19,9 @@
               <h2 class="post-card__title">{{ post.data.title }}</h2>
               <p class="post-card__summary">{{ post.data.summary }}</p>
               <div class="post-card__meta">
-                <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+                <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
                 <span>•</span>
-                <span>{{ post.templateContent | readingTime }}</span>
+                <span>{{ post.templateContent | readTime }}</span>
               </div>
               {% if post.data.tags %}
               <div class="post-card__tags">
