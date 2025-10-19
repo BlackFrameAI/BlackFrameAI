@@ -1,0 +1,12 @@
+---
+permalink: feed.xml
+eleventyExcludeFromCollections: true
+---
+{% set metadata = {
+  title: site.title,
+  url: site.url + '/feed.xml',
+  author: site.author,
+  description: site.description
+} %}
+{% set feedItems = collections.posts | head(20) %}
+{{ feedItems | rssFeed(metadata) }}

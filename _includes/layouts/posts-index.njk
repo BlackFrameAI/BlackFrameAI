@@ -1,0 +1,39 @@
+{% extends "layouts/base.njk" %}
+{% block content %}
+  <section class="content-wrapper" aria-labelledby="journal-title">
+    <div class="post-header">
+      <div class="intro-eyebrow">The Lab Journal</div>
+      <h1 id="journal-title">Deep Dives from BlackFrame AI</h1>
+      <p class="post-summary">Technical discoveries, prototypes, and developer stories from the studio floor.</p>
+    </div>
+    <div class="posts-grid">
+      {% for post in collections.posts %}
+        <article class="post-card">
+          <a href="{{ post.url }}" class="post-card__link">
+            {% if post.data.cover %}
+            <div class="post-card__media">
+              <img src="{{ post.data.cover }}" alt="{{ post.data.title }} cover" loading="lazy" />
+            </div>
+            {% endif %}
+            <div class="post-card__body">
+              <h2 class="post-card__title">{{ post.data.title }}</h2>
+              <p class="post-card__summary">{{ post.data.summary }}</p>
+              <div class="post-card__meta">
+                <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+                <span>•</span>
+                <span>{{ post.templateContent | readingTime }}</span>
+              </div>
+              {% if post.data.tags %}
+              <div class="post-card__tags">
+                {% for tag in post.data.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}
