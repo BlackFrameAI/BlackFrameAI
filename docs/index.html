@@ -64,6 +64,33 @@
       animation: fadeIn 3s ease forwards;
     }
 
+    .blog-button {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      z-index: 2;
+      padding: 0.6em 1.2em;
+      border: 1px solid #00afff88;
+      border-radius: 999px;
+      color: #f0f6ff;
+      font-size: 0.95em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(0, 30, 50, 0.55);
+      box-shadow: 0 0 12px rgba(0, 191, 255, 0.35);
+      backdrop-filter: blur(4px);
+    }
+
+    .blog-button:hover {
+      color: #fff;
+      border-color: #4dd3ff;
+      box-shadow: 0 0 18px rgba(77, 211, 255, 0.6);
+    }
+
+    .logo-link {
+      display: inline-block;
+    }
+
     .logo {
       max-width: 400px;
       height: auto;
@@ -111,8 +138,11 @@
   </style>
 </head>
 <body>
+  <a class="blog-button" href="/blog/">Studio Blog</a>
   <div class="container">
-    <img src="/assets/blackflamelogo.png" alt="BlackFrame AI Logo" class="logo">
+    <a href="/blog/" class="logo-link">
+      <img src="/assets/blackflamelogo.png" alt="BlackFrame AI Logo" class="logo">
+    </a>
     <p class="description">
       AI-powered game engines & original games.<br>
       Our official website is coming soon.<br>
