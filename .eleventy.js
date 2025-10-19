@@ -5,15 +5,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(pluginRss);
 
-  eleventyConfig.addPassthroughCopy({ "docs/CNAME": "CNAME" });
-  eleventyConfig.addPassthroughCopy({ "docs/index.html": "index.html" });
-  eleventyConfig.addPassthroughCopy({ "docs/favicon.ico": "favicon.ico" });
-  eleventyConfig.addPassthroughCopy({ "docs/manifest.json": "manifest.json" });
-  eleventyConfig.addPassthroughCopy({ "docs/robots.txt": "robots.txt" });
-  eleventyConfig.addPassthroughCopy({ "assets": "assets" });
-  eleventyConfig.addPassthroughCopy({ logs: "logs" });
-  eleventyConfig.addPassthroughCopy({ "docs/bimi": "bimi" });
-
+  // Filters used by feed, dates, read time
   eleventyConfig.addFilter("head", (arr, n) => (arr || []).slice(0, n));
   eleventyConfig.addFilter(
     "readableDate",
@@ -23,11 +15,23 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("htmlDateString", (dateObj) =>
     new Date(dateObj).toISOString().split("T")[0]
   );
-  eleventyConfig.addFilter("readTime", (content) => {
-    const words = (content || "").toString().split(/\s+/).filter(Boolean).length;
-    const mins = Math.max(1, Math.round(words / 200));
-    return `${mins} min read`;
+  eleventyConfig.addFilter("readTime", (content = "") => {
+    const words = String(content).split(/\s+/).filter(Boolean).length;
+    return `${Math.max(1, Math.round(words / 200))} min read`;
   });
+
+  // Passthrough: use a single assets source
+  eleventyConfig.addPassthroughCopy({ assets: "assets" });
+  eleventyConfig.addPassthroughCopy({ logs: "logs" });
+  eleventyConfig.addPassthroughCopy({
+    "docs/CNAME": "CNAME",
+    "docs/favicon.ico": "favicon.ico",
+    "docs/manifest.json": "manifest.json",
+    "docs/robots.txt": "robots.txt",
+    "docs/bimi": "bimi",
+  });
+  // Copy splash to site root
+  eleventyConfig.addPassthroughCopy({ "docs/index.html": "index.html" });
 
   eleventyConfig.addCollection("posts", (collectionApi) =>
     collectionApi
@@ -42,9 +46,9 @@ module.exports = function (eleventyConfig) {
   return {
     dir: {
       input: ".",
+      output: "_site",
       includes: "_includes",
       data: "_data",
-      output: "_site",
     },
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
