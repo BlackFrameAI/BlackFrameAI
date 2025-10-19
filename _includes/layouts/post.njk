@@ -9,9 +9,9 @@
       <p class="post-summary">{{ summary }}</p>
       {% endif %}
       <div class="post-meta">
-        <time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time>
+        <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
         <span>•</span>
-        <span>{{ content | readingTime }}</span>
+        <span>{{ content | readTime }}</span>
         {% if tags %}
           {% for tag in tags %}
             <span class="tag">{{ tag }}</span>

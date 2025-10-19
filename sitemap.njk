@@ -8,16 +8,16 @@ eleventyExcludeFromCollections: true
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>{{ site.url }}/</loc>
-    <lastmod>{{ newestDate | isoDate }}</lastmod>
+    <lastmod>{{ newestDate | htmlDateString }}</lastmod>
   </url>
   <url>
     <loc>{{ site.url }}/posts/</loc>
-    <lastmod>{{ newestDate | isoDate }}</lastmod>
+    <lastmod>{{ newestDate | htmlDateString }}</lastmod>
   </url>
   {% for post in collections.posts %}
   <url>
     <loc>{{ site.url }}{{ post.url }}</loc>
-    <lastmod>{{ post.date | isoDate }}</lastmod>
+    <lastmod>{{ post.date | htmlDateString }}</lastmod>
   </url>
   {% endfor %}
 </urlset>
