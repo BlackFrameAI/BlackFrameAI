@@ -110,15 +110,87 @@
       color: #d6e9ff;
     }
 
-    .posts-placeholder {
+    .posts-list {
       margin-top: 2.5em;
-      padding: 2em;
-      border-radius: 16px;
-      border: 1px dashed rgba(143, 215, 255, 0.45);
-      background: rgba(0, 30, 50, 0.45);
-      color: #a9d3ff;
-      text-align: center;
+      display: grid;
+      gap: 1.8em;
+    }
+
+    .post-card {
+      position: relative;
+      padding: 1.8em 2em;
+      border-radius: 18px;
+      border: 1px solid rgba(143, 215, 255, 0.35);
+      background: rgba(0, 30, 50, 0.55);
+      box-shadow: 0 0 24px rgba(0, 120, 190, 0.25);
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+
+    .post-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 34px rgba(77, 211, 255, 0.4);
+    }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.9em;
+      margin-bottom: 0.75em;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #8bbce8;
+    }
+
+    .latest-badge {
+      padding: 0.25em 0.75em;
+      border-radius: 999px;
+      background: linear-gradient(120deg, rgba(77, 211, 255, 0.85), rgba(31, 138, 255, 0.8));
+      color: #001021;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    .post-card h2 {
+      margin: 0 0 0.6em;
+      font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+      color: #e3f5ff;
+    }
+
+    .post-card h2 a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .post-card h2 a:hover {
+      text-decoration: underline;
+    }
+
+    .post-excerpt {
+      margin: 0 0 1.4em;
+      font-size: 1rem;
+      color: #c7e4ff;
+      line-height: 1.65;
+    }
+
+    .post-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6em;
+      padding: 0.5em 1.3em;
+      border-radius: 999px;
+      border: 1px solid rgba(143, 215, 255, 0.5);
+      color: #f0f6ff;
       font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(0, 40, 60, 0.55);
+      transition: border-color 200ms ease, box-shadow 200ms ease;
+    }
+
+    .post-cta:hover {
+      border-color: rgba(77, 211, 255, 0.85);
+      box-shadow: 0 0 18px rgba(77, 211, 255, 0.55);
     }
 
     footer {
@@ -141,9 +213,20 @@
     <main>
       <h1>Studio Blog</h1>
       <p>Welcome to the BlackFrame AI studio blog. This is where we'll chronicle the evolution of our AI-powered engines, share behind-the-scenes looks at original games, and post important announcements.</p>
-      <div class="posts-placeholder">
-        The blog archive will appear here as soon as we publish our first story. Stay tuned!
-      </div>
+      <section class="posts-list" aria-label="Latest blog posts">
+        <article class="post-card" aria-labelledby="post-genesis-engine">
+          <p class="post-meta">
+            <span class="latest-badge">Latest Post</span>
+            <time datetime="2025-02-10">February 10, 2025</time>
+          </p>
+          <h2 id="post-genesis-engine"><a href="/blog/genesis-engine-reveal/">Unveiling the Genesis Engine</a></h2>
+          <p class="post-excerpt">Take a guided tour through our next-generation simulation stack, meet the team building the neural rendering core, and learn how Genesis is shaping the future of BlackFrame AI worlds.</p>
+          <a class="post-cta" href="/blog/genesis-engine-reveal/" aria-label="Read Unveiling the Genesis Engine">
+            Read the full story
+            <span aria-hidden="true">→</span>
+          </a>
+        </article>
+      </section>
     </main>
     <footer>© 2025 BlackFrame AI Studio</footer>
   </div>
