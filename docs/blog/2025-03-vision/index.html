@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BlackFrame AI Vision Pipeline Preview — March 2025</title>
+  <meta name="description" content="Go behind the scenes of BlackFrame AI's cinematic diffusion pipeline and see how we are training the next generation of storytelling models." />
+  <link rel="canonical" href="https://www.blackframeai.org/blog/2025-03-vision/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="BlackFrame AI Vision Pipeline Preview — March 2025" />
+  <meta property="og:description" content="Go behind the scenes of BlackFrame AI's cinematic diffusion pipeline and see how we are training the next generation of storytelling models." />
+  <meta property="og:url" content="https://www.blackframeai.org/blog/2025-03-vision/" />
+  <meta property="og:site_name" content="BlackFrame AI" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BlackFrame AI Vision Pipeline Preview — March 2025" />
+  <meta name="twitter:description" content="Go behind the scenes of BlackFrame AI's cinematic diffusion pipeline and see how we are training the next generation of storytelling models." />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="/manifest.json">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: Arial, sans-serif;
+      background:
+        url('/assets/bg_blackleather_processed.jpg') center center / cover no-repeat,
+        #000;
+      color: #f0f0f0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('/assets/tracer_animated_glow.svg') center center / cover no-repeat;
+      z-index: 0;
+      opacity: 0.65;
+      pointer-events: none;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      backdrop-filter: blur(2px);
+      background: rgba(0, 0, 0, 0.45);
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 32px 0;
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #f0f6ff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.9em;
+    }
+
+    .home-link img {
+      height: 54px;
+      width: auto;
+      filter: drop-shadow(0 0 6px rgba(0, 191, 255, 0.45));
+    }
+
+    .cta {
+      padding: 0.6em 1.2em;
+      border: 1px solid #00afff88;
+      border-radius: 999px;
+      color: #f0f6ff;
+      font-size: 0.95em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(0, 30, 50, 0.55);
+      box-shadow: 0 0 12px rgba(0, 191, 255, 0.35);
+      backdrop-filter: blur(4px);
+    }
+
+    .cta:hover {
+      color: #fff;
+      border-color: #4dd3ff;
+      box-shadow: 0 0 18px rgba(77, 211, 255, 0.6);
+    }
+
+    main {
+      flex: 1;
+      width: min(900px, 92vw);
+      margin: 40px auto 80px;
+      background: rgba(0, 10, 20, 0.72);
+      border: 1px solid rgba(0, 160, 255, 0.25);
+      border-radius: 20px;
+      box-shadow: 0 0 35px rgba(0, 120, 190, 0.25);
+      padding: 48px 8vw 64px;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      margin-bottom: 2.5em;
+    }
+
+    .eyebrow {
+      font-size: 0.85rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #6ec6ff;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 3.1rem);
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8fd7ff;
+      text-shadow: 0 0 14px rgba(0, 191, 255, 0.55);
+    }
+
+    .publish-date {
+      font-size: 0.95rem;
+      color: #9ecbff;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero p {
+      max-width: 620px;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #d6e9ff;
+    }
+
+    article {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8em;
+      color: #d6e9ff;
+      line-height: 1.75;
+      font-size: 1.05rem;
+    }
+
+    article h2 {
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      margin-bottom: 0.4em;
+      color: #84d2ff;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    article h3 {
+      font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+      margin-bottom: 0.3em;
+      color: #74c6ff;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    article p {
+      margin: 0;
+    }
+
+    .callout {
+      border-left: 3px solid rgba(118, 210, 255, 0.65);
+      padding-left: 1em;
+      color: #c8e9ff;
+      font-style: italic;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.2em;
+    }
+
+    li {
+      margin-bottom: 0.6em;
+    }
+
+    footer {
+      padding: 0 0 40px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6c7b8c;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 40px 24px 56px;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      article {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a href="/" class="home-link">
+        <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" />
+        <span>Back to Landing</span>
+      </a>
+      <a class="cta" href="mailto:contact@blackframeai.org">Contact Studio</a>
+    </header>
+    <main>
+      <section class="hero">
+        <span class="eyebrow">Studio Dispatch</span>
+        <h1>Vision Pipeline Preview</h1>
+        <p>March marks the first full-capacity sprint for our cinematic diffusion stack. Here’s how BlackFrame AI is combining curated storyboards, scene grammars, and real-time feedback loops to teach our models the language of visual drama.</p>
+        <span class="publish-date">Published March 10, 2025</span>
+      </section>
+      <article>
+        <h2>Curating a Dramatic Curriculum</h2>
+        <p>Our art directors have spent the past quarter assembling a multi-thousand shot dataset centered on pacing, lighting, and emotional continuity. Every clip is annotated with director notes that describe intent, framing, and character beats. These annotations do more than steer diffusion sampling—they help the model learn why the camera moves, not just how.</p>
+        <p>By aligning stylistic labels with narrative stakes, we dramatically reduce the time it takes to coax a consistent tone across scenes. It also means the same pipeline can pivot from neo-noir to vibrant sci-fi adventures without retraining the core architecture.</p>
+
+        <h2>Realtime Feedback From The Holosuite</h2>
+        <p>We’re prototyping a live-review loop that pipes intermediate frames into our Holosuite editor. Creative directors can now veto or remix a shot mid-render, and their adjustments feed directly back into the sampler weights. Instead of waiting hours for a batch job, the model adapts with each frame of guidance.</p>
+        <p class="callout">In early tests, iterative guidance trimmed revision cycles by 42% while boosting perceived cinematic cohesion across focus groups.</p>
+
+        <h2>Scene Grammars That Understand Motion</h2>
+        <p>The newest addition to the stack is a scene grammar module that formalizes how characters enter, exit, and interact with props. It keeps track of eyelines, continuity of motion, and cross-cut timing, turning abstract prompts into precise staging instructions.</p>
+        <h3>What It Unlocks Next</h3>
+        <ul>
+          <li>Interactive storyboards that let directors script camera paths in natural language.</li>
+          <li>AI cinematography assistants tuned for episodic storytelling rather than single shots.</li>
+          <li>Composable animation layers so lighting passes and particle FX can be swapped without rerendering the entire scene.</li>
+        </ul>
+
+        <h2>What’s Coming In Q2</h2>
+        <p>Across April and May we’re expanding the dataset to include mocap-driven blocking and volumetric lighting experiments. Expect future dispatches to dig into how we’re blending speech-driven lip-sync with our existing expression models and how our toolchain plugs into Unreal Engine sequencing.</p>
+        <p>We’re eager to share more as these systems harden. If you’re a studio interested in co-developing cinematic AI tools, reach out—we’d love to collaborate.</p>
+      </article>
+    </main>
+    <footer>© 2025 BlackFrame AI Studio</footer>
+  </div>
+</body>
+</html>
