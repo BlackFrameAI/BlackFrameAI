@@ -4,9 +4,36 @@ eleventyExcludeFromCollections: true
 ---
 {% set metadata = {
   title: site.title,
-  url: site.url + '/feed.xml',
+  url: site.url,
   author: site.author,
   description: site.description
 } %}
 {% set feedItems = collections.posts | reverse | head(20) %}
-{{ feedItems | rssFeed(metadata) }}
+{% set lastUpdated = feedItems | first %}
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>{{ metadata.title | escape }}</title>
+    <link>{{ metadata.url }}</link>
+    <description>{{ metadata.description | escape }}</description>
+    <language>en</language>
+    {% if lastUpdated %}
+    <lastBuildDate>{{ lastUpdated.date | rfc822Date }}</lastBuildDate>
+    {% endif %}
+    <generator>Eleventy</generator>
+    {% for post in feedItems %}
+    <item>
+      <title>{{ post.data.title | escape }}</title>
+      <link>{{ metadata.url }}{{ post.url }}</link>
+      <guid>{{ metadata.url }}{{ post.url }}</guid>
+      <pubDate>{{ post.date | rfc822Date }}</pubDate>
+      {% set summary = post.data.summary or post.data.description %}
+      {% if summary %}
+      <description><![CDATA[{{ summary }}]]></description>
+      {% else %}
+      <description><![CDATA[{{ post.templateContent | safe }}]]></description>
+      {% endif %}
+    </item>
+    {% endfor %}
+  </channel>
+</rss>

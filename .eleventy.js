@@ -17,6 +17,7 @@ module.exports = function (eleventyConfig) {
     const words = String(content).split(/\s+/).filter(Boolean).length;
     return `${Math.max(1, Math.round(words / 200))} min read`;
   });
+  eleventyConfig.addFilter("rfc822Date", (dateObj) => new Date(dateObj).toUTCString());
 
   // Passthrough: one assets source; copy splash + ancillary root files
   eleventyConfig.addPassthroughCopy({ "assets": "assets" });
