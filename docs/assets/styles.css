@@ -683,7 +683,7 @@ select {
       font-size: 0.95rem;
     }
 
-    .post-card[data-hidden="true"] {
+    .post-card[hidden] {
       display: none;
     }
 
