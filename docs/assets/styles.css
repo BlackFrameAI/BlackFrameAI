@@ -775,6 +775,16 @@ select {
       width: min(420px, 100%);
     }
 
+    .form-required-note {
+      font-size: 0.85rem;
+      color: rgba(198, 228, 255, 0.75);
+      margin: 0;
+    }
+
+    .required-marker {
+      color: #ff9ac5;
+    }
+
     .newsletter-form label {
       font-size: 0.92rem;
       letter-spacing: 0.04em;
@@ -804,9 +814,18 @@ select {
 
     .newsletter-form textarea {
       resize: vertical;
-      min-height: 160px;
+      min-height: 200px;
       border-radius: 20px;
       line-height: 1.6;
+    }
+
+    .form-guard {
+      position: absolute;
+      left: -10000px;
+      opacity: 0;
+      pointer-events: none;
+      height: 0;
+      width: 0;
     }
 
     .contact-form input[type="email"],

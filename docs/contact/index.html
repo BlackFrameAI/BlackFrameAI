@@ -65,11 +65,13 @@
         <form class="newsletter-form contact-form" action="https://formsubmit.co/studio@blackframeai.org" method="POST">
           <input type="hidden" name="_subject" value="New inquiry from blackframeai.org" />
           <input type="hidden" name="_next" value="https://www.blackframeai.org/thanks.html" />
-          <label for="contact-name">Name</label>
+          <input type="text" name="_honey" class="form-guard" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <p class="form-required-note">Fields marked with <span class="required-marker" aria-hidden="true">*</span> are required.</p>
+          <label for="contact-name">Name <span class="required-marker" aria-hidden="true">*</span></label>
           <input id="contact-name" name="name" type="text" placeholder="Your name" required autocomplete="name" />
-          <label for="contact-email">Email</label>
+          <label for="contact-email">Email <span class="required-marker" aria-hidden="true">*</span></label>
           <input id="contact-email" name="email" type="email" placeholder="you@example.com" required autocomplete="email" />
-          <label for="contact-topic">Focus area</label>
+          <label for="contact-topic">Focus area <span class="required-marker" aria-hidden="true">*</span></label>
           <select id="contact-topic" name="topic" required>
             <option value="">Select one…</option>
             <option value="partnership">Partnership inquiry</option>
@@ -77,8 +79,8 @@
             <option value="community">Community &amp; events</option>
             <option value="other">Something else</option>
           </select>
-          <label for="contact-message">Tell us what you need</label>
-          <textarea id="contact-message" name="message" rows="5" placeholder="Share goals, timelines, and any assets we should review." required></textarea>
+          <label for="contact-message">Tell us what you need <span class="required-marker" aria-hidden="true">*</span></label>
+          <textarea id="contact-message" name="message" rows="7" placeholder="Share goals, timelines, and any assets we should review." required></textarea>
           <button type="submit">Send message</button>
         </form>
       </section>
