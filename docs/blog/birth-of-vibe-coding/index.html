@@ -1,4 +1,17 @@
 <!DOCTYPE html>
+<!--
+---
+title: The Birth of Vibe Coding — BlackFrame AI Studio
+description: Inside the method BlackFrame AI used to build a living engine from pure text months before the Markdown-to-code hype.
+slug: birth-of-vibe-coding
+publishDate: 2025-01-12
+socialImage: /assets/social/birth-of-vibe-coding-og.svg
+tags:
+  - engine-rd
+  - workflow-automation
+  - studio-culture
+---
+-->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -11,11 +24,14 @@
   <meta property="og:title" content="The Birth of Vibe Coding — BlackFrame AI Studio" />
   <meta property="og:description" content="We built a working engine from Markdown and tests months before the hype. Here’s the loop, the guardrails, and what comes next." />
   <meta property="og:url" content="https://www.blackframeai.org/blog/birth-of-vibe-coding/" />
-  <meta property="og:image" content="https://www.blackframeai.org/assets/blackflamelogo.png" />
+  <meta property="og:image" content="https://www.blackframeai.org/assets/social/birth-of-vibe-coding-og.svg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The Birth of Vibe Coding — BlackFrame AI Studio" />
   <meta name="twitter:description" content="We built a working engine from Markdown and tests months before the hype. Here’s the loop, the guardrails, and what comes next." />
-  <meta name="twitter:image" content="https://www.blackframeai.org/assets/blackflamelogo.png" />
+  <meta name="twitter:image" content="https://www.blackframeai.org/assets/social/birth-of-vibe-coding-og.svg" />
+  <meta property="article:tag" content="engine-rd" />
+  <meta property="article:tag" content="workflow-automation" />
+  <meta property="article:tag" content="studio-culture" />
   <link rel="manifest" href="/manifest.json">
   <style>
     html, body {
@@ -107,6 +123,25 @@
       flex-wrap: wrap;
     }
 
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #8bbce8;
+      margin-bottom: 1.5rem;
+    }
+
+    .breadcrumbs a {
+      color: #c6ebff;
+    }
+
+    .breadcrumbs span {
+      opacity: 0.6;
+    }
+
     main {
       flex: 1;
       width: min(960px, 92vw);
@@ -131,6 +166,33 @@
       color: #a9d3ff;
       letter-spacing: 0.06em;
       text-transform: uppercase;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 0.75rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tag-list li {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.35em 0.9em;
+      border-radius: 999px;
+      border: 1px solid rgba(143, 215, 255, 0.45);
+      background: rgba(0, 28, 46, 0.6);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #8bbce8;
+    }
+
+    .tag-list a {
+      color: inherit;
     }
 
     h1 {
@@ -180,6 +242,61 @@
       color: #c7e4ff;
       font-size: 1.05rem;
       line-height: 1.7;
+    }
+
+    .author-card {
+      margin-top: 3rem;
+      padding: 2rem;
+      border: 1px solid rgba(143, 215, 255, 0.35);
+      border-radius: 18px;
+      background: rgba(0, 25, 45, 0.6);
+      box-shadow: 0 0 26px rgba(0, 120, 190, 0.25);
+      display: grid;
+      gap: 1rem;
+    }
+
+    .author-card h2 {
+      margin: 0;
+      font-size: 1.3rem;
+      color: #8fd7ff;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .author-card p {
+      margin: 0;
+      font-size: 1rem;
+      color: #c7e4ff;
+    }
+
+    .related-posts {
+      margin-top: 3rem;
+      padding: 2.2rem;
+      border: 1px solid rgba(143, 215, 255, 0.35);
+      border-radius: 18px;
+      background: rgba(0, 20, 35, 0.6);
+      box-shadow: 0 0 24px rgba(0, 120, 190, 0.25);
+    }
+
+    .related-posts h2 {
+      margin-top: 0;
+      font-size: 1.35rem;
+      letter-spacing: 0.05em;
+      color: #8fd7ff;
+      text-transform: uppercase;
+    }
+
+    .related-list {
+      list-style: none;
+      margin: 1.2rem 0 0;
+      padding: 0;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .related-list a {
+      color: #d6e9ff;
+      font-size: 1rem;
     }
 
     footer {
@@ -301,21 +418,34 @@
   <div class="page">
     <header>
       <a href="/blog/" class="home-link">
-        <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" />
+        <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" loading="lazy" />
         <span>Back to Blog</span>
       </a>
       <div class="header-actions">
         <a class="social-link" href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow on X</a>
-        <a class="cta" href="mailto:contact@blackframeai.org">Contact Studio</a>
+        <a class="cta" href="mailto:studio@blackframeai.org">Contact Studio</a>
       </div>
     </header>
     <main>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span aria-hidden="true">›</span>
+        <a href="/blog/">Blog</a>
+        <span aria-hidden="true">›</span>
+        <span>The Birth of Vibe Coding</span>
+      </nav>
       <article>
         <div class="post-meta">
-          <span>Studio Dispatch</span>
+          <span>Studio Dispatch · Engine R&amp;D</span>
           <span>Published January 17, 2025</span>
+          <span>By BlackFrame AI Studio</span>
         </div>
         <h1>The Birth of Vibe Coding: How We Built a Living Engine Out of Pure Text</h1>
+        <ul class="tag-list" aria-label="Post topics">
+          <li><a href="/blog/?topic=engine-rd">Engine R&amp;D</a></li>
+          <li><a href="/blog/?topic=workflow-automation">Workflow Automation</a></li>
+          <li><a href="/blog/?topic=studio-culture">Studio Culture</a></li>
+        </ul>
         <p class="lead">We built a working engine from Markdown and tests months before the “code-from-.md” hype. Here’s the method, and why we kept quiet.</p>
 
         <p>We built our engine in silence.</p>
@@ -381,6 +511,20 @@
         <p>What comes next changes everything.</p>
 
         <p><strong>— BlackFrame AI Studio</strong></p>
+
+        <section class="author-card" aria-labelledby="author-heading">
+          <h2 id="author-heading">About the Studio</h2>
+          <p>BlackFrame AI Studio blends narrative design, tooling research, and real-time art direction into modular engines that keep creators in the loop. Every devlog entry is written collectively by the core team that maintains the BlackFrame engine stack.</p>
+          <p>Want to dive deeper into the pipeline? <a href="mailto:studio@blackframeai.org">Request a private walkthrough</a> or <a href="/blog/blueprint-days/">read the Blueprint Days recap</a> next.</p>
+        </section>
+
+        <section class="related-posts" aria-labelledby="related-heading">
+          <h2 id="related-heading">Related Reading</h2>
+          <ul class="related-list">
+            <li><a href="/blog/blueprint-days/">Blueprint Days — Trusting Codex With the Wheel</a></li>
+            <li><a href="/blog/ai-engine-foundations/">AI Engine Foundations — Modular Stack Overview</a></li>
+          </ul>
+        </section>
       </article>
 
       <section class="community-section" aria-labelledby="community-heading">
@@ -491,6 +635,44 @@
         })();
       </script>
     </main>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "The Birth of Vibe Coding: How We Built a Living Engine Out of Pure Text",
+        "description": "Inside the method BlackFrame AI used to build a living engine from pure text months before the Markdown-to-code hype.",
+        "image": [
+          "https://www.blackframeai.org/assets/social/birth-of-vibe-coding-og.svg"
+        ],
+        "author": {
+          "@type": "Organization",
+          "name": "BlackFrame AI Studio",
+          "url": "https://www.blackframeai.org/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "BlackFrame AI Studio",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.blackframeai.org/assets/blackflamelogo.png"
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.blackframeai.org/blog/birth-of-vibe-coding/"
+        },
+        "url": "https://www.blackframeai.org/blog/birth-of-vibe-coding/",
+        "datePublished": "2025-01-12",
+        "dateModified": "2025-03-01",
+        "keywords": ["engine-rd", "workflow-automation", "studio-culture"],
+        "articleSection": "Engine R&D",
+        "isPartOf": {
+          "@type": "Blog",
+          "name": "BlackFrame AI Studio Blog",
+          "url": "https://www.blackframeai.org/blog/"
+        }
+      }
+    </script>
     <footer>© 2025 BlackFrame AI Studio</footer>
   </div>
 </body>

@@ -7,6 +7,7 @@
   <meta name="description" content="Follow the BlackFrame AI studio blog for development updates and announcements." />
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="manifest" href="/manifest.json">
+  <link rel="alternate" type="application/rss+xml" title="BlackFrame AI Studio Blog" href="/blog/feed.xml" />
   <style>
     html, body {
       margin: 0;
@@ -91,6 +92,105 @@
       align-items: center;
       gap: 12px;
       flex-wrap: wrap;
+    }
+
+    .intro-copy {
+      margin-bottom: 1.4rem;
+    }
+
+    .subscription-callout {
+      margin-top: 0.4rem;
+      font-size: 0.95rem;
+      color: #8bbce8;
+    }
+
+    .subscription-callout a {
+      color: #c6ebff;
+    }
+
+    .filter-bar {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .filter-button {
+      padding: 0.5em 1.1em;
+      border-radius: 999px;
+      border: 1px solid rgba(143, 215, 255, 0.45);
+      background: rgba(0, 30, 50, 0.55);
+      color: #f0f6ff;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: box-shadow 200ms ease, border-color 200ms ease;
+    }
+
+    .filter-button[aria-pressed="true"] {
+      border-color: rgba(143, 215, 255, 0.9);
+      box-shadow: 0 0 18px rgba(77, 211, 255, 0.55);
+      background: rgba(0, 45, 70, 0.65);
+    }
+
+    .tag-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .tag-badge {
+      padding: 0.3em 0.85em;
+      border-radius: 999px;
+      border: 1px solid rgba(143, 215, 255, 0.35);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #8bbce8;
+      background: rgba(0, 28, 46, 0.55);
+    }
+
+    .topic-hubs {
+      margin-top: 3.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(143, 215, 255, 0.25);
+      display: grid;
+      gap: 2rem;
+    }
+
+    .topic-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .topic-card {
+      border: 1px solid rgba(143, 215, 255, 0.35);
+      border-radius: 16px;
+      padding: 1.6rem;
+      background: rgba(0, 28, 46, 0.55);
+      box-shadow: 0 0 24px rgba(0, 120, 190, 0.25);
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .topic-card h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #8fd7ff;
+    }
+
+    .topic-card a {
+      color: #c6ebff;
+      font-size: 0.95rem;
+    }
+
+    .post-card[data-hidden="true"] {
+      display: none;
     }
 
     main {
@@ -220,6 +320,10 @@
       .header-actions {
         width: 100%;
       }
+
+      .filter-bar {
+        justify-content: flex-start;
+      }
     }
   </style>
 </head>
@@ -227,37 +331,77 @@
   <div class="page">
     <header>
       <a href="/" class="home-link">
-        <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" />
+        <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" loading="lazy" />
         <span>Back to Landing</span>
       </a>
       <div class="header-actions">
         <a class="social-link" href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow on X</a>
-        <a class="cta" href="mailto:contact@blackframeai.org">Contact Studio</a>
+        <a class="cta" href="mailto:studio@blackframeai.org">Contact Studio</a>
       </div>
     </header>
     <main>
       <h1>Studio Blog</h1>
-      <p>Welcome to the BlackFrame AI studio blog. This is where we'll chronicle the evolution of our AI-powered engines, share behind-the-scenes looks at original games, and post important announcements.</p>
-      <section class="posts-list" aria-label="Latest blog posts">
-        <article class="post-card" aria-labelledby="post-blueprint-days">
+      <p class="intro-copy">We publish daily dispatches, deep-dive devlogs, and partner-ready playbooks that chart the evolution of our AI-first engine stack.</p>
+      <p class="subscription-callout">Prefer automation? Subscribe via <a href="/blog/feed.xml">RSS</a> or jump to the <a href="/#community-heading">newsletter form</a> on the homepage.</p>
+
+      <div class="filter-bar" role="toolbar" aria-label="Filter posts by topic">
+        <button class="filter-button" type="button" data-topic="all" aria-pressed="true">All posts</button>
+        <button class="filter-button" type="button" data-topic="engine-rd" aria-pressed="false">Engine R&amp;D</button>
+        <button class="filter-button" type="button" data-topic="workflow-automation" aria-pressed="false">Workflow Automation</button>
+        <button class="filter-button" type="button" data-topic="agentic-workflows" aria-pressed="false">Agentic Workflows</button>
+        <button class="filter-button" type="button" data-topic="partner-playbooks" aria-pressed="false">Partner Playbooks</button>
+        <button class="filter-button" type="button" data-topic="studio-culture" aria-pressed="false">Studio Culture</button>
+      </div>
+
+      <section class="posts-list" aria-label="Latest blog posts" data-post-list>
+        <article class="post-card" aria-labelledby="post-ai-engine" data-tags="engine-rd workflow-automation partner-playbooks" data-publish="2025-03-01">
           <p class="post-meta">
             <span class="latest-badge">Latest Post</span>
+            <span>Pillar Guide</span>
+            <time datetime="2025-03-01">March 1, 2025</time>
+          </p>
+          <h2 id="post-ai-engine"><a href="/blog/ai-engine-foundations/">AI Engine Foundations — Modular Stack Overview</a></h2>
+          <div class="tag-badges" aria-label="Post tags">
+            <span class="tag-badge">Engine R&amp;D</span>
+            <span class="tag-badge">Workflow Automation</span>
+            <span class="tag-badge">Partner Playbooks</span>
+          </div>
+          <p class="post-excerpt">A pillar guide for collaborators — explore the simulation spine, narrative canon, creator co-pilots, and observability layers that power the BlackFrame stack.</p>
+          <a class="post-cta" href="/blog/ai-engine-foundations/" aria-label="Read AI Engine Foundations — Modular Stack Overview">
+            Read the full story
+            <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="post-card" aria-labelledby="post-blueprint-days" data-tags="engine-rd agentic-workflows studio-culture" data-publish="2025-01-18">
+          <p class="post-meta">
             <span>Studio Dispatch</span>
             <time datetime="2025-01-18">January 18, 2025</time>
           </p>
           <h2 id="post-blueprint-days"><a href="/blog/blueprint-days/">The Blueprint Days: Trusting Codex With the Wheel</a></h2>
+          <div class="tag-badges" aria-label="Post tags">
+            <span class="tag-badge">Engine R&amp;D</span>
+            <span class="tag-badge">Agentic Workflows</span>
+            <span class="tag-badge">Studio Culture</span>
+          </div>
           <p class="post-excerpt">Day 2 chronicles the moment we stopped throttling Codex, locked the specs in Markdown, and let automation raise the engine scaffold in hours.</p>
           <a class="post-cta" href="/blog/blueprint-days/" aria-label="Read The Blueprint Days: Trusting Codex With the Wheel">
             Read the full story
             <span aria-hidden="true">→</span>
           </a>
         </article>
-        <article class="post-card" aria-labelledby="post-vibe-coding">
+
+        <article class="post-card" aria-labelledby="post-vibe-coding" data-tags="engine-rd workflow-automation studio-culture" data-publish="2025-01-17">
           <p class="post-meta">
             <span>Studio Dispatch</span>
             <time datetime="2025-01-17">January 17, 2025</time>
           </p>
           <h2 id="post-vibe-coding"><a href="/blog/birth-of-vibe-coding/">The Birth of Vibe Coding</a></h2>
+          <div class="tag-badges" aria-label="Post tags">
+            <span class="tag-badge">Engine R&amp;D</span>
+            <span class="tag-badge">Workflow Automation</span>
+            <span class="tag-badge">Studio Culture</span>
+          </div>
           <p class="post-excerpt">We built a working engine from Markdown and tests months before the hype. Dive into the orchestration loop, guardrails, and lessons that shaped our vibe coding methodology.</p>
           <a class="post-cta" href="/blog/birth-of-vibe-coding/" aria-label="Read The Birth of Vibe Coding">
             Read the full story
@@ -265,7 +409,79 @@
           </a>
         </article>
       </section>
+
+      <section class="topic-hubs" aria-labelledby="topic-heading">
+        <h2 id="topic-heading">Explore Topic Hubs</h2>
+        <p>Use these curated hubs to dive deeper into areas where we’re building momentum.</p>
+        <div class="topic-grid">
+          <div class="topic-card">
+            <h3>Engine R&amp;D</h3>
+            <p>Architecture notes, rendering experiments, and simulation breakthroughs.</p>
+            <a href="?topic=engine-rd">Filter for Engine R&amp;D posts →</a>
+          </div>
+          <div class="topic-card">
+            <h3>Agentic Workflows</h3>
+            <p>Stories about Codex, orchestration loops, and how we keep humans in control.</p>
+            <a href="?topic=agentic-workflows">Filter for Agentic Workflows →</a>
+          </div>
+          <div class="topic-card">
+            <h3>Partner Playbooks</h3>
+            <p>Guides, onboarding steps, and business-facing briefs for collaborators.</p>
+            <a href="?topic=partner-playbooks">Filter for Partner Playbooks →</a>
+          </div>
+          <div class="topic-card">
+            <h3>Studio Culture</h3>
+            <p>Dispatches about how we run the studio, maintain canon, and document history.</p>
+            <a href="?topic=studio-culture">Filter for Studio Culture →</a>
+          </div>
+        </div>
+      </section>
     </main>
+    <script>
+      (function () {
+        const buttons = Array.from(document.querySelectorAll('.filter-button'));
+        const postList = document.querySelector('[data-post-list]');
+        const posts = Array.from(postList ? postList.querySelectorAll('.post-card') : []);
+        if (!buttons.length || !posts.length) return;
+
+        const params = new URLSearchParams(window.location.search);
+        const initialTopic = params.get('topic') || 'all';
+
+        const applyFilter = (topic) => {
+          buttons.forEach((button) => {
+            const isActive = button.dataset.topic === topic;
+            button.setAttribute('aria-pressed', String(isActive));
+          });
+
+          posts.forEach((post) => {
+            const tags = (post.dataset.tags || '').split(/\s+/);
+            const matches = topic === 'all' || tags.includes(topic);
+            if (matches) {
+              post.removeAttribute('data-hidden');
+            } else {
+              post.dataset.hidden = 'true';
+            }
+          });
+        };
+
+        buttons.forEach((button) => {
+          button.addEventListener('click', () => {
+            const topic = button.dataset.topic || 'all';
+            if (button.getAttribute('aria-pressed') === 'true') return;
+            applyFilter(topic);
+            const url = new URL(window.location.href);
+            if (topic === 'all') {
+              url.searchParams.delete('topic');
+            } else {
+              url.searchParams.set('topic', topic);
+            }
+            window.history.replaceState({}, '', url.toString());
+          });
+        });
+
+        applyFilter(buttons.some((btn) => btn.dataset.topic === initialTopic) ? initialTopic : 'all');
+      })();
+    </script>
     <footer>© 2025 BlackFrame AI Studio</footer>
   </div>
 </body>

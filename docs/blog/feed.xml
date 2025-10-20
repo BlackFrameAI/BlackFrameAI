@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>BlackFrame AI Studio Blog</title>
+    <link>https://www.blackframeai.org/blog/</link>
+    <description>Daily dispatches, devlogs, and pillar guides from BlackFrame AI Studio.</description>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 01 Mar 2025 12:00:00 GMT</lastBuildDate>
+    <item>
+      <title>AI Engine Foundations — Modular Stack Overview</title>
+      <link>https://www.blackframeai.org/blog/ai-engine-foundations/</link>
+      <guid>https://www.blackframeai.org/blog/ai-engine-foundations/</guid>
+      <pubDate>Sat, 01 Mar 2025 09:00:00 GMT</pubDate>
+      <description><![CDATA[A pillar guide for collaborators — explore the simulation spine, narrative canon, creator co-pilots, and observability layers that power the BlackFrame stack.]]></description>
+    </item>
+    <item>
+      <title>The Blueprint Days: Trusting Codex With the Wheel</title>
+      <link>https://www.blackframeai.org/blog/blueprint-days/</link>
+      <guid>https://www.blackframeai.org/blog/blueprint-days/</guid>
+      <pubDate>Fri, 18 Jan 2025 09:00:00 GMT</pubDate>
+      <description><![CDATA[Day 2 chronicles the moment we stopped throttling Codex, locked the specs in Markdown, and let automation raise the engine scaffold in hours.]]></description>
+    </item>
+    <item>
+      <title>The Birth of Vibe Coding — BlackFrame AI Studio</title>
+      <link>https://www.blackframeai.org/blog/birth-of-vibe-coding/</link>
+      <guid>https://www.blackframeai.org/blog/birth-of-vibe-coding/</guid>
+      <pubDate>Thu, 17 Jan 2025 09:00:00 GMT</pubDate>
+      <description><![CDATA[We built a working engine from Markdown and tests months before the hype. Dive into the orchestration loop, guardrails, and lessons that shaped our vibe coding methodology.]]></description>
+    </item>
+  </channel>
+</rss>

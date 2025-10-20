@@ -29,6 +29,7 @@
   <!-- Favicon + Manifest -->
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="manifest" href="/manifest.json">
+  <link rel="alternate" type="application/rss+xml" title="BlackFrame AI Studio Blog" href="/blog/feed.xml">
 
   <style>
     html, body {
@@ -165,6 +166,10 @@
       backdrop-filter: blur(6px);
     }
 
+    .content-section + .content-section {
+      margin-top: 0.4rem;
+    }
+
     .content-section h2 {
       font-size: clamp(1.7rem, 3vw, 2.2rem);
       margin-top: 0;
@@ -187,6 +192,183 @@
 
     .content-section li + li {
       margin-top: 0.6rem;
+    }
+
+    .proof-points {
+      display: grid;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .proof-points__grid {
+      display: grid;
+      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .proof-card {
+      background: rgba(0, 32, 56, 0.55);
+      border: 1px solid rgba(77, 211, 255, 0.4);
+      border-radius: 16px;
+      padding: 1.6rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .proof-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      color: #8fd7ff;
+      text-transform: uppercase;
+    }
+
+    .proof-card p {
+      margin: 0;
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: #c7e4ff;
+    }
+
+    .partnership-cta {
+      display: grid;
+      gap: 1.5rem;
+      align-items: center;
+      text-align: left;
+    }
+
+    .partnership-cta__header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .partnership-cta__header svg {
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      filter: drop-shadow(0 0 12px rgba(0, 191, 255, 0.6));
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.75em 1.6em;
+      border-radius: 999px;
+      border: 1px solid rgba(143, 215, 255, 0.5);
+      background: linear-gradient(120deg, rgba(0, 70, 110, 0.85), rgba(0, 110, 170, 0.75));
+      color: #f0f6ff;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      box-shadow: 0 0 22px rgba(77, 211, 255, 0.45);
+    }
+
+    .cta-button:hover {
+      border-color: rgba(143, 215, 255, 0.9);
+      box-shadow: 0 0 32px rgba(143, 215, 255, 0.65);
+    }
+
+    .cta-secondary {
+      background: rgba(0, 30, 50, 0.6);
+      border: 1px solid rgba(77, 211, 255, 0.45);
+      box-shadow: none;
+    }
+
+    .newsletter-form {
+      margin-top: 1.5rem;
+      display: grid;
+      gap: 0.9rem;
+      width: min(420px, 100%);
+    }
+
+    .newsletter-form label {
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #8bbce8;
+    }
+
+    .newsletter-form input[type="email"] {
+      padding: 0.8em 1em;
+      border-radius: 999px;
+      border: 1px solid rgba(143, 215, 255, 0.45);
+      background: rgba(0, 28, 46, 0.65);
+      color: #e6f3ff;
+      font-size: 1rem;
+    }
+
+    .newsletter-form input[type="email"]::placeholder {
+      color: rgba(198, 228, 255, 0.6);
+    }
+
+    .newsletter-form button {
+      justify-self: flex-start;
+      padding: 0.75em 1.6em;
+      border-radius: 999px;
+      border: 1px solid rgba(143, 215, 255, 0.6);
+      background: linear-gradient(120deg, rgba(0, 70, 110, 0.9), rgba(0, 110, 170, 0.8));
+      color: #f0f6ff;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: box-shadow 200ms ease, border-color 200ms ease;
+    }
+
+    .newsletter-form button:hover {
+      border-color: rgba(143, 215, 255, 0.85);
+      box-shadow: 0 0 24px rgba(77, 211, 255, 0.55);
+    }
+
+    .press-strip {
+      display: grid;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .press-strip__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+    }
+
+    .press-chip {
+      padding: 0.45em 1.2em;
+      border-radius: 999px;
+      border: 1px dashed rgba(143, 215, 255, 0.45);
+      color: #8bbce8;
+      letter-spacing: 0.04em;
+      background: rgba(0, 28, 46, 0.55);
+    }
+
+    .changelog-callout {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .changelog-callout a {
+      align-self: flex-start;
+      padding: 0.6em 1.4em;
+      border-radius: 999px;
+      border: 1px solid rgba(143, 215, 255, 0.5);
+      background: rgba(0, 32, 56, 0.6);
+      color: #f0f6ff;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.92rem;
+    }
+
+    .changelog-callout a:hover {
+      border-color: rgba(143, 215, 255, 0.85);
+      box-shadow: 0 0 24px rgba(77, 211, 255, 0.55);
     }
 
     .community-links {
@@ -251,6 +433,20 @@
         padding: 2rem;
       }
     }
+    @media (prefers-reduced-motion: reduce) {
+      body::before {
+        animation: none;
+        background: rgba(0, 0, 0, 0.6);
+      }
+
+      .logo {
+        animation: none;
+      }
+
+      .container {
+        animation: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -260,7 +456,7 @@
   </div>
   <div class="container">
     <a href="/blog/" class="logo-link">
-      <img src="/assets/blackflamelogo.png" alt="BlackFrame AI Logo" class="logo">
+      <img src="/assets/blackflamelogo.png" alt="BlackFrame AI Logo" class="logo" loading="lazy">
     </a>
     <main>
       <section class="hero" aria-labelledby="vision-heading">
@@ -286,6 +482,42 @@
           <li><strong>Creator Co-Pilots:</strong> Workflow agents that help writers, level designers, and live-ops teams move faster.</li>
           <li><strong>Original IP:</strong> Experimental titles that demonstrate how AI-first pipelines unlock new genres.</li>
         </ul>
+        <div class="proof-points" aria-label="Recent proof points">
+          <p>Proof from the lab: each sprint is anchored in shipped experiments and measurable gains.</p>
+          <div class="proof-points__grid">
+            <div class="proof-card">
+              <h3>Markdown-to-Engine Loop</h3>
+              <p>Our <a href="/blog/birth-of-vibe-coding/">Vibe Coding build</a> transformed dev journals into runnable code, compressing prototype time into hours.</p>
+            </div>
+            <div class="proof-card">
+              <h3>Agentic Production Days</h3>
+              <p>The <a href="/blog/blueprint-days/">Blueprint sprint</a> shows Codex steering scaffolds, freeing engineers to tune systems instead of wiring boilerplate.</p>
+            </div>
+            <div class="proof-card">
+              <h3>Partner Playbooks</h3>
+              <p>Our new <a href="/blog/ai-engine-foundations/">AI Engine Foundations</a> pillar distills how we onboard collaborators into modular workflows.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" aria-labelledby="partnership-heading">
+        <div class="partnership-cta">
+          <div class="partnership-cta__header">
+            <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+              <path fill="#00c6ff" d="M32 6a10 10 0 0 1 10 10v6h4a8 8 0 0 1 8 8v20a8 8 0 0 1-8 8H18a8 8 0 0 1-8-8V30a8 8 0 0 1 8-8h4v-6A10 10 0 0 1 32 6zm0 6a4 4 0 0 0-4 4v6h8v-6a4 4 0 0 0-4-4zm16 18H18a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h30a2 2 0 0 0 2-2V32a2 2 0 0 0-2-2z"/>
+            </svg>
+            <h2 id="partnership-heading">Partner with the Studio</h2>
+          </div>
+          <p>
+            Ready to prototype a new universe, automate live-ops, or stress-test an AI-first workflow? We host capability calls for
+            studios, publishers, and creative labs who want to ship faster without losing the soul of their worlds.
+          </p>
+          <div class="cta-actions">
+            <a class="cta-button" href="https://cal.com/blackframeai/partnership-intro" target="_blank" rel="noopener noreferrer">Book a Capabilities Call</a>
+            <a class="cta-button cta-secondary" href="mailto:studio@blackframeai.org?subject=BlackFrame%20AI%20Partnership%20Inquiry">Request a Studio Packet</a>
+          </div>
+        </div>
       </section>
 
       <section class="content-section" aria-labelledby="community-heading">
@@ -299,6 +531,34 @@
           <a class="blog-button" href="/blog/">Visit the Studio Blog</a>
           <a class="social-button" href="https://github.com/BlackFrameAI" target="_blank" rel="noopener noreferrer">Track Builds on GitHub</a>
           <a class="social-button" href="mailto:studio@blackframeai.org">Contact the Studio</a>
+        </div>
+        <form class="newsletter-form" action="https://formsubmit.co/studio@blackframeai.org" method="POST">
+          <input type="hidden" name="_subject" value="New BlackFrame AI newsletter subscriber">
+          <input type="hidden" name="_next" value="https://www.blackframeai.org/thanks.html">
+          <label for="newsletter-email">Subscribe for launch notes & weekly recaps</label>
+          <input id="newsletter-email" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
+          <button type="submit">Join the Transmission List</button>
+        </form>
+        <p class="description">Prefer RSS? <a href="/blog/feed.xml">Follow the devlog feed</a> for daily drops.</p>
+      </section>
+
+      <section class="content-section" aria-labelledby="changelog-heading">
+        <div class="changelog-callout">
+          <h2 id="changelog-heading">Live Devlog Timeline</h2>
+          <p>Track every notable push, refactor, and release candidate inside the <strong>Devlog Vault</strong>. We publish transparent changelog notes, archived briefs, and production maps so partners can audit momentum.</p>
+          <a href="/devlog-vault/" class="cta-button cta-secondary">Explore the Devlog Vault</a>
+        </div>
+      </section>
+
+      <section class="content-section" aria-labelledby="press-heading">
+        <div class="press-strip">
+          <h2 id="press-heading">Press &amp; Mentions</h2>
+          <p>We’ll keep this space updated with interviews, showcases, and community shout-outs as they land.</p>
+          <div class="press-strip__list" aria-live="polite">
+            <span class="press-chip">Spotlight your story — <a href="mailto:studio@blackframeai.org">reach out</a></span>
+            <span class="press-chip">First community feature scheduled for Q3</span>
+            <span class="press-chip">Blog syndication rolling out via RSS</span>
+          </div>
         </div>
       </section>
     </main>
@@ -315,15 +575,29 @@
       "description": "BlackFrame AI builds AI-powered game engines, creator co-pilots, and original interactive worlds.",
       "sameAs": [
         "https://x.com/blackframeai",
-        "https://github.com/BlackFrameAI"
+        "https://github.com/BlackFrameAI",
+        "https://discord.gg/blackframeai",
+        "https://www.linkedin.com/company/blackframe-ai/",
+        "https://www.youtube.com/@BlackFrameAI"
       ],
       "contactPoint": [
         {
           "@type": "ContactPoint",
           "contactType": "press",
           "email": "studio@blackframeai.org"
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "partnerships",
+          "email": "studio@blackframeai.org"
         }
-      ]
+      ],
+      "areaServed": "Global",
+      "foundingDate": "2024",
+      "founder": {
+        "@type": "Organization",
+        "name": "BlackFrame AI Founding Team"
+      }
     }
   </script>
 </body>
