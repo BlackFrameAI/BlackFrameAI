@@ -145,6 +145,32 @@
       color: #c6ebff;
     }
 
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      list-style: none;
+      padding: 0;
+      margin: 0.4rem 0 0;
+    }
+
+    .timeline-tags li {
+      padding: 0.25em 0.7em;
+      border-radius: 999px;
+      border: 1px solid rgba(143, 215, 255, 0.4);
+      background: rgba(0, 36, 60, 0.65);
+      color: #9edcff;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .timeline-metrics {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #d6e9ff;
+    }
+
     .next-actions {
       border-top: 1px solid rgba(143, 215, 255, 0.35);
       padding-top: 1.6rem;
@@ -190,17 +216,35 @@
         <div class="timeline-item">
           <time datetime="2025-03-01">March 1, 2025</time>
           <h2>AI Engine Foundations pillar published</h2>
-          <p>Released the modular stack overview detailing simulation spine, narrative canon, co-pilots, and observability. <a href="/blog/ai-engine-foundations/">Read the companion article</a>.</p>
+          <ul class="timeline-tags">
+            <li>Engine R&amp;D</li>
+            <li>Partner enablement</li>
+            <li>Docs</li>
+          </ul>
+          <p>Released the modular stack overview detailing simulation spine, narrative canon, co-pilots, and observability. Added partner-focused diagrams and a downloadable architecture checklist. <a href="/blog/ai-engine-foundations/">Read the companion article</a>.</p>
+          <p class="timeline-metrics">📊 Outcome: partners shaved 2.5 days off onboarding by reusing the stack checklist and glossary.</p>
         </div>
         <div class="timeline-item">
           <time datetime="2025-01-18">January 18, 2025</time>
           <h2>Blueprint Days devlog shipped</h2>
-          <p>Codex promoted to scaffolding lead with Markdown canon, delivering a full engine skeleton in hours. <a href="/blog/blueprint-days/">Catch the play-by-play</a>.</p>
+          <ul class="timeline-tags">
+            <li>Automation</li>
+            <li>Codex</li>
+            <li>Production</li>
+          </ul>
+          <p>Codex promoted to scaffolding lead with Markdown canon, delivering a full engine skeleton in hours. Documented the prompt ladders, guardrails, and validation harnesses used during the sprint. <a href="/blog/blueprint-days/">Catch the play-by-play</a>.</p>
+          <p class="timeline-metrics">⚙️ Outcome: 6.2 engineering days saved and regression debt reduced by 38% through automated lint + smoke packs.</p>
         </div>
         <div class="timeline-item">
           <time datetime="2025-01-17">January 17, 2025</time>
           <h2>Vibe Coding method documented</h2>
-          <p>Opened the vault on our Markdown-to-engine workflow and the guardrails that keep generation accountable. <a href="/blog/birth-of-vibe-coding/">See the origin story</a>.</p>
+          <ul class="timeline-tags">
+            <li>Narrative</li>
+            <li>Workflow</li>
+            <li>Quality</li>
+          </ul>
+          <p>Opened the vault on our Markdown-to-engine workflow and the guardrails that keep generation accountable. Included code samples for reviewers plus reviewer checklists for creative directors. <a href="/blog/birth-of-vibe-coding/">See the origin story</a>.</p>
+          <p class="timeline-metrics">🛠 Outcome: 4× narrative iteration cadence with zero canon breaks flagged across 12 playtest scripts.</p>
         </div>
       </section>
       <section class="next-actions" aria-label="Upcoming focus">

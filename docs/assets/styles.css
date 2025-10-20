@@ -1,11 +1,19 @@
 /* Base global styles */
+:root {
+  --sidebar-width: clamp(220px, 22vw, 280px);
+  --text-primary: #edf7ff;
+  --text-secondary: #d8ecff;
+  --panel-bg: rgba(0, 22, 38, 0.78);
+  --panel-border: rgba(77, 211, 255, 0.28);
+}
+
 html, body {
   margin: 0;
   padding: 0;
   min-height: 100%;
   font-family: Arial, sans-serif;
   background-color: #000;
-  color: #f6fbff;
+  color: var(--text-primary);
 }
 
 body {
@@ -15,6 +23,7 @@ body {
     url('/assets/bg_blackleather_processed.jpg') center center / cover no-repeat,
     #000;
   line-height: 1.65;
+  padding-left: var(--sidebar-width);
 }
 
 body::before {
@@ -70,22 +79,24 @@ a:hover {
 }
 
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 5;
-  width: 100%;
-  background: rgba(0, 12, 24, 0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(77, 211, 255, 0.25);
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  z-index: 6;
+  background: rgba(0, 10, 22, 0.92);
+  border-right: 1px solid rgba(77, 211, 255, 0.2);
+  box-shadow: 12px 0 30px rgba(0, 0, 0, 0.55);
+  overflow-y: auto;
 }
 
 .site-header__inner {
-  margin: 0 auto;
-  max-width: 1120px;
-  padding: 18px 24px;
+  height: 100%;
+  padding: 48px 32px;
   display: flex;
-  align-items: center;
-  gap: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 36px;
 }
 
 .site-brand {
@@ -106,10 +117,10 @@ a:hover {
 }
 
 .site-nav {
-  margin-left: auto;
   display: flex;
-  align-items: center;
-  gap: 18px;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
 }
 
 .site-header__actions {
@@ -127,47 +138,57 @@ a:hover {
 .site-nav__list {
   list-style: none;
   display: flex;
-  align-items: center;
-  gap: 16px;
+  flex-direction: column;
+  gap: 6px;
   padding: 0;
   margin: 0;
 }
 
 .site-nav__link {
-  color: #e3f3ff;
+  color: var(--text-primary);
   font-size: 0.92rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.45em 0.75em;
-  border-radius: 999px;
-  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  padding: 0.5em 0.2em;
+  border-radius: 6px;
+  display: inline-flex;
+  gap: 0.45em;
+  align-items: center;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .site-nav__link:hover,
 .site-nav__link:focus {
-  background: rgba(53, 192, 255, 0.16);
-  color: #ffffff;
-  box-shadow: 0 0 16px rgba(53, 192, 255, 0.35);
+  color: #8fe1ff;
+  text-shadow: 0 0 18px rgba(77, 211, 255, 0.4);
   outline: none;
 }
 
-.site-nav__cta {
-  padding: 0.55em 1.4em;
-  border-radius: 999px;
-  border: 1px solid rgba(53, 192, 255, 0.65);
-  background: linear-gradient(135deg, rgba(0, 120, 200, 0.85), rgba(0, 50, 90, 0.85));
-  color: #ffffff;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+.site-nav__meta {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  border-top: 1px solid rgba(77, 211, 255, 0.16);
+  padding-top: 20px;
+  align-items: flex-start;
+}
+
+.site-nav__meta a {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  box-shadow: 0 0 22px rgba(53, 192, 255, 0.35);
+  display: inline-flex;
+  gap: 0.4em;
+  align-items: center;
 }
 
-.site-nav__cta:hover,
-.site-nav__cta:focus {
-  border-color: rgba(143, 215, 255, 0.9);
-  box-shadow: 0 0 28px rgba(143, 215, 255, 0.55);
-  outline: none;
+.site-nav__meta a:hover,
+.site-nav__meta a:focus {
+  color: #9ce9ff;
+  text-shadow: 0 0 16px rgba(77, 211, 255, 0.45);
 }
 
 button,
@@ -186,7 +207,7 @@ select {
       flex-direction: column;
       align-items: center;
       gap: 3rem;
-      padding: 120px 24px 72px;
+      padding: 80px 24px 72px;
       box-sizing: border-box;
       animation: fadeIn 3s ease forwards;
     }
@@ -243,8 +264,8 @@ select {
 .content-section {
   width: 100%;
   max-width: 900px;
-  background: rgba(0, 18, 36, 0.72);
-  border: 1px solid rgba(77, 211, 255, 0.22);
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
   border-radius: 28px;
   padding: clamp(32px, 5vw, 56px);
   box-shadow: 0 0 32px rgba(0, 120, 190, 0.25);
@@ -261,6 +282,18 @@ select {
   gap: 0.6rem;
 }
 
+.content-section ol {
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.content-section ol li::marker {
+  color: #8fd7ff;
+  font-weight: 600;
+}
+
 .proof-card {
   color: #e4f6ff;
 }
@@ -273,11 +306,11 @@ select {
 }
 
 .metric-card {
-  border: 1px solid rgba(143, 215, 255, 0.35);
+  border: 1px solid rgba(143, 215, 255, 0.4);
   border-radius: 20px;
   padding: 1.6rem;
-  background: rgba(0, 25, 45, 0.72);
-  box-shadow: 0 0 24px rgba(0, 120, 190, 0.25);
+  background: linear-gradient(150deg, rgba(0, 46, 78, 0.82), rgba(0, 24, 42, 0.82));
+  box-shadow: 0 0 28px rgba(0, 120, 190, 0.28);
   display: grid;
   gap: 0.65rem;
 }
@@ -289,8 +322,8 @@ select {
 }
 
 .metric-card span {
-  font-size: 0.95rem;
-  color: #d6ebff;
+  font-size: 0.98rem;
+  color: var(--text-primary);
 }
 
 .visual-showcase {
@@ -331,7 +364,9 @@ select {
   border-left: 3px solid rgba(143, 215, 255, 0.7);
   padding-left: 1.2rem;
   display: grid;
-  gap: 0.4rem;
+  grid-template-columns: auto 1fr;
+  gap: 0.6rem 1rem;
+  align-items: flex-start;
 }
 
 .glossary-term dt {
@@ -343,23 +378,33 @@ select {
 
 .glossary-term dd {
   margin: 0;
-  color: #dff4ff;
+  color: var(--text-secondary);
+}
+
+.glossary-definition {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.glossary-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(53, 192, 255, 0.12);
+  border: 1px solid rgba(143, 215, 255, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 18px rgba(53, 192, 255, 0.25);
+}
+
+.glossary-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: #8fd7ff;
 }
 
 @media (max-width: 768px) {
-  body {
-    background:
-      linear-gradient(165deg, rgba(0, 60, 95, 0.6), rgba(0, 0, 0, 0.92)),
-      url('/assets/bg_blackleather_processed.jpg') center center / cover no-repeat,
-      #000;
-    background-attachment: scroll;
-  }
-
-  body::before {
-    background: url('/assets/tracer.svg') center center / cover no-repeat;
-    opacity: 0.5;
-  }
-
   .container {
     padding: 110px 18px 64px;
     animation: none;
@@ -460,6 +505,51 @@ select {
   body.blog-page .post-card {
     background: rgba(0, 28, 48, 0.75);
     box-shadow: 0 12px 26px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@media (max-width: 900px) {
+  body {
+    padding-left: 0;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid rgba(77, 211, 255, 0.25);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
+  }
+
+  .site-header__inner {
+    padding: 18px 24px;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .site-nav {
+    align-items: center;
+  }
+
+  .site-nav__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .site-nav__link {
+    padding: 0.45em 0.75em;
+  }
+
+  .site-nav__meta {
+    margin-top: 12px;
+    padding-top: 12px;
+    width: auto;
+    align-items: center;
   }
 }
 
@@ -701,7 +791,40 @@ select {
       font-size: 1rem;
     }
 
+    .newsletter-form select,
+    .newsletter-form textarea,
+    .newsletter-form input[type="text"] {
+      padding: 0.8em 1em;
+      border-radius: 16px;
+      border: 1px solid rgba(143, 215, 255, 0.45);
+      background: rgba(0, 28, 46, 0.65);
+      color: #e6f3ff;
+      font-size: 1rem;
+    }
+
+    .newsletter-form textarea {
+      resize: vertical;
+      min-height: 160px;
+      border-radius: 20px;
+      line-height: 1.6;
+    }
+
+    .contact-form input[type="email"],
+    .contact-form input[type="text"] {
+      border-radius: 16px;
+    }
+
+    .contact-form button {
+      width: fit-content;
+    }
+
     .newsletter-form input[type="email"]::placeholder {
+      color: rgba(198, 228, 255, 0.6);
+    }
+
+    .newsletter-form input::placeholder,
+    .newsletter-form textarea::placeholder,
+    .newsletter-form select option {
       color: rgba(198, 228, 255, 0.6);
     }
 
@@ -964,6 +1087,12 @@ select {
     .results-status {
       font-size: 0.9rem;
       color: #8bbce8;
+    }
+
+    .results-empty {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin: 0;
     }
 
     .filter-button {
