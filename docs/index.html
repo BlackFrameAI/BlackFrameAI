@@ -35,16 +35,32 @@
 </head>
 
 <body class="home-page">
-  <div class="top-links">
-    <a class="social-button" href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow on X</a>
-    <a class="blog-button" href="/blog/">Studio Blog</a>
-  </div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a class="site-brand" href="/" aria-label="BlackFrame AI home">
+        <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" loading="lazy">
+        <span>BlackFrame AI</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="/">Home</a></li>
+          <li><a class="site-nav__link" href="/blog/">Blog</a></li>
+          <li><a class="site-nav__link" href="/devlog-vault/">Devlog Vault</a></li>
+          <li><a class="site-nav__link" href="/#services">Services</a></li>
+          <li><a class="site-nav__link" href="/#partner-offerings">Partner Playbooks</a></li>
+          <li><a class="site-nav__link" href="mailto:studio@blackframeai.org">Contact</a></li>
+        </ul>
+        <a class="site-nav__cta" href="https://cal.com/blackframeai/partnership-intro" target="_blank" rel="noopener noreferrer">Book a Call</a>
+      </nav>
+    </div>
+  </header>
   <div class="container">
-    <a href="/blog/" class="logo-link">
-      <img src="/assets/blackflamelogo.png" alt="BlackFrame AI Logo" class="logo" loading="lazy">
-    </a>
-    <main>
+    <main id="main-content">
       <section class="hero" aria-labelledby="vision-heading">
+        <a href="/" class="logo-link" aria-label="BlackFrame AI emblem">
+          <img src="/assets/blackflamelogo.png" alt="BlackFrame AI mark" class="logo" loading="lazy">
+        </a>
         <span class="pill" id="vision-heading">Creative AI for Immersive Worlds</span>
         <h1>AI-Powered Game Engines & Original Games</h1>
         <p>
@@ -52,9 +68,13 @@
           storytelling, and live-ops for next-generation games. Our team blends deep technical research with
           bold aesthetics to help creators ship unforgettable player experiences.
         </p>
+        <div class="hero-actions" role="group" aria-label="Primary actions">
+          <a class="hero-button" href="https://cal.com/blackframeai/partnership-intro" target="_blank" rel="noopener noreferrer">Book a Capabilities Call</a>
+          <a class="hero-button secondary" href="/devlog-vault/">Explore the Devlog Vault</a>
+        </div>
       </section>
 
-      <section class="content-section" aria-labelledby="technology-heading">
+      <section class="content-section" id="services" aria-labelledby="technology-heading">
         <h2 id="technology-heading">What We're Building</h2>
         <p>
           We are actively developing a modular engine stack that combines procedural simulation, adaptive
@@ -83,10 +103,64 @@
               <p>Our new <a href="/blog/ai-engine-foundations/">AI Engine Foundations</a> pillar distills how we onboard collaborators into modular workflows.</p>
             </div>
           </div>
+          <div class="metrics-grid" aria-label="Key performance signals">
+            <div class="metric-card">
+              <strong>82%</strong>
+              <span>Average reduction in prototype assembly time after adopting the Markdown-to-engine loop.</span>
+            </div>
+            <div class="metric-card">
+              <strong>6 hrs</strong>
+              <span>Fastest Codex-guided sprint from brief to playable sandbox during Blueprint Days.</span>
+            </div>
+            <div class="metric-card">
+              <strong>4×</strong>
+              <span>Increase in narrative iteration cadence once creator co-pilots seeded story beats automatically.</span>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="content-section" aria-labelledby="partnership-heading">
+      <section class="content-section" id="visuals" aria-labelledby="visuals-heading">
+        <h2 id="visuals-heading">Show, Don't Just Tell</h2>
+        <p>Peek inside our modular stack—each layer combines AI assistance with human direction to keep the vibe intentional.</p>
+        <div class="visual-showcase" role="list">
+          <article class="visual-card" role="listitem">
+            <svg viewBox="0 0 64 64" role="img" aria-label="Simulation Spine schematic">
+              <path fill="#8fd7ff" d="M12 8h40a4 4 0 0 1 4 4v12H8V12a4 4 0 0 1 4-4zm-4 24h48v6H8zm0 12h48v12a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4z" opacity="0.45"/>
+              <path fill="#35c0ff" d="M16 16h32v6H16zm0 28h32v6H16z"/>
+            </svg>
+            <h3>Simulation Spine</h3>
+            <p>Layered physics, encounter orchestration, and telemetry streaming into the same control plane.</p>
+          </article>
+          <article class="visual-card" role="listitem">
+            <svg viewBox="0 0 64 64" role="img" aria-label="Narrative Codex diagram">
+              <path fill="#8fd7ff" d="M32 6 6 20v24l26 14 26-14V20z" opacity="0.45"/>
+              <path fill="#35c0ff" d="M32 16 14 25v14l18 9 18-9V25z"/>
+            </svg>
+            <h3>Narrative Codex</h3>
+            <p>Branching canon stays coherent with automated canon checks, style guards, and intent tagging.</p>
+          </article>
+          <article class="visual-card" role="listitem">
+            <svg viewBox="0 0 64 64" role="img" aria-label="Creator co-pilot interface">
+              <rect x="8" y="10" width="48" height="44" rx="6" fill="rgba(53,192,255,0.25)" stroke="#35c0ff" stroke-width="2"/>
+              <path d="M16 20h20M16 28h32M16 36h24" stroke="#8fd7ff" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <h3>Creator Co-Pilots</h3>
+            <p>Assistive tooling drafts blueprints, scenes, and encounter notes alongside human leads.</p>
+          </article>
+          <article class="visual-card" role="listitem">
+            <svg viewBox="0 0 64 64" role="img" aria-label="Ops and observability dashboard">
+              <circle cx="20" cy="24" r="8" fill="#35c0ff" opacity="0.5"/>
+              <circle cx="44" cy="34" r="10" fill="#8fd7ff" opacity="0.45"/>
+              <path d="M12 48h40" stroke="#35c0ff" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+            <h3>Ops & Observability</h3>
+            <p>Live dashboards surface quality bars, player sentiment, and automated regression catches.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-section" id="partner-offerings" aria-labelledby="partnership-heading">
         <div class="partnership-cta">
           <div class="partnership-cta__header">
             <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
@@ -133,6 +207,29 @@
           <p>Track every notable push, refactor, and release candidate inside the <strong>Devlog Vault</strong>. We publish transparent changelog notes, archived briefs, and production maps so partners can audit momentum.</p>
           <a href="/devlog-vault/" class="cta-button cta-secondary">Explore the Devlog Vault</a>
         </div>
+      </section>
+
+      <section class="content-section" aria-labelledby="glossary-heading">
+        <h2 id="glossary-heading">Glossary for New Collaborators</h2>
+        <p>We keep the language clear so anyone can follow our workflows. Start here if you're new to AI-assisted production.</p>
+        <dl class="glossary-list">
+          <div class="glossary-term">
+            <dt>Vibe Coding</dt>
+            <dd>Our practice of authoring systems in expressive Markdown that compiles into runnable prototypes with human review gates.</dd>
+          </div>
+          <div class="glossary-term">
+            <dt>Codex</dt>
+            <dd>The orchestration brain coordinating agents, testing harnesses, and validation flows across the engine stack.</dd>
+          </div>
+          <div class="glossary-term">
+            <dt>Agentic Workflow</dt>
+            <dd>A production loop where AI agents and humans share tasks with telemetry so creative leads stay accountable and in control.</dd>
+          </div>
+          <div class="glossary-term">
+            <dt>Telemetry Streams</dt>
+            <dd>Real-time observability feeds capturing performance, narrative continuity, and player sentiment for rapid tuning.</dd>
+          </div>
+        </dl>
       </section>
 
       <section class="content-section" aria-labelledby="press-heading">

@@ -46,29 +46,50 @@
   </script>
 </head>
 <body class="blog-page">
-  <div class="page">
-    <header>
-      <a href="/" class="home-link">
+  <a class="skip-link" href="#blog-main">Skip to main content</a>
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a class="site-brand" href="/blog/" aria-label="BlackFrame AI blog home">
         <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" loading="lazy" />
-        <span>Back to Landing</span>
+        <span>Studio Blog</span>
       </a>
-      <div class="header-actions">
-        <a class="social-link" href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow on X</a>
-        <a class="cta" href="mailto:studio@blackframeai.org">Contact Studio</a>
-      </div>
-    </header>
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="/">Home</a></li>
+          <li><a class="site-nav__link" href="/blog/" aria-current="page">Blog</a></li>
+          <li><a class="site-nav__link" href="/devlog-vault/">Devlog Vault</a></li>
+          <li><a class="site-nav__link" href="/#services">Services</a></li>
+          <li><a class="site-nav__link" href="/#partner-offerings">Partner Playbooks</a></li>
+          <li><a class="site-nav__link" href="mailto:studio@blackframeai.org">Contact</a></li>
+        </ul>
+        <div class="site-header__actions">
+          <a class="social-button" href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow on X</a>
+          <a class="blog-button" href="mailto:studio@blackframeai.org">Contact Studio</a>
+          <a class="site-nav__cta" href="https://cal.com/blackframeai/partnership-intro" target="_blank" rel="noopener noreferrer">Book a Call</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <div class="page">
     <main>
-      <h1>Studio Blog</h1>
+      <h1 id="blog-main">Studio Blog</h1>
       <p class="intro-copy">We publish daily dispatches, deep-dive devlogs, and partner-ready playbooks that chart the evolution of our AI-first engine stack.</p>
       <p class="subscription-callout">Prefer automation? Subscribe via <a href="/blog/feed.xml">RSS</a> or drop your email below to join the weekly transmission list.</p>
 
-      <div class="filter-bar" role="toolbar" aria-label="Filter posts by topic">
-        <button class="filter-button" type="button" data-topic="all" aria-pressed="true">All posts</button>
-        <button class="filter-button" type="button" data-topic="engine-rd" aria-pressed="false">Engine R&amp;D</button>
-        <button class="filter-button" type="button" data-topic="workflow-automation" aria-pressed="false">Workflow Automation</button>
-        <button class="filter-button" type="button" data-topic="agentic-workflows" aria-pressed="false">Agentic Workflows</button>
-        <button class="filter-button" type="button" data-topic="partner-playbooks" aria-pressed="false">Partner Playbooks</button>
-        <button class="filter-button" type="button" data-topic="studio-culture" aria-pressed="false">Studio Culture</button>
+      <div class="filter-tools">
+        <div class="blog-search">
+          <label for="blog-search-input">Search posts</label>
+          <input id="blog-search-input" type="search" name="search" placeholder="Search keywords or titles" autocomplete="off" data-post-search />
+        </div>
+        <div class="filter-bar" role="toolbar" aria-label="Filter posts by topic">
+          <button class="filter-button" type="button" data-topic="all" aria-pressed="true">All posts</button>
+          <button class="filter-button" type="button" data-topic="engine-rd" aria-pressed="false">Engine R&amp;D</button>
+          <button class="filter-button" type="button" data-topic="workflow-automation" aria-pressed="false">Workflow Automation</button>
+          <button class="filter-button" type="button" data-topic="agentic-workflows" aria-pressed="false">Agentic Workflows</button>
+          <button class="filter-button" type="button" data-topic="partner-playbooks" aria-pressed="false">Partner Playbooks</button>
+          <button class="filter-button" type="button" data-topic="studio-culture" aria-pressed="false">Studio Culture</button>
+        </div>
+        <p class="results-status" role="status" aria-live="polite" data-post-count>Showing all posts in all topics</p>
       </div>
 
       <section class="posts-list" aria-label="Latest blog posts" data-post-list>
