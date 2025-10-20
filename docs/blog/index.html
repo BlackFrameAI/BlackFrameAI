@@ -8,326 +8,44 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="manifest" href="/manifest.json">
   <link rel="alternate" type="application/rss+xml" title="BlackFrame AI Studio Blog" href="/blog/feed.xml" />
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      min-height: 100%;
-      font-family: Arial, sans-serif;
-      background:
-        url('/assets/bg_blackleather_processed.jpg') center center / cover no-repeat,
-        #000;
-      color: #f0f0f0;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('/assets/tracer_animated_glow.svg') center center / cover no-repeat;
-      z-index: 0;
-      opacity: 0.65;
-      pointer-events: none;
-    }
-
-    .page {
-      position: relative;
-      z-index: 1;
-      min-height: 100vh;
-      backdrop-filter: blur(2px);
-      background: rgba(0, 0, 0, 0.45);
-      display: flex;
-      flex-direction: column;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 24px 32px 0;
-      gap: 16px;
-    }
-
-    .home-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      color: #f0f6ff;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 0.9em;
-    }
-
-    .home-link img {
-      height: 54px;
-      width: auto;
-      filter: drop-shadow(0 0 6px rgba(0, 191, 255, 0.45));
-    }
-
-    .cta,
-    .social-link {
-      padding: 0.6em 1.2em;
-      border: 1px solid #00afff88;
-      border-radius: 999px;
-      color: #f0f6ff;
-      font-size: 0.95em;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      background: rgba(0, 30, 50, 0.55);
-      box-shadow: 0 0 12px rgba(0, 191, 255, 0.35);
-      backdrop-filter: blur(4px);
-    }
-
-    .cta:hover,
-    .social-link:hover {
-      color: #fff;
-      border-color: #4dd3ff;
-      box-shadow: 0 0 18px rgba(77, 211, 255, 0.6);
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .intro-copy {
-      margin-bottom: 1.4rem;
-    }
-
-    .subscription-callout {
-      margin-top: 0.4rem;
-      font-size: 0.95rem;
-      color: #8bbce8;
-    }
-
-    .subscription-callout a {
-      color: #c6ebff;
-    }
-
-    .filter-bar {
-      margin-top: 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
-
-    .filter-button {
-      padding: 0.5em 1.1em;
-      border-radius: 999px;
-      border: 1px solid rgba(143, 215, 255, 0.45);
-      background: rgba(0, 30, 50, 0.55);
-      color: #f0f6ff;
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: box-shadow 200ms ease, border-color 200ms ease;
-    }
-
-    .filter-button[aria-pressed="true"] {
-      border-color: rgba(143, 215, 255, 0.9);
-      box-shadow: 0 0 18px rgba(77, 211, 255, 0.55);
-      background: rgba(0, 45, 70, 0.65);
-    }
-
-    .tag-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.1rem;
-    }
-
-    .tag-badge {
-      padding: 0.3em 0.85em;
-      border-radius: 999px;
-      border: 1px solid rgba(143, 215, 255, 0.35);
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #8bbce8;
-      background: rgba(0, 28, 46, 0.55);
-    }
-
-    .topic-hubs {
-      margin-top: 3.5rem;
-      padding-top: 2.5rem;
-      border-top: 1px solid rgba(143, 215, 255, 0.25);
-      display: grid;
-      gap: 2rem;
-    }
-
-    .topic-grid {
-      display: grid;
-      gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    }
-
-    .topic-card {
-      border: 1px solid rgba(143, 215, 255, 0.35);
-      border-radius: 16px;
-      padding: 1.6rem;
-      background: rgba(0, 28, 46, 0.55);
-      box-shadow: 0 0 24px rgba(0, 120, 190, 0.25);
-      display: grid;
-      gap: 0.8rem;
-    }
-
-    .topic-card h3 {
-      margin: 0;
-      font-size: 1.1rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #8fd7ff;
-    }
-
-    .topic-card a {
-      color: #c6ebff;
-      font-size: 0.95rem;
-    }
-
-    .post-card[data-hidden="true"] {
-      display: none;
-    }
-
-    main {
-      flex: 1;
-      width: min(900px, 92vw);
-      margin: 40px auto 80px;
-      background: rgba(0, 10, 20, 0.72);
-      border: 1px solid rgba(0, 160, 255, 0.25);
-      border-radius: 20px;
-      box-shadow: 0 0 35px rgba(0, 120, 190, 0.25);
-      padding: 48px 8vw;
-    }
-
-    h1 {
-      font-size: clamp(2.2rem, 4vw, 3.1rem);
-      margin-top: 0;
-      margin-bottom: 0.6em;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #8fd7ff;
-      text-shadow: 0 0 14px rgba(0, 191, 255, 0.55);
-    }
-
-    p {
-      line-height: 1.7;
-      font-size: 1.05rem;
-      color: #d6e9ff;
-    }
-
-    .posts-list {
-      margin-top: 2.5em;
-      display: grid;
-      gap: 1.8em;
-    }
-
-    .post-card {
-      position: relative;
-      padding: 1.8em 2em;
-      border-radius: 18px;
-      border: 1px solid rgba(143, 215, 255, 0.35);
-      background: rgba(0, 30, 50, 0.55);
-      box-shadow: 0 0 24px rgba(0, 120, 190, 0.25);
-      transition: transform 200ms ease, box-shadow 200ms ease;
-    }
-
-    .post-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 34px rgba(77, 211, 255, 0.4);
-    }
-
-    .post-meta {
-      display: flex;
-      align-items: center;
-      gap: 0.9em;
-      margin-bottom: 0.75em;
-      font-size: 0.9rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: #8bbce8;
-    }
-
-    .latest-badge {
-      padding: 0.25em 0.75em;
-      border-radius: 999px;
-      background: linear-gradient(120deg, rgba(77, 211, 255, 0.85), rgba(31, 138, 255, 0.8));
-      color: #001021;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-    }
-
-    .post-card h2 {
-      margin: 0 0 0.6em;
-      font-size: clamp(1.5rem, 2.8vw, 2.1rem);
-      color: #e3f5ff;
-    }
-
-    .post-card h2 a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .post-card h2 a:hover {
-      text-decoration: underline;
-    }
-
-    .post-excerpt {
-      margin: 0 0 1.4em;
-      font-size: 1rem;
-      color: #c7e4ff;
-      line-height: 1.65;
-    }
-
-    .post-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6em;
-      padding: 0.5em 1.3em;
-      border-radius: 999px;
-      border: 1px solid rgba(143, 215, 255, 0.5);
-      color: #f0f6ff;
-      font-size: 0.95rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      background: rgba(0, 40, 60, 0.55);
-      transition: border-color 200ms ease, box-shadow 200ms ease;
-    }
-
-    .post-cta:hover {
-      border-color: rgba(77, 211, 255, 0.85);
-      box-shadow: 0 0 18px rgba(77, 211, 255, 0.55);
-    }
-
-    footer {
-      padding: 0 0 40px;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #6c7b8c;
-    }
-
-    @media (max-width: 640px) {
-      header {
-        flex-direction: column;
-        gap: 20px;
-        align-items: flex-start;
+  <link rel="canonical" href="https://www.blackframeai.org/blog/" />
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "BlackFrame AI Studio Blog",
+    "url": "https://www.blackframeai.org/blog/",
+    "description": "Follow the BlackFrame AI studio blog for development updates and announcements.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "BlackFrame AI Studio",
+      "url": "https://www.blackframeai.org/"
+    },
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "AI Engine Foundations — Modular Stack Overview",
+        "url": "https://www.blackframeai.org/blog/ai-engine-foundations/",
+        "datePublished": "2025-03-01"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "The Blueprint Days: Trusting Codex With the Wheel",
+        "url": "https://www.blackframeai.org/blog/blueprint-days/",
+        "datePublished": "2025-01-18"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "The Birth of Vibe Coding",
+        "url": "https://www.blackframeai.org/blog/birth-of-vibe-coding/",
+        "datePublished": "2025-01-17"
       }
-
-      .header-actions {
-        width: 100%;
-      }
-
-      .filter-bar {
-        justify-content: flex-start;
-      }
-    }
-  </style>
+    ]
+  }
+  </script>
 </head>
-<body>
+<body class="blog-page">
   <div class="page">
     <header>
       <a href="/" class="home-link">
@@ -342,7 +60,7 @@
     <main>
       <h1>Studio Blog</h1>
       <p class="intro-copy">We publish daily dispatches, deep-dive devlogs, and partner-ready playbooks that chart the evolution of our AI-first engine stack.</p>
-      <p class="subscription-callout">Prefer automation? Subscribe via <a href="/blog/feed.xml">RSS</a> or jump to the <a href="/#community-heading">newsletter form</a> on the homepage.</p>
+      <p class="subscription-callout">Prefer automation? Subscribe via <a href="/blog/feed.xml">RSS</a> or drop your email below to join the weekly transmission list.</p>
 
       <div class="filter-bar" role="toolbar" aria-label="Filter posts by topic">
         <button class="filter-button" type="button" data-topic="all" aria-pressed="true">All posts</button>
@@ -408,6 +126,18 @@
             <span aria-hidden="true">→</span>
           </a>
         </article>
+      </section>
+
+      <section class="newsletter-cta" aria-labelledby="newsletter-heading">
+        <h2 id="newsletter-heading">Join the Transmission List</h2>
+        <p>Get studio updates, release notes, and partner briefs delivered weekly.</p>
+        <form class="newsletter-form" action="https://formsubmit.co/studio@blackframeai.org" method="POST">
+          <input type="hidden" name="_subject" value="New BlackFrame AI newsletter subscriber">
+          <input type="hidden" name="_next" value="https://www.blackframeai.org/thanks.html">
+          <label for="newsletter-email-blog">Subscribe for launch notes &amp; weekly recaps</label>
+          <input id="newsletter-email-blog" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
+          <button type="submit">Join the Transmission List</button>
+        </form>
       </section>
 
       <section class="topic-hubs" aria-labelledby="topic-heading">
