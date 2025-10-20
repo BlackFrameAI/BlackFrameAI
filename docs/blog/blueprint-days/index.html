@@ -66,9 +66,10 @@ tags:
       background: rgba(0, 0, 0, 0.5);
       display: flex;
       flex-direction: column;
+      padding-top: 120px;
     }
 
-    header {
+    .page-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -77,7 +78,7 @@ tags:
       flex-wrap: wrap;
     }
 
-    .home-link {
+    .page-home-link {
       display: inline-flex;
       align-items: center;
       gap: 12px;
@@ -88,7 +89,7 @@ tags:
       text-decoration: none;
     }
 
-    .home-link img {
+    .page-home-link img {
       height: 54px;
       width: auto;
       filter: drop-shadow(0 0 6px rgba(0, 191, 255, 0.45));
@@ -116,7 +117,7 @@ tags:
       box-shadow: 0 0 18px rgba(77, 211, 255, 0.6);
     }
 
-    .header-actions {
+    .page-header__actions {
       display: flex;
       align-items: center;
       gap: 12px;
@@ -348,36 +349,56 @@ tags:
     }
 
     @media (max-width: 640px) {
-      header {
+      .page-header {
         flex-direction: column;
         gap: 20px;
         align-items: flex-start;
       }
 
-      .header-actions {
+      .page-header__actions {
         width: 100%;
       }
 
     }
   </style>
 </head>
-<body>
-  <div class="page">
-    <header>
-      <a href="/blog/" class="home-link">
+<body class="blog-post">
+  <a class="skip-link" href="#article-content">Skip to article content</a>
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a class="site-brand" href="/blog/" aria-label="BlackFrame AI blog home">
         <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" loading="lazy" />
-      <span>Back to Blog</span>
-    </a>
-      <a href="/" class="home-link">
-        <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" loading="lazy" />
-        <span>Back to Landing</span>
+        <span>Studio Blog</span>
       </a>
-      <div class="header-actions">
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="/">Home</a></li>
+          <li><a class="site-nav__link" href="/blog/" aria-current="page">Blog</a></li>
+          <li><a class="site-nav__link" href="/devlog-vault/">Devlog Vault</a></li>
+          <li><a class="site-nav__link" href="/#services">Services</a></li>
+          <li><a class="site-nav__link" href="/#partner-offerings">Partner Playbooks</a></li>
+          <li><a class="site-nav__link" href="mailto:studio@blackframeai.org">Contact</a></li>
+        </ul>
+        <div class="site-header__actions">
+          <a class="social-button" href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow on X</a>
+          <a class="blog-button" href="mailto:studio@blackframeai.org">Contact Studio</a>
+          <a class="site-nav__cta" href="https://cal.com/blackframeai/partnership-intro" target="_blank" rel="noopener noreferrer">Book a Call</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <div class="page">
+    <header class="page-header">
+      <a href="/blog/" class="page-home-link">
+        <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" loading="lazy" />
+        <span>Back to Blog</span>
+      </a>
+      <div class="page-header__actions">
         <a class="social-link" href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow on X</a>
-      <a class="cta" href="mailto:studio@blackframeai.org">Contact Studio</a>
+        <a class="cta" href="mailto:studio@blackframeai.org">Contact Studio</a>
       </div>
     </header>
-    <main>
+    <main id="article-content">
       <nav class="breadcrumbs" aria-label="Breadcrumb">
         <a href="/">Home</a>
         <span aria-hidden="true">›</span>

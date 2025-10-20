@@ -6,6 +6,8 @@
     const buttons = Array.from(doc.querySelectorAll('.filter-button'));
     const postList = doc.querySelector('[data-post-list]');
     const posts = postList ? Array.from(postList.querySelectorAll('.post-card')) : [];
+    const searchInput = doc.querySelector('[data-post-search]');
+    const status = doc.querySelector('[data-post-count]');
 
     if (!buttons.length || !posts.length) return;
 
@@ -14,17 +16,45 @@
       : '';
     const params = typeof URLSearchParams !== 'undefined' ? new URLSearchParams(search) : null;
     const initialTopic = params && params.get('topic') ? params.get('topic') : 'all';
+    const state = {
+      topic: initialTopic,
+      query: searchInput ? searchInput.value.trim().toLowerCase() : '',
+    };
 
-    const applyFilter = (topic) => {
+    const updateStatus = (visibleCount) => {
+      if (!status) return;
+      const topicLabel = state.topic === 'all'
+        ? 'all topics'
+        : (doc.querySelector(`.filter-button[data-topic="${state.topic}"]`)?.textContent || state.topic);
+      const queryLabel = state.query ? ` matching "${state.query}"` : '';
+      status.textContent = `${visibleCount} post${visibleCount === 1 ? '' : 's'} in ${topicLabel}${queryLabel}`;
+    };
+
+    const postMatches = (post) => {
+      const tags = (post.dataset.tags || '').split(/\s+/).filter(Boolean);
+      const matchesTopic = state.topic === 'all' || tags.includes(state.topic);
+      if (!matchesTopic) return false;
+
+      if (!state.query) return true;
+      const haystack = `${post.querySelector('h2')?.textContent || ''} ${post.querySelector('.post-excerpt')?.textContent || ''}`
+        .toLowerCase();
+      return haystack.includes(state.query);
+    };
+
+    const applyFilter = (nextTopic) => {
+      if (nextTopic) {
+        state.topic = nextTopic;
+      }
+
       buttons.forEach((button) => {
-        const isActive = button.dataset.topic === topic;
+        const isActive = button.dataset.topic === state.topic;
         button.setAttribute('aria-pressed', String(isActive));
       });
 
+      let visibleCount = 0;
       posts.forEach((post) => {
-        const tags = (post.dataset.tags || '').split(/\s+/).filter(Boolean);
-        const matches = topic === 'all' || tags.includes(topic);
-        if (matches) {
+        if (postMatches(post)) {
+          visibleCount += 1;
           post.removeAttribute('data-hidden');
           delete post.dataset.hidden;
           post.removeAttribute('hidden');
@@ -35,6 +65,8 @@
           post.setAttribute('aria-hidden', 'true');
         }
       });
+
+      updateStatus(visibleCount);
     };
 
     buttons.forEach((button) => {
@@ -58,6 +90,15 @@
 
     const hasInitial = buttons.some((btn) => btn.dataset.topic === initialTopic);
     applyFilter(hasInitial ? initialTopic : 'all');
+
+    if (searchInput) {
+      const handleSearch = () => {
+        state.query = searchInput.value.trim().toLowerCase();
+        applyFilter();
+      };
+
+      searchInput.addEventListener('input', handleSearch);
+    }
 
     return {
       applyFilter,
