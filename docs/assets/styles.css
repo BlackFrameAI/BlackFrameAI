@@ -4,14 +4,16 @@ html, body {
   padding: 0;
   min-height: 100%;
   font-family: Arial, sans-serif;
-  background:
-    url('/assets/bg_blackleather_processed.jpg') center center / cover no-repeat,
-    #000;
+  background-color: #000;
   color: #f0f0f0;
 }
 
 body {
   overflow-y: auto;
+  background:
+    radial-gradient(140% 140% at 50% 0%, rgba(0, 90, 140, 0.18), transparent),
+    url('/assets/bg_blackleather_processed.jpg') center center / cover no-repeat,
+    #000;
 }
 
 body::before {
@@ -23,7 +25,7 @@ body::before {
   height: 100%;
   background: url('/assets/tracer_animated_glow.svg') center center / cover no-repeat;
   z-index: 0;
-  opacity: 0.8;
+  opacity: 0.72;
   pointer-events: none;
 }
 
@@ -66,6 +68,88 @@ select {
       box-sizing: border-box;
       animation: fadeIn 3s ease forwards;
     }
+
+@supports (content-visibility: auto) {
+  .content-section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 520px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    background:
+      linear-gradient(165deg, rgba(0, 60, 95, 0.6), rgba(0, 0, 0, 0.92)),
+      url('/assets/bg_blackleather_processed.jpg') center center / cover no-repeat,
+      #000;
+    background-attachment: scroll;
+  }
+
+  body::before {
+    background: url('/assets/tracer.svg') center center / cover no-repeat;
+    opacity: 0.5;
+  }
+
+  .container {
+    padding: 80px 18px 56px;
+    animation: none;
+  }
+
+  .logo {
+    max-width: 280px;
+    animation: none;
+    filter: drop-shadow(0 0 6px #0088ff55);
+  }
+
+  .content-section {
+    backdrop-filter: none;
+    background: rgba(0, 20, 35, 0.9);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+    padding: 2.2rem;
+  }
+
+  .blog-button,
+  .social-button,
+  .cta-button {
+    backdrop-filter: none;
+    background: rgba(0, 40, 70, 0.78);
+    box-shadow: 0 0 12px rgba(0, 191, 255, 0.28);
+  }
+
+  .proof-card {
+    background: rgba(0, 32, 56, 0.7);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+  }
+
+  .cta-secondary {
+    background: rgba(0, 30, 50, 0.78);
+  }
+
+  body.blog-page .page {
+    backdrop-filter: none;
+    background: rgba(0, 0, 0, 0.72);
+  }
+
+  body.blog-page main {
+    background: rgba(0, 15, 30, 0.82);
+    box-shadow: 0 0 24px rgba(0, 120, 190, 0.22);
+    padding: 40px 6vw;
+  }
+
+  body.blog-page .cta,
+  body.blog-page .social-link,
+  body.blog-page .filter-button,
+  body.blog-page .post-cta {
+    backdrop-filter: none;
+    background: rgba(0, 40, 70, 0.78);
+    box-shadow: 0 0 12px rgba(0, 191, 255, 0.28);
+  }
+
+  body.blog-page .post-card {
+    background: rgba(0, 28, 48, 0.75);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.5);
+  }
+}
 
     .top-links {
       position: absolute;
@@ -431,13 +515,11 @@ select {
     @media (prefers-reduced-motion: reduce) {
       body::before {
         animation: none;
-        background: rgba(0, 0, 0, 0.6);
+        background: url('/assets/tracer.svg') center center / cover no-repeat;
+        opacity: 0.5;
       }
 
-      .logo {
-        animation: none;
-      }
-
+      .logo,
       .container {
         animation: none;
       }
