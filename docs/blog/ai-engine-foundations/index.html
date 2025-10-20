@@ -340,41 +340,9 @@ tags:
     }
 
     .community-lead {
+      margin: 0;
       font-size: 1rem;
       color: #c7e4ff;
-    }
-
-    .like-panel {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .like-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.65em 1.2em;
-      border-radius: 999px;
-      border: 1px solid rgba(143, 215, 255, 0.5);
-      background: rgba(0, 30, 50, 0.55);
-      color: #f0f6ff;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-      cursor: pointer;
-    }
-
-    .like-button.is-liked {
-      border-color: rgba(143, 215, 255, 0.85);
-      box-shadow: 0 0 22px rgba(77, 211, 255, 0.55);
-    }
-
-    .like-count {
-      font-size: 0.9rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: #8bbce8;
     }
 
     .comment-container {
@@ -524,16 +492,8 @@ tags:
 
       <section class="community-section" aria-labelledby="community-heading">
         <h2 id="community-heading">Join the community</h2>
-        <p class="community-lead">Tap the heart to drop a like, follow us on social, and keep the conversation going.</p>
-        <div class="like-panel">
-          <button class="like-button" type="button" aria-pressed="false" data-counter-key="ai-engine-foundations">
-            <span aria-hidden="true">❤️</span>
-            <span class="like-label">Like this article</span>
-          </button>
-          <span class="like-count" data-like-count aria-live="polite">0</span>
-        </div>
         <p class="community-lead">
-          Want more dispatches? <a href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow @blackframeai on X</a> for realtime drops.
+          Stay plugged in with BlackFrame AI — <a href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">follow @blackframeai on X</a> for realtime drops and share your thoughts below.
         </p>
         <div class="comment-container" id="comments" aria-live="polite">
           <script src="https://utteranc.es/client.js"
@@ -548,95 +508,6 @@ tags:
         <p class="moderation-note">Moderate or remove comments anytime from the linked GitHub issue — delete, lock, or hide with a couple clicks.</p>
       </section>
 
-      <script>
-        (function () {
-          const namespace = 'blackframeai.blog';
-          const endpoint = 'https://api.countapi.xyz';
-          const button = document.querySelector('.like-button[data-counter-key]');
-          const countEl = document.querySelector('[data-like-count]');
-          if (!button || !countEl) return;
-
-          const key = button.getAttribute('data-counter-key');
-          const storageKey = `bf-like-${key}`;
-
-          const updateCountDisplay = (value) => {
-            const safeValue = Number.isFinite(value) ? value : 0;
-            countEl.dataset.countValue = String(safeValue);
-            countEl.textContent = safeValue.toLocaleString();
-          };
-
-          const markLiked = () => {
-            button.setAttribute('disabled', 'true');
-            button.setAttribute('aria-pressed', 'true');
-            button.classList.add('is-liked');
-          };
-
-          const fetchJson = (path) => fetch(`${endpoint}/${path}`).then((response) => {
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            return response.json();
-          });
-
-          const ensureCounter = () => fetchJson(`get/${encodeURIComponent(namespace)}/${encodeURIComponent(key)}`)
-            .catch(() => fetchJson(`create?namespace=${encodeURIComponent(namespace)}&key=${encodeURIComponent(key)}&value=0`))
-            .then((data) => {
-              updateCountDisplay(data.value);
-              return data.value;
-            })
-            .catch((err) => {
-              console.warn('Unable to load like counter', err);
-              updateCountDisplay(0);
-              return 0;
-            });
-
-          const incrementCounter = () => fetchJson(`hit/${encodeURIComponent(namespace)}/${encodeURIComponent(key)}`)
-            .then((data) => data.value)
-            .catch((err) => {
-              console.warn('Unable to update like counter', err);
-              throw err;
-            });
-
-          let hasLocalLike = false;
-          try {
-            hasLocalLike = window.localStorage.getItem(storageKey) === '1';
-          } catch (err) {
-            console.warn('Local storage unavailable', err);
-          }
-
-          if (hasLocalLike) {
-            markLiked();
-          }
-
-          ensureCounter();
-
-          button.addEventListener('click', () => {
-            if (button.hasAttribute('disabled')) {
-              return;
-            }
-
-            markLiked();
-
-            const current = Number.parseInt(countEl.dataset.countValue || countEl.textContent.replace(/[^\d]/g, ''), 10) || 0;
-            const optimistic = current + 1;
-            updateCountDisplay(optimistic);
-
-            incrementCounter().then((value) => {
-              updateCountDisplay(value);
-              try {
-                window.localStorage.setItem(storageKey, '1');
-              } catch (err) {
-                console.warn('Unable to persist like locally', err);
-              }
-            }).catch(() => {
-              updateCountDisplay(current);
-              button.removeAttribute('disabled');
-              button.setAttribute('aria-pressed', 'false');
-              button.classList.remove('is-liked');
-            });
-          });
-        })();
-      </script>
     </main>
     <script type="application/ld+json">
       {
