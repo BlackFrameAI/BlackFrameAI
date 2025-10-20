@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Blueprint Days — Trusting Codex With the Wheel | BlackFrame AI Studio</title>
+  <meta name="description" content="Day 2 of Project BlackFrame: the sprint where scaffolding, trust, and automation converged to let Codex build the engine it had been describing." />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="canonical" href="https://www.blackframeai.org/blog/blueprint-days/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Blueprint Days — Trusting Codex With the Wheel" />
+  <meta property="og:description" content="How Day 2 shifted from hesitant prompting to a disciplined scaffolding loop that let Codex assemble the engine skeleton in hours." />
+  <meta property="og:url" content="https://www.blackframeai.org/blog/blueprint-days/" />
+  <meta property="og:image" content="https://www.blackframeai.org/assets/blackflamelogo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Blueprint Days — Trusting Codex With the Wheel" />
+  <meta name="twitter:description" content="Day 2 of Project BlackFrame: the sprint where scaffolding, trust, and automation converged to let Codex build the engine it had been describing." />
+  <meta name="twitter:image" content="https://www.blackframeai.org/assets/blackflamelogo.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: "Arial", sans-serif;
+      background:
+        url('/assets/bg_blackleather_processed.jpg') center center / cover no-repeat,
+        #000;
+      color: #f0f0f0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('/assets/tracer_animated_glow.svg') center center / cover no-repeat;
+      z-index: 0;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      backdrop-filter: blur(2px);
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 32px 0;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #f0f6ff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.9em;
+      text-decoration: none;
+    }
+
+    .home-link img {
+      height: 54px;
+      width: auto;
+      filter: drop-shadow(0 0 6px rgba(0, 191, 255, 0.45));
+    }
+
+    .cta,
+    .social-link {
+      padding: 0.6em 1.2em;
+      border: 1px solid #00afff88;
+      border-radius: 999px;
+      color: #f0f6ff;
+      font-size: 0.95em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(0, 30, 50, 0.55);
+      box-shadow: 0 0 12px rgba(0, 191, 255, 0.35);
+      backdrop-filter: blur(4px);
+      text-decoration: none;
+    }
+
+    .cta:hover,
+    .social-link:hover {
+      color: #fff;
+      border-color: #4dd3ff;
+      box-shadow: 0 0 18px rgba(77, 211, 255, 0.6);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    main {
+      flex: 1;
+      width: min(960px, 92vw);
+      margin: 40px auto 80px;
+      background: rgba(0, 10, 20, 0.75);
+      border: 1px solid rgba(0, 160, 255, 0.25);
+      border-radius: 24px;
+      box-shadow: 0 0 35px rgba(0, 120, 190, 0.25);
+      padding: clamp(32px, 6vw, 72px);
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 4.1vw, 3.2rem);
+      margin-top: 0;
+      margin-bottom: 0.6em;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8fd7ff;
+      text-shadow: 0 0 14px rgba(0, 191, 255, 0.55);
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 3.1vw, 2.3rem);
+      margin-top: 1.9em;
+      color: #e3f5ff;
+    }
+
+    h3 {
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      color: #c7e4ff;
+      margin-top: 1.6em;
+    }
+
+    p {
+      line-height: 1.75;
+      font-size: 1.05rem;
+      color: #d6e9ff;
+    }
+
+    strong {
+      color: #f3fbff;
+    }
+
+    ul {
+      margin: 1em 0 1.5em;
+      padding-left: 1.4em;
+      color: #d6e9ff;
+      line-height: 1.7;
+    }
+
+    blockquote {
+      margin: 1.8em 0;
+      padding: 1.4em 1.6em;
+      border-left: 4px solid rgba(77, 211, 255, 0.65);
+      background: rgba(0, 28, 46, 0.55);
+      border-radius: 12px;
+      color: #e8f6ff;
+    }
+
+    footer {
+      padding: 0 0 40px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6c7b8c;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+      }
+
+      .header-actions {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a href="/" class="home-link">
+        <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" />
+        <span>Back to Landing</span>
+      </a>
+      <div class="header-actions">
+        <a class="social-link" href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow on X</a>
+        <a class="cta" href="mailto:contact@blackframeai.org">Contact Studio</a>
+      </div>
+    </header>
+    <main>
+      <p style="text-transform: uppercase; letter-spacing: 0.12em; color: #8bbce8; font-size: 0.95rem; margin-bottom: 0.8em;">Day 2 Devlog • January 18, 2025</p>
+      <h1>The Blueprint Days: Trusting Codex With the Wheel</h1>
+      <p>Day 1 was philosophy—proving that language alone could describe an engine end-to-end. Day 2 was execution. We stopped debating whether Codex could be trusted and instead gave it a precise scaffolding contract, then watched it build the bones of BlackFrame faster than any human sprint we had ever run.</p>
+
+      <h2>Resetting the Premise</h2>
+      <p>The morning started with a frank post-mortem. GPT’s safety reflexes had been throttling progress for three straight sessions, insisting that Codex should be kept on a leash and limited to short, literal prompts. The result? Half-built stubs and hours lost to human rework. We wiped the slate clean and wrote a new rule: <strong>Codex owns the boilerplate when the spec is solid.</strong> Our job became giving it that spec.</p>
+      <p>Everything lived in Markdown. We captured the entire system surface—engine folders, runtime contracts, test harnesses—in a single briefing that Codex could parse without improvising. No entropy managers, no runtime magic; those concerns were weeks away. The only goal for Day 2 was reliable structure.</p>
+
+      <h2>The Scaffolding Script</h2>
+      <p>To guarantee reproducibility we codified the file tree first, then let Codex populate it. The PowerShell snippet below became our first “runbook”—a one-command reset that enforced naming, directory layout, and the documentation skeleton.</p>
+      <blockquote>
+        <pre style="white-space: pre-wrap; font-family: 'Fira Code', monospace; font-size: 0.95rem; color: #e8f6ff; background: transparent;"># SET YOUR ROOT PATH HERE
+$rootPath = "G:\CODEX_Projects\Purge_Of_The_Crescent_Veil"
+
+New-Item -ItemType Directory -Force -Path "$rootPath\engine"
+New-Item -ItemType Directory -Force -Path "$rootPath\game"
+New-Item -ItemType Directory -Force -Path "$rootPath\assets"
+New-Item -ItemType Directory -Force -Path "$rootPath\docs"
+New-Item -ItemType Directory -Force -Path "$rootPath\docs\lore"
+New-Item -ItemType Directory -Force -Path "$rootPath\scripts"
+
+New-Item -ItemType File -Force -Path "$rootPath\README.md"
+New-Item -ItemType File -Force -Path "$rootPath\CODEX_instructions.md"
+New-Item -ItemType File -Force -Path "$rootPath\docs\engine_design.md"
+New-Item -ItemType File -Force -Path "$rootPath\docs\game_design.md"
+
+New-Item -ItemType File -Force -Path "$rootPath\docs\lore\factions.md"
+New-Item -ItemType File -Force -Path "$rootPath\docs\lore\characters.md"
+New-Item -ItemType File -Force -Path "$rootPath\docs\lore\world_history.md"
+New-Item -ItemType File -Force -Path "$rootPath\docs\lore\powers_and_glyphs.md"
+New-Item -ItemType File -Force -Path "$rootPath\docs\lore\items_and_artifacts.md"
+
+Write-Host "✅ Scaffold created at $rootPath"</pre>
+      </blockquote>
+      <p>Once that script was in place we stopped hand-creating folders entirely. Codex consumed the Markdown specs, ran the scaffold, and filled each empty file with deliberate stubs—always referencing the spec section that justified its existence.</p>
+
+      <h2>Disciplined Prompts, Disciplined Output</h2>
+      <p>We imposed three guardrails that changed everything:</p>
+      <ul>
+        <li><strong>Scope locks:</strong> Each document defined what the module could import and what it was forbidden to touch. Codex had to call out boundary crossings explicitly, which killed the early circular dependency messes.</li>
+        <li><strong>Traceable commentary:</strong> Every stub included a header pointing back to the Markdown source. Humans could diff behavior changes against the spec in seconds.</li>
+        <li><strong>Prompt parity:</strong> If Codex asked for clarification, we updated the spec first and re-ran the prompt. No ad-hoc instructions, no side-channel hacks.</li>
+      </ul>
+      <p>The difference was immediate. The repo that had been prose-only at sunrise now contained a navigable skeleton: <code>/engine/core</code>, <code>/render</code>, <code>/gameplay</code>, <code>/ui</code>, and a <code>/tests</code> harness prepared for the logic still to come. It was anatomical, not poetic.</p>
+
+      <h2>The First Compile That Mattered</h2>
+      <p>Late that night we ran the inaugural build on the fresh scaffold. There was no entropy system yet and no pixels on screen, just a validation executable that confirmed the directories, build scripts, and project files aligned. The console output was humble—module names, init order, success flags—but every line traced directly back to a sentence in the documentation set. That was the proof that the loop worked.</p>
+
+      <h2>Takeaways</h2>
+      <ul>
+        <li><strong>Trust is leverage.</strong> The moment we stopped treating Codex like an intern and started treating it like a systems engineer with a checklist, velocity quadrupled.</li>
+        <li><strong>Specs are the real source code.</strong> Precise Markdown beat “clever” prose. Codex mirrored the tone it was given; sharp instructions produced clean scaffolds.</li>
+        <li><strong>Automate the reset.</strong> The scaffold script turned every misstep into a recoverable experiment. We could nuke, rerun, and verify in minutes.</li>
+      </ul>
+      <p>Day 2 closed without a single rendered frame, but we finally had a machine worth feeding. Over the next five days that same loop delivered the runtime, render pipeline, and the first gallery of frames. None of it would have landed without the trust—and the blueprint—we forged here.</p>
+
+      <p style="margin-top: 3em; font-size: 0.95rem; color: #8bbce8; text-transform: uppercase; letter-spacing: 0.08em;">Next: Day 3 — When the boilerplate started breathing.</p>
+    </main>
+    <footer>© 2025 BlackFrame AI Studio</footer>
+  </div>
+</body>
+</html>
