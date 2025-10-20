@@ -44,14 +44,18 @@
       </a>
       <nav class="site-nav" aria-label="Primary">
         <ul class="site-nav__list">
-          <li><a class="site-nav__link" href="/">Home</a></li>
-          <li><a class="site-nav__link" href="/blog/">Blog</a></li>
+          <li><a class="site-nav__link" href="/" aria-current="page">Home</a></li>
+          <li><a class="site-nav__link" href="/services/">Services</a></li>
+          <li><a class="site-nav__link" href="/partner-playbooks/">Partner Playbooks</a></li>
           <li><a class="site-nav__link" href="/devlog-vault/">Devlog Vault</a></li>
-          <li><a class="site-nav__link" href="/#services">Services</a></li>
-          <li><a class="site-nav__link" href="/#partner-offerings">Partner Playbooks</a></li>
-          <li><a class="site-nav__link" href="mailto:studio@blackframeai.org">Contact</a></li>
+          <li><a class="site-nav__link" href="/blog/">Blog</a></li>
+          <li><a class="site-nav__link" href="/contact/">Contact</a></li>
         </ul>
-        <a class="site-nav__cta" href="https://cal.com/blackframeai/partnership-intro" target="_blank" rel="noopener noreferrer">Book a Call</a>
+        <div class="site-nav__meta" role="group" aria-label="Studio quick links">
+          <a href="https://cal.com/blackframeai/partnership-intro" target="_blank" rel="noopener noreferrer">Book a capabilities call</a>
+          <a href="mailto:studio@blackframeai.org">studio@blackframeai.org</a>
+          <a href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow @blackframeai</a>
+        </div>
       </nav>
     </div>
   </header>
@@ -214,20 +218,48 @@
         <p>We keep the language clear so anyone can follow our workflows. Start here if you're new to AI-assisted production.</p>
         <dl class="glossary-list">
           <div class="glossary-term">
-            <dt>Vibe Coding</dt>
-            <dd>Our practice of authoring systems in expressive Markdown that compiles into runnable prototypes with human review gates.</dd>
+            <span class="glossary-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" role="img" aria-hidden="true">
+                <path d="M4 6h24v4H4zm4 8h16v4H8zm-4 8h24v4H4z" />
+              </svg>
+            </span>
+            <div class="glossary-definition">
+              <dt>Vibe Coding</dt>
+              <dd>Our practice of authoring systems in expressive Markdown that compiles into runnable prototypes with human review gates.</dd>
+            </div>
           </div>
           <div class="glossary-term">
-            <dt>Codex</dt>
-            <dd>The orchestration brain coordinating agents, testing harnesses, and validation flows across the engine stack.</dd>
+            <span class="glossary-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" role="img" aria-hidden="true">
+                <path d="M16 4 4 10v12l12 6 12-6V10z" />
+              </svg>
+            </span>
+            <div class="glossary-definition">
+              <dt>Codex</dt>
+              <dd>The orchestration brain coordinating agents, testing harnesses, and validation flows across the engine stack.</dd>
+            </div>
           </div>
           <div class="glossary-term">
-            <dt>Agentic Workflow</dt>
-            <dd>A production loop where AI agents and humans share tasks with telemetry so creative leads stay accountable and in control.</dd>
+            <span class="glossary-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" role="img" aria-hidden="true">
+                <path d="M6 8h8v4H6zm12 0h8v4h-8zM6 20h8v4H6zm12 0h8v4h-8zM6 14h20v4H6z" />
+              </svg>
+            </span>
+            <div class="glossary-definition">
+              <dt>Agentic Workflow</dt>
+              <dd>A production loop where AI agents and humans share tasks with telemetry so creative leads stay accountable and in control.</dd>
+            </div>
           </div>
           <div class="glossary-term">
-            <dt>Telemetry Streams</dt>
-            <dd>Real-time observability feeds capturing performance, narrative continuity, and player sentiment for rapid tuning.</dd>
+            <span class="glossary-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" role="img" aria-hidden="true">
+                <path d="M4 6h6l2 4h8l2-4h6v20H4z" />
+              </svg>
+            </span>
+            <div class="glossary-definition">
+              <dt>Telemetry Streams</dt>
+              <dd>Real-time observability feeds capturing performance, narrative continuity, and player sentiment for rapid tuning.</dd>
+            </div>
           </div>
         </dl>
       </section>

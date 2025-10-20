@@ -8,6 +8,7 @@
     const posts = postList ? Array.from(postList.querySelectorAll('.post-card')) : [];
     const searchInput = doc.querySelector('[data-post-search]');
     const status = doc.querySelector('[data-post-count]');
+    const emptyState = doc.querySelector('[data-no-results]');
 
     if (!buttons.length || !posts.length) return;
 
@@ -67,6 +68,16 @@
       });
 
       updateStatus(visibleCount);
+
+      if (emptyState) {
+        if (visibleCount === 0) {
+          emptyState.removeAttribute('hidden');
+          emptyState.setAttribute('aria-live', 'polite');
+        } else {
+          emptyState.setAttribute('hidden', '');
+          emptyState.removeAttribute('aria-live');
+        }
+      }
     };
 
     buttons.forEach((button) => {
