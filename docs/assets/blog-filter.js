@@ -16,7 +16,7 @@
       ? global.location.search
       : '';
     const params = typeof URLSearchParams !== 'undefined' ? new URLSearchParams(search) : null;
-    const initialTopic = params && params.get('topic') ? params.get('topic') : 'all';
+    const initialTopic = params && params.get('topic') ? params.get('topic').toLowerCase() : 'all';
     const state = {
       topic: initialTopic,
       query: searchInput ? searchInput.value.trim().toLowerCase() : '',
@@ -32,7 +32,8 @@
     };
 
     const postMatches = (post) => {
-      const tags = (post.dataset.tags || '').split(/\s+/).filter(Boolean);
+      const tagSource = post.getAttribute('data-tags') || '';
+      const tags = (tagSource.match(/[a-z0-9-]+/gi) || []).map((token) => token.toLowerCase());
       const matchesTopic = state.topic === 'all' || tags.includes(state.topic);
       if (!matchesTopic) return false;
 
@@ -44,7 +45,7 @@
 
     const applyFilter = (nextTopic) => {
       if (nextTopic) {
-        state.topic = nextTopic;
+        state.topic = nextTopic.toLowerCase();
       }
 
       buttons.forEach((button) => {
@@ -82,7 +83,7 @@
 
     buttons.forEach((button) => {
       button.addEventListener('click', () => {
-        const topic = button.dataset.topic || 'all';
+        const topic = (button.dataset.topic || 'all').toLowerCase();
         if (button.getAttribute('aria-pressed') === 'true') return;
         applyFilter(topic);
 
