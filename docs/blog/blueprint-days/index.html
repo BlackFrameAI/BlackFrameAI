@@ -591,11 +591,11 @@ Write-Host "✅ Scaffold created at $rootPath"</pre>
               return 0;
             });
 
-          const incrementCounter = (fallbackValue) => fetchJson(`hit/${encodeURIComponent(namespace)}/${encodeURIComponent(key)}`)
+          const incrementCounter = () => fetchJson(`hit/${encodeURIComponent(namespace)}/${encodeURIComponent(key)}`)
             .then((data) => data.value)
             .catch((err) => {
               console.warn('Unable to update like counter', err);
-              return fallbackValue;
+              throw err;
             });
 
           let hasLocalLike = false;
@@ -622,13 +622,18 @@ Write-Host "✅ Scaffold created at $rootPath"</pre>
             const optimistic = current + 1;
             updateCountDisplay(optimistic);
 
-            incrementCounter(optimistic).then((value) => {
+            incrementCounter().then((value) => {
               updateCountDisplay(value);
               try {
                 window.localStorage.setItem(storageKey, '1');
               } catch (err) {
                 console.warn('Unable to persist like locally', err);
               }
+            }).catch(() => {
+              updateCountDisplay(current);
+              button.removeAttribute('disabled');
+              button.setAttribute('aria-pressed', 'false');
+              button.classList.remove('is-liked');
             });
           });
         })();
