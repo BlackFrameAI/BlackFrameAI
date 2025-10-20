@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thanks for Subscribing — BlackFrame AI</title>
+  <meta name="description" content="Thanks for subscribing to the BlackFrame AI transmission list." />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="manifest" href="/manifest.json" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: Arial, sans-serif;
+      background:
+        url('/assets/bg_blackleather_processed.jpg') center center / cover no-repeat,
+        #000;
+      color: #f0f0f0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('/assets/tracer_animated_glow.svg') center center / cover no-repeat;
+      z-index: 0;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      padding: 48px 24px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.1rem);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8fd7ff;
+      text-shadow: 0 0 18px rgba(0, 191, 255, 0.55);
+      margin: 0;
+    }
+
+    p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 640px;
+      color: #d6e9ff;
+      margin: 0;
+    }
+
+    a {
+      color: #c6ebff;
+    }
+
+    .cta {
+      padding: 0.7em 1.6em;
+      border-radius: 999px;
+      border: 1px solid rgba(143, 215, 255, 0.45);
+      background: rgba(0, 30, 50, 0.6);
+      color: #f0f6ff;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .cta:hover {
+      border-color: rgba(143, 215, 255, 0.85);
+      box-shadow: 0 0 24px rgba(77, 211, 255, 0.55);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>Transmission Locked In</h1>
+    <p>Thanks for joining the BlackFrame AI transmission list. We’ll send weekly roundups, partner notes, and the occasional surprise drop straight to your inbox.</p>
+    <a class="cta" href="/blog/">Return to the Studio Blog</a>
+  </div>
+</body>
+</html>

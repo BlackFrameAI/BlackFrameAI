@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BlackFrame AI Devlog Vault</title>
+  <meta name="description" content="Transparent changelog tracking every major milestone in the BlackFrame AI engine and studio stack." />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="manifest" href="/manifest.json" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: Arial, sans-serif;
+      background:
+        url('/assets/bg_blackleather_processed.jpg') center center / cover no-repeat,
+        #000;
+      color: #f0f0f0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('/assets/tracer_animated_glow.svg') center center / cover no-repeat;
+      z-index: 0;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      backdrop-filter: blur(2px);
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 32px 0;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #f0f6ff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.9em;
+      text-decoration: none;
+    }
+
+    .home-link img {
+      height: 54px;
+      width: auto;
+      filter: drop-shadow(0 0 6px rgba(0, 191, 255, 0.45));
+    }
+
+    .cta {
+      padding: 0.6em 1.2em;
+      border: 1px solid #00afff88;
+      border-radius: 999px;
+      color: #f0f6ff;
+      font-size: 0.95em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(0, 30, 50, 0.55);
+      box-shadow: 0 0 12px rgba(0, 191, 255, 0.35);
+      backdrop-filter: blur(4px);
+      text-decoration: none;
+    }
+
+    .cta:hover {
+      color: #fff;
+      border-color: #4dd3ff;
+      box-shadow: 0 0 18px rgba(77, 211, 255, 0.6);
+    }
+
+    main {
+      flex: 1;
+      width: min(960px, 92vw);
+      margin: 40px auto 80px;
+      background: rgba(0, 10, 20, 0.75);
+      border: 1px solid rgba(0, 160, 255, 0.25);
+      border-radius: 24px;
+      box-shadow: 0 0 35px rgba(0, 120, 190, 0.25);
+      padding: clamp(32px, 6vw, 72px);
+      display: grid;
+      gap: 2rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 4.5vw, 3.2rem);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8fd7ff;
+      text-shadow: 0 0 18px rgba(0, 191, 255, 0.55);
+    }
+
+    p {
+      line-height: 1.75;
+      font-size: 1.05rem;
+      color: #d6e9ff;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 1.8rem;
+    }
+
+    .timeline-item {
+      border-left: 3px solid rgba(77, 211, 255, 0.55);
+      padding-left: 1.4rem;
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .timeline-item time {
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #8bbce8;
+    }
+
+    .timeline-item h2 {
+      margin: 0;
+      font-size: 1.4rem;
+      color: #e3f5ff;
+    }
+
+    .timeline-item a {
+      color: #c6ebff;
+    }
+
+    .next-actions {
+      border-top: 1px solid rgba(143, 215, 255, 0.35);
+      padding-top: 1.6rem;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    footer {
+      padding: 0 0 40px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6c7b8c;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .home-link {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a href="/" class="home-link">
+        <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" loading="lazy" />
+        <span>Back to Landing</span>
+      </a>
+      <a class="cta" href="/blog/">Studio Blog</a>
+    </header>
+    <main>
+      <section>
+        <h1>Devlog Vault</h1>
+        <p>This living changelog records every notable push across the BlackFrame engine stack, creator co-pilots, and studio operations. Pair it with the blog for narrative context, or skim highlights before a capabilities call.</p>
+      </section>
+      <section class="timeline" aria-label="Timeline of recent milestones">
+        <div class="timeline-item">
+          <time datetime="2025-03-01">March 1, 2025</time>
+          <h2>AI Engine Foundations pillar published</h2>
+          <p>Released the modular stack overview detailing simulation spine, narrative canon, co-pilots, and observability. <a href="/blog/ai-engine-foundations/">Read the companion article</a>.</p>
+        </div>
+        <div class="timeline-item">
+          <time datetime="2025-01-18">January 18, 2025</time>
+          <h2>Blueprint Days devlog shipped</h2>
+          <p>Codex promoted to scaffolding lead with Markdown canon, delivering a full engine skeleton in hours. <a href="/blog/blueprint-days/">Catch the play-by-play</a>.</p>
+        </div>
+        <div class="timeline-item">
+          <time datetime="2025-01-17">January 17, 2025</time>
+          <h2>Vibe Coding method documented</h2>
+          <p>Opened the vault on our Markdown-to-engine workflow and the guardrails that keep generation accountable. <a href="/blog/birth-of-vibe-coding/">See the origin story</a>.</p>
+        </div>
+      </section>
+      <section class="next-actions" aria-label="Upcoming focus">
+        <h2>What we're tracking next</h2>
+        <p><strong>Partner playbook refresh:</strong> Expanding onboarding docs with Unreal/Unity reference architectures.</p>
+        <p><strong>Telemetry dashboards:</strong> Publishing live-ops metrics templates once QA approves the new alerting layer.</p>
+        <p><strong>Creator co-pilot beta:</strong> Preparing private invites for narrative design teams evaluating the Markdown canon.</p>
+      </section>
+    </main>
+    <footer>© 2025 BlackFrame AI Studio</footer>
+  </div>
+</body>
+</html>
