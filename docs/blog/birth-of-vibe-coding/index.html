@@ -535,7 +535,7 @@ tags:
             <span aria-hidden="true">❤️</span>
             <span class="like-label">Like this article</span>
           </button>
-          <span class="like-count" data-like-count aria-live="polite">—</span>
+          <span class="like-count" data-like-count aria-live="polite">0</span>
         </div>
         <p class="community-lead">
           Want more dispatches? <a href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow @blackframeai on X</a> for realtime drops.
@@ -555,20 +555,18 @@ tags:
       <script>
         (function () {
           const namespace = 'blackframeai.blog';
+          const endpoint = 'https://countapi.xyz/api';
           const button = document.querySelector('.like-button[data-counter-key]');
           const countEl = document.querySelector('[data-like-count]');
           if (!button || !countEl) return;
 
           const key = button.getAttribute('data-counter-key');
           const storageKey = `bf-like-${key}`;
-          const endpoint = 'https://api.countapi.xyz';
 
-          const formatCount = (value) => {
-            if (Number.isFinite(value)) {
-              countEl.textContent = value.toLocaleString();
-            } else {
-              countEl.textContent = '—';
-            }
+          const updateCountDisplay = (value) => {
+            const safeValue = Number.isFinite(value) ? value : 0;
+            countEl.dataset.countValue = String(safeValue);
+            countEl.textContent = safeValue.toLocaleString();
           };
 
           const markLiked = () => {
@@ -577,30 +575,30 @@ tags:
             button.classList.add('is-liked');
           };
 
-          const callApi = (path) => fetch(path).then((response) => {
+          const fetchJson = (path) => fetch(`${endpoint}/${path}`).then((response) => {
             if (!response.ok) {
               throw new Error('Network response was not ok');
             }
             return response.json();
           });
 
-          const ensureCounter = () => callApi(`${endpoint}/get/${namespace}/${key}`)
-            .catch(() => callApi(`${endpoint}/set/${namespace}/${key}?value=0`))
+          const ensureCounter = () => fetchJson(`get/${encodeURIComponent(namespace)}/${encodeURIComponent(key)}`)
+            .catch(() => fetchJson(`create?namespace=${encodeURIComponent(namespace)}&key=${encodeURIComponent(key)}&value=0`))
             .then((data) => {
-              formatCount(data.value);
+              updateCountDisplay(data.value);
               return data.value;
             })
-            .catch(() => {
-              formatCount(NaN);
+            .catch((err) => {
+              console.warn('Unable to load like counter', err);
+              updateCountDisplay(0);
+              return 0;
             });
 
-          const incrementCounter = () => callApi(`${endpoint}/hit/${namespace}/${key}`)
-            .then((data) => {
-              formatCount(data.value);
-              return data.value;
-            })
-            .catch(() => {
-              formatCount(NaN);
+          const incrementCounter = (fallbackValue) => fetchJson(`hit/${encodeURIComponent(namespace)}/${encodeURIComponent(key)}`)
+            .then((data) => data.value)
+            .catch((err) => {
+              console.warn('Unable to update like counter', err);
+              return fallbackValue;
             });
 
           let hasLocalLike = false;
@@ -621,14 +619,18 @@ tags:
               return;
             }
 
-            incrementCounter().then((value) => {
-              if (Number.isFinite(value)) {
-                try {
-                  window.localStorage.setItem(storageKey, '1');
-                } catch (err) {
-                  console.warn('Unable to persist like locally', err);
-                }
-                markLiked();
+            markLiked();
+
+            const current = Number.parseInt(countEl.dataset.countValue || countEl.textContent.replace(/[^\d]/g, ''), 10) || 0;
+            const optimistic = current + 1;
+            updateCountDisplay(optimistic);
+
+            incrementCounter(optimistic).then((value) => {
+              updateCountDisplay(value);
+              try {
+                window.localStorage.setItem(storageKey, '1');
+              } catch (err) {
+                console.warn('Unable to persist like locally', err);
               }
             });
           });
