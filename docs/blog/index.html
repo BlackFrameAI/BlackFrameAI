@@ -167,56 +167,7 @@
         </div>
       </section>
     </main>
-    <script>
-      (function () {
-        const buttons = Array.from(document.querySelectorAll('.filter-button'));
-        const postList = document.querySelector('[data-post-list]');
-        const posts = Array.from(postList ? postList.querySelectorAll('.post-card') : []);
-        if (!buttons.length || !posts.length) return;
-
-        const params = new URLSearchParams(window.location.search);
-        const initialTopic = params.get('topic') || 'all';
-
-        const applyFilter = (topic) => {
-          buttons.forEach((button) => {
-            const isActive = button.dataset.topic === topic;
-            button.setAttribute('aria-pressed', String(isActive));
-          });
-
-          posts.forEach((post) => {
-            const tags = (post.dataset.tags || '').split(/\s+/);
-            const matches = topic === 'all' || tags.includes(topic);
-            if (matches) {
-              post.removeAttribute('data-hidden');
-              delete post.dataset.hidden;
-              post.removeAttribute('hidden');
-              post.removeAttribute('aria-hidden');
-            } else {
-              post.dataset.hidden = 'true';
-              post.setAttribute('hidden', '');
-              post.setAttribute('aria-hidden', 'true');
-            }
-          });
-        };
-
-        buttons.forEach((button) => {
-          button.addEventListener('click', () => {
-            const topic = button.dataset.topic || 'all';
-            if (button.getAttribute('aria-pressed') === 'true') return;
-            applyFilter(topic);
-            const url = new URL(window.location.href);
-            if (topic === 'all') {
-              url.searchParams.delete('topic');
-            } else {
-              url.searchParams.set('topic', topic);
-            }
-            window.history.replaceState({}, '', url.toString());
-          });
-        });
-
-        applyFilter(buttons.some((btn) => btn.dataset.topic === initialTopic) ? initialTopic : 'all');
-      })();
-    </script>
+    <script src="/assets/blog-filter.js" defer></script>
     <footer>© 2025 BlackFrame AI Studio</footer>
   </div>
 </body>
