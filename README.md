@@ -41,6 +41,13 @@ We build proprietary technology designed to redefine the creative, technical, an
 
 ---
 
+## ✅ Testing
+
+- Install development dependencies with `npm install`.
+- Run the JSDOM-powered interface tests with `npm test`.
+
+---
+
 ## 🛡️ Security Notes
 
 - The public site is completely static and served from GitHub Pages, limiting the attack surface to the vetted Utterances comment embed.
