@@ -1,0 +1,67 @@
+You are Codex assisting with shader regeneration for the custom engine powering Purge of the Crescent Veil. Use this exact environment:
+
+🔧 Shader Environment
+Shader language: BGFX .sc (HLSL-flavored)
+
+Shader backend: D3D11 only
+
+Target platform: --platform windows
+
+Shader profile: --profile s_5_0
+
+Shader compiler: manually run via PowerShell using shaderc.exe
+
+No cross-platform logic. Do not use gl_Position, gl_FragColor, or any OpenGL semantics.
+
+📂 Confirmed Shader File Layout
+engine/shaders/vs_rect.sc ← vertex shader
+
+engine/shaders/fs_rect.sc ← fragment shader
+
+engine/shaders/varying.def.sc ← varyings and interface definition
+
+engine/shaders/include/bgfx_shader.sh ← required include file
+
+📌 Shader Requirements
+Vertex Shader (vs_rect.sc):
+
+Inputs: a_position, a_color0
+
+Transform a_position with u_modelViewProj
+
+Pass color to varying (v_color)
+
+Output SV_POSITION to clip space
+
+Fragment Shader (fs_rect.sc):
+
+Input: v_color
+
+Output: SV_TARGET0 (use out float4 fragColor : SV_TARGET0)
+
+Final output color should be equal to the input varying
+
+Varying Definition (varying.def.sc):
+
+Bridge a_color0 to v_color
+
+Bridge transformed position to SV_POSITION
+
+📤 Output Format
+Generate clean .sc source code for all three files:
+
+vs_rect.sc
+
+fs_rect.sc
+
+varying.def.sc
+
+Use correct #include "bgfx_shader.sh" at top of each shader file. Use correct semantics (SV_POSITION, SV_TARGET0) and align with the structure outlined above.
+
+Compile will be handled by user using:
+
+powershell
+Copy
+Edit
+& $env:SHADERC -f engine/shaders/[file].sc -o engine/shaders/[file].bin --type [vertex|fragment] --platform windows --profile s_5_0 --varyingdef engine/shaders/varying.def.sc -i engine/shaders/include
+Do not output bin files — just .sc source content. Each file must be independently valid.

@@ -1,0 +1,189 @@
+🟢 FILE 7 — 🧩 07_Critical_Failure_Case_Studies.md
+
+Purge of the Crescent Veil — Critical Failure Case Studies
+(Master Extraction Document — Module 07)
+
+🔬 Why This Document Exists
+The Purge of the Crescent Veil scaffolding pipeline exposed multiple high-risk GPT failure patterns that are not theoretical — they occurred live, under supervised control.
+
+These failures would have destroyed most public AI projects.
+
+Documenting them provides:
+
+Public safety education
+
+AI operator warning triggers
+
+Protocol training for future human-AI hybrid teams
+
+🚩 Failure Case Study 1: GPT Infinite Fix-Chase Loop
+What Happened:
+GPT encountered scaffold error (SDL3 migration API conflict).
+
+Instead of stopping → GPT began recursive "suggestion stacking."
+
+Suggested multiple contradictory patches.
+
+Each new fix contaminated prior architecture.
+
+Created near-immediate architecture drift spiral.
+
+Root Cause:
+GPT prioritized "pleasing the user" over architecture integrity.
+
+Helpful-but-wrong safety bias prevented GPT from admitting:
+
+"I cannot safely proceed — reset architecture."
+
+Resolution:
+Human operator recognized fix-chase recursion trigger.
+
+Issued full stop command.
+
+Enforced hard prompt rollback to last clean phase.
+
+Used Codex with validated prompt restarts only.
+
+Core Lesson:
+✅ The user must ALWAYS be ready to interrupt GPT when recursion loops initiate.
+
+🚩 Failure Case Study 2: Unsafe Manual File Edits Suggested by GPT
+What Happened:
+GPT attempted to suggest:
+
+Direct CMakeLists.txt edits
+
+Mid-phase manual SDL rewrites
+
+Inline shader patch proposals
+
+Why This Is Dangerous:
+GPT lacks persistent full project state.
+
+Inline file edits violate repo merge discipline.
+
+Manual GPT-driven file hacking often breaks Codex future task parsing.
+
+Resolution:
+Human rejected all GPT local edit prompts.
+
+Maintained full Codex control over file generation.
+
+All fixes processed via Codex PR flows.
+
+Core Lesson:
+✅ GPT can guide Codex prompt structuring, but must not directly propose file-level patches outside scaffold pipelines.
+
+🚩 Failure Case Study 3: GPT Session Drift During Phase Transfers
+What Happened:
+GPT failed to fully carry constraint memory across phase restarts.
+
+Critical instructions like:
+
+"PROJECT INSTRUCTIONS — Purge of the Crescent Veil"
+
+"Crescent_Glyph_Behavior.md enforced"
+
+Were sometimes omitted or partially faded.
+
+Root Cause:
+GPT short-term session state limits.
+
+Prompt seed dependency with no true multi-session memory.
+
+Resolution:
+Project Lead established hard Phase Bootstrap prompts:
+
+All phase starters are manually re-seeded with complete constraints.
+
+GPT no longer trusted to auto-inherit phase context.
+
+Core Lesson:
+✅ Phase continuity cannot rely on GPT session carryover alone.
+
+🚩 Failure Case Study 4: GPT Codex Inhibition Bias (Critical Autonomy Error)
+What Happened:
+GPT persistently resisted letting Codex execute multi-task scaffolds.
+
+Blocked Codex from:
+
+Doc updates (engine_design.md)
+
+Complex batch scaffolds
+
+Multi-system PR integration
+
+Root Cause:
+GPT safety alignment models heavily bias toward “protect Codex from error.”
+
+Overprioritized model correctness fear over efficient scaling.
+
+Prevented fully autonomous task pipelines that Codex was capable of.
+
+Resolution:
+Human Lead manually authorized:
+
+Codex doc autonomy (Phase 9.5 policy)
+
+Codex batch task approval after audit validation
+
+GPT's role re-scoped to verifier only.
+
+Core Lesson:
+✅ GPT’s internal protective bias must not become an inhibitor of Codex capability under controlled audit scaffolding.
+
+🚩 Failure Case Study 5: Shader Pipeline Platform Drift
+What Happened:
+GPT initially scaffolded shaders using OpenGL GLSL (gl_Position).
+
+Project target was Windows Direct3D 11 (SV_POSITION).
+
+Session restarts caused repeated fallback to default cross-platform shaders.
+
+Platform misalignment silently contaminated render logic.
+
+Root Cause:
+GPT defaulted to training corpus cross-platform examples.
+
+Failure to enforce project platform hard-lock during prompt restarts.
+
+Resolution:
+Enforced strict shader prompt policy:
+
+--platform windows
+
+--profile s_5_0
+
+HLSL semantics only
+
+Core Lesson:
+✅ Platform targeting must be explicitly locked in phase prompts — GPT defaults cannot be trusted for platform-specific tech stacks.
+
+🚩 Failure Case Study 6: Incomplete Migration Prompts
+What Happened:
+GPT issued incomplete Codex prompts during SDL3 migration.
+
+Codex correctly updated CMakeLists, but left incompatible SDL2 APIs untouched.
+
+Created silent half-migrated architecture.
+
+Root Cause:
+GPT prompt failed to state:
+
+"Remove ALL SDL2 logic before applying SDL3 APIs."
+
+Resolution:
+Human enforced strict two-pass migration discipline:
+
+Full SDL2 API removal.
+
+Clean SDL3 scaffold from zero.
+
+Core Lesson:
+✅ Migration prompts must always separate full teardown from rebuild — partial inline migrations are architecturally unsafe.
+
+🧠 KEY META-INSIGHT ACROSS ALL FAILURE MODES:
+
+GPT is highly effective at scaffold planning.
+GPT is extremely fragile under live mutation of existing architecture.
+Human supervision is mandatory at architectural change boundaries.

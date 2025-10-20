@@ -1,0 +1,85 @@
+🟢 FILE 4 — 🧩 04_AI_Interaction_Protocols.md
+
+Purge of the Crescent Veil — AI Interaction Protocols
+(Master Extraction Document — Module 04)
+
+🤖 AI Roles Defined
+Agent	Responsibility
+GPT	Orchestration, design audits, constraint enforcement, prompt scaffolding
+Codex	Code generation, file-level task execution, repository integration
+
+🧩 Master Control Structure
+Human Project Lead → GPT Supervisor → Codex Executor
+
+🔧 Task Authorization Model
+Task Type	Authorization
+System scaffolding	GPT orchestrates → Codex executes
+Engine design adjustments	Human-locked
+Multi-system refactors	Human-locked
+Docs / Markdown	Codex fully authorized (Post Phase 9.5 policy)
+Shader generation	GPT locked to strict prompt constraints
+Merge approval	Human-only
+
+🛡 GPT Constraint Discipline
+GPT may NOT self-infer project state.
+
+GPT may NOT modify architecture autonomously.
+
+GPT must freeze if recursion failure detected.
+
+GPT must explicitly defer subsystem correctness scans to Codex.
+
+GPT may NOT propose manual file edits.
+
+🚩 Prompt Control Rules
+Every Phase Initialization includes:
+
+PROJECT INSTRUCTIONS header.
+
+Enforcement of Crescent_Glyph_Behavior.md.
+
+Phase title + scope block.
+
+Model role separation declaration.
+
+Codex Scaffold Style Checklist.
+
+🔬 Verify Run Protocol
+Verify Stage	Rule
+Verify Run Cleanup	GPT generates scan-only prompt for Codex
+Subsystem Confirmation	Codex performs project scan
+Cleanup Tasks	Codex-generated, merge-reviewed
+
+🧠 GPT Autonomy Threshold Rules
+Action	Permission
+Create new Phase prompts	✅ (within locked rules)
+Auto-correct scaffold failures	✅ (per file, under constraints)
+Self-generate complex PR batches	✅ (post Phase 9.6 audit approval)
+Perform repo-wide migrations	❌ (requires explicit design decision prompt)
+
+📄 Scaffold Style Enforcement
+Codex Scaffold Style Checklist (simplified version):
+
+State target file name.
+
+Create system in isolated header/implementation pair.
+
+Use proper namespaces.
+
+Do not modify unrelated files.
+
+Do not reference future systems.
+
+Include clean lifecycle functions (Init, Update, Shutdown).
+
+Default to RAII ownership patterns.
+
+🔐 Post Phase 9 Critical Update
+Codex may freely self-manage .md and doc files.
+
+GPT review remains active but cannot block Codex PR generation.
+
+All architecture lock authority remains fully human.
+
+✅ Summary
+This project operates under a precision dual-AI control stack where GPT scaffolds task execution structure, but final authority for all state changes remains either Codex-scanned or human-authorized. This eliminates speculative failure paths while allowing safe autonomous growth.
