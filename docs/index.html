@@ -7,12 +7,15 @@
 
   <!-- SEO Meta -->
   <meta name="description" content="BlackFrame AI — AI-powered game engines and original games. Official studio website.">
+  <meta name="author" content="BlackFrame AI Studio">
+  <link rel="canonical" href="https://www.blackframeai.org/" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="BlackFrame AI — AI-Powered Game Engines & Original Games">
   <meta property="og:description" content="AI-powered game engines and original games. Official studio website.">
   <meta property="og:url" content="https://www.blackframeai.org/">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BlackFrame AI">
   <meta property="og:image" content="https://www.blackframeai.org/assets/BlackFrameBanner.jpg">
   <meta property="og:image:width" content="1280">
   <meta property="og:image:height" content="640">
@@ -31,13 +34,16 @@
     html, body {
       margin: 0;
       padding: 0;
-      height: 100%;
+      min-height: 100%;
       font-family: Arial, sans-serif;
-      background: 
+      background:
         url('/assets/bg_blackleather_processed.jpg') center center / cover no-repeat,
         #000;
-      overflow: hidden;
       color: #f0f0f0;
+    }
+
+    body {
+      overflow-y: auto;
     }
 
     body::before {
@@ -55,12 +61,13 @@
     .container {
       position: relative;
       z-index: 1;
-      height: 100%;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
+      gap: 3rem;
+      padding: 96px 24px 64px;
+      box-sizing: border-box;
       animation: fadeIn 3s ease forwards;
     }
 
@@ -108,6 +115,87 @@
       animation: glowPulse 8s ease-in-out infinite;
     }
 
+    main {
+      width: 100%;
+      max-width: 960px;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      text-align: left;
+    }
+
+    .hero {
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.06em;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      max-width: 680px;
+      margin: 0.75rem auto 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.45em 1.1em;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: rgba(0, 40, 70, 0.55);
+      border: 1px solid rgba(0, 191, 255, 0.55);
+      border-radius: 999px;
+      box-shadow: 0 0 10px rgba(0, 191, 255, 0.25);
+      color: #c6ebff;
+    }
+
+    .content-section {
+      background: rgba(0, 20, 35, 0.65);
+      border-radius: 18px;
+      border: 1px solid rgba(0, 180, 255, 0.25);
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+      padding: 2.5rem;
+      backdrop-filter: blur(6px);
+    }
+
+    .content-section h2 {
+      font-size: clamp(1.7rem, 3vw, 2.2rem);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .content-section p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .content-section ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .content-section li + li {
+      margin-top: 0.6rem;
+    }
+
+    .community-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 1.5rem;
+    }
+
     .description {
       font-size: 1.2em;
       max-width: 600px;
@@ -126,10 +214,11 @@
     }
 
     .footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.9em;
-      color: #666;
+      width: 100%;
+      max-width: 960px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #9aa3ac;
     }
 
     @keyframes fadeIn {
@@ -155,7 +244,11 @@
       }
 
       .container {
-        padding-top: 72px;
+        padding: 96px 20px 64px;
+      }
+
+      .content-section {
+        padding: 2rem;
       }
     }
   </style>
@@ -169,12 +262,69 @@
     <a href="/blog/" class="logo-link">
       <img src="/assets/blackflamelogo.png" alt="BlackFrame AI Logo" class="logo">
     </a>
-    <p class="description">
-      AI-powered game engines & original games.<br>
-      Our official website is coming soon.<br>
-      <a href="https://github.com/BlackFrameAI" target="_blank">Follow us on GitHub for updates!</a>
-    </p>
-    <div class="footer">© 2025 BlackFrame AI Studio</div>
+    <main>
+      <section class="hero" aria-labelledby="vision-heading">
+        <span class="pill" id="vision-heading">Creative AI for Immersive Worlds</span>
+        <h1>AI-Powered Game Engines & Original Games</h1>
+        <p>
+          BlackFrame AI is an independent studio building proprietary AI engines that fast-track worldbuilding,
+          storytelling, and live-ops for next-generation games. Our team blends deep technical research with
+          bold aesthetics to help creators ship unforgettable player experiences.
+        </p>
+      </section>
+
+      <section class="content-section" aria-labelledby="technology-heading">
+        <h2 id="technology-heading">What We're Building</h2>
+        <p>
+          We are actively developing a modular engine stack that combines procedural simulation, adaptive
+          narrative design, and real-time art direction. Each system is trained on curated datasets to enhance
+          human creativity—never to replace it. If you're exploring AI-assisted production or narrative systems,
+          we're excited to collaborate.
+        </p>
+        <ul>
+          <li><strong>BlackFrame Engine:</strong> A hybrid rendering and simulation toolkit tuned for stylized sci-fi worlds.</li>
+          <li><strong>Creator Co-Pilots:</strong> Workflow agents that help writers, level designers, and live-ops teams move faster.</li>
+          <li><strong>Original IP:</strong> Experimental titles that demonstrate how AI-first pipelines unlock new genres.</li>
+        </ul>
+      </section>
+
+      <section class="content-section" aria-labelledby="community-heading">
+        <h2 id="community-heading">Stay in the Loop</h2>
+        <p>
+          Follow our development updates, devlogs, and behind-the-scenes drops. We're sharing research notes,
+          early prototypes, and production learnings so fellow studios and fans can grow with us.
+        </p>
+        <div class="community-links">
+          <a class="social-button" href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow on X</a>
+          <a class="blog-button" href="/blog/">Visit the Studio Blog</a>
+          <a class="social-button" href="https://github.com/BlackFrameAI" target="_blank" rel="noopener noreferrer">Track Builds on GitHub</a>
+          <a class="social-button" href="mailto:studio@blackframeai.org">Contact the Studio</a>
+        </div>
+      </section>
+    </main>
+    <div class="footer">© 2025 BlackFrame AI Studio · <a href="mailto:studio@blackframeai.org">studio@blackframeai.org</a></div>
   </div>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "BlackFrame AI Studio",
+      "url": "https://www.blackframeai.org/",
+      "logo": "https://www.blackframeai.org/assets/blackflamelogo.png",
+      "description": "BlackFrame AI builds AI-powered game engines, creator co-pilots, and original interactive worlds.",
+      "sameAs": [
+        "https://x.com/blackframeai",
+        "https://github.com/BlackFrameAI"
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "press",
+          "email": "studio@blackframeai.org"
+        }
+      ]
+    }
+  </script>
 </body>
 </html>
