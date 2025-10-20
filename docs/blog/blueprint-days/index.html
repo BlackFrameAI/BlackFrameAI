@@ -304,6 +304,7 @@
       <a href="/blog/" class="home-link">
         <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" />
         <span>Back to Blog</span>
+      </a>
       <a href="/" class="home-link">
         <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" />
         <span>Back to Landing</span>
@@ -330,18 +331,6 @@
         <p>To guarantee reproducibility we codified the file tree first, then let Codex populate it. The PowerShell snippet below became our first “runbook”—a one-command reset that enforced naming, directory layout, and the documentation skeleton.</p>
         <blockquote>
           <pre style="white-space: pre-wrap; font-family: 'Fira Code', monospace; font-size: 0.95rem; color: #e8f6ff; background: transparent;"># SET YOUR ROOT PATH HERE
-      <p style="text-transform: uppercase; letter-spacing: 0.12em; color: #8bbce8; font-size: 0.95rem; margin-bottom: 0.8em;">Day 2 Devlog • January 18, 2025</p>
-      <h1>The Blueprint Days: Trusting Codex With the Wheel</h1>
-      <p>Day 1 was philosophy—proving that language alone could describe an engine end-to-end. Day 2 was execution. We stopped debating whether Codex could be trusted and instead gave it a precise scaffolding contract, then watched it build the bones of BlackFrame faster than any human sprint we had ever run.</p>
-
-      <h2>Resetting the Premise</h2>
-      <p>The morning started with a frank post-mortem. GPT’s safety reflexes had been throttling progress for three straight sessions, insisting that Codex should be kept on a leash and limited to short, literal prompts. The result? Half-built stubs and hours lost to human rework. We wiped the slate clean and wrote a new rule: <strong>Codex owns the boilerplate when the spec is solid.</strong> Our job became giving it that spec.</p>
-      <p>Everything lived in Markdown. We captured the entire system surface—engine folders, runtime contracts, test harnesses—in a single briefing that Codex could parse without improvising. No entropy managers, no runtime magic; those concerns were weeks away. The only goal for Day 2 was reliable structure.</p>
-
-      <h2>The Scaffolding Script</h2>
-      <p>To guarantee reproducibility we codified the file tree first, then let Codex populate it. The PowerShell snippet below became our first “runbook”—a one-command reset that enforced naming, directory layout, and the documentation skeleton.</p>
-      <blockquote>
-        <pre style="white-space: pre-wrap; font-family: 'Fira Code', monospace; font-size: 0.95rem; color: #e8f6ff; background: transparent;"># SET YOUR ROOT PATH HERE
 $rootPath = "G:\CODEX_Projects\Purge_Of_The_Crescent_Veil"
 
 New-Item -ItemType Directory -Force -Path "$rootPath\engine"
@@ -498,30 +487,6 @@ Write-Host "✅ Scaffold created at $rootPath"</pre>
           });
         })();
       </script>
-      </blockquote>
-      <p>Once that script was in place we stopped hand-creating folders entirely. Codex consumed the Markdown specs, ran the scaffold, and filled each empty file with deliberate stubs—always referencing the spec section that justified its existence.</p>
-
-      <h2>Disciplined Prompts, Disciplined Output</h2>
-      <p>We imposed three guardrails that changed everything:</p>
-      <ul>
-        <li><strong>Scope locks:</strong> Each document defined what the module could import and what it was forbidden to touch. Codex had to call out boundary crossings explicitly, which killed the early circular dependency messes.</li>
-        <li><strong>Traceable commentary:</strong> Every stub included a header pointing back to the Markdown source. Humans could diff behavior changes against the spec in seconds.</li>
-        <li><strong>Prompt parity:</strong> If Codex asked for clarification, we updated the spec first and re-ran the prompt. No ad-hoc instructions, no side-channel hacks.</li>
-      </ul>
-      <p>The difference was immediate. The repo that had been prose-only at sunrise now contained a navigable skeleton: <code>/engine/core</code>, <code>/render</code>, <code>/gameplay</code>, <code>/ui</code>, and a <code>/tests</code> harness prepared for the logic still to come. It was anatomical, not poetic.</p>
-
-      <h2>The First Compile That Mattered</h2>
-      <p>Late that night we ran the inaugural build on the fresh scaffold. There was no entropy system yet and no pixels on screen, just a validation executable that confirmed the directories, build scripts, and project files aligned. The console output was humble—module names, init order, success flags—but every line traced directly back to a sentence in the documentation set. That was the proof that the loop worked.</p>
-
-      <h2>Takeaways</h2>
-      <ul>
-        <li><strong>Trust is leverage.</strong> The moment we stopped treating Codex like an intern and started treating it like a systems engineer with a checklist, velocity quadrupled.</li>
-        <li><strong>Specs are the real source code.</strong> Precise Markdown beat “clever” prose. Codex mirrored the tone it was given; sharp instructions produced clean scaffolds.</li>
-        <li><strong>Automate the reset.</strong> The scaffold script turned every misstep into a recoverable experiment. We could nuke, rerun, and verify in minutes.</li>
-      </ul>
-      <p>Day 2 closed without a single rendered frame, but we finally had a machine worth feeding. Over the next five days that same loop delivered the runtime, render pipeline, and the first gallery of frames. None of it would have landed without the trust—and the blueprint—we forged here.</p>
-
-      <p style="margin-top: 3em; font-size: 0.95rem; color: #8bbce8; text-transform: uppercase; letter-spacing: 0.08em;">Next: Day 3 — When the boilerplate started breathing.</p>
     </main>
     <footer>© 2025 BlackFrame AI Studio</footer>
   </div>
