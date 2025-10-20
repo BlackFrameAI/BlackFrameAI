@@ -188,8 +188,13 @@
             const matches = topic === 'all' || tags.includes(topic);
             if (matches) {
               post.removeAttribute('data-hidden');
+              delete post.dataset.hidden;
+              post.removeAttribute('hidden');
+              post.removeAttribute('aria-hidden');
             } else {
               post.dataset.hidden = 'true';
+              post.setAttribute('hidden', '');
+              post.setAttribute('aria-hidden', 'true');
             }
           });
         };
