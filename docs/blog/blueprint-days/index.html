@@ -118,6 +118,21 @@
       padding: clamp(32px, 6vw, 72px);
     }
 
+    article {
+      display: grid;
+      gap: 1.8rem;
+    }
+
+    .post-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      font-size: 0.95rem;
+      color: #a9d3ff;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
     h1 {
       font-size: clamp(2.3rem, 4.1vw, 3.2rem);
       margin-top: 0;
@@ -146,6 +161,13 @@
       color: #d6e9ff;
     }
 
+    .lead {
+      font-size: 1.2rem;
+      color: #e6f3ff;
+      border-left: 3px solid rgba(0, 191, 255, 0.6);
+      padding-left: 1rem;
+    }
+
     strong {
       color: #f3fbff;
     }
@@ -166,6 +188,87 @@
       color: #e8f6ff;
     }
 
+    .community-section {
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(143, 215, 255, 0.35);
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .community-section h2 {
+      margin: 0;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: #8fd7ff;
+      letter-spacing: 0.05em;
+    }
+
+    .community-lead {
+      margin: 0;
+      font-size: 1.05rem;
+      color: #c7e4ff;
+    }
+
+    .like-panel {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .like-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.55em 1.3em;
+      border-radius: 999px;
+      border: 1px solid rgba(143, 215, 255, 0.5);
+      background: rgba(0, 40, 60, 0.6);
+      color: #f0f6ff;
+      font-size: 1rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .like-button:hover:not([disabled]) {
+      border-color: rgba(77, 211, 255, 0.85);
+      box-shadow: 0 0 18px rgba(77, 211, 255, 0.5);
+      transform: translateY(-1px);
+    }
+
+    .like-button[disabled] {
+      cursor: default;
+      opacity: 0.65;
+    }
+
+    .like-button.is-liked {
+      border-color: rgba(255, 99, 146, 0.75);
+      box-shadow: 0 0 18px rgba(255, 99, 146, 0.35);
+    }
+
+    .like-count {
+      min-width: 3ch;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #8fd7ff;
+    }
+
+    .comment-container {
+      border-radius: 18px;
+      border: 1px solid rgba(143, 215, 255, 0.35);
+      background: rgba(0, 15, 30, 0.6);
+      padding: 1.5rem 1.2rem;
+      box-shadow: 0 0 24px rgba(0, 120, 190, 0.25);
+    }
+
+    .moderation-note {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #8bbce8;
+    }
+
     footer {
       padding: 0 0 40px;
       text-align: center;
@@ -183,12 +286,24 @@
       .header-actions {
         width: 100%;
       }
+
+      .like-panel {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .like-count {
+        text-align: right;
+      }
     }
   </style>
 </head>
 <body>
   <div class="page">
     <header>
+      <a href="/blog/" class="home-link">
+        <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" />
+        <span>Back to Blog</span>
       <a href="/" class="home-link">
         <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" />
         <span>Back to Landing</span>
@@ -199,6 +314,22 @@
       </div>
     </header>
     <main>
+      <article>
+        <div class="post-meta">
+          <span>Studio Dispatch</span>
+          <span>Published January 18, 2025</span>
+        </div>
+        <h1>The Blueprint Days: Trusting Codex With the Wheel</h1>
+        <p class="lead">Day 2 took us from debating trust to drafting contracts. Once Codex got a real spec and a guaranteed scaffold, the engine’s skeleton assembled itself in hours.</p>
+
+        <h2>Resetting the Premise</h2>
+        <p>The morning started with a frank post-mortem. GPT’s safety reflexes had been throttling progress for three straight sessions, insisting that Codex should be kept on a leash and limited to short, literal prompts. The result? Half-built stubs and hours lost to human rework. We wiped the slate clean and wrote a new rule: <strong>Codex owns the boilerplate when the spec is solid.</strong> Our job became giving it that spec.</p>
+        <p>Everything lived in Markdown. We captured the entire system surface—engine folders, runtime contracts, test harnesses—in a single briefing that Codex could parse without improvising. No entropy managers, no runtime magic; those concerns were weeks away. The only goal for Day 2 was reliable structure.</p>
+
+        <h2>The Scaffolding Script</h2>
+        <p>To guarantee reproducibility we codified the file tree first, then let Codex populate it. The PowerShell snippet below became our first “runbook”—a one-command reset that enforced naming, directory layout, and the documentation skeleton.</p>
+        <blockquote>
+          <pre style="white-space: pre-wrap; font-family: 'Fira Code', monospace; font-size: 0.95rem; color: #e8f6ff; background: transparent;"># SET YOUR ROOT PATH HERE
       <p style="text-transform: uppercase; letter-spacing: 0.12em; color: #8bbce8; font-size: 0.95rem; margin-bottom: 0.8em;">Day 2 Devlog • January 18, 2025</p>
       <h1>The Blueprint Days: Trusting Codex With the Wheel</h1>
       <p>Day 1 was philosophy—proving that language alone could describe an engine end-to-end. Day 2 was execution. We stopped debating whether Codex could be trusted and instead gave it a precise scaffolding contract, then watched it build the bones of BlackFrame faster than any human sprint we had ever run.</p>
@@ -232,6 +363,141 @@ New-Item -ItemType File -Force -Path "$rootPath\docs\lore\powers_and_glyphs.md"
 New-Item -ItemType File -Force -Path "$rootPath\docs\lore\items_and_artifacts.md"
 
 Write-Host "✅ Scaffold created at $rootPath"</pre>
+        </blockquote>
+        <p>Once that script was in place we stopped hand-creating folders entirely. Codex consumed the Markdown specs, ran the scaffold, and filled each empty file with deliberate stubs—always referencing the spec section that justified its existence.</p>
+
+        <h2>Disciplined Prompts, Disciplined Output</h2>
+        <p>We imposed three guardrails that changed everything:</p>
+        <ul>
+          <li><strong>Scope locks:</strong> Each document defined what the module could import and what it was forbidden to touch. Codex had to call out boundary crossings explicitly, which killed the early circular dependency messes.</li>
+          <li><strong>Traceable commentary:</strong> Every stub included a header pointing back to the Markdown source. Humans could diff behavior changes against the spec in seconds.</li>
+          <li><strong>Prompt parity:</strong> If Codex asked for clarification, we updated the spec first and re-ran the prompt. No ad-hoc instructions, no side-channel hacks.</li>
+        </ul>
+        <p>The difference was immediate. The repo that had been prose-only at sunrise now contained a navigable skeleton: <code>/engine/core</code>, <code>/render</code>, <code>/gameplay</code>, <code>/ui</code>, and a <code>/tests</code> harness prepared for the logic still to come. It was anatomical, not poetic.</p>
+
+        <h2>The First Compile That Mattered</h2>
+        <p>Late that night we ran the inaugural build on the fresh scaffold. There was no entropy system yet and no pixels on screen, just a validation executable that confirmed the directories, build scripts, and project files aligned. The console output was humble—module names, init order, success flags—but every line traced directly back to a sentence in the documentation set. That was the proof that the loop worked.</p>
+
+        <h2>Takeaways</h2>
+        <ul>
+          <li><strong>Trust is leverage.</strong> The moment we stopped treating Codex like an intern and started treating it like a systems engineer with a checklist, velocity quadrupled.</li>
+          <li><strong>Specs are the real source code.</strong> Precise Markdown beat “clever” prose. Codex mirrored the tone it was given; sharp instructions produced clean scaffolds.</li>
+          <li><strong>Automate the reset.</strong> The scaffold script turned every misstep into a recoverable experiment. We could nuke, rerun, and verify in minutes.</li>
+        </ul>
+        <p>Day 2 closed without a single rendered frame, but we finally had a machine worth feeding. Over the next five days that same loop delivered the runtime, render pipeline, and the first gallery of frames. None of it would have landed without the trust—and the blueprint—we forged here.</p>
+
+        <p style="margin-top: 3em; font-size: 0.95rem; color: #8bbce8; text-transform: uppercase; letter-spacing: 0.08em;">Next: Day 3 — When the boilerplate started breathing.</p>
+        <p><strong>— BlackFrame AI Studio</strong></p>
+      </article>
+
+      <section class="community-section" aria-labelledby="community-heading">
+        <h2 id="community-heading">Join the community</h2>
+        <p class="community-lead">Tap the heart to drop a like, follow us on social, and keep the conversation going.</p>
+        <div class="like-panel">
+          <button class="like-button" type="button" aria-pressed="false" data-counter-key="blueprint-days">
+            <span aria-hidden="true">❤️</span>
+            <span class="like-label">Like this article</span>
+          </button>
+          <span class="like-count" data-like-count aria-live="polite">—</span>
+        </div>
+        <p class="community-lead">
+          Want more dispatches? <a href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow @blackframeai on X</a> for realtime drops.
+        </p>
+        <div class="comment-container" id="comments" aria-live="polite">
+          <script src="https://utteranc.es/client.js"
+            data-repo="BlackFrameAI/BlackFrameAI"
+            data-issue-term="pathname"
+            data-label="blog-comments"
+            data-theme="github-dark"
+            crossorigin="anonymous"
+            async>
+          </script>
+        </div>
+        <p class="moderation-note">Moderate or remove comments anytime from the linked GitHub issue — delete, lock, or hide with a couple clicks.</p>
+      </section>
+
+      <script>
+        (function () {
+          const namespace = 'blackframeai.blog';
+          const button = document.querySelector('.like-button[data-counter-key]');
+          const countEl = document.querySelector('[data-like-count]');
+          if (!button || !countEl) return;
+
+          const key = button.getAttribute('data-counter-key');
+          const storageKey = `bf-like-${key}`;
+          const endpoint = 'https://api.countapi.xyz';
+
+          const formatCount = (value) => {
+            if (Number.isFinite(value)) {
+              countEl.textContent = value.toLocaleString();
+            } else {
+              countEl.textContent = '—';
+            }
+          };
+
+          const markLiked = () => {
+            button.setAttribute('disabled', 'true');
+            button.setAttribute('aria-pressed', 'true');
+            button.classList.add('is-liked');
+          };
+
+          const callApi = (path) => fetch(path).then((response) => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          });
+
+          const ensureCounter = () => callApi(`${endpoint}/get/${namespace}/${key}`)
+            .catch(() => callApi(`${endpoint}/set/${namespace}/${key}?value=0`))
+            .then((data) => {
+              formatCount(data.value);
+              return data.value;
+            })
+            .catch(() => {
+              formatCount(NaN);
+            });
+
+          const incrementCounter = () => callApi(`${endpoint}/hit/${namespace}/${key}`)
+            .then((data) => {
+              formatCount(data.value);
+              return data.value;
+            })
+            .catch(() => {
+              formatCount(NaN);
+            });
+
+          let hasLocalLike = false;
+          try {
+            hasLocalLike = window.localStorage.getItem(storageKey) === '1';
+          } catch (err) {
+            console.warn('Local storage unavailable', err);
+          }
+
+          if (hasLocalLike) {
+            markLiked();
+          }
+
+          ensureCounter();
+
+          button.addEventListener('click', () => {
+            if (button.hasAttribute('disabled')) {
+              return;
+            }
+
+            incrementCounter().then((value) => {
+              if (Number.isFinite(value)) {
+                try {
+                  window.localStorage.setItem(storageKey, '1');
+                } catch (err) {
+                  console.warn('Unable to persist like locally', err);
+                }
+                markLiked();
+              }
+            });
+          });
+        })();
+      </script>
       </blockquote>
       <p>Once that script was in place we stopped hand-creating folders entirely. Codex consumed the Markdown specs, ran the scaffold, and filled each empty file with deliberate stubs—always referencing the spec section that justified its existence.</p>
 
