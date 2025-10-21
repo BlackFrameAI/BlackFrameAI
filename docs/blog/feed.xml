@@ -14,6 +14,13 @@
       <description><![CDATA[A pillar guide for collaborators — explore the simulation spine, narrative canon, creator co-pilots, and observability layers that power the BlackFrame stack.]]></description>
     </item>
     <item>
+      <title>Game Takes the Stage — Day 3 Runtime Merge</title>
+      <link>https://www.blackframeai.org/blog/game-takes-the-stage/</link>
+      <guid>https://www.blackframeai.org/blog/game-takes-the-stage/</guid>
+      <pubDate>Sun, 19 Jan 2025 09:00:00 GMT</pubDate>
+      <description><![CDATA[Day 3 retired the minimal harness, routed every launcher through <code>game::Game</code>, and let the debug windows render the live procedural sprite stack.]]></description>
+    </item>
+    <item>
       <title>The Blueprint Days: Trusting Codex With the Wheel</title>
       <link>https://www.blackframeai.org/blog/blueprint-days/</link>
       <guid>https://www.blackframeai.org/blog/blueprint-days/</guid>

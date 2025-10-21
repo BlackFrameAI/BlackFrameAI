@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<!--
+---
+title: Game Takes the Stage — Day 3 Runtime Merge | BlackFrame AI Studio
+description: Day 3 of Purge of the Crescent Veil retired the minimal harness, wired every launch path to the real game runtime, and documented the new default across the engine stack.
+slug: game-takes-the-stage
+publishDate: 2025-01-19
+socialImage: /assets/social/game-takes-the-stage-og.svg
+tags:
+  - engine-rd
+  - agentic-workflows
+  - studio-culture
+---
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Game Takes the Stage — Day 3 Runtime Merge | BlackFrame AI Studio</title>
+  <meta name="description" content="Day 3 of Purge of the Crescent Veil retired the minimal harness, wired every launch path to the real game runtime, and documented the new default across the engine stack." />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="canonical" href="https://www.blackframeai.org/blog/game-takes-the-stage/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Game Takes the Stage — Day 3 Runtime Merge" />
+  <meta property="og:description" content="Day 3 of Purge of the Crescent Veil retired the minimal harness, wired every launch path to the real game runtime, and documented the new default across the engine stack." />
+  <meta property="og:url" content="https://www.blackframeai.org/blog/game-takes-the-stage/" />
+  <meta property="og:image" content="https://www.blackframeai.org/assets/social/game-takes-the-stage-og.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Game Takes the Stage — Day 3 Runtime Merge" />
+  <meta name="twitter:description" content="Day 3 of Purge of the Crescent Veil retired the minimal harness, wired every launch path to the real game runtime, and documented the new default across the engine stack." />
+  <meta name="twitter:image" content="https://www.blackframeai.org/assets/social/game-takes-the-stage-og.svg" />
+  <meta property="article:tag" content="engine-rd" />
+  <meta property="article:tag" content="agentic-workflows" />
+  <meta property="article:tag" content="studio-culture" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: "Arial", sans-serif;
+      background:
+        url('/assets/bg_blackleather_processed.jpg') center center / cover no-repeat,
+        #000;
+      color: #f0f0f0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('/assets/tracer_animated_glow.svg') center center / cover no-repeat;
+      z-index: 0;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      backdrop-filter: blur(2px);
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      padding-top: 120px;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 32px 0;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .page-home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #f0f6ff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.9em;
+      text-decoration: none;
+    }
+
+    .page-home-link img {
+      height: 54px;
+      width: auto;
+      filter: drop-shadow(0 0 6px rgba(0, 191, 255, 0.45));
+    }
+
+    .cta,
+    .social-link {
+      padding: 0.6em 1.2em;
+      border: 1px solid #00afff88;
+      border-radius: 999px;
+      color: #f0f6ff;
+      font-size: 0.95em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(0, 30, 50, 0.55);
+      box-shadow: 0 0 12px rgba(0, 191, 255, 0.35);
+      backdrop-filter: blur(4px);
+      text-decoration: none;
+    }
+
+    .cta:hover,
+    .social-link:hover {
+      color: #fff;
+      border-color: #4dd3ff;
+      box-shadow: 0 0 18px rgba(77, 211, 255, 0.6);
+    }
+
+    .page-header__actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #8bbce8;
+      margin-bottom: 1.5rem;
+    }
+
+    .breadcrumbs a {
+      color: #c6ebff;
+    }
+
+    .breadcrumbs span {
+      opacity: 0.6;
+    }
+
+    main {
+      flex: 1;
+      width: min(960px, 92vw);
+      margin: 40px auto 80px;
+      background: rgba(0, 10, 20, 0.75);
+      border: 1px solid rgba(0, 160, 255, 0.25);
+      border-radius: 24px;
+      box-shadow: 0 0 35px rgba(0, 120, 190, 0.25);
+      padding: clamp(32px, 6vw, 72px);
+    }
+
+    article {
+      display: grid;
+      gap: 1.8rem;
+    }
+
+    .article-figure {
+      margin: 2.5rem 0;
+      border: 1px solid rgba(0, 170, 255, 0.35);
+      border-radius: 20px;
+      background: rgba(0, 15, 30, 0.65);
+      box-shadow: 0 0 28px rgba(0, 150, 240, 0.25);
+      overflow: hidden;
+    }
+
+    .article-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .article-figure figcaption {
+      margin: 0;
+      padding: 1rem 1.4rem;
+      font-size: 0.95rem;
+      color: #a6ccee;
+      letter-spacing: 0.02em;
+      background: rgba(0, 10, 25, 0.9);
+      border-top: 1px solid rgba(0, 170, 255, 0.25);
+    }
+
+    article h1 {
+      font-size: clamp(2.6rem, 4vw, 3.2rem);
+      letter-spacing: 0.04em;
+      margin: 0;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    article h2 {
+      font-size: clamp(1.6rem, 2.4vw, 2rem);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 2.8rem;
+      color: #9cd6ff;
+    }
+
+    article p,
+    article li {
+      line-height: 1.7;
+      color: #e4f2ff;
+    }
+
+    article strong {
+      color: #ffffff;
+    }
+
+    blockquote {
+      margin: 0;
+      padding: 1.4rem 1.6rem;
+      background: rgba(20, 40, 70, 0.45);
+      border-left: 4px solid #4dd3ff;
+      border-radius: 12px;
+    }
+
+    blockquote p {
+      margin: 0;
+      color: #d2e8ff;
+    }
+
+    .author-card,
+    .related-posts,
+    .community-section {
+      margin-top: 3.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(120, 180, 255, 0.25);
+    }
+
+    .author-card h2,
+    .related-posts h2,
+    .community-section h2 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #8bbce8;
+    }
+
+    .author-card p,
+    .related-posts p,
+    .community-section p {
+      color: #cfe5ff;
+    }
+
+    .related-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .related-list a {
+      color: #66d0ff;
+      text-decoration: none;
+    }
+
+    .related-list a:hover {
+      text-decoration: underline;
+    }
+
+    .community-lead a {
+      color: #66d0ff;
+    }
+
+    .community-lead a:hover {
+      text-decoration: underline;
+    }
+
+    .comment-container {
+      margin-top: 1.5rem;
+      background: rgba(12, 24, 40, 0.6);
+      border-radius: 16px;
+      padding: 1.2rem;
+      border: 1px solid rgba(120, 180, 255, 0.25);
+    }
+
+    footer {
+      padding: 32px;
+      text-align: center;
+      color: #6f93b8;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="page-header">
+      <a class="page-home-link" href="/blog/">
+        <img src="/assets/blackflamelogo.png" alt="BlackFrame AI" loading="lazy" />
+        <span>Back to Blog</span>
+      </a>
+      <div class="page-header__actions">
+        <a class="social-link" href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow on X</a>
+        <a class="cta" href="/contact/">Contact Studio</a>
+      </div>
+    </header>
+
+    <main>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/blog/">Blog</a>
+        <span aria-hidden="true">/</span>
+        <span>Game Takes the Stage</span>
+      </nav>
+
+      <article>
+        <header>
+          <p style="letter-spacing: 0.1em; text-transform: uppercase; color: #8bbce8; margin: 0;">Studio Dispatch — Purge of the Crescent Veil</p>
+          <h1>Game Takes the Stage — Day 3 Runtime Merge</h1>
+          <p style="color: #cfe5ff; margin: 0;">January 19, 2025 — Written by BlackFrame AI Studio</p>
+        </header>
+
+        <p>The third day of the Crescent Veil push was about commitment. The scaffolding Codex raised over the past two dispatches worked, but it still booted through a toy harness. Today we deleted the training wheels, pointed every executable at the real <code>game::Game</code> runtime, and proved that the multi-window debug view can render the live procedural sprite stack without guard clauses.</p>
+
+        <h2>Morning — Retiring the Minimal Harness</h2>
+        <p>We started the day by ripping out <code>MinimalGame</code> everywhere it still lingered. The runtime target no longer compiles the minimal sources, every launcher that previously toggled <code>--minimal</code> now instantiates the full game class, and the backend validation sample boots the same stack that ships in production builds. GameManager follows suit, pushing the complete scene progression regardless of build flags so that Play always transitions into the full placeholder loop.</p>
+        <blockquote>
+          <p>“Removed <code>MinimalGame</code> as a test harness. The real Game class is now always used for engine initialization.”</p>
+        </blockquote>
+        <p>Removing the switch wasn’t cosmetic; it tightened the safety net. Without a fallback scene, checkpoint callbacks, telemetry hooks, and save setup are exercised every time we launch, which is precisely what the Phase 5 runtime loop needs. Documentation and the modular system tree were updated immediately so the source of truth now lists <code>Game</code> as the sole implementation behind <code>IGame</code>, and the dedicated minimal-game page was deleted to avoid drift.</p>
+
+        <h2>Midday — Debug Windows Show the Real Sprite Stack</h2>
+        <p>Once every entry point was pointed at the full runtime, we tightened the render loop. All four validation scenes and the debug overlay window now call into <code>ProceduralSpriteManager</code> directly instead of tiptoeing through null checks. The result is a clean sequence: bind UI state, hand the draw pass to the sprite manager, then let the vector font layer over the top. The change pairs with last night’s guard-rail work in the game devlog where we removed null checks from <code>Game</code> and asserted that the sprite manager must exist before rendering.</p>
+        <p>That confidence let us keep the diagnostics overlays active even when bouncing between windows. The debug viewport pulls the same sprite grid as the primary display, logs its projection matrices, and continues to host the ASCII diagnostics grid without duplicating setup code.</p>
+
+        <p>Below is the first capture after the switch — the Crescent Veil runtime waking inside its new multi-window layout without the minimal harness to protect it.</p>
+        <figure class="article-figure">
+          <img src="/assets/blog/day3-first-window.png" alt="First Crescent Veil debug window showing score, lives, powerups, and shield telemetry" loading="lazy" />
+          <figcaption>The inaugural Crescent Veil window running the full runtime: live HUD telemetry, debug overlays, and the real sprite stack rendered together.</figcaption>
+        </figure>
+
+        <h2>Afternoon — Documenting the New Default</h2>
+        <p>To close the loop we cleaned up the paperwork. The game flow documentation no longer references a “minimal mode” fast path; every mention of <code>MinimalGame</code> was removed from the modular tree, and the deleted system file was struck from the docs entirely. That paperwork might feel mundane, but it guards the contract we set on Day 1: if it isn’t in the docs, it doesn’t exist. Day 3 ends with the runtime, the launchers, and the docs all describing the same engine.</p>
+
+        <p style="margin-top: 3em; font-size: 0.95rem; color: #8bbce8; text-transform: uppercase; letter-spacing: 0.08em;">Next: Day 4 — Lighting up the first combat loops.</p>
+        <p><strong>— BlackFrame AI Studio</strong></p>
+
+        <section class="author-card" aria-labelledby="author-heading">
+          <h2 id="author-heading">About the Studio</h2>
+          <p>BlackFrame AI Studio blends narrative design, tooling research, and real-time art direction into modular engines that keep creators in the loop. Every devlog entry is written collectively by the core team that maintains the BlackFrame engine stack.</p>
+          <p>Curious how this runtime merge accelerates the roadmap? <a href="mailto:studio@blackframeai.org">Book a capabilities call</a> or <a href="/blog/blueprint-days/">rewind to Day 2’s blueprint recap</a>.</p>
+        </section>
+
+        <section class="related-posts" aria-labelledby="related-heading">
+          <h2 id="related-heading">Related Reading</h2>
+          <ul class="related-list">
+            <li><a href="/blog/birth-of-vibe-coding/">The Birth of Vibe Coding — Building Engines from Markdown</a></li>
+            <li><a href="/blog/blueprint-days/">The Blueprint Days — Trusting Codex With the Wheel</a></li>
+            <li><a href="/blog/ai-engine-foundations/">AI Engine Foundations — Modular Stack Overview</a></li>
+          </ul>
+        </section>
+      </article>
+
+      <section class="community-section" aria-labelledby="community-heading">
+        <h2 id="community-heading">Join the community</h2>
+        <p class="community-lead">
+          Stay plugged in with BlackFrame AI — <a href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">follow @blackframeai on X</a> for realtime drops and share your thoughts below.
+        </p>
+        <div class="comment-container" id="comments" aria-live="polite">
+          <script src="https://utteranc.es/client.js"
+            data-repo="BlackFrameAI/BlackFrameAI"
+            data-issue-term="pathname"
+            data-label="blog-comments"
+            data-theme="github-dark"
+            crossorigin="anonymous"
+            async>
+          </script>
+        </div>
+        <p class="moderation-note">Moderate or remove comments anytime from the linked GitHub issue — delete, lock, or hide with a couple clicks.</p>
+      </section>
+    </main>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Game Takes the Stage — Day 3 Runtime Merge",
+        "description": "Day 3 of Purge of the Crescent Veil retired the minimal harness, wired every launch path to the real game runtime, and documented the new default across the engine stack.",
+        "image": [
+          "https://www.blackframeai.org/assets/social/game-takes-the-stage-og.svg",
+          "https://www.blackframeai.org/assets/blog/day3-first-window.png"
+        ],
+        "author": {
+          "@type": "Organization",
+          "name": "BlackFrame AI Studio",
+          "url": "https://www.blackframeai.org/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "BlackFrame AI Studio",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.blackframeai.org/assets/blackflamelogo.png"
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.blackframeai.org/blog/game-takes-the-stage/"
+        },
+        "url": "https://www.blackframeai.org/blog/game-takes-the-stage/",
+        "datePublished": "2025-01-19",
+        "dateModified": "2025-01-19",
+        "keywords": ["engine-rd", "agentic-workflows", "studio-culture"],
+        "articleSection": "Agentic Workflows",
+        "isPartOf": {
+          "@type": "Blog",
+          "name": "BlackFrame AI Studio Blog",
+          "url": "https://www.blackframeai.org/blog/"
+        }
+      }
+    </script>
+    <footer>© 2025 BlackFrame AI Studio</footer>
+  </div>
+</body>
+</html>

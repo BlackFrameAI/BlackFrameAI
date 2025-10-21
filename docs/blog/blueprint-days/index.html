@@ -160,6 +160,31 @@ tags:
       gap: 1.8rem;
     }
 
+    .article-figure {
+      margin: 2.5rem 0;
+      border: 1px solid rgba(0, 170, 255, 0.35);
+      border-radius: 20px;
+      background: rgba(0, 15, 30, 0.65);
+      box-shadow: 0 0 28px rgba(0, 150, 240, 0.25);
+      overflow: hidden;
+    }
+
+    .article-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .article-figure figcaption {
+      margin: 0;
+      padding: 1rem 1.4rem;
+      font-size: 0.95rem;
+      color: #a6ccee;
+      letter-spacing: 0.02em;
+      background: rgba(0, 10, 25, 0.9);
+      border-top: 1px solid rgba(0, 170, 255, 0.25);
+    }
+
     .post-meta {
       display: flex;
       flex-direction: column;
@@ -453,6 +478,12 @@ Write-Host "✅ Scaffold created at $rootPath"</pre>
         </blockquote>
         <p>Once that script was in place we stopped hand-creating folders entirely. Codex consumed the Markdown specs, ran the scaffold, and filled each empty file with deliberate stubs—always referencing the spec section that justified its existence.</p>
 
+        <p>We snapped the first clean initialization log as proof. Every subsystem came online in the order dictated by the spec, no missing assets, no mystery warnings.</p>
+        <figure class="article-figure">
+          <img src="/assets/blog/day2-first-init.png" alt="Console output showing the first Crescent Veil engine initialization sequence" loading="lazy" />
+          <figcaption>First init pass on the Day 2 scaffold — module sequencing, asset mounts, and telemetry hooks lighting up exactly as the Markdown briefing prescribed.</figcaption>
+        </figure>
+
         <h2>Disciplined Prompts, Disciplined Output</h2>
         <p>We imposed three guardrails that changed everything:</p>
         <ul>
@@ -464,6 +495,12 @@ Write-Host "✅ Scaffold created at $rootPath"</pre>
 
         <h2>The First Compile That Mattered</h2>
         <p>Late that night we ran the inaugural build on the fresh scaffold. There was no entropy system yet and no pixels on screen, just a validation executable that confirmed the directories, build scripts, and project files aligned. The console output was humble—module names, init order, success flags—but every line traced directly back to a sentence in the documentation set. That was the proof that the loop worked.</p>
+
+        <p>As midnight crept in we let the harness paint its placeholder sprites just once, capturing the moment Codex’s scaffolding first produced real frames.</p>
+        <figure class="article-figure">
+          <img src="/assets/blog/day2-first-launch-frames.png" alt="First launch frames from the Crescent Veil engine showing debug text overlays" loading="lazy" />
+          <figcaption>First launch frames rendered off the Day 2 scaffold — debug overlays, placeholder UI, and the assurance that the pipeline from Markdown spec to pixels actually closed the loop.</figcaption>
+        </figure>
 
         <h2>Takeaways</h2>
         <ul>
@@ -517,7 +554,9 @@ Write-Host "✅ Scaffold created at $rootPath"</pre>
         "headline": "The Blueprint Days: Trusting Codex With the Wheel",
         "description": "Day 2 of Project BlackFrame: the sprint where scaffolding, trust, and automation converged to let Codex build the engine it had been describing.",
         "image": [
-          "https://www.blackframeai.org/assets/social/blueprint-days-og.svg"
+          "https://www.blackframeai.org/assets/social/blueprint-days-og.svg",
+          "https://www.blackframeai.org/assets/blog/day2-first-init.png",
+          "https://www.blackframeai.org/assets/blog/day2-first-launch-frames.png"
         ],
         "author": {
           "@type": "Organization",
