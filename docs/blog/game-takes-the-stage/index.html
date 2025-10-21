@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <!--
 ---
-title: Game Takes the Stage — Day 3 Runtime Merge | BlackFrame AI Studio
-description: Day 3 of Purge of the Crescent Veil retired the minimal harness, wired every launch path to the real game runtime, and documented the new default across the engine stack.
+title: Game Takes the Stage, Day 3 Runtime Merge | BlackFrame AI Studio
+description: Day 3 of BlackFrame Engine development retired the minimal harness, wired every launch path to the live runtime, and documented the new default across the engine stack.
 slug: game-takes-the-stage
 publishDate: 2025-10-21
 socialImage: /assets/social/game-takes-the-stage-og.svg
@@ -16,18 +16,18 @@ tags:
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Game Takes the Stage — Day 3 Runtime Merge | BlackFrame AI Studio</title>
-  <meta name="description" content="Day 3 of Purge of the Crescent Veil retired the minimal harness, wired every launch path to the real game runtime, and documented the new default across the engine stack." />
+  <title>Game Takes the Stage, Day 3 Runtime Merge | BlackFrame AI Studio</title>
+  <meta name="description" content="Day 3 of BlackFrame Engine development retired the minimal harness, wired every launch path to the live runtime, and documented the new default across the engine stack." />
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="canonical" href="https://www.blackframeai.org/blog/game-takes-the-stage/" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Game Takes the Stage — Day 3 Runtime Merge" />
-  <meta property="og:description" content="Day 3 of Purge of the Crescent Veil retired the minimal harness, wired every launch path to the real game runtime, and documented the new default across the engine stack." />
+  <meta property="og:title" content="Game Takes the Stage, Day 3 Runtime Merge" />
+  <meta property="og:description" content="Day 3 of BlackFrame Engine development retired the minimal harness, wired every launch path to the live runtime, and documented the new default across the engine stack." />
   <meta property="og:url" content="https://www.blackframeai.org/blog/game-takes-the-stage/" />
   <meta property="og:image" content="https://www.blackframeai.org/assets/social/game-takes-the-stage-og.svg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Game Takes the Stage — Day 3 Runtime Merge" />
-  <meta name="twitter:description" content="Day 3 of Purge of the Crescent Veil retired the minimal harness, wired every launch path to the real game runtime, and documented the new default across the engine stack." />
+  <meta name="twitter:title" content="Game Takes the Stage, Day 3 Runtime Merge" />
+  <meta name="twitter:description" content="Day 3 of BlackFrame Engine development retired the minimal harness, wired every launch path to the live runtime, and documented the new default across the engine stack." />
   <meta name="twitter:image" content="https://www.blackframeai.org/assets/social/game-takes-the-stage-og.svg" />
   <meta property="article:tag" content="engine-rd" />
   <meta property="article:tag" content="agentic-workflows" />
@@ -310,58 +310,58 @@ tags:
 
       <article>
         <header>
-          <p style="letter-spacing: 0.1em; text-transform: uppercase; color: #8bbce8; margin: 0;">Studio Dispatch — Purge of the Crescent Veil</p>
-          <h1>Game Takes the Stage — Day 3 Runtime Merge</h1>
-          <p style="color: #cfe5ff; margin: 0;">October 21, 2025 — Written by BlackFrame AI Studio</p>
+          <p style="letter-spacing: 0.1em; text-transform: uppercase; color: #8bbce8; margin: 0;">Studio Dispatch, BlackFrame Engine</p>
+          <h1>Game Takes the Stage, Day 3 Runtime Merge</h1>
+          <p style="color: #cfe5ff; margin: 0;">October 21, 2025, Written by BlackFrame AI Studio</p>
         </header>
 
-        <p>The third day of the Crescent Veil push was about commitment. The scaffolding Codex raised over the past two dispatches worked, but it still booted through a toy harness. Today we deleted the training wheels, pointed every executable at the real <code>game::Game</code> runtime, and proved that the multi-window debug view can render the live procedural sprite stack without guard clauses.</p>
+        <p>The third day of the BlackFrame Engine runtime push was about commitment. The Purge of the Crescent Veil game remains an unfinished showcase, but the engine scaffolding Codex raised over the past two dispatches worked even while it booted through a toy harness. Today we deleted the training wheels, pointed every executable at the real <code>game::Game</code> runtime, and proved that the multi-window debug view can render the live procedural sprite stack without guard clauses.</p>
 
         <div class="ai-claim-callout" role="note" aria-labelledby="claim-status-day3">
           <span class="ai-claim-callout__label">Claim status</span>
-          <h2 id="claim-status-day3">First verifiable AI-generated game engine</h2>
+          <h2 id="claim-status-day3">First verifiable AI-generated dual use engine</h2>
           <p>
             Day 3 is part of the proof record. Codex-authored systems now run the full runtime loop, satisfying our definition of an
-            AI-generated engine: the language model built the architecture, humans enforced policy, and the executable shipped without hand-written rewrites.
+            AI-generated engine: the language model built the architecture, humans enforced policy, and the executable shipped without hand-written rewrites so BlackFrame Engine can power multiple experiences.
           </p>
           <ul>
             <li>Source control, sprint logs, and the <a href="/devlog-vault/">Devlog Vault</a> document the transition from minimal harness to full runtime under Codex control.</li>
             <li>No other public project has published an agent-built engine with equivalent transparency, scope, and auditability.</li>
           </ul>
           <p>
-            This dispatch captures the runtime merge that lets us claim “world’s first” with receipts ready for partners, press, and researchers.
+            This dispatch captures the runtime merge that lets us claim “world’s first” for BlackFrame Engine with receipts ready for partners, press, and researchers.
           </p>
         </div>
 
-        <h2>Flashback — Building the Gameplay Scaffold</h2>
+        <h2>Flashback, Building the Gameplay Scaffold</h2>
         <p>Day 3 only lands because of the groundwork we poured in the previous sprint. Phase 4 spun up the entire gameplay layer: <code>SceneManager</code>, <code>GameManager</code>, <code>GameStateManager</code>, <code>InputManager</code>, <code>TimerManager</code>, plus the first wave of game-layer systems like <code>PlayerController</code>, <code>EnemyManager</code>, <code>ProjectileManager</code>, and <code>PowerupManager</code>. Each lives in its own namespace, each registered through the engine’s modular hooks, and every one of them documented before a line of code shipped.</p>
         <p>Those scaffolds were stitched together under the same behavioral covenant we set on Day 0. The Scaffold Style Checklist banned Codex from leaking gameplay logic into the engine layer and forced us to update <em>both</em> the documentation and CMake targets the moment a new system appeared. By the time Day 3 began, every manager already had an initializer, shutdown path, and telemetry stub waiting to light up.</p>
 
-        <h2>Morning — Retiring the Minimal Harness</h2>
+        <h2>Morning, Retiring the Minimal Harness</h2>
         <p>We started the day by ripping out <code>MinimalGame</code> everywhere it still lingered. The runtime target no longer compiles the minimal sources, every launcher that previously toggled <code>--minimal</code> now instantiates the full game class, and the backend validation sample boots the same stack that ships in production builds. GameManager follows suit, pushing the complete scene progression regardless of build flags so that Play always transitions into the full placeholder loop.</p>
         <blockquote>
           <p>“Removed <code>MinimalGame</code> as a test harness. The real Game class is now always used for engine initialization.”</p>
         </blockquote>
         <p>Removing the switch wasn’t cosmetic; it tightened the safety net. Without a fallback scene, checkpoint callbacks, telemetry hooks, and save setup are exercised every time we launch, which is precisely what the Phase 5 runtime loop needs. Documentation and the modular system tree were updated immediately so the source of truth now lists <code>Game</code> as the sole implementation behind <code>IGame</code>, and the dedicated minimal-game page was deleted to avoid drift.</p>
 
-        <h2>Midday — Debug Windows Show the Real Sprite Stack</h2>
+        <h2>Midday, Debug Windows Show the Real Sprite Stack</h2>
         <p>Once every entry point was pointed at the full runtime, we tightened the render loop. All four validation scenes and the debug overlay window now call into <code>ProceduralSpriteManager</code> directly instead of tiptoeing through null checks. The result is a clean sequence: bind UI state, hand the draw pass to the sprite manager, then let the vector font layer over the top. The change pairs with last night’s guard-rail work in the game devlog where we removed null checks from <code>Game</code> and asserted that the sprite manager must exist before rendering.</p>
         <p>That confidence let us keep the diagnostics overlays active even when bouncing between windows. The debug viewport pulls the same sprite grid as the primary display, logs its projection matrices, and continues to host the ASCII diagnostics grid without duplicating setup code.</p>
 
-        <p>Below is the first capture after the switch — the Crescent Veil runtime waking inside its new multi-window layout without the minimal harness to protect it.</p>
+        <p>Below is the first capture after the switch, the Crescent Veil runtime waking inside its new multi-window layout without the minimal harness to protect it.</p>
         <figure class="article-figure">
           <img src="https://raw.githubusercontent.com/BlackFrameAI/BlackFrameAI/main/assets/blog/day3-first-window.png" alt="First Crescent Veil debug window showing score, lives, powerups, and shield telemetry" loading="lazy" />
           <figcaption>The inaugural Crescent Veil window running the full runtime: live HUD telemetry, debug overlays, and the real sprite stack rendered together.</figcaption>
         </figure>
 
-        <h2>Afternoon — Documenting the New Default</h2>
+        <h2>Afternoon, Documenting the New Default</h2>
         <p>To close the loop we cleaned up the paperwork. The game flow documentation no longer references a “minimal mode” fast path; every mention of <code>MinimalGame</code> was removed from the modular tree, and the deleted system file was struck from the docs entirely. That paperwork might feel mundane, but it guards the contract we set on Day 1: if it isn’t in the docs, it doesn’t exist. Day 3 ends with the runtime, the launchers, and the docs all describing the same engine.</p>
 
-        <h2>Policy Log — When Codex Misfired</h2>
+        <h2>Policy Log, When Codex Misfired</h2>
         <p>We kept the policy notebook open all day. One memorable entry dates back to Phase 3’s first 300-frame run, when Codex registered only <code>PhysicsSystem</code> inside <code>SystemManager</code>. We converted that scare into a permanent checklist rule: every scaffold task now prints the systems it touched and references the spec section that authorized them. Day 3 never triggered the failsafe, but knowing it exists is why we could pull the MinimalGame ripcord without flinching.</p>
 
-        <p style="margin-top: 3em; font-size: 0.95rem; color: #8bbce8; text-transform: uppercase; letter-spacing: 0.08em;">Next: Day 4 — Lighting up the first combat loops.</p>
-        <p><strong>— BlackFrame AI Studio</strong></p>
+        <p style="margin-top: 3em; font-size: 0.95rem; color: #8bbce8; text-transform: uppercase; letter-spacing: 0.08em;">Next: Day 4, Lighting up the first combat loops.</p>
+          <p><strong>Signed, BlackFrame AI Studio</strong></p>
 
         <section class="author-card" aria-labelledby="author-heading">
           <h2 id="author-heading">About the Studio</h2>
@@ -372,9 +372,9 @@ tags:
         <section class="related-posts" aria-labelledby="related-heading">
           <h2 id="related-heading">Related Reading</h2>
           <ul class="related-list">
-            <li><a href="/blog/birth-of-vibe-coding/">The Birth of Vibe Coding — Building Engines from Markdown</a></li>
-            <li><a href="/blog/blueprint-days/">The Blueprint Days — Trusting Codex With the Wheel</a></li>
-            <li><a href="/blog/ai-engine-foundations/">AI Engine Foundations — Modular Stack Overview</a></li>
+            <li><a href="/blog/birth-of-vibe-coding/">The Birth of Vibe Coding, Building Engines from Markdown</a></li>
+            <li><a href="/blog/blueprint-days/">The Blueprint Days, Trusting Codex With the Wheel</a></li>
+            <li><a href="/blog/ai-engine-foundations/">AI Engine Foundations, Modular Stack Overview</a></li>
           </ul>
         </section>
       </article>
@@ -382,7 +382,7 @@ tags:
       <section class="community-section" aria-labelledby="community-heading">
         <h2 id="community-heading">Join the community</h2>
         <p class="community-lead">
-          Stay plugged in with BlackFrame AI — <a href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">follow @blackframeai on X</a> for realtime drops and share your thoughts below.
+          Stay plugged in with BlackFrame AI, <a href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">follow @blackframeai on X</a> for realtime drops and share your thoughts below.
         </p>
         <div class="comment-container" id="comments" aria-live="polite">
           <script src="https://utteranc.es/client.js"
@@ -394,7 +394,7 @@ tags:
             async>
           </script>
         </div>
-        <p class="moderation-note">Moderate or remove comments anytime from the linked GitHub issue — delete, lock, or hide with a couple clicks.</p>
+        <p class="moderation-note">Moderate or remove comments anytime from the linked GitHub issue, delete, lock, or hide with a couple clicks.</p>
       </section>
     </main>
 
@@ -402,8 +402,8 @@ tags:
       {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": "Game Takes the Stage — Day 3 Runtime Merge",
-        "description": "Day 3 of Purge of the Crescent Veil retired the minimal harness, wired every launch path to the real game runtime, and documented the new default across the engine stack.",
+        "headline": "Game Takes the Stage, Day 3 Runtime Merge",
+        "description": "Day 3 of BlackFrame Engine development retired the minimal harness, wired every launch path to the live runtime, and documented the new default across the engine stack.",
         "image": [
           "https://www.blackframeai.org/assets/social/game-takes-the-stage-og.svg",
           "https://raw.githubusercontent.com/BlackFrameAI/BlackFrameAI/main/assets/blog/day3-first-window.png"
