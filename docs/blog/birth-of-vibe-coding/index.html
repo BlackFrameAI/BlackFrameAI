@@ -420,6 +420,23 @@ tags:
         </ul>
         <p class="lead">We built a working engine from Markdown and tests months before the “code-from-.md” hype. Here’s the method, why we kept quiet, and the rulebook we wrote before typing a single line.</p>
 
+        <div class="ai-claim-callout" role="note" aria-labelledby="claim-status-heading">
+          <span class="ai-claim-callout__label">Claim status</span>
+          <h2 id="claim-status-heading">First verifiable AI-generated game engine</h2>
+          <p>
+            “AI-generated” means the full engine scaffold, architecture, and iterative code were authored by a large language
+            model operating autonomously within policy guardrails. Purge of the Crescent Veil meets that definition: Codex wrote
+            EngineCore, subsystems, shaders, and build tooling while humans enforced constraints and approvals.
+          </p>
+          <ul>
+            <li>Every sprint journal and policy addendum is timestamped in the <a href="/devlog-vault/">Devlog Vault</a>, providing reproducible provenance from blank repo to shipped executable.</li>
+            <li>No prior public project documents an AI-authored engine with comparable scope, governance, and verification loops.</li>
+          </ul>
+          <p>
+            This article is one piece of that record—citing the methods we used to keep Codex honest while letting it build the engine it proposed.
+          </p>
+        </div>
+
         <h2>Before the Code: Locking the Laws</h2>
         <p>The project didn’t start with code — it started with a covenant. Day zero was the <strong>Constraint Lock</strong>, a workshop where we wrote down every behavior we would tolerate from the AI pair and the humans guiding it. “No guessing.” “No hallucination.” “Modular systems only.” They weren’t slogans; they became the legal contract for the Crescent Veil build.</p>
         <p>Two companion documents, <em>Crescent Glyph Behavior</em> and <em>Crescent Glyph Constraint Failures</em>, captured the consequences of drifting from those laws. They’re dry, but they’re why we can ship. When Codex or a human proposes a shortcut that violates the covenant, the docs veto it instantly. Only once that lock was signed did we let Codex touch the repository.</p>

@@ -58,6 +58,87 @@ a:hover {
   text-shadow: 0 0 10px #00cfff88;
 }
 
+.ai-claim-banner {
+  margin: clamp(36px, 6vw, 64px) 0;
+  padding: clamp(24px, 4vw, 48px);
+  background: rgba(0, 18, 32, 0.78);
+  border: 1px solid rgba(77, 211, 255, 0.35);
+  border-radius: 28px;
+  box-shadow: 0 0 32px rgba(0, 120, 190, 0.25);
+  display: grid;
+  gap: clamp(16px, 3vw, 28px);
+}
+
+.ai-claim-banner__eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(143, 215, 255, 0.9);
+}
+
+.ai-claim-banner h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+  color: #f6fbff;
+  text-shadow: 0 0 18px rgba(77, 211, 255, 0.45);
+}
+
+.ai-claim-banner p {
+  margin: 0;
+  color: var(--text-secondary);
+  max-width: 68ch;
+}
+
+.ai-claim-points {
+  margin: 0;
+  padding-left: 1.2em;
+  display: grid;
+  gap: 0.6rem;
+  color: rgba(199, 234, 255, 0.95);
+}
+
+.ai-claim-footnote {
+  font-size: 0.85rem;
+  color: rgba(180, 222, 255, 0.9);
+  margin: 0;
+}
+
+.ai-claim-callout {
+  padding: clamp(20px, 4vw, 36px);
+  border: 1px solid rgba(77, 211, 255, 0.35);
+  background: rgba(0, 18, 32, 0.72);
+  border-radius: 24px;
+  display: grid;
+  gap: 0.9rem;
+  box-shadow: 0 0 24px rgba(0, 90, 150, 0.25);
+}
+
+.ai-claim-callout__label {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(143, 215, 255, 0.88);
+}
+
+.ai-claim-callout h2 {
+  margin: 0;
+  font-size: clamp(1.3rem, 2.4vw, 2rem);
+  color: #f6fbff;
+}
+
+.ai-claim-callout p {
+  margin: 0;
+  color: rgba(201, 236, 255, 0.96);
+}
+
+.ai-claim-callout ul {
+  margin: 0;
+  padding-left: 1.1em;
+  display: grid;
+  gap: 0.55rem;
+  color: rgba(199, 234, 255, 0.96);
+}
+
 .skip-link {
   position: absolute;
   left: -999px;

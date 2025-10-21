@@ -317,6 +317,22 @@ tags:
 
         <p>The third day of the Crescent Veil push was about commitment. The scaffolding Codex raised over the past two dispatches worked, but it still booted through a toy harness. Today we deleted the training wheels, pointed every executable at the real <code>game::Game</code> runtime, and proved that the multi-window debug view can render the live procedural sprite stack without guard clauses.</p>
 
+        <div class="ai-claim-callout" role="note" aria-labelledby="claim-status-day3">
+          <span class="ai-claim-callout__label">Claim status</span>
+          <h2 id="claim-status-day3">First verifiable AI-generated game engine</h2>
+          <p>
+            Day 3 is part of the proof record. Codex-authored systems now run the full runtime loop, satisfying our definition of an
+            AI-generated engine: the language model built the architecture, humans enforced policy, and the executable shipped without hand-written rewrites.
+          </p>
+          <ul>
+            <li>Source control, sprint logs, and the <a href="/devlog-vault/">Devlog Vault</a> document the transition from minimal harness to full runtime under Codex control.</li>
+            <li>No other public project has published an agent-built engine with equivalent transparency, scope, and auditability.</li>
+          </ul>
+          <p>
+            This dispatch captures the runtime merge that lets us claim “world’s first” with receipts ready for partners, press, and researchers.
+          </p>
+        </div>
+
         <h2>Flashback — Building the Gameplay Scaffold</h2>
         <p>Day 3 only lands because of the groundwork we poured in the previous sprint. Phase 4 spun up the entire gameplay layer: <code>SceneManager</code>, <code>GameManager</code>, <code>GameStateManager</code>, <code>InputManager</code>, <code>TimerManager</code>, plus the first wave of game-layer systems like <code>PlayerController</code>, <code>EnemyManager</code>, <code>ProjectileManager</code>, and <code>PowerupManager</code>. Each lives in its own namespace, each registered through the engine’s modular hooks, and every one of them documented before a line of code shipped.</p>
         <p>Those scaffolds were stitched together under the same behavioral covenant we set on Day 0. The Scaffold Style Checklist banned Codex from leaking gameplay logic into the engine layer and forced us to update <em>both</em> the documentation and CMake targets the moment a new system appeared. By the time Day 3 began, every manager already had an initializer, shutdown path, and telemetry stub waiting to light up.</p>
