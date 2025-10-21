@@ -493,8 +493,14 @@ Write-Host "✅ Scaffold created at $rootPath"</pre>
         </ul>
         <p>The difference was immediate. The repo that had been prose-only at sunrise now contained a navigable skeleton: <code>/engine/core</code>, <code>/render</code>, <code>/gameplay</code>, <code>/ui</code>, and a <code>/tests</code> harness prepared for the logic still to come. It was anatomical, not poetic.</p>
 
+        <h2>Codex Behavior Bootcamp</h2>
+        <p>Discipline didn’t stop at folder trees. The morning also produced the first <strong>Scaffold Style Checklist</strong> — a living rubric that every Codex task now runs against. The checklist enforces tone (“no hype language in specs”), architecture (“engine code never imports gameplay headers”), and escalation paths (“flag human review if an external engine pattern appears”).</p>
+        <p>We wrote those lines after catching Codex’s first two misfires: it tried to graft in a Unity-style scene lifecycle, and later registered only <code>PhysicsSystem</code> inside <code>SystemManager</code>. Both moments triggered the “hallucination detected” branch of the checklist, forcing us to amend the docs and retry with the new guard clauses. The fixes stuck — Codex hasn’t repeated either mistake since.</p>
+
         <h2>The First Compile That Mattered</h2>
         <p>Late that night we ran the inaugural build on the fresh scaffold. There was no entropy system yet and no pixels on screen, just a validation executable that confirmed the directories, build scripts, and project files aligned. The console output was humble—module names, init order, success flags—but every line traced directly back to a sentence in the documentation set. That was the proof that the loop worked.</p>
+
+        <p>With that confidence we pushed further: a 300-frame burn-in that exercised the new <code>EngineCore</code> loop and produced the first runnable <code>cv_engine.exe</code>. Watching the counter tick to 300 without a crash was the moment the team stopped calling it a “scaffold” and started calling it an engine.</p>
 
         <p>As midnight crept in we let the harness paint its placeholder sprites just once, capturing the moment Codex’s scaffolding first produced real frames.</p>
         <figure class="article-figure">
@@ -577,7 +583,7 @@ Write-Host "✅ Scaffold created at $rootPath"</pre>
         },
         "url": "https://www.blackframeai.org/blog/blueprint-days/",
         "datePublished": "2025-10-20",
-        "dateModified": "2025-10-20",
+        "dateModified": "2025-10-22",
         "keywords": ["engine-rd", "agentic-workflows", "studio-culture"],
         "articleSection": "Agentic Workflows",
         "isPartOf": {
