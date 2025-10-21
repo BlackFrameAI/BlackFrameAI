@@ -1,0 +1,28 @@
+
+# Purge Of The Crescent Veil — Codex Master Bootstrap v1
+# Engine Hardening: Linux Dependencies, GLFW/X11, Audio, Dev Headers
+
+export DEBIAN_FRONTEND=noninteractive
+
+apt-get update && apt-get install -y \
+    build-essential \
+    cmake \
+    ninja-build \
+    pkg-config \
+    libxrandr-dev \
+    libxinerama-dev \
+    libxcursor-dev \
+    libxi-dev \
+    libx11-dev \
+    libgl1-mesa-dev \
+    libasound2-dev \
+    libpulse-dev \
+    libopenal-dev \
+    libglu1-mesa-dev \
+    zlib1g-dev \
+    libfreetype6-dev \
+    libudev-dev \
+    libwayland-dev || true  # wayland optional
+
+# Optional git sanity if needed for some Codex environments
+git config --global --add safe.directory /workspace/Purge_Of_The_Crescent_Veil

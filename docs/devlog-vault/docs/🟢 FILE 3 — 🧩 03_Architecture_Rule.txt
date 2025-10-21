@@ -1,0 +1,71 @@
+🟢 FILE 3 — 🧩 03_Architecture_Rules.md
+
+Purge of the Crescent Veil — Master Architecture Ruleset
+(Master Extraction Document — Module 03)
+
+🔧 Engine Architecture Discipline
+Core Platform:
+
+Windows (primary target)
+
+Direct3D 11 (primary render API)
+
+BGFX rendering backend (flexible abstraction layer)
+
+Optional Vulkan showcase (strictly controlled, staged integration)
+
+🏗 Core Architectural Principles
+Rule	Enforcement
+Modular System Architecture	✅
+SystemManager → Centralized system registration	✅
+EngineCore → Run Loop Ownership	✅
+No gameplay logic in Engine Layer	✅
+Strict Engine/Game Layer Separation	✅
+No global singleton abuse	✅
+Header/Implementation file separation	✅
+RAII-compliant subsystem lifetime management	✅
+Input fully decoupled from WindowSystem	✅
+RenderSystem decoupled from Scene/Game systems	✅
+
+📄 Directory Structure Lock
+Directory	Purpose
+/engine/	Core Engine Systems
+/engine/render/	RenderSystem, shaders, BGFX
+/engine/shaders/	AI-generated shader source (.sc) and binaries (.bin)
+/engine/time/	TimerManager
+/engine/audio/	AudioManager
+/engine/input/	InputManager
+/engine/scene/	SceneManager
+/engine/game/	Game interface layer
+/game/	Gameplay Systems
+/docs/	Documentation
+/tools/	External utility scripts (e.g. importers, shader compilers)
+
+🚩 Behavioral Safety Locks
+Rule	Enforcement
+No guessing permitted	✅
+No architecture assumptions permitted	✅
+No self-resolving missing files	✅
+No cross-system shortcut coding	✅
+No AI-initiated project-wide schema changes	✅
+Codex PRs reviewed before merge	✅
+
+🔑 Persistent Devlog Rules
+Every phase generates fully documented logs.
+
+Devlog files contain complete critical incident records.
+
+Full rollback logs maintained for every major incident.
+
+Project recovery always retraceable to last clean phase.
+
+🔬 Render Pipeline Constraints
+Render Layer	Constraint
+BGFX Init	Direct3D11 (D3D11 backend locked)
+Shader Language	HLSL (SV_POSITION, SV_TARGET0 semantics)
+Shader Files	Codex emits .sc files only
+Shader Compile	Manual local pipeline via shaderc.exe
+Shader Build	Automated via CMake add_custom_command()
+
+✅ Summary
+The engine operates under hardcoded architecture rulesets that prevent recursive drift, eliminate cross-system contamination, and guarantee every feature addition passes through tightly constrained scaffolding gates.

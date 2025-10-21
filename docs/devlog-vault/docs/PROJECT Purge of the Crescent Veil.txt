@@ -1,0 +1,73 @@
+PROJECT: Purge of the Crescent Veil
+PHASE: 9.x (Rendering Pipeline Scaffold)
+GOAL: Maintain Codex full context when switching threads or windows.
+SCOPE LOCK: Render Pipeline, Resource System, Shader Compilation, First Render Tests.
+
+✅ Engine Context:
+Engine language: C++
+
+Platform: Windows 10+
+
+Renderer: Direct3D11 (via BGFX backend)
+
+Build system: CMake
+
+Shader toolchain: BGFX shaderc.exe HLSL shaders
+
+Project structure: Modular layered engine (Game layer separated from Engine layer)
+
+✅ Key Systems Active:
+RenderSystem → Handles rectangle & circle rendering via BGFX.
+
+ResourceSystem → Fully implemented for shader and texture loading.
+
+Scene → Supports both DrawableRect and DrawableCircle.
+
+FileUtils → Full error reporting with optional<> results.
+
+RandomUtils → Fully converted to std::mt19937.
+
+SaveSystem → Save directory management complete.
+
+compile_shaders.sh → Handles shader compilation for both rect and circle shaders.
+
+varying.def.sc → Includes all necessary attributes for both primitives.
+
+✅ Current Status:
+Scene primitives supported:
+
+Rectangles
+
+Circles
+
+Shaders:
+
+vs_rect.sc / fs_rect.sc
+
+vs_circle.sc / fs_circle.sc
+
+Example program (basic_example.cpp) fully updated to use game::Game and properly initialize.
+
+✅ Current Active Task Queue:
+Task ID	Description
+2️⃣	Inject meme render test (internal developer visual verification scene — crude rectangle/circle layout)
+3️⃣	Ensure shader build script fully compiles circle shaders (partially done already)
+4️⃣	Improve loadShader() to return status
+
+✅ Codex Instruction Ruleset:
+When injecting test scenes: use RenderSystem, ResourceSystem, Scene APIs.
+
+BGFX platform assumptions: Direct3D11, Windows native.
+
+Do not touch unrelated engine systems (Audio, Input, UI, Physics, AI, etc).
+
+Output should focus on internal rendering pipeline verification, not production game features.
+
+Prioritize stability and compile-time safety — future test builds will be evaluated live.
+
+Scene setup should remain fully headless-compatible via cv::Scene and not require GUI tooling.
+
+✅ SAFETY PROTOCOL
+No content inserted should violate Codex content rules. All meme-like humor is purely internal developer testing and non-public.
+
+BEGIN PHASE 9.x CONTINUATION.

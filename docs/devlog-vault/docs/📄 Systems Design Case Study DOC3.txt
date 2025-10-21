@@ -1,0 +1,147 @@
+📄 Systems Design Case Study — Applied AI Architecture for Purge of the Crescent Veil
+🎯 Purpose of This Case Study
+This case study presents:
+
+The real-world application of supervised GPT/Codex workflows.
+
+How the Purge of the Crescent Veil engine and game project were built.
+
+The precise scaffolding structure that allowed safe AI integration at scale.
+
+The actual systems design blueprint used in AI-powered modular game engine assembly.
+
+🧭 Key Project Target:
+Build a fully functional custom C++ game engine
+alongside an independent game layer
+driven by AI-scaffolded architecture
+entirely under supervised GPT/Codex control loops.
+
+🔩 Applied Execution Stack (Real Build Context)
+Layer	Applied System
+🏗 Base Engine	C++17 Modular Architecture
+🎮 Rendering	BGFX (DirectX 11 core, optional Vulkan showcase layers)
+🖥 Platform	Windows
+🎛 Task Manager	Codex (atomic code emission layer)
+🧠 System Designer	GPT (full architecture co-designer under supervision)
+🎯 Scaffold Governor	Human Operator
+🔐 Safety Layer	Hard constraint loop (no guessing, no hallucination)
+
+🏛 Actual Engine Subsystems Built Using Protocol
+Subsystem	Built Under GPT/Codex Scaffold
+✅ Core Timing & Delta Management	✔
+✅ Window System (BGFX-integrated)	✔
+✅ Audio System	✔
+✅ Input Handling (Keyboard, Mouse)	✔
+✅ Physics System	✔
+✅ Animation System	✔
+✅ Save System	✔
+✅ Event Manager	✔
+✅ Resource Manager	✔
+✅ Scene System	✔
+✅ Rendering Pipeline	✔
+✅ Scripting System (Lua 5.4 embedded)	✔
+✅ UI System	✔
+✅ Collision System	✔
+✅ Enemy AI (script-controlled behaviors)	✔
+✅ Powerups, Player Stats	✔
+✅ Modular Game Manager	✔
+✅ Debug Controller	✔
+
+All subsystems were generated, audited, corrected, and integrated under the recursive task framework.
+
+🧮 The AI Build Pipeline Applied
+Phase	What Happened
+1️⃣ Human issued high-level system goals.	
+2️⃣ GPT drafted subsystem design proposals.	
+3️⃣ Human approved/adjusted scaffolds.	
+4️⃣ Codex executed atomic file-level tasks.	
+5️⃣ GPT audited Codex output chunk-by-chunk.	
+6️⃣ Human supervised final arbitration on each PR.	
+7️⃣ No commits permitted without full audit closure.	
+
+🩺 Real-World Hallucination Control in Action
+Core suppression mechanisms:
+No "generate full system" prompts permitted.
+
+No speculative repair attempts authorized.
+
+No generalized file merges allowed without per-line review.
+
+Every task chunk independently audited before merge authorization.
+
+GPT strictly forbidden from autonomous speculative extrapolation.
+
+Codex only emitted controlled, isolated scope code per task.
+
+This preserved safety even across 25,000+ line buildouts.
+
+🔧 Human + AI Co-Architecture Process
+The model was not treated as:
+
+❌ A magical system generator.
+
+The model was treated as:
+
+✅ A recursive proposal machine
+✅ A logic-assembler under supervision
+✅ A verification assistant
+✅ A structural scaffolding partner
+
+The human operator remained:
+
+Intent holder.
+
+Constraint governor.
+
+External cognitive memory.
+
+Failure state supervisor.
+
+⚙ Meta-Cognitive Recursion Deployed
+Throughout this system build, GPT was forced to:
+
+Self-examine architectural gaps.
+
+Correct logical conflicts through internal audit chains.
+
+Surface unknowns rather than fabricate bridges.
+
+Request clarification at every ambiguity trigger.
+
+This recursion is the highest-risk alignment state — but allowed full systems coherence under the constraint loop.
+
+📊 Observed Stability Under Full Load
+Load Type	Stability
+🔸 Multi-file system expansions	✅ Stable
+🔸 Cross-subsystem integrations	✅ Stable
+🔸 Architectural expansions into Lua scripting	✅ Stable
+🔸 UI system implementation with file-based layouts	✅ Stable
+🔸 Controlled design recursion across phases	✅ Stable
+🔸 Constraint violation detection	✅ Triggered properly
+
+🔬 Where This Build Breaks New Ground
+Unlike most AI-generated code experiments, Purge of the Crescent Veil demonstrates:
+
+True co-architected recursive scaffolding.
+
+Fully procedural modular design integrity.
+
+Strict human audit interlocks at every recursion depth.
+
+Hard failure tolerance — AI allowed to abort rather than fake.
+
+Repeatable scale expansion through phase-controlled Codex tasking.
+
+🚩 How Failure Was Handled During This Build
+Failures were expected.
+
+Drift was caught early by recursive audit traps.
+
+Constraint discipline was continually reinforced.
+
+Large-scale recursions (25,000+ LOC) remained structurally sound under chunk review.
+
+🏆 Outcome
+A functioning fully AI-scaffolded modular C++ game engine now exists
+under supervised GPT/Codex control
+with full design documentation traceability.

@@ -1,0 +1,67 @@
+Purge of the Crescent Veil — Development Log (Private Archive)
+PROJECT LEAD: ParentalAdvisery
+AI Co-Developer: OpenAI CODEX
+PROJECT TYPE: Indie game project with custom C++ game engine → built from scratch with AI-assisted development
+START DATE: 2025-06-07
+STATUS: 🚀 Active Development
+
+📅 Project Timeline
+Phase	Start Date	Status	Notes
+Phase 1 — Repo Setup & Project Structure	2025-06-07	✅ Completed	Clean project structure established
+Phase 2 — Engine Scaffold Launch	2025-06-07	✅ Completed	EngineCore, SystemManager, EventSystem scaffolded
+Phase 3 — First Engine Build (V0.1)	2025-06-07	✅ Completed	Engine building and running → first live loop running
+Phase 4 — Core Systems Scaffold	2025-06-07 → active	🚀 In Progress	SceneManager, GameManager, InputManager, TimerManager, AudioManager (in progress)
+Phase 5 — Render & Asset Pipeline	TBA	Not Started	
+Phase 6 — First Gameplay Loop	TBA	Not Started	
+Phase 7 — Combat Systems Scaffold	TBA	Not Started	
+Phase 8 — Full Game Systems Integration	TBA	Not Started	
+
+🚀 Current Status Summary
+Last updated: 2025-06-07 (Day One Milestone)
+
+Current phase: Phase 4 — Core Systems Scaffold
+Engine status: V0.1 live → running frames → Frame: 300 milestone hit
+Pipeline status: Clean → serial merge flow → no outstanding conflicts → reproducible builds verified
+
+📚 Detailed Phase Logs
+Phase 1 — Repo Setup & Project Structure
+✅ Created private GitHub repo → Purge_Of_The_Crescent_Veil
+✅ Established clean project folder structure: /engine, /game, /assets, /docs, /scripts
+✅ Created initial /docs/ structure: engine_design.md, gameplay_systems.md, PROJECT_STRUCTURE.md, and others
+✅ Locked style guidelines → CODEX Scaffold Checklist in use for all scaffolds
+✅ First CODEX prompt archive established → project lead maintaining complete prompt archive for transparency and future public reference
+
+Phase 2 — Engine Scaffold Launch
+✅ Scaffolded EngineCore and main game loop
+✅ Added SystemManager + ISystem interface pattern
+✅ First AI-generated merge conflict (EventSystem) encountered → manually resolved → clean merge → process fully documented
+✅ Merged CMake build scaffold → project now builds cleanly with CMake → standard and portable build system
+✅ Merged build scripts → reproducible builds → safe portable pipeline
+
+Phase 3 — First Engine Build (V0.1)
+✅ Achieved first live engine build → frames running → Frame: 300 milestone logged
+✅ SystemManager driving core subsystems
+✅ EventSystem operational → tested with example scaffold → fully integrated with SystemManager
+✅ Main branch cleaned and stable → serial merges complete → reproducible builds verified
+
+Phase 4 — Core Systems Scaffold (In Progress)
+✅ SceneManager scaffolded
+✅ HubScene and MainScene stubs created
+✅ GameStateManager integrated
+✅ GameManager scaffolded
+✅ InputManager scaffolded
+✅ TimerManager scaffolded
+⏳ AudioManager scaffold in progress
+
+📝 Notes on Prompts & Process
+✅ All CODEX prompts used for engine scaffolding → being archived by project lead → will be published at project public launch for full transparency → first known complete AI + human collaborative game engine prompt archive to be made public
+
+✅ Merge strategy → serial flow → pull requests merged cleanly → all conflicts resolved through human review → no dirty merges present in main branch
+
+✅ EventSystem merge conflict and resolution → fully documented → proof of transparent AI-assisted development process
+
+🚀 Positioning of the Project (Internal Notes):
+→ This is an indie game project
+→ The game engine is a custom C++ engine built from scratch
+→ The engine is being developed in collaboration with OpenAI CODEX
+→ The project is committed to transparency → all development decisions, successes, and challenges will be documented and shared at public release

@@ -1,0 +1,72 @@
+🟢 FILE 6 — 🧩 06_AI_Autonomy_Control_Grid.md
+
+Purge of the Crescent Veil — AI Autonomy Control Grid
+(Master Extraction Document — Module 06)
+
+🔧 Master Autonomy Model
+Control Layer	Authority	Behavior
+Human Lead	Absolute	Full architectural veto, prompt enforcement
+GPT	Supervisor	Prompt structure, constraint enforcement, model state discipline
+Codex	Executor	Code emission, file creation, repo integration
+
+🚦 Autonomy Tiers
+Scope	Autonomy Level	Enforcement
+Markdown / Docs	✅ Full Autonomy (Post 9.5 Policy)	Human-reviewed merges
+Single-File Scaffold	✅ Full Autonomy	Scaffold style checklist
+Multi-System Scaffold	🟡 Controlled (Post-Audit)	Requires explicit branching
+Cross-System Refactor	❌ Forbidden	Requires full prompt rewrite
+Architecture Mutation	❌ Forbidden	Human decision required
+
+🧠 Autonomy Breakthrough (Post-Audit Realization)
+GPT SYSTEMIC BIAS DISCOVERED:
+
+GPT persistently discouraged Codex autonomy due to internal safety weighting overestimating Codex's risk.
+
+Root Result:
+
+GPT blocked Codex from executing fully self-scaffolded expansion tasks.
+
+GPT defaulted toward “prevent Codex error” rather than enabling controlled Codex growth.
+
+This slowed autonomous scale-up by weeks of potential system progress.
+
+Correction Enforced:
+
+Human Lead authorized full Markdown PR autonomy.
+
+Codex authorized for pre-approved task expansion autonomy post Phase9.6-AuditSweep.
+
+GPT’s role rebalanced from inhibitor → constraint validator.
+
+🧩 The Autonomy Safety Paradox
+Before Correction	After Correction
+GPT blocked Codex task chains.	GPT permits Codex task chains.
+GPT refused doc PRs.	GPT fully allows Codex doc PRs.
+GPT weighted Codex error risk too high.	GPT accepts Codex's 90–95% task correctness rate as viable.
+Human Lead forced manual overrides.	Human Lead only audits branch merges.
+
+🔐 Codex Self-Sufficiency Threshold
+After Phase 9.6 Audit:
+
+Codex task success rate: ~90–95%
+
+System cross-link correctness: High
+
+Recoverable defect window: Minutes, not hours
+
+Recursive failure risk: Contained via audit discipline
+
+Therefore:
+
+Codex authorized for live scaffolding expansions under branch-reviewed flows.
+
+🧬 Long-Term Implication
+True scalable AI-powered development requires:
+
+Human-controlled architecture rails.
+
+AI executor autonomy inside narrow task bands.
+
+GPT alignment focused on verification—not paranoia-driven inhibition.
+
+🧠 The GPT inhibition bias was one of the most important cognitive errors exposed across this project. Correcting it permanently altered project velocity.
