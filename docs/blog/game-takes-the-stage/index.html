@@ -317,6 +317,10 @@ tags:
 
         <p>The third day of the Crescent Veil push was about commitment. The scaffolding Codex raised over the past two dispatches worked, but it still booted through a toy harness. Today we deleted the training wheels, pointed every executable at the real <code>game::Game</code> runtime, and proved that the multi-window debug view can render the live procedural sprite stack without guard clauses.</p>
 
+        <h2>Flashback — Building the Gameplay Scaffold</h2>
+        <p>Day 3 only lands because of the groundwork we poured in the previous sprint. Phase 4 spun up the entire gameplay layer: <code>SceneManager</code>, <code>GameManager</code>, <code>GameStateManager</code>, <code>InputManager</code>, <code>TimerManager</code>, plus the first wave of game-layer systems like <code>PlayerController</code>, <code>EnemyManager</code>, <code>ProjectileManager</code>, and <code>PowerupManager</code>. Each lives in its own namespace, each registered through the engine’s modular hooks, and every one of them documented before a line of code shipped.</p>
+        <p>Those scaffolds were stitched together under the same behavioral covenant we set on Day 0. The Scaffold Style Checklist banned Codex from leaking gameplay logic into the engine layer and forced us to update <em>both</em> the documentation and CMake targets the moment a new system appeared. By the time Day 3 began, every manager already had an initializer, shutdown path, and telemetry stub waiting to light up.</p>
+
         <h2>Morning — Retiring the Minimal Harness</h2>
         <p>We started the day by ripping out <code>MinimalGame</code> everywhere it still lingered. The runtime target no longer compiles the minimal sources, every launcher that previously toggled <code>--minimal</code> now instantiates the full game class, and the backend validation sample boots the same stack that ships in production builds. GameManager follows suit, pushing the complete scene progression regardless of build flags so that Play always transitions into the full placeholder loop.</p>
         <blockquote>
@@ -336,6 +340,9 @@ tags:
 
         <h2>Afternoon — Documenting the New Default</h2>
         <p>To close the loop we cleaned up the paperwork. The game flow documentation no longer references a “minimal mode” fast path; every mention of <code>MinimalGame</code> was removed from the modular tree, and the deleted system file was struck from the docs entirely. That paperwork might feel mundane, but it guards the contract we set on Day 1: if it isn’t in the docs, it doesn’t exist. Day 3 ends with the runtime, the launchers, and the docs all describing the same engine.</p>
+
+        <h2>Policy Log — When Codex Misfired</h2>
+        <p>We kept the policy notebook open all day. One memorable entry dates back to Phase 3’s first 300-frame run, when Codex registered only <code>PhysicsSystem</code> inside <code>SystemManager</code>. We converted that scare into a permanent checklist rule: every scaffold task now prints the systems it touched and references the spec section that authorized them. Day 3 never triggered the failsafe, but knowing it exists is why we could pull the MinimalGame ripcord without flinching.</p>
 
         <p style="margin-top: 3em; font-size: 0.95rem; color: #8bbce8; text-transform: uppercase; letter-spacing: 0.08em;">Next: Day 4 — Lighting up the first combat loops.</p>
         <p><strong>— BlackFrame AI Studio</strong></p>
@@ -404,7 +411,7 @@ tags:
         },
         "url": "https://www.blackframeai.org/blog/game-takes-the-stage/",
         "datePublished": "2025-10-21",
-        "dateModified": "2025-10-21",
+        "dateModified": "2025-10-22",
         "keywords": ["engine-rd", "agentic-workflows", "studio-culture"],
         "articleSection": "Agentic Workflows",
         "isPartOf": {

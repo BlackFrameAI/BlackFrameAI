@@ -418,7 +418,11 @@ tags:
           <li><a href="/blog/?topic=workflow-automation">Workflow Automation</a></li>
           <li><a href="/blog/?topic=studio-culture">Studio Culture</a></li>
         </ul>
-        <p class="lead">We built a working engine from Markdown and tests months before the “code-from-.md” hype. Here’s the method, and why we kept quiet.</p>
+        <p class="lead">We built a working engine from Markdown and tests months before the “code-from-.md” hype. Here’s the method, why we kept quiet, and the rulebook we wrote before typing a single line.</p>
+
+        <h2>Before the Code: Locking the Laws</h2>
+        <p>The project didn’t start with code — it started with a covenant. Day zero was the <strong>Constraint Lock</strong>, a workshop where we wrote down every behavior we would tolerate from the AI pair and the humans guiding it. “No guessing.” “No hallucination.” “Modular systems only.” They weren’t slogans; they became the legal contract for the Crescent Veil build.</p>
+        <p>Two companion documents, <em>Crescent Glyph Behavior</em> and <em>Crescent Glyph Constraint Failures</em>, captured the consequences of drifting from those laws. They’re dry, but they’re why we can ship. When Codex or a human proposes a shortcut that violates the covenant, the docs veto it instantly. Only once that lock was signed did we let Codex touch the repository.</p>
 
         <p>We built our engine in silence.</p>
         <p>Not because we wanted mystery, but because it was safer that way. We were exploring a frontier where language doesn’t just describe software, it creates it. That kind of work draws attention, and attention can be dangerous when the tools are this powerful.</p>
@@ -457,6 +461,10 @@ tags:
           Doc updated → regenerate → diff matched intent.<br />
           Language became version control.
         </blockquote>
+
+        <h2>Behavioral Functions in Practice</h2>
+        <p>The constraint lock wasn’t abstract. We encoded every rule as a repeatable behavior function — a checklist that the orchestrator ran before promoting output. If the prose wavered from factual tone, Codex halted. If a scaffold tried to sneak gameplay logic into the engine layer, the system flagged it and demanded we rewrite the spec first. The <strong>Scaffold Style Checklist</strong> that originated here remains the heartbeat of every later sprint.</p>
+        <p>Our favorite near-miss came on hour four: Codex proposed swapping in a Unity-style scene manager. The checklist caught the violation (“external engine pattern detected”), we amended the doc with a permanent guard clause, and the tool never suggested it again. Those moments are why we obsess over tone and intent — the AI behaves when the humans stay disciplined.</p>
 
         <h2>Language as Tooling</h2>
         <p>We learned tone stability matters. Precise, steady prose yields predictable output. Over-excited, meandering text spawns chaos. So we built discipline around it:</p>
@@ -545,7 +553,7 @@ tags:
         },
         "url": "https://www.blackframeai.org/blog/birth-of-vibe-coding/",
         "datePublished": "2025-10-19",
-        "dateModified": "2025-10-19",
+        "dateModified": "2025-10-22",
         "keywords": ["engine-rd", "workflow-automation", "studio-culture"],
         "articleSection": "Engine R&D",
         "isPartOf": {

@@ -5,14 +5,14 @@
     <link>https://www.blackframeai.org/blog/</link>
     <description>Daily dispatches, devlogs, and pillar guides from BlackFrame AI Studio.</description>
     <language>en-US</language>
-    <lastBuildDate>Tue, 21 Oct 2025 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 22 Oct 2025 12:00:00 GMT</lastBuildDate>
     <item>
       <title>Game Takes the Stage — Day 3 Runtime Merge</title>
       <link>https://www.blackframeai.org/blog/game-takes-the-stage/</link>
       <guid>https://www.blackframeai.org/blog/game-takes-the-stage/</guid>
       <pubDate>Tue, 21 Oct 2025 09:00:00 GMT</pubDate>
       <dc:date>2025-10-21T09:00:00Z</dc:date>
-      <description><![CDATA[Day 3 retired the minimal harness, routed every launcher through <code>game::Game</code>, and let the debug windows render the live procedural sprite stack.]]></description>
+      <description><![CDATA[Day 3 retired the minimal harness, honored the Phase 4 gameplay scaffold, and routed every launcher through <code>game::Game</code> while the debug windows rendered the live procedural sprite stack.]]></description>
     </item>
     <item>
       <title>The Blueprint Days: Trusting Codex With the Wheel</title>
@@ -20,7 +20,7 @@
       <guid>https://www.blackframeai.org/blog/blueprint-days/</guid>
       <pubDate>Mon, 20 Oct 2025 09:00:00 GMT</pubDate>
       <dc:date>2025-10-20T09:00:00Z</dc:date>
-      <description><![CDATA[Day 2 chronicles the moment we stopped throttling Codex, locked the specs in Markdown, and let automation raise the engine scaffold in hours.]]></description>
+      <description><![CDATA[Day 2 chronicles the moment we stopped throttling Codex, codified the Scaffold Style Checklist, and watched the first 300-frame build prove the engine scaffold in hours.]]></description>
     </item>
     <item>
       <title>The Birth of Vibe Coding — BlackFrame AI Studio</title>
@@ -28,7 +28,7 @@
       <guid>https://www.blackframeai.org/blog/birth-of-vibe-coding/</guid>
       <pubDate>Sun, 19 Oct 2025 09:00:00 GMT</pubDate>
       <dc:date>2025-10-19T09:00:00Z</dc:date>
-      <description><![CDATA[We built a working engine from Markdown and tests months before the hype. Dive into the orchestration loop, guardrails, and lessons that shaped our vibe coding methodology.]]></description>
+      <description><![CDATA[We built a working engine from Markdown and tests months before the hype — beginning with the constraint lock, behavioral rulebook, and orchestration guardrails that shaped vibe coding.]]></description>
     </item>
     <item>
       <title>AI Engine Foundations — Modular Stack Overview</title>
