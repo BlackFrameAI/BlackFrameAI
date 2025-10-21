@@ -2,7 +2,7 @@
 
 # BlackFrame AI
 
-### Applied Artificial Intelligence Studio — Proprietary Research & Development
+### Applied Artificial Intelligence Studio, Proprietary Research & Development
 
 ---
 
@@ -15,7 +15,7 @@ We build proprietary technology designed to redefine the creative, technical, an
 ## 🔒 Current Development Status
 
 🚧 Primary project under development:  
-**Purge of the Crescent Veil** — experimental large-scale interactive project under confidential development.
+**BlackFrame Engine**, the world's first AI-generated dual use engine powering the experimental Purge of the Crescent Veil showcase, is under confidential development.
 
 🚧 Internal proprietary engine architecture is active and progressing under locked constraints.  
 🚧 Whitepapers, research, and public-facing devlogs will be released when milestones are cleared for publication.
@@ -66,5 +66,5 @@ For verified inquiries:
 
 ---
 
-© 2025 BlackFrame AI Studio — All Rights Reserved.
+© 2025 BlackFrame AI Studio, All Rights Reserved.
 
