@@ -273,6 +273,37 @@ tags:
       text-decoration: underline;
     }
 
+    details.vault-log {
+      background: rgba(0, 22, 38, 0.75);
+      border: 1px solid rgba(0, 160, 255, 0.35);
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      color: #c6ebff;
+      font-size: 0.95rem;
+    }
+
+    details.vault-log summary {
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #8fd7ff;
+      margin-bottom: 0.8rem;
+    }
+
+    details.vault-log pre {
+      background: rgba(0, 12, 22, 0.85);
+      border-radius: 12px;
+      padding: 1rem;
+      overflow-x: auto;
+      font-family: "Source Code Pro", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #e3f5ff;
+      border: 1px solid rgba(0, 160, 255, 0.25);
+      box-shadow: inset 0 0 24px rgba(0, 120, 190, 0.2);
+    }
+
     .comment-container {
       margin-top: 1.5rem;
       background: rgba(12, 24, 40, 0.6);
@@ -359,6 +390,33 @@ tags:
 
         <h2>Policy Log, When Codex Misfired</h2>
         <p>We kept the policy notebook open all day. One memorable entry dates back to Phase 3’s first 300-frame run, when Codex registered only <code>PhysicsSystem</code> inside <code>SystemManager</code>. We converted that scare into a permanent checklist rule: every scaffold task now prints the systems it touched and references the spec section that authorized them. Day 3 never triggered the failsafe, but knowing it exists is why we could pull the MinimalGame ripcord without flinching.</p>
+
+        <h2>Failure Ledger, Build 884</h2>
+        <p>Transparency means logging the redlines alongside the wins. The vault captured today’s most consequential failures during the 884-target Linux release build, and we pulled the highlights straight into the devlog so partners can trace how the loop guards us.</p>
+        <ul>
+          <li>
+            <strong>Atomic store overflows:</strong> OpenAL’s <code>Voice</code> helpers spammed <code>-Wstringop-overflow</code> because GCC zero-sized the atomic backing store. The warnings remain documented until upstream ships a fix; our guardrail blocks merging local workarounds that might hide memory regressions.
+          </li>
+          <li>
+            <strong>ALSA switch gaps:</strong> The mixer backend skipped <code>SND_PCM_STATE_PRIVATE1</code>, triggering a <code>-Wswitch</code> warning. We left the enum uncovered to keep policy eyes on hardware portability while the Codex team drafts the remediation brief.
+          </li>
+          <li>
+            <strong>Hard stop on RenderSystem:</strong> Multiple translation units died when <code>BackgroundRenderer.h</code> referenced <code>RenderSystem::BatchVertex</code> without the full type. The failure halted <code>cv_engine</code>, <code>crescent_runtime</code>, and <code>cv_vgu_scale_test</code>, forcing us to revisit the header ownership map before resuming the build.
+          </li>
+        </ul>
+        <details class="vault-log" open>
+          <summary>Vault excerpt: failing targets and diagnostics</summary>
+          <pre>
+[828/884] Building CXX object CMakeFiles/cv_engine.dir/Unity/unity_1_cxx.cxx.o
+FAILED: CMakeFiles/cv_engine.dir/Unity/unity_1_cxx.cxx.o
+In file included from .../engine/modules/render/background/BackgroundRenderer.h:30:31:
+error: incomplete type ‘cv::RenderSystem’ used in nested name specifier
+[846/884] Building CXX object CMakeFiles/crescent_runtime.dir/Unity/unity_1_cxx.cxx.o
+FAILED: CMakeFiles/crescent_runtime.dir/Unity/unity_1_cxx.cxx.o
+[847/884] Building CXX object tests/CMakeFiles/cv_vgu_scale_test.dir/Unity/unity_0_cxx.cxx.o
+FAILED: tests/CMakeFiles/cv_vgu_scale_test.dir/Unity/unity_0_cxx.cxx.o
+          </pre>
+        </details>
 
         <p style="margin-top: 3em; font-size: 0.95rem; color: #8bbce8; text-transform: uppercase; letter-spacing: 0.08em;">Next: <a href="/blog/laying-the-foundation/" style="color: inherit;">Day 4, Engine heartbeat online.</a></p>
           <p><strong>Signed, BlackFrame AI Studio</strong></p>
