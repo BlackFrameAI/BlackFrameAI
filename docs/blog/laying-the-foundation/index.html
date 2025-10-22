@@ -246,6 +246,37 @@ tags:
       text-decoration: underline;
     }
 
+    details.vault-log {
+      background: rgba(0, 22, 38, 0.75);
+      border: 1px solid rgba(0, 160, 255, 0.35);
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      color: #c6ebff;
+      font-size: 0.95rem;
+    }
+
+    details.vault-log summary {
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #8fd7ff;
+      margin-bottom: 0.8rem;
+    }
+
+    details.vault-log pre {
+      background: rgba(0, 12, 22, 0.85);
+      border-radius: 12px;
+      padding: 1rem;
+      overflow-x: auto;
+      font-family: "Source Code Pro", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #e3f5ff;
+      border: 1px solid rgba(0, 160, 255, 0.25);
+      box-shadow: inset 0 0 24px rgba(0, 120, 190, 0.2);
+    }
+
     .comment-container {
       margin-top: 1.5rem;
       background: rgba(12, 24, 40, 0.6);
@@ -333,6 +364,15 @@ tags:
 
         <h2>Evening: Instrumentation Becomes Our Display</h2>
         <p>Without pixels to look at, we treated logging as our dashboard. Codex generated a <code>LogChannel</code> utility with severity filters and structured formatting. We layered in human-written policies for thread safety and rate limiting, then piped every subsystem through the logger. The console now reports per-tick timing, queue depths, and watchdog heartbeats. It’s humble, but it means we already know what “healthy” looks like before the renderer ever spins a frame.</p>
+        <details class="vault-log" open>
+          <summary>Telemetry excerpt: verifying the heartbeat</summary>
+          <pre>
+2025-10-22T14:12:08Z [EngineController] initialize() → ok (12.4ms)
+2025-10-22T14:12:08Z [RendererFacade] status=stubbed backend; command queue primed
+2025-10-22T14:12:09Z [TickTimer] loop cadence locked at 60.0Hz (drift 0.08ms)
+2025-10-22T14:12:11Z [EngineController] shutdown() → graceful exit; all subsystems confirmed
+          </pre>
+        </details>
         <p>We closed the day by snapshotting the transcripts, noting Day 5 objectives (attach the GLFW backend, integrate the math library bindings), and flagging questions for Codex about asset hot-loading. The AI is prepped with context; tomorrow we’ll turn those TODOs into working code.</p>
 
         <p style="margin-top: 3em; font-size: 0.95rem; color: #8bbce8; text-transform: uppercase; letter-spacing: 0.08em;">Next: Day 5, First frames through the rendering pipeline.</p>

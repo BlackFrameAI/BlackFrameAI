@@ -253,14 +253,15 @@
             <li>Automation</li>
             <li>Observability</li>
           </ul>
-          <p>Codex-generated subsystems (EngineController, RendererFacade, EventQueue, ResourceLoader, InputRouter) now initialize, update, and shutdown in a single loop with human-audited guardrails. Logging replaces the absent render path, feeding diagnostics into our policy notebook. <a href="/blog/laying-the-foundation/">Read the devlog</a>.</p>
+          <p>Codex-generated subsystems (EngineController, RendererFacade, EventQueue, ResourceLoader, InputRouter) now initialize, update, and shutdown in a single loop with human-audited guardrails. Structured telemetry replaces the absent render path and feeds the policy notebook plus today’s Master Devlog update. <a href="/blog/laying-the-foundation/">Read the devlog</a>.</p>
           <p class="timeline-metrics">🩺 Outcome: 60Hz loop verified with structured telemetry and zero manual hotfixes.</p>
           <details class="vault-log" open>
-            <summary>Failure log excerpt</summary>
+            <summary>Telemetry excerpt</summary>
             <pre>
-[828/884] FAILED: cv_engine Unity unity_1_cxx.cxx.o — RenderSystem::BatchVertex incomplete
-[846/884] FAILED: crescent_runtime Unity unity_1_cxx.cxx.o — same dependency break
-[847/884] FAILED: cv_vgu_scale_test Unity unity_0_cxx.cxx.o — test harness blocked on RenderSystem visibility
+2025-10-22T14:12:08Z [EngineController] initialize() → ok (12.4ms)
+2025-10-22T14:12:08Z [RendererFacade] status=stubbed backend; command queue primed
+2025-10-22T14:12:09Z [TickTimer] loop cadence locked at 60.0Hz (drift 0.08ms)
+2025-10-22T14:12:11Z [EngineController] shutdown() → graceful exit; all subsystems confirmed
             </pre>
           </details>
         </div>

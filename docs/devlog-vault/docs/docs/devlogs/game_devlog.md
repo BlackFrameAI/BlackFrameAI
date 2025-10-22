@@ -751,3 +751,7 @@ Progress updates on game systems.
 ## 2025-08-03
 - 21:22:12Z Scene0 now displays "Window0: Scene0 Rendering OK" via ImGui on the primary window.
 - 21:47:47Z Scene0::Render now warns and skips rendering if invoked on a non-primary window to prevent cross-window contamination.
+
+## 2025-10-22
+- 2025-10-22T13:05:44Z Documented how the new InputRouter stub will hand controller events to GameManager once gameplay scenes wire in, keeping the runtime merge plan aligned with Phase 4 notes.
+- 2025-10-22T18:20:09Z Verified the stubbed scene handshake still boots through EngineController and logged future hooks so Day 5’s rendering work can attach without rewriting game state transitions.

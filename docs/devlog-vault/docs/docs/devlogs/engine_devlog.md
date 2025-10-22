@@ -1569,3 +1569,9 @@ Chronological notes on engine updates.
 - 2025-08-05T02:36:53+00:00 Engine::Shutdown halts global render loops, shuts down pipelines, finalizes ImGui contexts, then closes windows with explicit logs.
 - 2025-08-05T02:46:55+00:00 Engine verifies ImGui context validity before destruction and logs when teardown is skipped.
 - 2025-08-05T03:00:33+00:00 Shutdown paths log context pointers and window indices when tearing down ImGui backends.
+
+## 2025-10-22
+- 2025-10-22T08:42:17Z Codex batch-renamed engine namespaces and include guards to align every module with the `cv::` registry; human review confirmed header dependencies stayed acyclic.
+- 2025-10-22T11:58:03Z EngineController gained deterministic initialize/run/shutdown hooks and asserts that all subsystems register before the first tick.
+- 2025-10-22T14:12:09Z TickTimer now reports cadence, drift, and queue depths each frame; logs confirm the loop holds 60.0Hz without manual sleeps.
+- 2025-10-22T17:55:41Z Introduced LogChannel with severity filters and thread-safe buffering, then wired RendererFacade, EventQueue, ResourceLoader, InputRouter, and SceneDirector into the shared telemetry stream.

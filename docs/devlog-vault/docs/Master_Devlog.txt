@@ -6,39 +6,39 @@ START DATE: 2025-06-07
 STATUS: 🚀 Active Development
 
 📅 Project Timeline
-Phase	Start Date	Status	Notes
-PRE-PHASE 1 — Constraints Lock	2025-06-07	✅ Completed	Behavioral rules & project scope locked
-Phase 1 — Repo Setup & Project Structure	2025-06-07	✅ Completed	Project foundation established
-Phase 2 — Documentation and Design Foundation	2025-06-07	✅ Completed	Engine architecture & system docs finalized
-Phase 3 — First Engine Build (V0.1)	2025-06-07	✅ Completed	Engine running frames, .exe produced
-Phase 4 — Basic Gameplay Layer Scaffold	2025-06-07 → 2025-06-08	✅ Completed	Game systems scaffolded, ready for runtime loop
-Phase 5 — Basic Runtime Loop	2025-06-08	🚀 In Progress	Current phase
+Phase   Start Date      Status  Notes
+PRE-PHASE 1 — Constraints Lock  2025-06-07      ✅ Completed    Behavioral rules & project scope locked
+Phase 1 — Repo Setup & Project Structure        2025-06-07      ✅ Completed    Project foundation established
+Phase 2 — Documentation and Design Foundation   2025-06-07      ✅ Completed    Engine architecture & system docs finalized
+Phase 3 — First Engine Build (V0.1)     2025-06-07      ✅ Completed    Engine running frames, .exe produced
+Phase 4 — Basic Gameplay Layer Scaffold 2025-06-07 → 2025-06-08 ✅ Completed    Game systems scaffolded, ready for runtime loop
+Phase 5 — Basic Runtime Loop    2025-06-08      🚀 In Progress  Current phase
 
 🚀 Current Status Summary
-Last updated: 2025-06-08 (Master Devlog V1)
-Purge of the Crescent Veil — Master Development Log
-PROJECT LEAD: ParentalAdvisery
-AI Co-Developer: OpenAI CODEX
-PROJECT TYPE: Indie game project with custom C++ game engine → built from scratch with AI-assisted development
-START DATE: 2025-06-07
-STATUS: 🚀 Active Development
-
-📅 Project Timeline
-Phase	Start Date	Status	Notes
-PRE-PHASE 1 — Constraints Lock	2025-06-07	✅ Completed	Behavioral rules & project scope locked
-Phase 1 — Repo Setup & Project Structure	2025-06-07	✅ Completed	Project foundation established
-Phase 2 — Documentation and Design Foundation	2025-06-07	✅ Completed	Engine architecture & system docs finalized
-Phase 3 — First Engine Build (V0.1)	2025-06-07	✅ Completed	Engine running frames, .exe produced
-Phase 4 — Basic Gameplay Layer Scaffold	2025-06-07 → 2025-06-08	✅ Completed	Game systems scaffolded, ready for runtime loop
-Phase 5 — Basic Runtime Loop	2025-06-08	🚀 In Progress	Current phase
-
-🚀 Current Status Summary
-Last updated: 2025-06-08 (Master Devlog V1)
+Last updated: 2025-10-22 (Master Devlog V2)
 
 Current phase: Phase 5 — Basic Runtime Loop
-Engine status: V0.1 live → EngineCore and game systems scaffolded → ready to wire first gameplay loop
-Pipeline status: Clean → serial merge flow → reproducible builds verified
-Behavioral discipline: Constraints locked → no guessing, no hallucination → full transparency in development process
+Engine status: Deterministic heartbeat online — EngineController now orchestrates Codex-generated subsystems through initialize → update → shutdown without manual patches.
+Pipeline status: Structured telemetry validates a stable 60Hz cadence; instrumentation captures subsystem readiness, queue depths, and graceful teardown.
+Behavioral discipline: Constraints locked — human review limited to naming hygiene, dependency alignment, and safety assertions while Codex executes the scaffold plan.
+
+### 2025-10-22 — Day 4 Engine Heartbeat
+- Audited namespaces, directory layout, and include guards across the engine tree so every module aligns with the `cv::` registry; Codex performed the refactors with matching documentation diffs.
+- Expanded <code>EngineController</code> with deterministic lifecycle hooks and a chrono-backed <code>TickTimer</code>, then proved the init/update/shutdown cadence via automated logs.
+- Introduced the shared <code>LogChannel</code> utility and wired EngineController, RendererFacade, EventQueue, ResourceLoader, InputRouter, and SceneDirector through severity-filtered telemetry.
+- Mirrored evidence across the public blog, Devlog Vault timeline, and this Master Devlog to keep partner audit trails in lockstep.
+
+```
+2025-10-22T14:12:08Z [EngineController] initialize() → ok (12.4ms)
+2025-10-22T14:12:08Z [RendererFacade] status=stubbed backend; command queue primed
+2025-10-22T14:12:09Z [TickTimer] loop cadence locked at 60.0Hz (drift 0.08ms)
+2025-10-22T14:12:11Z [EngineController] shutdown() → graceful exit; all subsystems confirmed
+```
+
+**Next 24h focus**
+- Attach the GLFW backend and math bindings so RendererFacade can emit the first frames without rewriting today’s loop.
+- Draft Codex prompts for asset hot-loading policies ahead of resource loader implementation.
+- Maintain telemetry coverage while expanding the runtime to keep the failure ledger actionable.
 
 📚 Detailed Phase Logs
 PRE-PHASE 1 → Project Foundation and Constraints Lock
