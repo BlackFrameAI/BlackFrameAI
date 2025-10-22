@@ -1,0 +1,4 @@
+🧠 REUSABLE FUTURE PROMPT TEMPLATE:
+🛠️ “Use the same etree SVG editing logic workflow as you did for tracer_animated_glow.svg, which created a real .svg file via the file_upload mechanism — not an inline dump or screenshot.
+Here’s the new base .svg → clean it, animate it (breathing + glow), and give me a true downloadable SVG output again.”
+

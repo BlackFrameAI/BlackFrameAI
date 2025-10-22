@@ -1,0 +1,67 @@
+PS G:\CODEX_Projects\Purge_Of_The_Crescent_Veil\build> cmake .. -DCMAKE_BUILD_TYPE=Release
+-- Building for: Visual Studio 17 2022
+-- Selecting Windows SDK version 10.0.22000.0 to target Windows 10.0.26120.
+-- The CXX compiler identification is MSVC 19.44.35207.1
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- The C compiler identification is MSVC 19.44.35207.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Performing Test flag_supported
+-- Performing Test flag_supported - Failed
+CMake Warning (dev) at build/_deps/bgfx-src/cmake/bgfx/examples.cmake:165 (add_custom_command):
+  Exactly one of PRE_BUILD, PRE_LINK, or POST_BUILD must be given.  Assuming
+  POST_BUILD to preserve backward compatibility.
+
+  Policy CMP0175 is not set: add_custom_command() rejects invalid arguments.
+  Run "cmake --help-policy CMP0175" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+Call Stack (most recent call first):
+  build/_deps/bgfx-src/cmake/bgfx/examples.cmake:272 (add_example)
+  build/_deps/bgfx-src/cmake/bgfx/CMakeLists.txt:33 (include)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - not found
+-- Found Threads: TRUE
+-- Using Win32 for window creation
+-- Compiling shaders...
+-- Configuring done (27.3s)
+-- Generating done (0.6s)
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_BUILD_TYPE
+
+
+-- Build files have been written to: G:/CODEX_Projects/Purge_Of_The_Crescent_Veil/build
+
+
+
+
+
+
+PS G:\CODEX_Projects\Purge_Of_The_Crescent_Veil\build> cmake --build . --config Release
+MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+
+  1>Checking Build System
+  Compiling fs_rect.sc
+  Compiling fs_rect.sc
+  The system cannot find the path specified.
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(254,5): e
+rror MSB8066: Custom build for 'G:\CODEX_Projects\Purge_Of_The_Crescent_Veil\build\CMakeFiles\3a9ef53e4ba24da71ca296208
+74bb0d7\fs_rect.bin.rule;G:\CODEX_Projects\Purge_Of_The_Crescent_Veil\build\CMakeFiles\3a9ef53e4ba24da71ca29620874bb0d7
+\vs_rect.bin.rule;G:\CODEX_Projects\Purge_Of_The_Crescent_Veil\build\CMakeFiles\bd5f75c7340c81f5bf967cb9be49f77e\engine
+_shaders.rule;G:\CODEX_Projects\Purge_Of_The_Crescent_Veil\CMakeLists.txt' exited with code 3. [G:\CODEX_Projects\Purge
+_Of_The_Crescent_Veil\build\engine_shaders.vcxproj]
+PS G:\CODEX_Projects\Purge_Of_The_Crescent_Veil\build>
