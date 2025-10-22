@@ -212,6 +212,31 @@ tags:
       color: #8bbce8;
     }
 
+    .timeline-note {
+      margin: 1.8rem 0 2.4rem;
+      padding: 1.2rem 1.6rem;
+      border: 1px solid rgba(0, 160, 255, 0.35);
+      border-radius: 18px;
+      background: rgba(0, 20, 40, 0.65);
+      box-shadow: 0 0 18px rgba(0, 120, 190, 0.25);
+      color: #d4ebff;
+      line-height: 1.6;
+    }
+
+    .timeline-note strong {
+      display: block;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #8bbce8;
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-note time {
+      font-weight: 600;
+      color: #ffffff;
+    }
+
     .author-card,
     .related-posts,
     .community-section {
@@ -302,6 +327,18 @@ tags:
           <h1>Laying the Foundation, Day 4 Engine Heartbeat</h1>
           <p style="color: #cfe5ff;">October 22, 2025, Written by BlackFrame AI Studio</p>
         </header>
+        <div class="timeline-note" role="note" aria-label="Production timeline">
+          <strong>Production timeline</strong>
+          <p>
+            Primary log captured <time datetime="2025-06-11">June 11, 2025</time> — Day 4 when the
+            engine loop locked into a steady heartbeat.
+          </p>
+          <p>
+            Builds extend from the scaffold bootstrapped on <time datetime="2025-06-07">June 7, 2025</time>,
+            after Day 1’s governance pass on <time datetime="2025-06-08">June 8</time> and the runtime groundwork laid on
+            <time datetime="2025-06-09">Day 2</time> and <time datetime="2025-06-10">Day 3</time>.
+          </p>
+        </div>
 
         <p>Day 4 marked the moment the Crescent Veil engine stopped being a static scaffold and started breathing on its own. We spent the entire dispatch inside the boiler room: codifying the directory layout, letting Codex spin up the repetitive stubs, and then threading those pieces into a deterministic startup, update, and shutdown rhythm. No pixels rendered yet—those arrive on Day 7—but our consoles now thrum with the first steady heartbeat.</p>
 
@@ -402,6 +439,7 @@ tags:
         "url": "https://www.blackframeai.org/blog/laying-the-foundation/",
         "datePublished": "2025-10-22",
         "dateModified": "2025-10-22",
+        "dateCreated": "2025-06-11",
         "keywords": ["engine-rd", "agentic-workflows", "studio-culture"],
         "articleSection": "Agentic Workflows",
         "isPartOf": {
