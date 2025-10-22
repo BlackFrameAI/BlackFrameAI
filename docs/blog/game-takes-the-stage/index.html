@@ -224,6 +224,31 @@ tags:
       color: #d2e8ff;
     }
 
+    .timeline-note {
+      margin: 1.8rem 0 2.4rem;
+      padding: 1.2rem 1.6rem;
+      border: 1px solid rgba(0, 160, 255, 0.35);
+      border-radius: 18px;
+      background: rgba(0, 20, 40, 0.65);
+      box-shadow: 0 0 18px rgba(0, 120, 190, 0.25);
+      color: #d4ebff;
+      line-height: 1.6;
+    }
+
+    .timeline-note strong {
+      display: block;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #8bbce8;
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-note time {
+      font-weight: 600;
+      color: #ffffff;
+    }
+
     .author-card,
     .related-posts,
     .community-section {
@@ -345,6 +370,18 @@ tags:
           <h1>Game Takes the Stage, Day 3 Runtime Merge</h1>
           <p style="color: #cfe5ff; margin: 0;">October 21, 2025, Written by BlackFrame AI Studio</p>
         </header>
+        <div class="timeline-note" role="note" aria-label="Production timeline">
+          <strong>Production timeline</strong>
+          <p>
+            Primary log captured <time datetime="2025-06-10">June 10, 2025</time> — Day 3 of the
+            Crescent Veil sprint when the runtime merge shipped.
+          </p>
+          <p>
+            Builds here extend the scaffold first created on <time datetime="2025-06-07">June 7, 2025</time>,
+            followed Day 1’s kickoff on <time datetime="2025-06-08">June 8</time> and Day 2’s blueprint run on
+            <time datetime="2025-06-09">June 9</time>.
+          </p>
+        </div>
 
         <p>The third day of the BlackFrame Engine runtime push was about commitment. The Purge of the Crescent Veil game remains an unfinished showcase, but the engine scaffolding Codex raised over the past two dispatches worked even while it booted through a toy harness. Today we deleted the training wheels, pointed every executable at the real <code>game::Game</code> runtime, and proved that the multi-window debug view can render the live procedural sprite stack without guard clauses.</p>
 
@@ -486,6 +523,7 @@ FAILED: tests/CMakeFiles/cv_vgu_scale_test.dir/Unity/unity_0_cxx.cxx.o
         "url": "https://www.blackframeai.org/blog/game-takes-the-stage/",
         "datePublished": "2025-10-21",
         "dateModified": "2025-10-22",
+        "dateCreated": "2025-06-10",
         "keywords": ["engine-rd", "agentic-workflows", "studio-culture"],
         "articleSection": "Agentic Workflows",
         "isPartOf": {

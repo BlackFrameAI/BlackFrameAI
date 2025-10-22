@@ -195,6 +195,31 @@ tags:
       text-transform: uppercase;
     }
 
+    .timeline-note {
+      margin: 1.8rem 0 2.4rem;
+      padding: 1.2rem 1.6rem;
+      border: 1px solid rgba(0, 160, 255, 0.35);
+      border-radius: 18px;
+      background: rgba(0, 20, 40, 0.65);
+      box-shadow: 0 0 18px rgba(0, 120, 190, 0.25);
+      color: #d4ebff;
+      line-height: 1.6;
+    }
+
+    .timeline-note strong {
+      display: block;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #8bbce8;
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-note time {
+      font-weight: 600;
+      color: #ffffff;
+    }
+
     .tag-list {
       display: flex;
       flex-wrap: wrap;
@@ -438,6 +463,17 @@ tags:
           <span>Published October 20, 2025</span>
           <span>By BlackFrame AI Studio</span>
         </div>
+        <div class="timeline-note" role="note" aria-label="Production timeline">
+          <strong>Production timeline</strong>
+          <p>
+            Primary log captured <time datetime="2025-06-09">June 9, 2025</time> — Day 2 of the
+            Crescent Veil sprint documented here.
+          </p>
+          <p>
+            Scaffold automation first stood up on <time datetime="2025-06-07">June 7, 2025</time> and Day 1
+            operations ran on <time datetime="2025-06-08">June 8, 2025</time>, setting the stage for the blueprint recap.
+          </p>
+        </div>
         <h1>The Blueprint Days: Trusting Codex With the Wheel</h1>
         <ul class="tag-list" aria-label="Post topics">
           <li><a href="/blog/?topic=engine-rd">Engine R&amp;D</a></li>
@@ -600,6 +636,7 @@ Write-Host "✅ Scaffold created at $rootPath"</pre>
         "url": "https://www.blackframeai.org/blog/blueprint-days/",
         "datePublished": "2025-10-20",
         "dateModified": "2025-10-22",
+        "dateCreated": "2025-06-09",
         "keywords": ["engine-rd", "agentic-workflows", "studio-culture"],
         "articleSection": "Agentic Workflows",
         "isPartOf": {
