@@ -5,7 +5,15 @@
     <link>https://www.blackframeai.org/blog/</link>
     <description>Daily dispatches, devlogs, and pillar guides from BlackFrame AI Studio.</description>
     <language>en-US</language>
-    <lastBuildDate>Wed, 22 Oct 2025 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 22 Oct 2025 18:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Laying the Foundation, Day 4 Engine Heartbeat</title>
+      <link>https://www.blackframeai.org/blog/laying-the-foundation/</link>
+      <guid>https://www.blackframeai.org/blog/laying-the-foundation/</guid>
+      <pubDate>Wed, 22 Oct 2025 09:00:00 GMT</pubDate>
+      <dc:date>2025-10-22T09:00:00Z</dc:date>
+      <description><![CDATA[Day 4 locked the engine loop into a steady cadence, wiring Codex-built systems into the init-update-shutdown flow and turning instrumentation into our temporary dashboard.]]></description>
+    </item>
     <item>
       <title>Game Takes the Stage, Day 3 Runtime Merge</title>
       <link>https://www.blackframeai.org/blog/game-takes-the-stage/</link>
