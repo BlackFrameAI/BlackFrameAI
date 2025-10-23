@@ -1,0 +1,28 @@
+🚀 AI Usage Protocol (Sanitized Summary)
+
+This public summary captures the intent of the internal AI usage guidelines while removing sensitive operational steps.
+
+Key Principles
+- Treat AI systems as logic amplifiers directed by trained operators.
+- Maintain human arbitration, auditing, and safety oversight at every stage.
+- Favor transparent reasoning, traceable task decomposition, and permissioned automation.
+
+High-Level Workflow Overview
+1. Humans define goals and guardrails.
+2. A planning model drafts scaffolding proposals for review.
+3. A coding model executes approved, atomic tasks under supervision.
+4. Feedback loops confirm correctness before integration.
+5. Humans perform the final merge and validation.
+
+Governance Rules
+- Unknowns must trigger clarification instead of guesses.
+- Each output must cite its reasoning path or defer to a human when uncertain.
+- Automated recovery is limited to pre-authorized scenarios; otherwise escalation is required.
+
+Audit & Error Handling
+- Every stage includes a structured self-audit to surface risks early.
+- Escalation paths exist for ambiguous instructions, emission errors, or constraint drift.
+- Fail-safe behavior prioritizes halting and alerting over speculative fixes.
+
+Outcome
+Following these principles enables stable AI-assisted development while keeping critical details [REDACTED].

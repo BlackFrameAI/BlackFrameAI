@@ -1,0 +1,34 @@
+🟢 Module 03 — Architecture Rules (Sanitized Summary)
+
+Purpose
+Provide a public-facing outline of the architecture discipline without exposing implementation-sensitive details.
+
+Platform & Rendering
+- Primary platform and graphics stack: [REDACTED].
+- Optional showcase technology: [REDACTED] (tightly controlled).
+
+Core Principles
+- Maintain strict modular boundaries between engine, game, and tooling layers.
+- Centralize system registration and lifecycle ownership in designated managers.
+- Enforce RAII patterns and avoid global singletons.
+- Keep input, rendering, scene, and gameplay systems decoupled.
+
+Directory Expectations
+- `/engine/` hosts core runtime systems.
+- `/game/` hosts gameplay logic conforming to engine contracts.
+- `/docs/` captures design records.
+- `/tools/` stores auxiliary utilities.
+- Additional subdirectories follow the same separation, with sensitive naming details [REDACTED].
+
+Behavioral Safeguards
+- No speculative guessing or architecture assumptions.
+- No self-healing edits outside approved workflows.
+- Cross-system shortcuts and unauthorized schema changes are prohibited.
+- All changes undergo review before merge.
+
+Render Pipeline Notes
+- Rendering semantics and shader toolchain details are [REDACTED].
+- Build automation hooks exist but remain gated behind internal approvals.
+
+Summary
+These rules preserve a clean, auditable architecture while omitting confidential platform specifics.
