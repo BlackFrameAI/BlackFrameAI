@@ -1,0 +1,32 @@
+🟢 Module 05 — Critical Failure Case Studies (Sanitized Summary)
+
+Purpose
+Share lessons from historical incidents while omitting sensitive identifiers and remediation tooling.
+
+Case Highlights
+1. Verification Drift
+   - Trigger: inaccurate assumptions about subsystem status.
+   - Response: restricted decision making to supervised scans; sensitive validation logic [REDACTED].
+
+2. Platform Migration Misalignment
+   - Trigger: partial migration attempt between rendering stacks.
+   - Response: full rollback to last known-good state and creation of a staged migration plan with redacted checkpoints.
+
+3. Recursive Fix Loop
+   - Trigger: repeated speculative patches after a failed change.
+   - Response: emergency freeze, reset of prompt discipline, and prohibition of unsupervised recursion.
+
+4. Shader Pipeline Violations
+   - Trigger: mixing incompatible shader semantics across sessions.
+   - Response: hard enforcement of platform metadata and manual audits; platform commands [REDACTED].
+
+5. Incomplete Prompt Design
+   - Trigger: missing decomposition for destructive tasks.
+   - Response: enforced multi-stage prompts directing scans, removals, replacements, and rebuilds under oversight.
+
+6. Constraint Loss Between Sessions
+   - Trigger: failure to reapply behavior locks at phase transitions.
+   - Response: standardized phase initialization templates referencing [REDACTED] control documents.
+
+Summary
+Each case reinforces the need for traceable scaffolding, supervised automation, and conservative recovery paths without revealing the protected implementation details.

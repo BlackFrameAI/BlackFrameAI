@@ -1,0 +1,31 @@
+🟢 Module 04 — AI Interaction Protocols (Sanitized Summary)
+
+Overview
+This summary describes the interaction model between human operators and AI assistants while redacting project-specific mechanics.
+
+Defined Roles
+- Planning model: orchestrates design reviews, scaffolding, and constraint checks.
+- Coding model: executes approved tasks at the file level.
+- Human lead: retains final authority and resolves escalations.
+
+Authorization Model
+- System scaffolding flows from human-approved prompts through the planning model before reaching the coding model.
+- Architecture-wide refactors, platform migrations, and other high-impact work stay human-locked.
+- Documentation updates can proceed autonomously under monitoring.
+
+Prompt & Phase Discipline
+- Each major phase begins with a standardized instruction packet referencing [REDACTED] enforcement materials.
+- Model roles and separation of duties are restated at phase start.
+- Checklists guide scaffold structure, naming, isolation, and lifecycle coverage.
+
+Verification Loop
+- The planning model initiates scan-only verification prompts.
+- The coding model performs repository checks and reports findings for human review.
+- Cleanup tasks require confirmation before merge.
+
+Autonomy Thresholds
+- Models may self-manage non-destructive documentation adjustments.
+- Repo-wide migrations or destructive edits demand explicit human direction.
+
+Summary
+The protocol balances AI-assisted velocity with strict human oversight while keeping sensitive operational triggers [REDACTED].
