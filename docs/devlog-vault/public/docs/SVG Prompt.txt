@@ -1,0 +1,14 @@
+# SVG Animation Prompt (Summary)
+
+This document previously contained a detailed, implementation-specific prompt for generating and animating SVG assets. The
+sensitive instructions have been removed. The remaining summary captures the reusable intent without exposing precise
+internal file names or workflow secrets.
+
+Key expectations for future animation work:
+- Start from a clean base SVG asset supplied at runtime.
+- Apply non-destructive edits using a structured XML/SVG editing pipeline.
+- Introduce simple breathing and glow animations suitable for reuse across UI elements.
+- Deliver a downloadable SVG file rather than inline snippets or screenshots.
+
+Follow standard project guidelines when preparing animation prompts and store any private asset references in the secure
+vault rather than public repositories.
