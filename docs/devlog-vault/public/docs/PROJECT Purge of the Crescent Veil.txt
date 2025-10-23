@@ -1,0 +1,21 @@
+Project Brief — Purge of the Crescent Veil (Sanitized)
+
+Phase: Rendering Pipeline Scaffold
+Objective: Maintain full engine context while validating the rendering stack.
+
+Active Technology Stack
+- C++ engine targeting Windows with Direct3D11 via the BGFX backend.
+- CMake-driven modular project layout with dedicated game and engine layers.
+- BGFX shader toolchain used for shader compilation.
+
+Key Systems Confirmed Operational
+- RenderSystem for rectangle and circle primitives.
+- ResourceSystem handling shader and texture loading.
+- Scene graph supporting drawable primitives with saved-state utilities.
+
+Current Work Queue (High Level)
+1. Add an internal visualization test scene.
+2. Ensure the shader build script covers all primitives.
+3. Enhance shader loading with explicit status reporting.
+
+Process safeguards and internal-only humor have been omitted from this public summary.

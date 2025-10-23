@@ -1,0 +1,11 @@
+Build Log Excerpt (Sanitized)
+
+Summary
+This log captures a Windows-based CMake configuration and build attempt for the Purge of the Crescent Veil project. The toolchain targets Visual Studio 2022 with BGFX examples enabled.
+
+Key Events
+- CMake successfully configured the project using MSVC 19.44 and selected the Windows 10 SDK.
+- A developer warning flagged legacy custom command arguments within BGFX example configuration scripts.
+- During the build step, shader compilation failed because the expected output path was unavailable, causing MSBuild to exit with code 3.
+
+File system paths and environment specifics have been abbreviated to avoid exposing internal infrastructure details.

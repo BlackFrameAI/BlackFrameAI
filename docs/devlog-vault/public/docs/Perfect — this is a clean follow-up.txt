@@ -1,0 +1,16 @@
+Task Audit Summary (Sanitized)
+
+Overview
+This note captures the recommended sequencing for four Codex maintenance tasks. Operational chatter and informal language have been removed.
+
+Recommended Order
+1. Remove the unused SDL3 dependency to keep the build graph accurate.
+2. Prune the obsolete EngineCore and InputSystem files once SDL3 is gone.
+3. Update build and design documentation to reflect the cleaned architecture.
+4. Modernize the example program after prior cleanups succeed.
+
+Batching Guidance
+- Tasks 1 and 3 may be batched because documentation updates can follow the dependency removal.
+- Tasks 2 and 4 should run sequentially to avoid conflicts with deleted files.
+
+Operational incidents, container issues, and personal remarks have been redacted in this public version.
