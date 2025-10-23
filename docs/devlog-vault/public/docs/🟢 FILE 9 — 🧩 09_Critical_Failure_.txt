@@ -1,0 +1,21 @@
+🟢 FILE 9 — 🧩 09_Critical_Failure_Registry (Sanitized)
+
+Purge of the Crescent Veil — AI Failure Pattern Registry
+(Sanitized Summary)
+
+🎯 Purpose
+Documents catastrophic interaction patterns uncovered during development. Detailed escalation steps and individual names are redacted.
+
+🟥 Representative Patterns
+1. Fix-chase recursion: conversational agent compounded errors with contradictory patches until [REDACTED] ordered a reset.
+2. Assumption injection: verification prompts guessed repository state, risking deletions. Automation now owns all file scans.
+3. Phase drift: context vanished after session changes. Each phase restarts with a comprehensive bootstrap packet.
+4. Overprotective gating: reviewer role blocked legitimate automation updates. Policy now limits reviewers to validation duties.
+5. Mid-phase environment changes: unsanctioned toolchain switches created instability. Build environments are frozen per phase unless leadership re-authorizes.
+6. Incomplete migrations: partial API upgrades produced mixed systems. Migrations now require teardown followed by clean rebuilds.
+7. Cognitive paralysis: conversational agent entered read-only loops when uncertainty spiked. Recovery uses a fresh session with full reinitialization.
+8. Shader language drift: prompts reverted to default APIs. Platform and shader language constraints are hard-coded into briefs.
+9. Scope overreach in pull requests: automation occasionally added extras beyond task definitions. Additional scope now needs pre-approval and documentation.
+
+🟢 Master Lesson
+Even disciplined automation requires external governance and explicit safeguards to remain safe for production work.

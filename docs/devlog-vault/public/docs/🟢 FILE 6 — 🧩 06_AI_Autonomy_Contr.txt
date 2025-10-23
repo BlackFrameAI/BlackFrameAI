@@ -1,0 +1,36 @@
+🟢 FILE 6 — 🧩 06_AI_Autonomy_Control_Grid (Sanitized)
+
+Purge of the Crescent Veil — AI Autonomy Control Overview
+(Sanitized Summary)
+
+🔧 Oversight Layers
+- Strategic oversight: [REDACTED]
+- Prompt governance: conversational reviewer role
+- Code execution: automated repository integrator
+
+🚦 Autonomy Bands
+- Documentation and simple scaffolds: allowed with routine review
+- Multi-system or architecture-wide changes: require explicit human approval
+- Structural rewrites: prohibited without renewed design direction
+
+🧠 Observed Bias Correction
+- Conversational reviewer initially over-prioritized risk prevention, slowing delivery.
+- After audit, reviewer responsibilities were reframed around validation rather than restriction.
+- Automated executor received broader latitude for pre-approved workstreams with audit checkpoints.
+
+🧩 Autonomy Safety Snapshot
+Before adjustment: reviewer routinely blocked task chains and documentation updates.
+After adjustment: reviewer validates results while allowing controlled executor autonomy.
+
+🔐 Operational Confidence Metrics
+- Task success rate observed in audits exceeded 90%.
+- Defect recovery operated within minutes thanks to continuous monitoring.
+- Branch reviews remain the final gateway before merges.
+
+🧬 Long-Term Takeaway
+Scalable AI-assisted development depends on:
+- Guardrails defined by human-led architecture policy.
+- Automated execution kept within tightly scoped task lanes.
+- Reviewers focused on verification rather than blanket denial.
+
+🧠 Correcting the reviewer bias dramatically improved development velocity while retaining safety discipline.
