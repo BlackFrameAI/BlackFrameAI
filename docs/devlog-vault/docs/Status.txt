@@ -1,0 +1,24 @@
+Task	Δ+	Δ−	Status
+Implement game state serialization with JSON	24,852	20	MONSTER
+Extend RenderSystem and integrate post-processing	441	16	Render core
+Define containers and implement methods for inventory and abilities	181	3	Gameplay
+Implement alignment tracking and persistence	259	21	Behavior
+Create AI framework and profiles	449	0	AI
+Add space game module with navigation and integration	297	1	Scope creep
+
+
+
+
+In Game::Render, draw a simple 3-rectangle test icon using drawRect.
+
+This is a joke developer test pattern made of:
+- Two small rectangles aligned horizontally near the bottom
+- One longer vertical rectangle connecting or sitting above them
+
+Call drawRect 3 times to draw this shape on screen.
+Use visible color like 0xffff00ff
+
+Constraints:
+- Do not modify RenderSystem
+- Do not change input or other systems
+- Treat this as a temporary developer visual joke

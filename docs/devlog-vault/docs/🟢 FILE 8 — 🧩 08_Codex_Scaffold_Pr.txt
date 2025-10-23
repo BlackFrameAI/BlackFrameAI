@@ -1,0 +1,95 @@
+🟢 FILE 8 — 🧩 08_Codex_Scaffold_Protocol.md
+
+Purge of the Crescent Veil — Codex Scaffold Control Protocol
+(Master Extraction Document — Module 08)
+
+🎯 Purpose
+This document defines the Codex scaffold execution model that enabled Purge of the Crescent Veil to operate at industrial AI-integration stability.
+
+It encodes the exact project-side Codex operational rules that prevented architectural drift and enabled successful multi-phase engine construction.
+
+🔧 Core Codex Execution Model
+Phase Step	Who Controls	Notes
+Task Generation	GPT (Human-AI Co-Authored Prompt)	GPT drafts exact scaffold prompt
+Task Execution	Codex	Codex emits code under prompt constraints
+Review & Verification	Human	No blind merges
+Merge Control	Human	All PRs reviewed pre-merge
+Drift Detection	Human + GPT	GPT assists in audit validation
+Phase Lock Enforcement	Human	Architecture checkpoints established
+
+🔒 Codex Scaffold Discipline Summary
+Zero guessing: Codex operates only on explicit prompt context.
+
+No cross-layer contamination: Engine and Game separation enforced.
+
+One system at a time: Never multi-subsystem scaffold unless pre-approved.
+
+Safe batch grouping allowed: Multiple simple scaffolds may batch.
+
+PR integration locked: All scaffolds pushed via PRs for human review.
+
+🧬 Scaffold Styles Authorized
+Type	Permitted Behavior
+Clean new file scaffold	✅ Fully authorized
+Clean extension of existing system	✅ Permitted under prompt guardrails
+Header + Implementation pair	✅ Default Codex scaffold pattern
+Inline TODO marking	✅ Used to stage future tasks
+External dependency injection	❌ Blocked unless explicitly authorized
+Architecture rewrite	❌ Forbidden without full phase design approval
+
+🚦 Merge Gate Logic
+Merge Condition	Action
+Scaffold passes compile	✅ Merge allowed
+Scaffold drifts architecture	❌ Merge blocked
+Scaffold violates system boundary	❌ Merge blocked
+Scaffold matches prior spec	✅ Merge allowed
+Scaffold introduces Codex-suggested expansion	✅ Merge allowed (if safe)
+
+📋 Codex Scaffold Style Template (Standard Prompt Form)
+plaintext
+Copy
+Edit
+Task: Scaffold [SystemName] into [Layer]
+
+Constraints:
+- Use modern C++
+- Engine layer only / Game layer only (specify)
+- Create header and implementation pair
+- Integrate with SystemManager registration
+- Follow existing directory structure
+- No guessing on subsystem logic outside provided scope
+
+Notes:
+- Place TODO markers where future expansion is expected
+- Do not include gameplay logic inside engine systems
+- Safe for Phase [N] context
+🛑 Codex Self-Suggestion Policy
+Codex auto-suggest tasks are allowed.
+
+GPT is forbidden to block Codex self-suggestions.
+
+Human audit remains final authority.
+
+Codex self-suggestion flow allowed higher autonomy after Phase 9.6 audit validation.
+
+🟢 Autonomous Task Scaling (Post Phase 9.6)
+✅ After validated complexity audits:
+
+Codex may generate multi-system scaffolds when task structure is clear.
+
+GPT pre-blockers for safety were retired.
+
+Human audit remains checkpoint control at branch level.
+
+📊 Scaffold Stability Statistics
+Metric	Result
+Total Codex tasks audited	16 major tasks
+Safe for merge	100% (16/16 passed)
+Break risk detected	0
+Playtest-visible defects	0 major
+Recovery time (if needed)	< 2 min avg
+Logic drift frequency	< 5%
+
+🧠 Master Protocol Rule
+Codex is never assumed safe by default.
+Codex earns task autonomy through auditable proof of consistent architectural discipline.

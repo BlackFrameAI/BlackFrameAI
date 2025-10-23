@@ -1,0 +1,19 @@
+Build minimal playable GameState scaffold (menu → player spawn → dummy enemy kernel)
+
+
+
+
+🧹 Simplest method using just Notepad++:
+1️⃣ Copy your extracted error block (from your current search on "error").
+
+2️⃣ Open Notepad++.
+
+3️⃣ Use Find → Replace → Regular Expression mode.
+
+4️⃣ In the "Find what:" field, enter:
+
+regex
+Copy
+Edit
+G:\\CODEX_Projects\\Purge_Of_The_Crescent_Veil\\
+
