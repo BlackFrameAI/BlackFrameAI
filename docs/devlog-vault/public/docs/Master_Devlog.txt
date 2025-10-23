@@ -1,0 +1,33 @@
+Purge of the Crescent Veil — Master Development Log (Sanitized)
+PROJECT LEAD: [REDACTED]
+AI Co-Developer: [REDACTED]
+PROJECT TYPE: Indie game project with a custom engine
+START DATE: 2025-06-07
+STATUS: Active Development
+
+Project Timeline (Sanitized)
+Phase | Status | High-Level Notes
+PRE-PHASE 1 — Constraints Lock | Completed | Project scope and behavioral constraints documented.
+Phase 1 — Repo Setup & Project Structure | Completed | Repository layout and workflow policies established.
+Phase 2 — Documentation and Design Foundation | Completed | Core engine and gameplay documentation finalized.
+Phase 3 — First Engine Build (V0.1) | Completed | Engine validated via first executable build.
+Phase 4 — Basic Gameplay Layer Scaffold | Completed | Gameplay systems scaffolded for runtime integration.
+Phase 5 — Basic Runtime Loop | In Progress | Runtime loop under active iteration.
+
+Latest Update — 2025-10-22
+- Lifecycle controller confirmed deterministic startup, update, and shutdown sequences.
+- Telemetry pipeline monitoring subsystem readiness at the target 60 Hz cadence.
+- Development remains within previously agreed behavioral constraints.
+
+Next Focus
+- Integrate the rendering backend without disrupting the current loop cadence.
+- Prepare asset loading guidelines prior to expanding resource management.
+- Maintain telemetry coverage as runtime systems are extended.
+
+Phase Summaries (Condensed)
+PRE-PHASE 1 | Constraints and scope definitions locked; documentation created for guiding future work.
+Phase 1 | Repository structure and tooling discipline enforced for ongoing development.
+Phase 2 | System design references written to keep engine and gameplay work aligned.
+Phase 3 | Initial engine build achieved, confirming baseline functionality.
+Phase 4 | Gameplay scaffolding prepared for interaction with the engine runtime.
+Phase 5 | Runtime loop stabilization underway with focus on rendering and asset flow.

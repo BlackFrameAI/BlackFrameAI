@@ -1,0 +1,12 @@
+Sanitized Patch Summary
+
+Overview
+This document replaces detailed diff data with a high-level description of the relevant update.
+
+Key Changes
+- Build configuration now launches the primary game flow instead of a temporary minimal harness.
+- Documentation entries were updated to remove legacy references to the deprecated harness.
+- The modular system tree reflects the removal by marking the minimal module as retired.
+
+Notes
+All sensitive revision identifiers, file paths, and workflow annotations have been replaced with this summary for public sharing.
