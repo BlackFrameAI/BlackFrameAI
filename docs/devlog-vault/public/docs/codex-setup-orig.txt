@@ -1,6 +1,16 @@
 # Purge Of The Crescent Veil — Codex Master Bootstrap v1 (Sanitized)
-# Engine Hardening: Linux Dependencies, GLFW/X11, Audio, Dev Headers
 
+This public note preserves the intent of the original bootstrap checklist while
+removing workstation-specific identifiers. Concrete filesystem paths and
+internal tokens that appeared in the source log have been replaced with
+`[REDACTED]` placeholders.
+
+## Base Environment
+
+The Codex bootstrap expects a non-interactive Debian-based shell configured with
+standard development tooling:
+
+```
 export DEBIAN_FRONTEND=noninteractive
 
 apt-get update && apt-get install -y \
@@ -21,8 +31,9 @@ apt-get update && apt-get install -y \
     zlib1g-dev \
     libfreetype6-dev \
     libudev-dev \
-    libwayland-dev || true  # wayland optional
+    libwayland-dev || true
+```
 
-# Optional git configuration for Codex environments
-# (workspace path redacted for public release)
-git config --global --add safe.directory [REDACTED_WORKSPACE_PATH]
+All user-specific git configuration steps, bespoke artifact URLs, and machine
+labels present in the original export are intentionally omitted here to avoid
+leaking environment metadata.
