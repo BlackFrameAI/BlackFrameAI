@@ -1,0 +1,20 @@
+📢 Phase 1 Social Messaging Outline (Public Summary)
+This summary sketches the themes planned for the initial BlackFrameAI announcement cycle without exposing detailed launch tactics.
+
+🎯 Campaign Goals
+- Introduce BlackFrameAI as an adaptable, AI-guided engine project.
+- Emphasize modular rendering capabilities and live iteration loops.
+- Highlight that progress is being documented transparently for the community.
+
+🗓️ Messaging Pillars
+1. Foundation: Explain that BlackFrameAI explores AI-assisted engine architecture rather than another end-user tool.
+2. Modularity: Describe the vision for swappable rendering pipelines and platform flexibility.
+3. Orchestration: Share that Codex task queues coordinate builds, audits, and refactors under human supervision.
+4. Comparison: Contrast disciplined AI collaboration with traditional rigid production pipelines.
+5. Systems Spotlight: Tease AI-generated UI geometry as an example of procedural workflows.
+6. Studio Impact: Outline how these methods could influence future teams and production models.
+7. Technical Depth: Mention automated build management without revealing operational commands.
+8. Momentum: Encourage followers to watch for upcoming showcases as the experiment scales.
+
+🧩 Internal Follow-Up
+The Codex task list for deeper rendering work remains private. Public updates will only surface when modules are stable and cleared for sharing.
