@@ -1,0 +1,12 @@
+# Universal Boost Package for Purge of the Crescent Veil engine/kernel dev
+
+[REDACTED: Original text contained explicit package installation commands.]
+
+Summary:
+- Begin by updating the package manager index.
+- Install build-essential tooling (compilers, CMake, Ninja, pkg-config).
+- Add graphics-related development dependencies to support rendering stacks and multiple windowing backends.
+- Install audio subsystem libraries for OpenAL, PulseAudio, and ALSA integration.
+- Provide Lua 5.4 bindings and JSON libraries used by the project.
+- Ensure general utilities (archiving, networking, Python tooling) are available for workflows.
+- Optionally run maintenance commands to keep the environment clean across repeated runs.

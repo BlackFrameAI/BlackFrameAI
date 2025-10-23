@@ -1,0 +1,12 @@
+# Purge Crescent Codex Universal Container Seed v2 — Final Compatibility Build Chain
+
+[REDACTED: Original text contained explicit package installation commands.]
+
+Summary:
+- Refresh the package manager cache before installing dependencies.
+- Install compiler and build tooling required for the project toolchain.
+- Add graphics-related development libraries for OpenGL, windowing, and Wayland/X11 support.
+- Include audio development packages to satisfy runtime requirements.
+- Provide Lua and JSON development libraries for scripting and data handling.
+- Install general developer utilities used by collaborators.
+- Optionally run cleanup steps to remove unused packages after setup.
