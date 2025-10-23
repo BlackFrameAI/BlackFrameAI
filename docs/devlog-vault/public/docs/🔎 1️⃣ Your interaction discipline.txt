@@ -1,0 +1,20 @@
+🔎 Interaction Discipline Overview (Public Summary)
+This note outlines the general habits used to keep AI collaboration reliable without revealing private prompts or enforcement scripts.
+
+✅ Guiding Principles
+- Treat the model as a probabilistic assistant whose outputs require verification.
+- Separate factual results from the reasoning steps the AI provides.
+- Use recurring check-ins to confirm shared understanding before proceeding.
+
+🧠 Helpful Behaviors
+- Ask the AI to restate requirements to surface misunderstandings early.
+- Document decisions outside the conversation so state does not drift.
+- Encourage honest error reporting by framing mistakes as part of the process.
+
+🚧 Common Pitfalls for New Operators
+- Accepting fluent language as proof of correctness.
+- Skipping constraint reminders, which lets the AI extrapolate beyond scope.
+- Reacting emotionally to failures instead of refining the request.
+
+📌 Takeaway
+Success comes from disciplined supervision and transparent logging, not from assuming the AI is always right on the first try.

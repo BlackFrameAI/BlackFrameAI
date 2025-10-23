@@ -1,0 +1,29 @@
+📄 Layman’s Simplified Explanation (Public Summary)
+How AI and a human collaborator built Purge of the Crescent Veil
+
+🧭 Overview
+This project combines human-led planning with AI-assisted execution. The goal is to demonstrate that AI can extend a complex codebase when every task is framed, reviewed, and validated by a person.
+
+💡 Core Idea
+- AI contributes code and system drafts.
+- The human partner defines the goals, scope, and constraints.
+- Progress happens in short, reviewable steps so errors are caught quickly.
+
+⚖️ Why Oversight Matters
+- Large, vague requests cause AI systems to speculate or invent details.
+- Tight feedback loops and explicit requirements keep work grounded in reality.
+- A “fail honestly, never fake progress” rule prevents hidden mistakes.
+
+🔁 Collaboration Loop
+1. Set a precise objective.
+2. Ask AI for an implementation of just that objective.
+3. Review the result and request clarifications.
+4. Log outcomes and next steps before moving forward.
+
+🔬 What AI Does Well Here
+- Produces focused code when the brief is clear.
+- Explains reasoning steps when prompted to do so.
+- Audits its own work when given structured checklists.
+
+🔒 Key Takeaway
+AI can accelerate development, but reliability comes from disciplined human guidance, constant verification, and transparent documentation of every change.
