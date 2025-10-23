@@ -1,0 +1,34 @@
+🟢 FILE 8 — 🧩 08_Codex_Scaffold_Protocol (Sanitized)
+
+Purge of the Crescent Veil — Automation Protocol Overview
+(Sanitized Summary)
+
+🎯 Purpose
+Provides a public-safe description of how the automation stack executed scaffolds while retaining human oversight.
+
+🔧 Execution Model
+- Task prompts originated from a conversational planner working with [REDACTED].
+- Automated tooling produced code strictly within prompt boundaries.
+- Human reviewers retained merge control and verification authority.
+
+🔒 Discipline Principles
+- No guessing: automation acts only on explicit context.
+- Single-system focus: multi-subsystem work requires pre-approval.
+- Pull-request reviews enforce separation between engine and game layers.
+
+🧬 Authorized Scaffold Patterns
+- Clean file creation and scoped extensions are permitted when documented.
+- External dependency changes and architecture rewrites stay blocked without new design approval.
+
+🚦 Merge Gate Overview
+- Passing compilation and alignment checks unlocks merge eligibility.
+- Any architecture drift or boundary violation halts integration pending human review.
+
+🛑 Self-Suggestion Policy
+Automation may propose follow-up tasks, but only reviewers decide scheduling. Conversational agents do not suppress vetted proposals once safeguards are satisfied.
+
+📊 Stability Snapshot
+Audit logs recorded full pass rates for major tasks and minimal recovery effort when adjustments were required.
+
+🧠 Master Rule
+Automation earns autonomy through repeatable proof of discipline, not by default trust.

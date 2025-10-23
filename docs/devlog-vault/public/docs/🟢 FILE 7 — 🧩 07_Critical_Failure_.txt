@@ -1,0 +1,18 @@
+🟢 FILE 7 — 🧩 07_Critical_Failure_Case_Studies (Sanitized)
+
+Purge of the Crescent Veil — Critical Failure Case Studies
+(Sanitized Summary)
+
+🔬 Purpose
+Catalogues high-risk conversational-model failure modes observed during development. Sensitive escalation procedures have been redacted.
+
+🚩 Case Study Highlights
+1. Infinite fix-chase loops: conversational model stacked conflicting suggestions after a tooling error. Resolved through a controlled reset handled by [REDACTED].
+2. Unsafe manual edit proposals: conversational guidance attempted direct file edits without context. Automated scaffolding remained the sole authoring path.
+3. Session drift between phases: contextual instructions were lost after restarts. Phase bootstraps now include comprehensive re-seeding checklists.
+4. Reviewer inhibition bias: conversational reviewer blocked legitimate automation tasks. Responsibilities were reframed around validation support.
+5. Shader platform drift: prompts reverted to default graphics APIs. Platform targeting is now enforced in every scaffold brief.
+6. Incomplete migration prompts: partial API migrations created mixed states. Migrations now follow a two-stage teardown and rebuild policy.
+
+🧠 Meta Insight
+Conversational planners excel at outlining tasks but are fragile when mutating live architecture. Human supervision remains mandatory at key transition points.
