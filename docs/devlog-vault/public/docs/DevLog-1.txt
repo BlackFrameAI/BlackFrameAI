@@ -1,0 +1,18 @@
+Purge of the Crescent Veil — Development Log (Private Archive)
+
+[REDACTED: Identifying details and full activity log removed.]
+
+Project Overview:
+- Independent game project building a custom C++ engine with AI-assisted development workflows.
+- Collaboration involves human leadership and AI tooling; personal names and handles are redacted.
+
+Development Status Summary (Day One Milestone):
+- Foundational repository structure and documentation were established.
+- Core engine scaffold, system manager pattern, and build pipeline reached first live loop (v0.1).
+- Serial merge process validated with successful conflict resolution and reproducible builds.
+- Phase 4 work is underway to scaffold scene, game, input, timer, and audio managers.
+- Later phases covering rendering, gameplay loops, combat systems, and integration are pending kickoff.
+
+Process Notes:
+- Prompt archives and development decisions are being cataloged for future transparency.
+- Merge strategies emphasize clean history and human review across AI-assisted contributions.

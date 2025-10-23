@@ -1,0 +1,8 @@
+Build minimal playable GameState scaffold (menu → player spawn → dummy enemy kernel)
+
+Summary of guidance:
+- Capture relevant error blocks from search results for targeted fixes.
+- Use a capable text editor (e.g., Notepad++) to perform regex-based replacements.
+- Switch the editor to regular-expression mode before running the replacement.
+
+[REDACTED: Project-specific filesystem paths and example expressions were removed to protect private directory details.]
