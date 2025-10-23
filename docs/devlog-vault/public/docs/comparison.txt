@@ -1,30 +1,24 @@
 # Purge Of The Crescent Veil — Build Log Summary (Sanitized)
 
-The original build log contained detailed MSBuild output with absolute paths,
-workspace identifiers, and toolchain details that are not intended for public
-release. This sanitized summary preserves the troubleshooting context without
-exposing sensitive directory layouts or credentials.
+The original build log captured a full MSBuild session including user
+workstation paths, temporary directories, and credential-scoped environment
+variables. This sanitized digest keeps the actionable troubleshooting notes while
+replacing any identifiable strings with `[REDACTED]`.
 
-## Build Environment
-- Toolchain: MSBuild 17.14.10+ (Windows release configuration)
-- Primary generator: Ninja via CMake presets
-- Audio stack: OpenAL Soft, FMT, and platform mixers
+## Highlights
+- Compilation progressed through the custom OpenAL and fmt dependencies before
+  halting on downstream generator rules.
+- Windows-specific asset conversion steps succeeded; cross-platform validation
+  steps were skipped intentionally in this run.
+- Timing data for each build stage has been aggregated internally and removed
+  from this export.
 
-## Key Events
-1. Dependency projects for audio (fmt, OpenAL Soft) compiled successfully.
-2. The build scanned and generated module dependencies for core engine sources.
-3. Linking steps referenced multiple generated libraries in the release output
-   tree.
-4. Subsequent stages attempted to compile remaining engine and gameplay modules.
+## Actions Taken
+1. Normalized all absolute paths such as `G:/...` and `%USERPROFILE%/...` to
+   `[REDACTED_PATH]`.
+2. Cleared machine IDs and token values from MSBuild diagnostic output.
+3. Preserved warnings and actionable errors so engineers can trace the failure
+   modes without accessing restricted infrastructure details.
 
-## Redacted Paths
-- Original paths followed the pattern `[REDACTED_DRIVE]/CODEX_Projects/Purge_Of_The_Crescent_Veil/...`.
-- Output directories such as `out/build/windows-release/...` have been retained
-  only in generic form to preserve context.
-- Any tokens, credentials, or machine-specific identifiers have been replaced
-  with `[REDACTED]` placeholders.
-
-## Usage Notes
-- Refer to this summary to confirm dependency ordering and build tool versions.
-- Consult internal documentation for full logs when deeper diagnostics are
-  required.
+Refer to the internal runbook for the unabridged artifact when working inside
+the secure build environment.
