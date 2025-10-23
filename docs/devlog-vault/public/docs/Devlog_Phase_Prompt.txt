@@ -1,0 +1,21 @@
+PROJECT: [REDACTED PROJECT NAME]
+PHASE: [REDACTED PHASE DETAILS]
+
+GOAL: Provide a clean, factual phase summary for archival devlogs covering:
+- Confirmed accomplishments and shipped work
+- Systems or architecture changes worth noting
+- Significant AI assistant behaviors worth recording
+- How blocking issues were resolved
+- The project's readiness at the end of the phase
+
+CONSTRAINTS:
+- Avoid exaggeration or hype; stay factual
+- Keep the outline concise for quick review
+- Describe notable AI behavior with context and resolution
+
+STRUCTURE:
+1. PHASE SUMMARY — bullet list of accomplishments
+2. NOTABLE AI BEHAVIOR — bullet list of issues and fixes
+3. CURRENT STATE — one sentence on overall readiness
+
+OUTPUT: Markdown-formatted summary ready to archive.
