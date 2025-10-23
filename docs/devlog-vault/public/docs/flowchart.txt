@@ -1,0 +1,14 @@
+# Engine Boot Flow (Summary)
+
+The original flowchart enumerated low-level initialization calls for the Purge Engine prototype. This sanitized summary keeps
+only the high-level sequence needed for orientation:
+
+1. **Launch** – Parse command line options, set up core services, and instantiate the primary `Game` object.
+2. **Initialize Engine Systems** – Bring subsystems online (logging, input, timing, audio, rendering, networking, persistence,
+   and localization) and hand off control to the active scene manager.
+3. **Run Loop** – Iterate while the engine is running: poll input, update simulation systems, render scenes, advance timekeeping,
+   and present frames to connected displays.
+4. **Shutdown** – Tear down gameplay managers, stop background services, release rendering and audio resources, and persist any
+   outstanding state before exit.
+
+Refer to the secure archive for the exhaustive call graph when needed for debugging or regression analysis.
