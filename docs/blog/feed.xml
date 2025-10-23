@@ -5,7 +5,15 @@
     <link>https://www.blackframeai.org/blog/</link>
     <description>Daily dispatches, devlogs, and pillar guides from BlackFrame AI Studio.</description>
     <language>en-US</language>
-    <lastBuildDate>Wed, 22 Oct 2025 18:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 23 Oct 2025 18:00:00 GMT</lastBuildDate>
+    <item>
+      <title>First Light, Day 5 Render Bring-Up</title>
+      <link>https://www.blackframeai.org/blog/first-light/</link>
+      <guid>https://www.blackframeai.org/blog/first-light/</guid>
+      <pubDate>Thu, 23 Oct 2025 09:00:00 GMT</pubDate>
+      <dc:date>2025-10-23T09:00:00Z</dc:date>
+      <description><![CDATA[Day 5 connected the live window stack, GLAD-generated loader, and RenderSystem so Codex can leave telemetry mode and start drawing real frames on the next sprint.]]></description>
+    </item>
     <item>
       <title>Laying the Foundation, Day 4 Engine Heartbeat</title>
       <link>https://www.blackframeai.org/blog/laying-the-foundation/</link>
