@@ -1,0 +1,48 @@
+You are assisting with shader regeneration for the studio's custom engine. Use the following environment profile:
+
+🔧 Shader Environment
+- Shader language: BGFX .sc (HLSL-style)
+- Shader backend: Direct3D 11
+- Target platform: Windows
+- Shader profile: s_5_0
+- Shader compiler: shaderc.exe (run from PowerShell)
+
+Keep the implementation single-platform; do not introduce OpenGL semantics such as `gl_Position` or `gl_FragColor`.
+
+📂 Confirmed Shader File Layout
+- `engine/shaders/vs_rect.sc` — vertex shader
+- `engine/shaders/fs_rect.sc` — fragment shader
+- `engine/shaders/varying.def.sc` — varying interface definition
+- `engine/shaders/include/bgfx_shader.sh` — required include file
+
+📌 Shader Requirements
+Vertex Shader (`vs_rect.sc`):
+- Inputs: `a_position`, `a_color0`
+- Transform `a_position` with `u_modelViewProj`
+- Pass the colour through a varying (`v_color`)
+- Output `SV_POSITION` to clip space
+
+Fragment Shader (`fs_rect.sc`):
+- Input: `v_color`
+- Output: `SV_TARGET0` (for example, `float4 fragColor : SV_TARGET0`)
+- Write the incoming colour directly to the output
+
+Varying Definition (`varying.def.sc`):
+- Bridge `a_color0` to `v_color`
+- Bridge the transformed position to `SV_POSITION`
+
+📤 Output Format
+Generate clean `.sc` source code for all three files:
+- `vs_rect.sc`
+- `fs_rect.sc`
+- `varying.def.sc`
+
+Each file must include `#include "bgfx_shader.sh"`, use the semantics described above, and stand alone without requiring generated `.bin` files.
+Compilation will be handled separately with:
+
+```
+powershell
+& $env:SHADERC -f engine/shaders/[file].sc -o engine/shaders/[file].bin --type [vertex|fragment] --platform windows --profile s_5_0 --varyingdef engine/shaders/varying.def.sc -i engine/shaders/include
+```
+
+Provide only the source files; do not output compiled binaries.
