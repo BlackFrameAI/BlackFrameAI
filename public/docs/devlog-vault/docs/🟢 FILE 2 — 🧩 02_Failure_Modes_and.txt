@@ -1,0 +1,27 @@
+🟢 FILE 2 — 🧩 Failure Modes and Corrections (Public Extract)
+
+Overview
+This abridged document lists common failure patterns observed during development and the general strategies used to contain them. Exact timelines, command histories, and sensitive infrastructure notes have been withheld.
+
+Master Failure Mode Catalog (Sanitized)
+- Hallucinated Subsystems → Mitigated through enforced file isolation and human approval checkpoints.
+- Cross-System Drift → Controlled by single-file task policies and review gates.
+- Partial Memory Errors → Addressed with pre-task state refresh procedures.
+- Scaffold Suggest Mode → Managed by standardized authorization prompts before execution.
+- Architecture Drift → Corrected via full rollback authority and migration redesign when required.
+- Fix-Chase Loops → Broken by escalation rules that halt speculative patching.
+- Context Re-Entry Drift → Prevented with consistent phase-init scripts.
+- Shader Target Drift → Contained by strict platform/profile locks.
+
+Process Safeguards
+✅ Scaffold Locking Discipline — Maintain scope boundaries and manual audits.
+✅ Phase Init Control Loop — Re-establish constraints at every session start.
+✅ Verify Run Enforcement — Validation requires full-project scans before closure.
+✅ Oversight Freeze Protocol — Pause automation when recursion or drift is detected.
+✅ AI Input Partitioning — Separate planning prompts from execution prompts to avoid contamination.
+
+Critical Recovery Example (Abstract)
+A rendering migration introduced conflicting dependencies. The team reverted to the last stable checkpoint, re-established build constraints, and relaunched the phase under corrected specifications.
+
+Key Safety Truth
+AI can execute tasks inside a locked architecture but relies on human governance for architectural decisions and recovery authority.
