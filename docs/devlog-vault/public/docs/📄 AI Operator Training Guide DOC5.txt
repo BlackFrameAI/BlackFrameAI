@@ -1,0 +1,4 @@
+📄 AI Operator Training Guide: Applied AI Task Control for Codex & GPT Workflows (Public Extract)
+
+[Content Redacted]
+This public version intentionally removes operational directives, control loops, and any identifiers that could expose private scaffolding or internal governance procedures.

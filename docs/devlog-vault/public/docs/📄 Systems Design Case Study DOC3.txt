@@ -1,0 +1,4 @@
+📄 Systems Design Case Study — Applied AI Architecture (Public Extract)
+
+[Content Redacted]
+Detailed subsystem inventories, workflow instructions, and project identifiers have been removed for public distribution while preserving awareness that a supervised AI-assisted build was performed.
