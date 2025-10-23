@@ -1,0 +1,33 @@
+PHASE CONTEXT — SHADER PIPELINE SNAPSHOT
+Project: Purge of the Crescent Veil
+Phase: 9.4 (Shader Fix → D3D11 Compliance + Prompting Patch)
+Role Summary: Document known constraints for regenerating Direct3D 11 shader sources.
+
+Environment Overview:
+- Operating System: Windows 10 or later
+- GPU Target: NVIDIA RTX 4090
+- Rendering Backend: BGFX
+- Shader Compiler: shaderc.exe, executed from PowerShell
+- Platform Target: --platform windows
+- Shader Profile: --profile s_5_0
+- Include Bootstrap: #include "bgfx_shader.sh"
+- Shader Sources Directory: engine/shaders/
+- Varying Definition: engine/shaders/varying.def.sc
+- Include Directory: engine/shaders/include/
+
+Repository Snapshot:
+- engine/shaders/vs_rect.sc
+- engine/shaders/fs_rect.sc
+- engine/shaders/varying.def.sc
+- engine/shaders/include/bgfx_shader.sh (verified present)
+
+Task Goals:
+- Produce Direct3D 11 compatible versions of vs_rect.sc and fs_rect.sc.
+- Ensure the vertex shader transforms positions with u_modelViewProj and forwards colour data.
+- Ensure the fragment shader receives colour data from varyings and emits it via SV_TARGET0.
+- Align varying.def.sc with the vertex/fragment interfaces.
+
+Compilation Reference:
+  & $env:SHADERC -f engine/shaders/[file].sc -o engine/shaders/[file].bin \
+    --type [vertex|fragment] --platform windows --profile s_5_0 \
+    --varyingdef engine/shaders/varying.def.sc -i engine/shaders/include
