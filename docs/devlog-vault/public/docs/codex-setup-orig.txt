@@ -1,5 +1,4 @@
-
-# Purge Of The Crescent Veil — Codex Master Bootstrap v1
+# Purge Of The Crescent Veil — Codex Master Bootstrap v1 (Sanitized)
 # Engine Hardening: Linux Dependencies, GLFW/X11, Audio, Dev Headers
 
 export DEBIAN_FRONTEND=noninteractive
@@ -24,5 +23,6 @@ apt-get update && apt-get install -y \
     libudev-dev \
     libwayland-dev || true  # wayland optional
 
-# Optional git sanity if needed for some Codex environments
-git config --global --add safe.directory /workspace/Purge_Of_The_Crescent_Veil
+# Optional git configuration for Codex environments
+# (workspace path redacted for public release)
+git config --global --add safe.directory [REDACTED_WORKSPACE_PATH]
