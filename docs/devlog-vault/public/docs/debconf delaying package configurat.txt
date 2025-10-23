@@ -29,3 +29,10 @@ Audio asset checks were also reported and have been retained for completeness:
 
 Further remediation steps and credential-sensitive notes remain in the internal
 incident tracker.
+
+## Disclosure Notes
+
+Only generic asset identifiers and anonymized filesystem hints are exposed
+above. Any machine IDs, hostnames, or authentication references from the source
+log have been replaced with `[REDACTED]` annotations to preserve operational
+security.

@@ -37,3 +37,9 @@ apt-get update && apt-get install -y \
 All user-specific git configuration steps, bespoke artifact URLs, and machine
 labels present in the original export are intentionally omitted here to avoid
 leaking environment metadata.
+
+## Source Reference
+
+Consult the secured operations runbook for the unabridged command history,
+including hostnames and credential-scoped instructions. Those values remain
+restricted and are represented as `[REDACTED]` in this public mirror.

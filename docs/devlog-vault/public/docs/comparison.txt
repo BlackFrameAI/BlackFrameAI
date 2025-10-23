@@ -14,8 +14,8 @@ replacing any identifiable strings with `[REDACTED]`.
   from this export.
 
 ## Actions Taken
-1. Normalized all absolute paths such as `G:/...` and `%USERPROFILE%/...` to
-   `[REDACTED_PATH]`.
+1. Normalized all absolute paths (for example Windows drive mounts and user
+   profile directories) to `[REDACTED_PATH]`.
 2. Cleared machine IDs and token values from MSBuild diagnostic output.
 3. Preserved warnings and actionable errors so engineers can trace the failure
    modes without accessing restricted infrastructure details.
