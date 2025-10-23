@@ -1,0 +1,13 @@
+Task | Status
+--- | ---
+Core save/load pipeline | In Progress
+Rendering enhancements | In Progress
+Inventory and ability containers | Planned
+Alignment tracking and persistence | Planned
+AI behaviour framework | Planned
+Exploration module | Backlog
+
+Debug placeholder request:
+- Render a three-rectangle icon using `drawRect` with a high-contrast colour.
+- Keep the implementation local to the caller that schedules the draw call.
+- Treat the icon as a temporary developer-only visual.
