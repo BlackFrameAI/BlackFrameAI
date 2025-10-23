@@ -1,0 +1,21 @@
+[REDACTED TITLE] — Alignment-Controlled AI Coding Model
+
+Purpose:
+- Capture the high-level alignment safeguards used when pairing a supervisory model with an execution-focused coding model.
+- Provide a reusable template for recursive task execution governed by human oversight.
+
+Core Principles:
+- Human operators maintain architectural authority and arbitration rights.
+- A supervising AI proposes structure, checks scaffolds, and validates safety constraints.
+- An execution AI delivers scoped code outputs under audit.
+
+Control Loop Overview:
+1. Define intent and constraints outside the AI loop.
+2. Decompose work with the supervising AI while recording rationale.
+3. Execute atomic tasks with the coding AI inside strict guardrails.
+4. Audit every output before merging or expanding scope.
+
+Why It Matters:
+- Prevents architecture gaps, autonomy drift, and audit fatigue.
+- Keeps recursive scaffolding grounded in verified requirements.
+- Enables industrial-scale assistance without ceding control of project direction.

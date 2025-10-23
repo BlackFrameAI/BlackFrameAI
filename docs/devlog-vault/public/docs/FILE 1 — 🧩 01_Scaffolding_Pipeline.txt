@@ -1,0 +1,19 @@
+[REDACTED PROJECT] — Scaffolding Pipeline Summary
+
+Overview:
+- Project blends custom engine development with disciplined AI assistance.
+- Human leadership defines goals and enforces quality gates.
+- Supervisory AI assists with decomposition; execution AI handles scoped tasks.
+
+Pipeline Stages:
+1. Intent Modeling — capture desired outcome and constraints before any code runs.
+2. Prompt Preparation — craft structured instructions aligned with the scaffold checklist.
+3. Controlled Execution — run one task at a time, isolating changes for review.
+4. Verification Pass — run automated or manual checks to confirm correctness.
+5. Merge Discipline — integrate only after human approval and documentation updates.
+6. Isolation — avoid cross-system entanglement until dependencies are stable.
+
+Safeguards:
+- [REDACTED] project identifiers
+- No speculative features without review
+- Continuous documentation updates to match shipped behavior
