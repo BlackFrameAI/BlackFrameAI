@@ -1,0 +1,27 @@
+⚙ Phase 2 Seed Batch — Technical Teasers (Sanitized)
+
+Overview
+These promotional notes outline themes for a later marketing push without revealing implementation details. Each teaser keeps the original intent while removing sensitive specifics about engine internals.
+
+Teaser 1 — The Untouchable Layer
+Summary: Communicates that the platform lets AI contribute directly to core systems under controlled workflows.
+[REDACTED — proprietary integration mechanics]
+
+Teaser 2 — The Build Chain Breaker
+Summary: Emphasizes build stability and conflict prevention in the content pipeline.
+[REDACTED — internal pipeline design]
+
+Teaser 3 — Multi-Pipeline Core
+Summary: Announces support for multiple rendering backends with modular expansion.
+[REDACTED — backend orchestration details]
+
+Teaser 4 — Memory Stack Reality
+Summary: Highlights disciplined memory management practices that keep AI-authored code aligned with architecture requirements.
+[REDACTED — platform memory strategy]
+
+Teaser 5 — [REDACTED]
+Summary: Placeholder retained to preserve numbering; technical narrative removed for confidentiality.
+[REDACTED]
+
+Public Note
+These teasers are intentionally abstract. For deeper collaboration inquiries, contact the BlackFrameAI team through official channels.
