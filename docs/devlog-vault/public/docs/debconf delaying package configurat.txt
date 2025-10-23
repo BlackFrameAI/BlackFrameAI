@@ -1,0 +1,20 @@
+# Build Warning Log (Sanitized)
+
+debconf: delaying package configuration, since apt-utils
+
+CMake Warning at build/[REDACTED_PATH]/CMakeLists.txt:141 (message):
+  ALSOFT_CONFIG is deprecated.  Use ALSOFT_INSTALL_CONFIG instead
+
+ninja: error: '[REDACTED_WORKSPACE_PATH]/deps/glfw/deps/wayland/fractional-scale-v1.xml',
+needed by 'deps/glfw/src/fractional-scale-v1-client-protocol-code.h', missing and no known rule to make it
+
+Audio assets expected by the build:
+    - test_cue.ogg
+    - enemy_death.ogg
+    - shield_block.ogg
+    - player_hit.ogg
+    - achievement.ogg
+    - powerup.ogg
+    - music_ambient.ogg
+    - music_combat.ogg
+    - music_boss.ogg
