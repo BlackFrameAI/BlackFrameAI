@@ -1,6 +1,6 @@
 # Crusade History Manifest
 
-This manifest supports Codex in modeling historically grounded religious warfare systems, medieval technology, siege tactics, and geopolitical faction logic. Sources emphasize verifiable first-hand records and academic analysis.
+[REDACTED] Summary: Compiled academic sources supporting neutral historical modeling of medieval campaigns.
 
 ---
 
@@ -10,7 +10,7 @@ This manifest supports Codex in modeling historically grounded religious warfare
 **Type:** Primary Source Compilation\
 **URL:** https://sourcebooks.fordham.edu/sbook1k.asp
 
-Use: Crusade chronology, faction motivations, papal decrees, logistics. Used to model righteous war systems, zealot factions, and multi-front pressure.
+Use: Summary: Supplies chronological references for event sequencing and strategic planning systems.
 
 ---
 
@@ -20,7 +20,7 @@ Use: Crusade chronology, faction motivations, papal decrees, logistics. Used to 
 **Type:** Museum Research Portal\
 **URL:** https://royalarmouries.org/
 
-Use: Crossbows, flails, mail layers, shield designs. Powers accurate gear modeling, blacksmith systems, and weight/durability balancing.
+Use: [REDACTED] Summary: Provides equipment specifications for balanced gear catalogs.
 
 ---
 
@@ -30,6 +30,6 @@ Use: Crossbows, flails, mail layers, shield designs. Powers accurate gear modeli
 **Type:** Order Documentation (Historical)\
 **URL:** https://www.templarhistory.com/rule/
 
-Use: Code of conduct, heretic logic, land rights. Used for knight factions, divine punishment systems, and relic ownership rules.
+Use: Summary: Offers policy frameworks and organizational structures for faction rule sets.
 
 ---

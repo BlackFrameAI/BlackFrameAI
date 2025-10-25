@@ -1,35 +1,35 @@
 # Crusade History Manifest
 
-This manifest lists accessible historical references covering medieval crusades for neutral study and archival documentation.
+[REDACTED] Summary: Compiled academic sources supporting neutral historical modeling of medieval campaigns.
 
 ---
 
 ## 🏰 Crusade Campaign Structure
 
-**Name:** The Crusades – Fordham Medieval Sourcebook\\
-**Type:** Primary Source Compilation\\
+**Name:** The Crusades – Fordham Medieval Sourcebook\
+**Type:** Primary Source Compilation\
 **URL:** https://sourcebooks.fordham.edu/sbook1k.asp
 
-**Notes:** [REDACTED — narrative application removed]
+Use: Summary: Supplies chronological references for event sequencing and strategic planning systems.
 
 ---
 
 ## ⚔️ Weapon & Armor Technology
 
-**Name:** Royal Armouries – Historical Arms Database\\
-**Type:** Museum Research Portal\\
+**Name:** Royal Armouries – Historical Arms Database\
+**Type:** Museum Research Portal\
 **URL:** https://royalarmouries.org/
 
-**Notes:** [REDACTED — narrative application removed]
+Use: [REDACTED] Summary: Provides equipment specifications for balanced gear catalogs.
 
 ---
 
 ## 📜 Religious Justification & Templar Records
 
-**Name:** Templar Rule – Latin + English\\
-**Type:** Order Documentation (Historical)\\
+**Name:** Templar Rule – Latin + English\
+**Type:** Order Documentation (Historical)\
 **URL:** https://www.templarhistory.com/rule/
 
-**Notes:** [REDACTED — narrative application removed]
+Use: Summary: Offers policy frameworks and organizational structures for faction rule sets.
 
 ---

@@ -1,6 +1,6 @@
 # Colonization History Manifest
 
-Codex references these sources to simulate systems of forced assimilation, exploration, and geopolitical spread — including cultural erasure, native resistance, and post-contact shifts. Bias is intentionally highlighted or corrected where necessary.
+[REDACTED] Summary: This manifest now records high-level references for historical geography research without narrative specifics.
 
 ---
 
@@ -10,7 +10,7 @@ Codex references these sources to simulate systems of forced assimilation, explo
 **Type:** Historical Cartography Repository\
 **URL:** https://www.loc.gov/collections/general-maps/
 
-Use: Real-world territorial paths, port locations, expansion patterns. Used for procedural empire spread, trade route generation.
+Use: Summary: Provides geographic data for territorial mapping and trade route modeling.
 
 ---
 
@@ -20,7 +20,7 @@ Use: Real-world territorial paths, port locations, expansion patterns. Used for 
 **Type:** Educational History Resource\
 **URL:** https://www.facinghistory.org/resource-library/european-colonization-north-america
 
-Use: Cultural destruction mechanics, disease vectors, political resistance. Supports procedural memory loss, ancestral conflict, factional guilt systems.
+Use: [REDACTED] Summary: High-level context for cultural interaction timelines and policy modeling.
 
 ---
 
@@ -30,6 +30,6 @@ Use: Cultural destruction mechanics, disease vectors, political resistance. Supp
 **Type:** Global Cultural Archive\
 **URL:** https://www.unesco.org/en/endangered-languages
 
-Use: Language death, generational trauma, forced assimilation patterns. Enables factional silence, fractured ancestry, and spiritual erasure logic.
+Use: Summary: Tracks language vitality metrics for heritage system simulations.
 
 ---
