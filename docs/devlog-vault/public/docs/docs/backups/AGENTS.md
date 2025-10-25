@@ -3,15 +3,6 @@
 Test sources live under `tests/` but are excluded from the default build. Running `ctest` requires building these executables manually (for example by enabling the `BUILD_TESTING` option). When updating source code or documentation, run `bash scripts/build.sh` after configuration to ensure the code compiles. Documentation lives under `docs/` and should be kept in sync with the actual engine and game state.
 If any `apt-get` invocation fails during setup, fall back to running `apt update` and `apt install`.
 
-If GitHub network requests (clones, fetches, submodules) fail due to restrictions or authentication issues, retry using the `GITHUB_TOKEN` environment variable as an OAuth token:
-
-```
-https://${GITHUB_TOKEN}:x-oauth-basic@github.com/<repo_path>.git
-```
-
-Replace `<repo_path>` with the normal GitHub repository path. Only use the token when the normal attempt fails.
-
-
 ## Please reference:##
 Codex must rely on existing documentation when adding, modifying, or repairing systems. Reference the following documents as source of truth:
 
@@ -28,7 +19,6 @@ Codex must rely on existing documentation when adding, modifying, or repairing s
 - Do not use legacy UI systems, scene managers, or input systems. If in doubt, refer to the current modular status tree.
 - Codex may modify `/engine` systems if doing so is necessary to resolve build/runtime issues, as long as the changes are documented, logged, and don’t violate system separation.
 - Codex may auto-resolve build failures unless they are caused by network issues, stub placeholders, or improper script ordering (i.e. setup.sh/build.sh).
-
 
 - Always update relevant files under `docs/` AND project root folder when implementing features or refactoring.
 - Record a short summary in the engine or game devlog (see `docs/devlogs/`). Devlogs are historical journals and must never drive design or implementation decisions.
