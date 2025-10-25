@@ -1,10 +1,9 @@
-# Collapse Watchdog
+# Collapse Watchdog (Public Summary)
 
-The Collapse Watchdog is a supervisory service that monitors quantum collapse activity for signs of instability.
+The Collapse Watchdog monitors the health of probabilistic collapse routines and reports anomalies when entropy patterns look suspicious.
 
-- Aggregates collapse metrics and flags unusual streaks or repeating seeds without exposing runtime counters or entropy thresholds.
-- Works with the entropy oracle to observe long-term stability trends and surface early warnings when randomness deteriorates.
-- Keeps a short history of recent inputs so that designers can audit collapse health without exposing raw simulator logs or hashes.
-- Emits advisory status updates that other systems can use to decide when to fall back to safer execution modes.
-
-This summary omits implementation specifics, internal thresholds, and code locations to keep the monitoring strategy private.
+- Tracks consecutive collapses with abnormal entropy or repeated seeds and keeps a short window of recent inputs for pattern analysis.
+- Uses configurable thresholds supplied by the host application to decide when an issue counter should be reset.
+- Records anomaly metadata for later review without exposing simulator internals.
+- Emits a soft warning when sustained low entropy persists, enabling supervisory services to examine the simulator before hard failures occur.
+- Leaves fallback activation to the owning quantum manager while still reporting trend information that helps evaluate recovery.
