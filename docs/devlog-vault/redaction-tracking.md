@@ -236,7 +236,7 @@
 - `docs/intelligence_dispatcher_layout.py`
 - `docs/new 7.txt`
 - `docs/patch.txt`
-- `docs/shader_tree.txt`
+- `docs/shader_tree.md`
 - `docs/“Create the first Purge Engine rend.txt`
 - `docs/⚙ Phase 2 Seed Batch — Technical Te.txt`
 - `docs/⚫ RE-TRIAGE LOW PRIORITY (LargeComp.txt`
@@ -276,5 +276,5 @@
 | `docs/engine and game folders and files.png` | binary_image | Binary image file (manual review for overlays). |
 | `docs/first window.png` | binary_image | Binary image file (manual review for overlays). |
 | `docs/new 7.txt` | unix_home_path, username_amand | Contains Unix-style home directory paths.; References specific username `amand` in paths/logs. |
-| `docs/shader_tree.txt` | binary_data | Binary content (manual review needed). |
+| `docs/shader_tree.md` | binary_data | Binary content (manual review needed). |
 | `docs/📄 Layman’s Simplified Explanation.txt` | sensitive_keyword | Contains words like password/secret/API key. |
