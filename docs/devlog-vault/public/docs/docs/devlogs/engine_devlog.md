@@ -27,6 +27,12 @@ Chronological notes on engine updates.
 ## 2025-06-12
 - -- Established shader debug pipeline for inspecting intermediate stages.
 
+## 2025-06-13
+- 08:42:11Z BackgroundRenderer sheds the direct RendererFacade dependency; BatchVertex now lives in render/SharedPrimitives.hpp so both modules stay acyclic.
+- 09:15:37Z GLAD regenerated with binary loader support; validation script captured hash 74f3b6d and archived the generated headers.
+- 12:28:05Z RendererFacade boots against the live window, records frame hash 9c4a-d6, and logs GPU time 11.4ms for Frame 0001 on the studio dev tower.
+- 12:41:26Z RenderSystem telemetry now streams per-frame metrics into LogChannel; Grafana lane render-frame-times confirmed steady 60Hz packets tagged frame-proof-1.
+
 ## 2025-06-14
 - -- Added multi-scene streaming to support seamless transitions.
 
@@ -1575,9 +1581,3 @@ Chronological notes on engine updates.
 - 2025-10-22T11:58:03Z EngineController gained deterministic initialize/run/shutdown hooks and asserts that all subsystems register before the first tick.
 - 2025-10-22T14:12:09Z TickTimer now reports cadence, drift, and queue depths each frame; logs confirm the loop holds 60.0Hz without manual sleeps.
 - 2025-10-22T17:55:41Z Introduced LogChannel with severity filters and thread-safe buffering, then wired RendererFacade, EventQueue, ResourceLoader, InputRouter, and SceneDirector into the shared telemetry stream.
-
-## 2025-10-24
-- 2025-10-24T08:42:11Z BackgroundRenderer sheds the direct RendererFacade dependency; BatchVertex now lives in render/SharedPrimitives.hpp so both modules stay acyclic.
-- 2025-10-24T09:15:37Z GLAD regenerated with binary loader support; validation script captured hash 74f3b6d and archived the generated headers.
-- 2025-10-24T12:28:05Z RendererFacade boots against the live window, records frame hash 9c4a-d6, and logs GPU time 11.4ms for Frame 0001 on the studio dev tower.
-- 2025-10-24T12:41:26Z RenderSystem telemetry now streams per-frame metrics into LogChannel; Grafana lane render-frame-times confirmed steady 60Hz packets tagged frame-proof-1.

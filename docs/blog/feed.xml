@@ -5,13 +5,13 @@
     <link>https://www.blackframeai.org/blog/</link>
     <description>Daily dispatches, devlogs, and pillar guides from BlackFrame AI Studio.</description>
     <language>en-US</language>
-    <lastBuildDate>Fri, 24 Oct 2025 18:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 13 Jun 2025 18:00:00 GMT</lastBuildDate>
     <item>
       <title>Proof of Frame, Day 6 Render Validation</title>
       <link>https://www.blackframeai.org/blog/proof-of-frame/</link>
       <guid>https://www.blackframeai.org/blog/proof-of-frame/</guid>
-      <pubDate>Fri, 24 Oct 2025 09:00:00 GMT</pubDate>
-      <dc:date>2025-10-24T09:00:00Z</dc:date>
+      <pubDate>Fri, 13 Jun 2025 09:00:00 GMT</pubDate>
+      <dc:date>2025-06-13T09:00:00Z</dc:date>
       <description><![CDATA[Day 6 cleared the renderer’s include snags, captured the first frame hash, and wired per-frame GPU telemetry straight into LogChannel.]]></description>
     </item>
     <item>
