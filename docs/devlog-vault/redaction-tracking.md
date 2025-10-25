@@ -275,7 +275,7 @@
 | `docs/docs/reference/lore/ritual_architecture_manifest.md` | binary_data | Binary content (manual review needed). |
 | `docs/engine and game folders and files.png` | binary_image | Binary image file (manual review for overlays). |
 | `docs/first window.png` | binary_image | Binary image file (manual review for overlays). |
-| `docs/new 7.txt` | unix_home_path, username_amand | Contains Unix-style home directory paths.; References specific username `amand` in paths/logs. |
+| `docs/new 7.txt` | unix_home_path, username_amand | Contains Unix-style home directory paths.; References specific username `amand` in paths/logs. (Removed from repository; sanitized log lives at `public/docs/new 7.txt`.) |
 | `docs/shader_tree.md` | binary_data | Binary content (manual review needed). |
 | `docs/📄 Layman’s Simplified Explanation.txt` | sensitive_keyword | Contains words like password/secret/API key. |
 
@@ -283,8 +283,10 @@
 
 The latest verification pass confirmed that every sanitized document now lives under `docs/devlog-vault/public/`, but several areas still require follow-up work before we can mark the vault fully complete:
 
-- **Image placeholders** — Binary redactions for the remaining launch screenshots have been replaced with textual summaries so we can distribute sanitized context without shipping image files. Originals remain quarantined under `docs/devlog-vault/docs/` for secure reference.
-- **Backup tree mirroring** — A large portion of `docs/devlog-vault/docs/backups/**` (archive snapshots, private/proprietary manifests, and legacy `.backup` derivatives) still lack mirrored sanitized copies in `public/docs/`. These should be processed in small batches, ensuring the destination structure exactly matches the source (including folders such as `archive/`, `private_archive/`, and `_original` suffixes).
-- **Specialized reference manifests** — Physics, lore, visuals, and systems manifests stored in proprietary or private backup directories were not yet sanitized. They must be summarized or redacted before any public redistribution.
+- **Image placeholders** — Binary redactions for the remaining launch screenshots have been replaced with textual summaries so we can distribute sanitized context without shipping image files. The unsanitized originals that previously lived under `docs/devlog-vault/docs/` were purged from the repository on 2025-10-24.
+- **Backup tree mirroring** — Legacy backup directories (`docs/devlog-vault/backup/`, `docs/devlog-vault/backups/`, and related private mirrors) were removed from version control. Future work should continue to keep sanitized mirrors in `public/docs/` up to date.
+- **Specialized reference manifests** — Physics, lore, visuals, and systems manifests stored in proprietary or private backup directories must continue to be summarized or redacted before any public redistribution.
 
-Future redaction tasks should focus on migrating these remaining backup collections into the public mirror while keeping the diffs small (mirroring the batching strategy used earlier).
+Future redaction tasks should focus on maintaining the sanitized public mirror while keeping the diffs small (mirroring the batching strategy used earlier).
+
+> **Repository note:** All historical references to `docs/devlog-vault/docs/**` now describe data that has been excised from the repo for safety. The sanitized replacements live under `docs/devlog-vault/public/` and should be cited instead.
