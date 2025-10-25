@@ -1,6 +1,6 @@
-# Physics Foundations Manifest (Public Edition)
+# Physics Foundations Manifest (Sanitized)
 
-Use this document to guide baseline simulation fidelity for Codex physics generation. It references canonical principles, real-world models, and public formula libraries. Biological examples referencing bodily fluids have been removed to keep the document free of sensitive terminology.
+This document lists core physics references suitable for public consumption. Internal simulation notes, biological examples, and proprietary workflows have been condensed or replaced with `[REDACTED]` markers.
 
 ---
 
@@ -9,7 +9,7 @@ Use this document to guide baseline simulation fidelity for Codex physics genera
 **Name:** NIST Physical Constants  
 **Type:** US Government Database  
 **URL:** https://physics.nist.gov/cuu/Constants/  
-**Use:** Provides gravity, force equations, thermodynamic laws, and universal values.
+**Use Summary:** [REDACTED – internal constants application notes.]
 
 ---
 
@@ -18,7 +18,7 @@ Use this document to guide baseline simulation fidelity for Codex physics genera
 **Name:** The Feynman Lectures on Physics  
 **Type:** Public Archive  
 **URL:** https://www.feynmanlectures.caltech.edu/  
-**Use:** Covers Newtonian mechanics, momentum transfer, and stress analysis foundations.
+**Use Summary:** [REDACTED – internal dynamics integration notes.]
 
 ---
 
@@ -27,8 +27,8 @@ Use this document to guide baseline simulation fidelity for Codex physics genera
 **Name:** MIT Fluids Engineering Resources  
 **Type:** Courseware and Simulation Documentation  
 **URL:** https://ocw.mit.edu/courses/mechanical-engineering/2-25-advanced-fluid-mechanics-fall-2013/  
-**Use:** Describes particle movement under pressure and general fluid dynamics suitable for neutral materials.
+**Use Summary:** [REDACTED – internal fluid modeling guidance.]
 
 ---
 
-*This public edition confirms that no sensitive biological data is present. Any internal examples referencing controlled terminology have been omitted.*
+*See the secure archives for detailed formulas, worked examples, and implementation-specific commentary.*
