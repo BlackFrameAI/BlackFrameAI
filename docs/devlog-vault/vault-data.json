@@ -1,0 +1,184 @@
+{
+    "timeline": [
+        {
+            "date": "2025-10-22",
+            "title": "Lifecycle loop verified at 60 Hz",
+            "summary": "The Master Devlog confirms deterministic startup, telemetry coverage, and a stable 60 Hz cadence while outlining follow-up work on rendering integration.",
+            "sources": [
+                {
+                    "label": "Master Development Log",
+                    "href": "./public/docs/Master_Devlog.txt"
+                },
+                {
+                    "label": "Engine Devlog entries",
+                    "href": "./public/docs/docs/devlogs/engine_devlog.md"
+                }
+            ]
+        },
+        {
+            "date": "2025-06-07",
+            "title": "Day-one repository foundations",
+            "summary": "The initial development log documents repository scaffolding, the first live engine loop, and early plans for gameplay managers and automation.",
+            "sources": [
+                {
+                    "label": "Day One Devlog",
+                    "href": "./public/docs/DevLog-1.txt"
+                }
+            ]
+        },
+        {
+            "date": "2025-10-23",
+            "title": "First init and launch frames archived",
+            "summary": "Sanitized summaries record the first successful initialization frame and launch visuals, confirming subsystems booted cleanly with debug overlays enabled.",
+            "sources": [
+                {
+                    "label": "First Init Summary",
+                    "href": "./public/docs/First Init (Summary).md"
+                },
+                {
+                    "label": "First Launch Frames",
+                    "href": "./public/docs/First Launch Frames.md"
+                }
+            ]
+        }
+    ],
+    "documents": [
+        {
+            "title": "Master Development Log",
+            "category": "Devlogs",
+            "summary": "Phase-by-phase status, the latest 2025-10-22 update, and upcoming focus items for Purge of the Crescent Veil.",
+            "href": "./public/docs/Master_Devlog.txt",
+            "tags": [
+                "timeline",
+                "status",
+                "planning"
+            ]
+        },
+        {
+            "title": "Day One Development Log",
+            "category": "Devlogs",
+            "summary": "Captures the first live loop milestone, repository policies, and automation priorities recorded on day one.",
+            "href": "./public/docs/DevLog-1.txt",
+            "tags": [
+                "milestone",
+                "automation",
+                "scaffolding"
+            ]
+        },
+        {
+            "title": "Project Overview",
+            "category": "Overview",
+            "summary": "Outlines engine scope, modular structure, gameplay goals, constraints, and build prerequisites for collaborators.",
+            "href": "./public/docs/docs/README.md",
+            "tags": [
+                "engine",
+                "game",
+                "setup"
+            ]
+        },
+        {
+            "title": "Project Roadmap",
+            "category": "Overview",
+            "summary": "Tracks completed milestones, in-progress tasks, and upcoming goals including network simulation and quantum tooling.",
+            "href": "./public/docs/docs/project_roadmap.md",
+            "tags": [
+                "roadmap",
+                "planning",
+                "milestone"
+            ]
+        },
+        {
+            "title": "Engine Design (Public Summary)",
+            "category": "Engine",
+            "summary": "Details the modular architecture, cross-platform goals, and design principles guiding the custom engine.",
+            "href": "./public/docs/docs/engine_design.md",
+            "tags": [
+                "architecture",
+                "modules",
+                "rendering"
+            ]
+        },
+        {
+            "title": "Game Design Overview",
+            "category": "Gameplay",
+            "summary": "Summarizes experience goals, faction alignment systems, progression pillars, and roadmap highlights.",
+            "href": "./public/docs/docs/game_design.md",
+            "tags": [
+                "factions",
+                "progression",
+                "vision"
+            ]
+        },
+        {
+            "title": "Gameplay Systems Overview",
+            "category": "Gameplay",
+            "summary": "Highlights alignment mechanics, procedural stages, hub progression, and supporting telemetry tools.",
+            "href": "./public/docs/docs/gameplay_systems.md",
+            "tags": [
+                "systems",
+                "combat",
+                "telemetry"
+            ]
+        },
+        {
+            "title": "Development Logging & Debugging",
+            "category": "Operations",
+            "summary": "Explains logger initialization, log levels, rotation policy, and diagnostic overlays for multi-window setups.",
+            "href": "./public/docs/docs/dev_logging_debugging.md",
+            "tags": [
+                "logging",
+                "debugging",
+                "operations"
+            ]
+        },
+        {
+            "title": "Entropy System",
+            "category": "Systems",
+            "summary": "Describes the entropy manager, source mixing strategy, scheduling policy, and test hooks for deterministic builds.",
+            "href": "./public/docs/docs/systems/entropy_system.md",
+            "tags": [
+                "entropy",
+                "randomness",
+                "infrastructure"
+            ]
+        },
+        {
+            "title": "Quantum Statevector System",
+            "category": "Systems",
+            "summary": "Covers backend abstraction, collapse handling, telemetry buckets, and compliance safeguards for quantum workflows.",
+            "href": "./public/docs/docs/systems/quantum_statevector_system.md",
+            "tags": [
+                "quantum",
+                "telemetry",
+                "safety"
+            ]
+        }
+    ],
+    "directories": [
+        {
+            "label": "Devlogs",
+            "href": "./public/docs/docs/devlogs/",
+            "description": "Engine and game devlogs with timestamped updates and monthly indexes."
+        },
+        {
+            "label": "Systems",
+            "href": "./public/docs/docs/systems/",
+            "description": "Subsystem briefs for entropy, quantum statevectors, reactive animation, procedural sprites, and more."
+        },
+        {
+            "label": "Modular Status",
+            "href": "./public/docs/docs/modular/",
+            "description": "Engine and game system trees tracking completion status across modules."
+        },
+        {
+            "label": "Reference Library",
+            "href": "./public/docs/docs/reference/",
+            "description": "Data manifests and real-world references used for procedural content."
+        },
+        {
+            "label": "Lore & Narrative",
+            "href": "./public/docs/docs/lore/",
+            "description": "World structure, faction briefs, and alignment metaphysics for narrative teams."
+        }
+    ]
+}

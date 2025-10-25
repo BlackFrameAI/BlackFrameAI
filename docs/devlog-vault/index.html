@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BlackFrame AI Devlog Vault</title>
+  <meta
+    name="description"
+    content="Explore BlackFrame AI's development vault with searchable devlogs, system briefs, and project roadmaps."
+  />
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg-gradient: radial-gradient(circle at top, rgba(27, 50, 92, 0.8), rgba(5, 10, 20, 0.95));
+      --card-bg: rgba(12, 22, 40, 0.85);
+      --card-border: rgba(79, 183, 255, 0.35);
+      --accent: #63c6ff;
+      --accent-soft: rgba(99, 198, 255, 0.4);
+      --text-primary: #eaf6ff;
+      --text-muted: #9fbad4;
+      --shadow: 0 18px 45px rgba(10, 28, 58, 0.55);
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(120deg, rgba(2, 6, 12, 0.96), rgba(6, 20, 40, 0.96)), var(--bg-gradient), #03050a;
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: clamp(1.4rem, 3vw, 2.5rem) clamp(1.6rem, 5vw, 4rem) 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .brand-link span {
+      border-bottom: 1px solid rgba(99, 198, 255, 0.45);
+      padding-bottom: 0.2rem;
+    }
+
+    .brand-link img {
+      height: 52px;
+      width: auto;
+      filter: drop-shadow(0 0 14px rgba(99, 198, 255, 0.45));
+    }
+
+    .cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      padding: 0.65rem 1.5rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: rgba(20, 50, 85, 0.4);
+      color: var(--text-primary);
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      transition: border-color 200ms ease, box-shadow 200ms ease, color 200ms ease;
+    }
+
+    .cta-link:hover,
+    .cta-link:focus-visible {
+      border-color: var(--accent);
+      color: #fff;
+      box-shadow: 0 0 18px rgba(99, 198, 255, 0.45);
+    }
+
+    main {
+      width: min(1180px, 94vw);
+      margin: clamp(1.2rem, 4vw, 3rem) auto 4rem;
+      display: grid;
+      gap: clamp(2rem, 4vw, 3.5rem);
+    }
+
+    .hero {
+      background: rgba(7, 16, 28, 0.82);
+      border: 1px solid rgba(99, 198, 255, 0.25);
+      border-radius: 28px;
+      padding: clamp(2rem, 5vw, 3.5rem);
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 6vw, 3.4rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #9ad9ff;
+      text-shadow: 0 0 22px rgba(99, 198, 255, 0.45);
+    }
+
+    .hero p {
+      margin: 0;
+      line-height: 1.8;
+      color: var(--text-muted);
+      font-size: 1.08rem;
+    }
+
+    section.card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: clamp(1.6rem, 3vw, 2.5rem);
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    .card h2 {
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 1rem;
+      color: var(--accent);
+    }
+
+    .search-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .search-input {
+      flex: 1 1 260px;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-radius: 18px;
+      border: 1px solid rgba(120, 170, 220, 0.5);
+      background: rgba(9, 18, 32, 0.9);
+      color: var(--text-primary);
+    }
+
+    .search-input input {
+      border: none;
+      background: transparent;
+      color: inherit;
+      width: 100%;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .search-input svg {
+      flex-shrink: 0;
+      width: 1.2rem;
+      height: 1.2rem;
+      fill: var(--accent);
+    }
+
+    .category-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .filter-chip {
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(99, 198, 255, 0.25);
+      background: rgba(14, 26, 42, 0.8);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
+    }
+
+    .filter-chip.active {
+      border-color: var(--accent);
+      color: #fff;
+      background: rgba(20, 70, 120, 0.6);
+    }
+
+    .doc-grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .doc-card {
+      border-radius: 20px;
+      border: 1px solid rgba(99, 198, 255, 0.2);
+      padding: 1.2rem 1.4rem;
+      background: rgba(6, 16, 28, 0.8);
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .doc-card h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .doc-card p {
+      margin: 0;
+      color: var(--text-muted);
+      line-height: 1.6;
+      font-size: 0.97rem;
+    }
+
+    .doc-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(99, 198, 255, 0.35);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-primary);
+      background: rgba(18, 34, 60, 0.85);
+      cursor: pointer;
+      transition: transform 150ms ease;
+    }
+
+    .tag:hover,
+    .tag:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .tag.active {
+      border-color: var(--accent);
+      color: #fff;
+      background: rgba(24, 80, 130, 0.8);
+    }
+
+    .doc-card a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+      white-space: nowrap;
+    }
+
+    .doc-card a:hover,
+    .doc-card a:focus-visible {
+      text-decoration: underline;
+    }
+
+    .result-count {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .timeline-entry {
+      padding-left: 1.4rem;
+      border-left: 2px solid rgba(99, 198, 255, 0.35);
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .timeline-entry time {
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .timeline-entry h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .timeline-entry p {
+      margin: 0;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .source-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .source-links a {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(99, 198, 255, 0.4);
+      padding-bottom: 0.2rem;
+    }
+
+    .directory-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .directory-card {
+      border-radius: 18px;
+      border: 1px solid rgba(99, 198, 255, 0.2);
+      padding: 1.1rem 1.3rem;
+      background: rgba(8, 18, 34, 0.75);
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .directory-card a {
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .directory-card p {
+      margin: 0;
+      color: var(--text-muted);
+      line-height: 1.6;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      padding: 0 0 2.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .brand-link span {
+        border: none;
+        padding-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand-link" href="/">
+      <img src="/assets/blackflame_logo_cleaned.svg" alt="BlackFrame AI logo" />
+      <span>Back to Studio</span>
+    </a>
+    <a class="cta-link" href="/blog/">Studio Blog</a>
+  </header>
+  <main>
+    <section class="hero">
+      <h1>Devlog Vault</h1>
+      <p>
+        Dive into the canonical development archive for Purge of the Crescent Veil. Search across sanitized
+        devlogs, system briefs, and partner-ready documentation to understand how the engine and game evolved.
+      </p>
+      <p>
+        Use the quick filters to locate engine architecture, gameplay systems, or operational runbooks. Every
+        source linked below lives in the same vault that powers our partner briefings, so you always see the
+        latest vetted material.
+      </p>
+    </section>
+
+    <section class="card" aria-labelledby="search-heading">
+      <div class="search-toolbar">
+        <h2 id="search-heading">Search the vault</h2>
+        <p class="result-count" id="result-count" aria-live="polite"></p>
+      </div>
+      <label class="search-input">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M10.5 3a7.5 7.5 0 015.966 12.077l4.228 4.229-1.414 1.414-4.229-4.228A7.5 7.5 0 1110.5 3zm0 2a5.5 5.5 0 100 11 5.5 5.5 0 000-11z"
+          ></path>
+        </svg>
+        <span class="sr-only">Search documents</span>
+        <input id="vault-search" type="search" placeholder="Search devlogs, systems, docs…" autocomplete="off" />
+      </label>
+      <div class="category-filters" id="category-filters" role="listbox" aria-label="Document category filters"></div>
+      <div class="doc-grid" id="document-results" aria-live="polite"></div>
+    </section>
+
+    <section class="card" aria-labelledby="timeline-heading">
+      <h2 id="timeline-heading">Vault timeline</h2>
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <section class="card" aria-labelledby="directories-heading">
+      <h2 id="directories-heading">Browse directories</h2>
+      <div class="directory-grid" id="directory-grid"></div>
+    </section>
+  </main>
+  <footer>© <span id="current-year"></span> BlackFrame AI Studio</footer>
+
+  <noscript>
+    <p style="text-align:center;color:#f8d7a0;padding:1rem 2rem;">
+      JavaScript is required to browse the Devlog Vault interactively. Enable it to search and filter the archive.
+    </p>
+  </noscript>
+
+  <script>
+    const state = {
+      category: 'All',
+      tag: null,
+      documents: [],
+      timeline: [],
+      directories: []
+    };
+
+    const filtersContainer = document.getElementById('category-filters');
+    const resultsContainer = document.getElementById('document-results');
+    const timelineContainer = document.getElementById('timeline');
+    const directoryContainer = document.getElementById('directory-grid');
+    const searchInput = document.getElementById('vault-search');
+    const resultCount = document.getElementById('result-count');
+    const yearSpan = document.getElementById('current-year');
+
+    yearSpan.textContent = new Date().getFullYear();
+
+    async function loadVaultData() {
+      try {
+        const response = await fetch('./vault-data.json', { cache: 'no-store' });
+        if (!response.ok) throw new Error('Failed to load vault data');
+        const data = await response.json();
+        state.documents = data.documents || [];
+        state.timeline = data.timeline || [];
+        state.directories = data.directories || [];
+        renderFilters();
+        renderDocuments();
+        renderTimeline();
+        renderDirectories();
+      } catch (error) {
+        resultsContainer.innerHTML = '<p role="alert">Unable to load vault data right now. Please refresh the page.</p>';
+        console.error(error);
+      }
+    }
+
+    function renderFilters() {
+      const categories = Array.from(new Set(state.documents.map((doc) => doc.category))).sort();
+      filtersContainer.innerHTML = '';
+
+      const allChip = createFilterChip('All');
+      filtersContainer.appendChild(allChip);
+
+      categories.forEach((category) => {
+        const chip = createFilterChip(category);
+        filtersContainer.appendChild(chip);
+      });
+    }
+
+    function createFilterChip(label) {
+      const chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'filter-chip' + (state.category === label ? ' active' : '');
+      chip.textContent = label;
+      chip.setAttribute('role', 'option');
+      chip.setAttribute('aria-selected', state.category === label);
+      chip.addEventListener('click', () => {
+        state.category = label;
+        state.tag = null;
+        renderFilters();
+        renderDocuments();
+      });
+      return chip;
+    }
+
+    function applyFilters(documents) {
+      const query = searchInput.value.trim().toLowerCase();
+      return documents.filter((doc) => {
+        const matchesCategory = state.category === 'All' || doc.category === state.category;
+        const matchesTag = !state.tag || (doc.tags || []).includes(state.tag);
+        const matchesQuery = !query ||
+          doc.title.toLowerCase().includes(query) ||
+          (doc.summary && doc.summary.toLowerCase().includes(query)) ||
+          (doc.tags || []).some((tag) => tag.toLowerCase().includes(query));
+        return matchesCategory && matchesTag && matchesQuery;
+      });
+    }
+
+    function renderDocuments() {
+      const filtered = applyFilters(state.documents);
+      const tagSuffix = state.tag ? ` • Tag: ${state.tag}` : '';
+      resultCount.textContent = `${filtered.length} result${filtered.length === 1 ? '' : 's'}${tagSuffix}`;
+
+      if (!filtered.length) {
+        resultsContainer.innerHTML = '<p>No documents match your current filters. Try a different search or reset your filters.</p>';
+        return;
+      }
+
+      resultsContainer.innerHTML = '';
+      filtered.forEach((doc) => {
+        const card = document.createElement('article');
+        card.className = 'doc-card';
+        card.innerHTML = `
+          <div class="doc-meta">${doc.category.toUpperCase()}</div>
+          <h3><a href="${doc.href}" target="_blank" rel="noopener">${doc.title}</a></h3>
+          <p>${doc.summary}</p>
+        `;
+
+        if (doc.tags && doc.tags.length) {
+          const tagList = document.createElement('div');
+          tagList.className = 'tag-list';
+          doc.tags.forEach((tag) => {
+            const tagButton = document.createElement('button');
+            tagButton.type = 'button';
+            tagButton.className = 'tag';
+            tagButton.textContent = tag;
+            if (state.tag === tag) {
+              tagButton.classList.add('active');
+            }
+
+            tagButton.addEventListener('click', () => {
+              state.tag = state.tag === tag ? null : tag;
+              renderDocuments();
+            });
+            tagList.appendChild(tagButton);
+          });
+          card.appendChild(tagList);
+        }
+
+        resultsContainer.appendChild(card);
+      });
+    }
+
+    function renderTimeline() {
+      if (!state.timeline.length) {
+        timelineContainer.innerHTML = '<p>No timeline entries are available yet.</p>';
+        return;
+      }
+
+      timelineContainer.innerHTML = '';
+      state.timeline
+        .slice()
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .forEach((entry) => {
+          const item = document.createElement('article');
+          item.className = 'timeline-entry';
+
+          const time = document.createElement('time');
+          time.dateTime = entry.date;
+          time.textContent = new Date(entry.date + 'T00:00:00Z').toLocaleDateString(undefined, {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          });
+          item.appendChild(time);
+
+          const heading = document.createElement('h3');
+          heading.textContent = entry.title;
+          item.appendChild(heading);
+
+          const summary = document.createElement('p');
+          summary.textContent = entry.summary;
+          item.appendChild(summary);
+
+          if (entry.sources && entry.sources.length) {
+            const linkList = document.createElement('div');
+            linkList.className = 'source-links';
+            entry.sources.forEach((source) => {
+              const link = document.createElement('a');
+              link.href = source.href;
+              link.target = '_blank';
+              link.rel = 'noopener';
+              link.textContent = source.label;
+              linkList.appendChild(link);
+            });
+            item.appendChild(linkList);
+          }
+
+          timelineContainer.appendChild(item);
+        });
+    }
+
+    function renderDirectories() {
+      if (!state.directories.length) {
+        directoryContainer.innerHTML = '<p>No directories are listed yet.</p>';
+        return;
+      }
+
+      directoryContainer.innerHTML = '';
+      state.directories.forEach((dir) => {
+        const card = document.createElement('article');
+        card.className = 'directory-card';
+        card.innerHTML = `
+          <a href="${dir.href}" target="_blank" rel="noopener">${dir.label}</a>
+          <p>${dir.description}</p>
+        `;
+        directoryContainer.appendChild(card);
+      });
+    }
+
+    searchInput.addEventListener('input', () => {
+      renderDocuments();
+    });
+
+    loadVaultData();
+  </script>
+</body>
+</html>
