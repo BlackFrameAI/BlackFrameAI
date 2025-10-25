@@ -1,0 +1,24 @@
+# Procedural Sprite System (Sanitized Backup)
+
+This file preserves a public-safe summary of the procedural sprite system without revealing proprietary techniques.
+
+## Overview
+- Procedural sprites replace texture assets with generated geometry rendered through the modular pipeline.
+- Instances manage animation timing, frame selection, and source metadata so gameplay systems can orchestrate visuals consistently.
+- Lambda definitions, primitive construction details, and entropy-driven mutations are [REDACTED].
+
+## Core Components
+- **ProceduralSprite** objects hold frame collections and looping state.
+- **ProceduralSpriteInstance** updates animation, exposes render entry points, and signals when effects expire.
+- **ProceduralSpriteRegistry** centralizes shared sprite definitions for lookup by identifier.
+- Internal data layouts, batching contracts, and theme injection hooks are [REDACTED].
+
+## Lifecycle & Integration
+- Systems assign sprites to instances, call `update(dt)`, and render during the appropriate pass.
+- Validation prevents rendering when required resources are missing or state becomes invalid.
+- Warning thresholds, throttling logic, and recovery playbooks are [REDACTED].
+
+## Guidance
+- Maintain persistent instances when visuals carry animation state.
+- Restore default render state after custom drawing to preserve batching integrity.
+- Advanced GL state policies, culling strategies, and quantum integration points are [REDACTED].
