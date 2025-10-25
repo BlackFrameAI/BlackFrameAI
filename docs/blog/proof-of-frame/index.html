@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<!--
+---
+title: Proof of Frame, Day 6 Render Validation | BlackFrame AI Studio
+description: Day 6 proved the renderer end-to-end, clearing the include snags, capturing the first frame hash, and streaming GPU telemetry straight into LogChannel.
+slug: proof-of-frame
+publishDate: 2025-10-24
+socialImage: /assets/social/proof-of-frame-og.svg
+tags:
+  - engine-rd
+  - agentic-workflows
+  - studio-culture
+---
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Proof of Frame, Day 6 Render Validation | BlackFrame AI Studio</title>
+  <meta name="description" content="Day 6 proved the renderer end-to-end, clearing the include snags, capturing the first frame hash, and streaming GPU telemetry straight into LogChannel." />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="canonical" href="https://www.blackframeai.org/blog/proof-of-frame/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Proof of Frame, Day 6 Render Validation" />
+  <meta property="og:description" content="Day 6 proved the renderer end-to-end, clearing the include snags, capturing the first frame hash, and streaming GPU telemetry straight into LogChannel." />
+  <meta property="og:url" content="https://www.blackframeai.org/blog/proof-of-frame/" />
+  <meta property="og:image" content="https://www.blackframeai.org/assets/social/proof-of-frame-og.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Proof of Frame, Day 6 Render Validation" />
+  <meta name="twitter:description" content="Day 6 proved the renderer end-to-end, clearing the include snags, capturing the first frame hash, and streaming GPU telemetry straight into LogChannel." />
+  <meta name="twitter:image" content="https://www.blackframeai.org/assets/social/proof-of-frame-og.svg" />
+  <meta property="article:tag" content="engine-rd" />
+  <meta property="article:tag" content="agentic-workflows" />
+  <meta property="article:tag" content="studio-culture" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: "Arial", sans-serif;
+      background:
+        url('/assets/bg_blackleather_processed.jpg') center center / cover no-repeat,
+        #000;
+      color: #f0f0f0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('/assets/tracer_animated_glow.svg') center center / cover no-repeat;
+      z-index: 0;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      backdrop-filter: blur(2px);
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      padding-top: 120px;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 32px 0;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .page-home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #f0f6ff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.9em;
+      text-decoration: none;
+    }
+
+    .page-home-link img {
+      height: 54px;
+      width: auto;
+      filter: drop-shadow(0 0 6px rgba(0, 191, 255, 0.45));
+    }
+
+    .cta,
+    .social-link {
+      padding: 0.6em 1.2em;
+      border: 1px solid #00afff88;
+      border-radius: 999px;
+      color: #f0f6ff;
+      font-size: 0.95em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(0, 30, 50, 0.55);
+      box-shadow: 0 0 12px rgba(0, 191, 255, 0.35);
+      backdrop-filter: blur(4px);
+      text-decoration: none;
+    }
+
+    .cta:hover,
+    .social-link:hover {
+      color: #fff;
+      border-color: #4dd3ff;
+      box-shadow: 0 0 18px rgba(77, 211, 255, 0.6);
+    }
+
+    .page-header__actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #8bbce8;
+      margin-bottom: 1.5rem;
+    }
+
+    .breadcrumbs a {
+      color: #c6ebff;
+      text-decoration: none;
+    }
+
+    .breadcrumbs span {
+      opacity: 0.6;
+    }
+
+    main {
+      flex: 1;
+      width: min(960px, 92vw);
+      margin: 40px auto 80px;
+      background: rgba(0, 10, 20, 0.75);
+      border: 1px solid rgba(0, 160, 255, 0.25);
+      border-radius: 24px;
+      box-shadow: 0 0 35px rgba(0, 120, 190, 0.25);
+      padding: clamp(32px, 6vw, 72px);
+    }
+
+    article {
+      display: grid;
+      gap: 1.8rem;
+    }
+
+    article header {
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    article header p {
+      margin: 0;
+    }
+
+    article h1 {
+      font-size: clamp(2.6rem, 4vw, 3.2rem);
+      letter-spacing: 0.04em;
+      margin: 0;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    article h2 {
+      font-size: clamp(1.6rem, 2.4vw, 2rem);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 2.8rem;
+      color: #e3f5ff;
+    }
+
+    p {
+      line-height: 1.75;
+      font-size: 1.05rem;
+      color: #d6e9ff;
+      margin: 0;
+    }
+
+    .ai-claim-callout {
+      border: 1px solid rgba(77, 211, 255, 0.4);
+      border-radius: 16px;
+      padding: 1.4rem;
+      background: rgba(0, 25, 45, 0.6);
+      box-shadow: 0 0 18px rgba(77, 211, 255, 0.15);
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .ai-claim-callout__label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #8bbce8;
+    }
+
+    .timeline-note {
+      margin: 1.8rem 0 2.4rem;
+      padding: 1.2rem 1.6rem;
+      border: 1px solid rgba(0, 160, 255, 0.35);
+      border-radius: 18px;
+      background: rgba(0, 20, 40, 0.65);
+      box-shadow: 0 0 18px rgba(0, 120, 190, 0.25);
+      color: #d4ebff;
+      line-height: 1.6;
+    }
+
+    .timeline-note strong {
+      display: block;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #8bbce8;
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-note time {
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .author-card,
+    .related-posts,
+    .community-section {
+      border-top: 1px solid rgba(77, 211, 255, 0.2);
+      padding-top: 1.6rem;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .related-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .related-list a {
+      color: #c6ebff;
+      text-decoration: none;
+    }
+
+    .related-list a:hover {
+      text-decoration: underline;
+    }
+
+    .community-lead a {
+      color: #66d0ff;
+    }
+
+    .community-lead a:hover {
+      text-decoration: underline;
+    }
+
+    .comment-container {
+      margin-top: 1.5rem;
+      background: rgba(12, 24, 40, 0.6);
+      border-radius: 16px;
+      padding: 1.2rem;
+      border: 1px solid rgba(120, 180, 255, 0.25);
+    }
+
+    .moderation-note {
+      font-size: 0.9rem;
+      color: #8bbce8;
+    }
+
+    footer {
+      padding: 32px;
+      text-align: center;
+      color: #8bbce8;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="page-header">
+      <a class="page-home-link" href="/blog/">
+        <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" loading="lazy" />
+        <span>Back to blog</span>
+      </a>
+      <div class="page-header__actions">
+        <a class="social-link" href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow on X</a>
+        <a class="cta" href="/contact/">Contact Studio</a>
+      </div>
+    </header>
+
+    <main>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="/blog/">Blog</a>
+        <span aria-hidden="true">/</span>
+        <span>Proof of Frame, Day 6 Render Validation</span>
+      </nav>
+
+      <article>
+        <header>
+          <p class="timeline-note">
+            <strong>Production Log</strong>
+            Day 6 • <time datetime="2025-06-13">June 13, 2025</time>
+          </p>
+          <h1>Proof of Frame, Day 6 Render Validation</h1>
+          <p>Day 6 was about clearing the last mile between telemetry-only renders and the first verifiable frame. We resolved the include snags BackgroundRenderer hit yesterday, brought the renderer online inside the full engine loop, and recorded the moment Codex painted something real on screen.</p>
+        </header>
+
+        <section class="ai-claim-callout">
+          <p class="ai-claim-callout__label">Evidence chain</p>
+          <p>Every milestone today ties back to the Devlog Vault—header refactors, GLAD regeneration, and telemetry captures are documented with timestamps so auditors can retrace the first frame proof.</p>
+        </section>
+
+        <h2>Untangling the renderer headers</h2>
+        <p>The day opened by removing the circular include between <code>BackgroundRenderer</code> and <code>RendererFacade</code>. BatchVertex moved into <code>render/SharedPrimitives.hpp</code>, BackgroundRenderer slimmed down to shared primitives, and RendererFacade took back orchestration ownership. That rebuild kept the render modules acyclic and unblocked the live link step we deferred yesterday. (<a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L1580" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-10-24</a>)</p>
+
+        <h2>Regenerating GLAD for the long game</h2>
+        <p>We regenerated GLAD with binary loader support so Codex can ship precompiled loaders alongside source. The validation script stored hash <code>74f3b6d</code>, and the regenerated headers now ride with the repository for future audits. That prep ensures partner builds can reproduce the loader without touching the generator. (<a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L1581" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-10-24</a>)</p>
+
+        <h2>The first frame finally lands</h2>
+        <p>With headers clean and GLAD regenerated, we fired the engine and watched Frame 0001 bind the staging command buffer, attach the telemetry overlay, and draw the blue-white diagnostic grid from <code>Scene0Diagnostic</code>. RendererFacade recorded the frame hash <code>9c4a-d6</code> alongside an 11.4&nbsp;ms GPU time—our first proof that the render path holds under the real loop. (<a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L1582" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-10-24</a>; <a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L760" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-10-24</a>)</p>
+
+        <h2>Telemetry stays in lockstep</h2>
+        <p>RenderSystem now streams its metrics into LogChannel, and Grafana’s <em>render-frame-times</em> lane confirmed a steady 60&nbsp;Hz feed tagged <code>frame-proof-1</code>. GameManager mirrored the tag so gameplay and engine telemetry remain synchronized. Together they capture the first visible frame as a forensic artifact instead of a screenshot. (<a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L1583" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-10-24</a>; <a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L761" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-10-24</a>)</p>
+
+        <h2>Why it matters for partners</h2>
+        <p>This proof gives partners an auditable render baseline. The Day 6 log in the Devlog Vault captures commit IDs, hashes, and telemetry endpoints so external teams can replay the first frame on their own hardware. It’s the last prerequisite before we replace the diagnostic grid with production art and let Codex iterate live materials. (<a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlogs/day6-first-frame-validation.md" target="_blank" rel="noopener noreferrer">Day 6 First Frame Validation</a>)</p>
+
+        <section class="author-card" aria-labelledby="author-heading">
+          <h2 id="author-heading">About the Studio</h2>
+          <p>BlackFrame AI Studio blends narrative design, tooling research, and real-time art direction into modular engines that keep creators in the loop. Every devlog entry is written collectively by the core team that maintains the BlackFrame engine stack.</p>
+          <p>Need more context on the ramp? <a href="/blog/first-light/">Revisit Day 5’s render bring-up</a> or <a href="mailto:studio@blackframeai.org">book a private walkthrough</a>.</p>
+        </section>
+
+        <section class="related-posts" aria-labelledby="related-heading">
+          <h2 id="related-heading">Related Reading</h2>
+          <ul class="related-list">
+            <li><a href="/blog/first-light/">First Light, Day 5 Render Bring-Up</a></li>
+            <li><a href="/blog/laying-the-foundation/">Laying the Foundation, Day 4 Engine Heartbeat</a></li>
+          </ul>
+        </section>
+      </article>
+
+      <section class="community-section" aria-labelledby="community-heading">
+        <h2 id="community-heading">Join the community</h2>
+        <p class="community-lead">
+          Stay plugged in with BlackFrame AI, <a href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">follow @blackframeai on X</a> for realtime drops and share your thoughts below.
+        </p>
+        <div class="comment-container" id="comments" aria-live="polite">
+          <script src="https://utteranc.es/client.js"
+            data-repo="BlackFrameAI/BlackFrameAI"
+            data-issue-term="pathname"
+            data-label="blog-comments"
+            data-theme="github-dark"
+            crossorigin="anonymous"
+            async>
+          </script>
+        </div>
+        <p class="moderation-note">Moderate or remove comments anytime from the linked GitHub issue, delete, lock, or hide with a couple clicks.</p>
+      </section>
+    </main>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Proof of Frame, Day 6 Render Validation",
+        "description": "Day 6 proved the renderer end-to-end, clearing the include snags, capturing the first frame hash, and streaming GPU telemetry straight into LogChannel.",
+        "image": [
+          "https://www.blackframeai.org/assets/social/proof-of-frame-og.svg"
+        ],
+        "datePublished": "2025-10-24",
+        "dateModified": "2025-10-24",
+        "author": {
+          "@type": "Organization",
+          "name": "BlackFrame AI Studio"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "BlackFrame AI Studio",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.blackframeai.org/assets/blackflamelogo.png"
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.blackframeai.org/blog/proof-of-frame/"
+        }
+      }
+    </script>
+  </div>
+</body>
+</html>
