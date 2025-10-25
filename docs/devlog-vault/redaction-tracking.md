@@ -278,3 +278,13 @@
 | `docs/new 7.txt` | unix_home_path, username_amand | Contains Unix-style home directory paths.; References specific username `amand` in paths/logs. |
 | `docs/shader_tree.md` | binary_data | Binary content (manual review needed). |
 | `docs/📄 Layman’s Simplified Explanation.txt` | sensitive_keyword | Contains words like password/secret/API key. |
+
+## 2025-01-18 Audit Findings
+
+The latest verification pass confirmed that every sanitized document now lives under `docs/devlog-vault/public/`, but several areas still require follow-up work before we can mark the vault fully complete:
+
+- **Image placeholders** — Binary redactions for the remaining launch screenshots have been replaced with textual summaries so we can distribute sanitized context without shipping image files. Originals remain quarantined under `docs/devlog-vault/docs/` for secure reference.
+- **Backup tree mirroring** — A large portion of `docs/devlog-vault/docs/backups/**` (archive snapshots, private/proprietary manifests, and legacy `.backup` derivatives) still lack mirrored sanitized copies in `public/docs/`. These should be processed in small batches, ensuring the destination structure exactly matches the source (including folders such as `archive/`, `private_archive/`, and `_original` suffixes).
+- **Specialized reference manifests** — Physics, lore, visuals, and systems manifests stored in proprietary or private backup directories were not yet sanitized. They must be summarized or redacted before any public redistribution.
+
+Future redaction tasks should focus on migrating these remaining backup collections into the public mirror while keeping the diffs small (mirroring the batching strategy used earlier).

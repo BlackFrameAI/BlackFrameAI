@@ -18,6 +18,7 @@ Each image was reviewed programmatically for embedded metadata. Only standard PN
 ## Repository Adjustments
 - Original binaries remain in `docs/devlog-vault/docs/`, matching the repository layout prior to the sanitization work.
 - Sanitized derivatives and intermediate backups have been removed from the tracked tree to comply with the no-binary-artifact requirement of this review interface.
+- Text-only summaries (see the `.md` files sharing each screenshot's original name) capture the non-sensitive context for public distribution.
 
 ## Next Steps
 - If sanitized variants are still required, regenerate them locally using the documented blur workflow and distribute them through an external, binary-friendly channel.
