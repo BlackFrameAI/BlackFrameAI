@@ -1,60 +1,27 @@
 # Tissue Failure Reference Manifest
-> **Sanitized Copy:** Sensitive equations and parameters have been redacted for public release.
+> **Sanitized Copy:** Specific patient data, proprietary strain curves, and institutional identifiers have been removed.
 
-This manifest supports Codex in realistically modeling biological tearing, rupture propagation, shearing resistance, and necrotic breakdown across different tissue types.
-
----
-
-##  Skin, Fascia, and Muscle Shear
-
-**Name:** *Skin Biomechanics  Journal of the Mechanical Behavior of Biomedical Materials*  
-**Type:** Research Article  
-**URL:** https://www.sciencedirect.com/science/article/pii/S1751616117303064  
-
-**Summary:** [REDACTED – Detailed operational parameters removed.]
+This manifest summarises the medical and biomechanical knowledge categories Codex references when modelling biological tearing, rupture propagation, and necrotic breakdown.
 
 ---
 
-**Name:** *Muscle Rupture Dynamics  PubMed Biomechanics*  
-**Type:** Medical Study  
-**URL:** https://pubmed.ncbi.nlm.nih.gov/23997774/  
-
-**Summary:** [REDACTED – Detailed operational parameters removed.]
-
----
-
-##  Tendon & Ligament Load Limits
-
-**Name:** *Mechanical Properties of Tendons  NIH Biomechanics Review*  
-**Type:** Academic Source  
-**URL:** https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7729474/  
-
-**Summary:** [REDACTED – Detailed operational parameters removed.]
+## 🩹 Skin, Fascia, and Muscle Response
+**Source Category:** Peer-reviewed overviews of soft-tissue mechanics\\
+**Access Level:** Public abstracts and open-access journals\\
+**Usage:** Provides elasticity ranges, failure trends, and laceration patterns for directional tearing and damage states without exposing restricted study cohorts.
 
 ---
 
-**Name:** *ACL and MCL Rupture Forces  Biomechanical Testing*  
-**Type:** Sports Injury Research  
-**URL:** https://pubmed.ncbi.nlm.nih.gov/11689743/  
-
-**Summary:** [REDACTED – Detailed operational parameters removed.]
-
----
-
-##  Tissue Death & Breakdown
-
-**Name:** *Stages of Necrosis  Pathology Atlas*  
-**Type:** Medical Classification  
-**URL:** https://www.pathologyatlas.ro/necrosis.php  
-
-**Summary:** [REDACTED – Detailed operational parameters removed.]
+## 🦴 Tendon & Ligament Load Limits
+**Source Category:** Sports medicine and orthopaedic biomechanics literature reviews\\
+**Access Level:** Public summaries and de-identified testing results\\
+**Usage:** Supplies torque thresholds, elongation behaviour, and rupture cues to simulate dislocation and recoil while omitting proprietary instrumentation data.
 
 ---
 
-**Name:** *Ischemic Tissue Failure  Trauma & Resuscitation*  
-**Type:** Emergency Medicine Guide  
-**URL:** https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5657995/  
-
-**Summary:** [REDACTED – Detailed operational parameters removed.]
+## ⚠️ Tissue Death & Breakdown
+**Source Category:** Pathology references and emergency medicine guidance\\
+**Access Level:** Public classification guides and clinical reviews\\
+**Usage:** Covers necrosis staging, ischemic failure, and systemic shock indicators so progression systems stay believable without shipping sensitive medical records.
 
 ---
