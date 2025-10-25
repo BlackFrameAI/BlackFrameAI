@@ -1,16 +1,22 @@
 # Procedural Font Generator (Public Summary)
 
-The procedural font generator produces runtime glyph textures from vector stroke
-inputs. Sensitive renderer identifiers, shader options, and parameter names have
-been redacted to keep the rendering pipeline private.
+The procedural font generator synthesizes glyph textures from vector strokes while
+obscuring internal sampling kernels, render targets, and style dictionaries.
 
 ## Summary
 
-- Converts vector descriptions into distance-field textures without exposing the
-  proprietary sampling configuration.
-- Caches generated glyphs using anonymized keys so repeated requests avoid
-  unnecessary work.
-- Supplies default styles for UI text while hiding internal style tokens and
-  fallback logic identifiers.
-- Reports missing glyphs through sanitized diagnostics so the render loop can
-  continue without revealing logging channels.
+- Converts vector inputs into distance-based textures using redacted sampling stages
+  so no proprietary filter taps or iteration counts are disclosed.
+- Caches glyphs behind anonymized lookup keys that hide style tokens, locale packs,
+  and fallback chains.
+- Provides default UI typography with curated themes while suppressing parameter
+  names, tone curves, and GPU flags.
+- Reports missing glyphs through scrubbed diagnostics that omit logger channels and
+  pipeline identifiers.
+
+## Operational Practices
+
+- Tooling may export aggregate metrics (glyphs cached, average generation time) but
+  never the shader names or buffer dimensions involved.
+- Configuration bundles expose only safe toggles (enable italics, enable outline)
+  while the underlying numeric ranges remain internal.

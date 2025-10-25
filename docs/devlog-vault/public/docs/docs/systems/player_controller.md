@@ -1,15 +1,22 @@
 # Player Controller (Public Summary)
 
-The player controller translates input signals into in-game actions while keeping
-specific control bindings private. Movement, stamina usage, and evasive windows
-are coordinated with the player management layer so other systems receive
-normalized intent instead of raw key data.
+The player controller translates sanitized input intent into gameplay actions. It shields
+internal key maps, button chords, and timing curves so downstream systems only see
+high-level movement and interaction requests.
 
-## Overview
+## Responsibilities
 
-- Consumes input from the engine without exposing device-specific mappings.
-- Maintains pacing rules for stamina drain and recovery alongside dodge timing.
-- Broadcasts abstracted events to animation and state systems to update visuals
-  without leaking internal identifiers.
-- Offers inventory hooks through anonymized helpers so gameplay scripts can
-  request item usage without referencing internal method names.
+- Normalize input across devices without exposing physical bindings or analogue curves.
+- Coordinate sprint, dodge, and stamina rules through redacted identifiers shared with
+  the player management layer.
+- Emit anonymized intent events for animation, physics, and state syncing so no raw
+  device data leaks outside the controller boundary.
+- Route inventory actions through scrubbed helper hooks that reveal neither function
+  names nor storage keys.
+
+## Integration Notes
+
+- Other systems subscribe to the controller's sanitized intent stream instead of
+  calling internal update methods directly.
+- Debugging utilities may expose aggregate metrics (inputs per minute, average stamina
+  usage) but never the underlying bindings or hardware IDs.
