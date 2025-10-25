@@ -1,0 +1,23 @@
+# Reactive Animation Constraint System (Public Edition)
+
+This experimental concept describes how reactive animation could function without revealing implementation specifics.
+
+## Purpose
+Enable procedural animation that respects physical limits while reacting to gameplay. Engineering task lists, anatomical datasets, and tuning constants are **[REDACTED]**.
+
+## Codex Responsibilities
+- Define reusable motion stencils and action templates at a conceptual level.
+- Outline how entropy modulates movement without exceeding safe bounds.
+Detailed data structures, binding maps, and integration scripts are **[REDACTED]**.
+
+## Runtime Responsibilities
+Engines should observe events, apply appropriate stencils, and trigger fallbacks when chaos output misbehaves. Source code, performance captures, and debugging utilities are **[REDACTED]**.
+
+## Constraint Enforcement
+The system maintains joint limits and routes invalid states to deterministic animations. Threshold tables, logging conventions, and override policies are **[REDACTED]**.
+
+## Use Cases
+Examples include reactive limb motion, controlled destruction, and fluid responses. Numerical ranges, particle presets, and safety drills are **[REDACTED]**.
+
+## Summary
+Think of RACS as a blueprint for future work. Consult the protected repository for executable specifications and ongoing experiments.
