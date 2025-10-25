@@ -1,6 +1,6 @@
-# Natural Physics Reference Manifest (Public Edition)
+# Natural Physics Reference Manifest (Sanitized)
 
-This manifest catalogs public resources for environmental physics: terrain deformation, wind behavior, natural structure motion, and landscape reactions. Sensitive biological terminology has been reviewed; none was present.
+This public document summarizes environmental physics resources while withholding detailed internal modeling notes. Sensitive descriptions have been replaced with `[REDACTED]` markers or generalized summaries.
 
 ---
 
@@ -9,14 +9,14 @@ This manifest catalogs public resources for environmental physics: terrain defor
 **Name:** Fluid Flow Over Terrain — NOAA Wind Resource Atlas  
 **Type:** Government Data Portal  
 **URL:** https://www.nrel.gov/grid/wind-resource.html  
-**Use:** Models wind drag over hills, buildings, or forests for simulating sandstorm flow, directional gusts, or exposed high-ground effects.
+**Use Summary:** [REDACTED – internal airflow modeling notes.]
 
 ---
 
 **Name:** Aerodynamic Drag & Lift — NASA Glenn Research Center  
 **Type:** Aerospace Physics Primer  
 **URL:** https://www.grc.nasa.gov/www/k-12/airplane/drageq.html  
-**Use:** Explains how natural objects move or resist wind to support modeling of leaf flutter, cape physics, or arrow drift in storms.
+**Use Summary:** [REDACTED – internal aerodynamic application guidance.]
 
 ---
 
@@ -25,31 +25,31 @@ This manifest catalogs public resources for environmental physics: terrain defor
 **Name:** Rockfall Hazard Simulation — USGS Landslide Program  
 **Type:** Geophysical Model  
 **URL:** https://www.usgs.gov/programs/landslide-hazards/science/rock-fall  
-**Use:** Tracks rockslide triggers, fall angle, and mass carry for simulating collapsing cliffs or quake events.
+**Use Summary:** [REDACTED – internal hazard response details.]
 
 ---
 
 **Name:** Soil Erosion Mechanics — USDA Natural Resources Conservation Service  
 **Type:** Earth Surface Physics  
 **URL:** https://www.nrcs.usda.gov/resources/data-and-reports/water-erosion  
-**Use:** Defines how terrain wears over time to inform environmental decay or mudslide events.
+**Use Summary:** [REDACTED – internal erosion modeling notes.]
 
 ---
 
 ## Vegetation Response & Sway
 
 **Name:** Tree Movement in Wind — Journal of Experimental Botany  
-**Type:** Peer-Reviewed Study  
+**Type:** Botanical Physics Study  
 **URL:** https://academic.oup.com/jxb/article/60/8/2379/472706  
-**Use:** Describes how different tree types sway under stress for modeling barrier thickness or stealth vibration detection.
+**Use Summary:** [REDACTED – internal vegetation simulation notes.]
 
 ---
 
 **Name:** Grass and Canopy Motion — Real-Time GPU Wind Simulation  
-**Type:** Rendering Technology Article  
+**Type:** Game Engine Rendering Research  
 **URL:** https://developer.nvidia.com/gpugems/gpugems/part-ii-real-time-rendering/chapter-6-animated-grass-wind  
-**Use:** Covers procedural grass motion under field pressure for surface ripple alerts or stealth shimmer effects.
+**Use Summary:** [REDACTED – internal rendering integration notes.]
 
 ---
 
-*All content above is suitable for public release; no biological data required redaction.*
+*Additional guidance on natural physics scenarios remains available in the secured archive copies.*
