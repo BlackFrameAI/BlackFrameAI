@@ -1,9 +1,0 @@
-# physics_reaction_systems.md (Sanitized)
-
-The proprietary descriptions of reaction generators have been replaced with public-safe summaries.
-
-## Overview
-[REDACTED]
-
-## Public Summary
-Multiple subsystems observe physics data and raise high-level reaction events for downstream consumers. Specific algorithms, thresholds, and material references have been removed from this public copy.

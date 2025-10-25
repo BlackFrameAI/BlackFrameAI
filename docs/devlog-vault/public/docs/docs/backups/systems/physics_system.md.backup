@@ -1,9 +1,0 @@
-# physics_system.md (Sanitized)
-
-This sanitized record preserves only the non-sensitive context for the deprecated PhysicsSystem.
-
-## Overview
-[REDACTED]
-
-## Public Summary
-The legacy wrapper around an external physics library has been retired in favor of the native PhysicsCore module. Operational routines and integration details are withheld in this public release.
