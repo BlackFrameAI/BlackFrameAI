@@ -1,29 +1,24 @@
 # Save System Overview (Public Summary)
 
-This summary outlines how player progress is preserved without exposing internal file layouts or network settings.
+This briefing explains how player progress is preserved while omitting any direct references to internal schemas, directory structures, or automation scripts.
 
-## Preservation Goals
+## Resilience Priorities
 
-- Protect ongoing runs from crashes by writing frequent checkpoints.
-- Maintain long-term progression such as hub state, faction standing, and unlocks.
-- Support optional remote synchronization while keeping infrastructure details [REDACTED].
+- Frequent checkpointing ensures that unexpected shutdowns do not erase ongoing runs.
+- Each profile maintains its own metadata so players can safely swap between campaigns.
+- Manual backup actions are available through in-game menus; the destination and naming policy remain [REDACTED].
 
-## Slot & Profile Structure
+## Progression Coverage
 
-- Players manage multiple profiles, each with metadata that surfaces in the UI.
-- A run resume mechanism restores the most recent safe checkpoint after interruptions.
-- Backup actions in the hub duplicate the active slot to an archival location; exact destinations are [REDACTED].
+- Core progression pillars—story advancement, character state, and strategic unlocks—are stored together for consistency.
+- Sensitive fields such as faction tuning, alignment math, and combat telemetry are not described in this public note.
+- Recovery routines quarantine unreadable data and rebuild the slot without exposing filenames or tooling.
 
-## Checkpoint Triggers
+## Operational Hooks
 
-The system automatically records progress after major encounters, narrative beats, and shop interactions. Additional hooks exist so other systems can request manual checkpoints when needed.
+- System-wide events (boss completions, narrative milestones, vendor interactions, etc.) publish checkpoint requests through a brokered channel.
+- Additional systems may subscribe to this channel to request ad-hoc saves without learning storage specifics.
 
-## Data Protection
+## Remote Mirroring
 
-- Save serialization includes inventory, abilities, and combat state while omitting sensitive identifiers in this document.
-- Networked validation fields (including hardware-in-the-loop support) are summarized as [REDACTED].
-- Corrupted files are quarantined and renamed so the slot can be safely recreated.
-
-## Cloud Support
-
-When enabled through a launch option, the system mirrors slots to a secure remote store. All endpoints, flags, and directory names are [REDACTED] for public release.
+Optional remote synchronization keeps local and off-site copies in sync. Activation methods, network targets, and credential handling are intentionally [REDACTED].

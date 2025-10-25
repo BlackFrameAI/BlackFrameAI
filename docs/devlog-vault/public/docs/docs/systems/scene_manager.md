@@ -1,15 +1,15 @@
 # Scene Manager Overview (Public Summary)
 
-This note describes the responsibilities of the scene management stack without exposing internal module names.
+This briefing outlines how the runtime orchestrates active scenes while keeping implementation scripts, class names, and logging policies private.
 
-## Core Duties
+## Primary Role
 
-- Maintain an ordered collection of scenes and ensure updates/rendering occur in the correct order.
-- Orchestrate transitions so that loading and unloading happen safely outside of gameplay critical paths.
-- Provide guardrails when a scene targets an unavailable window or pipeline; specific logging behavior is [REDACTED].
+- Maintain a layered sequence of views so gameplay, menus, and overlays render in a predictable order.
+- Route per-frame updates only to views that are currently active, ensuring dormant layers remain paused.
+- Shield the renderer from invalid window targets; corrective actions and diagnostics are [REDACTED].
 
-## Collaboration Points
+## Transition Handling
 
-- Works alongside transition helpers to animate swaps between menus, stages, and overlays.
-- Exposes high-level hooks so other systems can signal when a scene should be pushed, popped, or replaced.
-- Integrates with modular tracking documented in the public system tree; implementation artifacts remain [REDACTED].
+- Transition helpers coordinate loading screens, fades, and context swaps without revealing internal helper names.
+- Requests to add, remove, or replace scenes flow through a moderated queue so other systems cannot directly manipulate the stack.
+- Status updates feed into the public modular tracker, but underlying automation scripts stay internal.
