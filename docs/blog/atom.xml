@@ -3,7 +3,7 @@
   <title>BlackFrame AI Studio Blog</title>
   <link href="https://www.blackframeai.org/blog/" />
   <link rel="self" type="application/atom+xml" href="https://www.blackframeai.org/blog/atom.xml" />
-  <updated>2025-10-24T18:00:00Z</updated>
+  <updated>2025-06-13T18:00:00Z</updated>
   <id>https://www.blackframeai.org/blog/</id>
   <author>
     <name>BlackFrame AI Studio</name>
@@ -12,8 +12,8 @@
     <title>Proof of Frame, Day 6 Render Validation</title>
     <link href="https://www.blackframeai.org/blog/proof-of-frame/" />
     <id>https://www.blackframeai.org/blog/proof-of-frame/</id>
-    <updated>2025-10-24T09:00:00Z</updated>
-    <published>2025-10-24T09:00:00Z</published>
+    <updated>2025-06-13T09:00:00Z</updated>
+    <published>2025-06-13T09:00:00Z</published>
     <summary type="html"><![CDATA[Day 6 cleared the renderer’s include snags, captured the first frame hash, and wired per-frame GPU telemetry straight into LogChannel.]]></summary>
   </entry>
   <entry>

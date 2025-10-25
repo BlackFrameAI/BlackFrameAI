@@ -4,7 +4,7 @@
 title: Proof of Frame, Day 6 Render Validation | BlackFrame AI Studio
 description: Day 6 proved the renderer end-to-end, clearing the include snags, capturing the first frame hash, and streaming GPU telemetry straight into LogChannel.
 slug: proof-of-frame
-publishDate: 2025-10-24
+publishDate: 2025-06-13
 socialImage: /assets/social/proof-of-frame-og.svg
 tags:
   - engine-rd
@@ -261,6 +261,38 @@ tags:
       text-decoration: underline;
     }
 
+    .first-frame-figure {
+      margin: 2.4rem 0;
+      border: 1px solid rgba(0, 160, 255, 0.28);
+      border-radius: 18px;
+      background: rgba(0, 22, 42, 0.7);
+      box-shadow: 0 0 24px rgba(0, 140, 210, 0.28);
+      overflow: hidden;
+    }
+
+    .first-frame-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .first-frame-figure figcaption {
+      padding: 1rem 1.4rem 1.4rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #c6ebff;
+      background: rgba(0, 16, 30, 0.85);
+    }
+
+    .first-frame-figure strong {
+      display: block;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      color: #8bbce8;
+    }
+
     .community-lead a {
       color: #66d0ff;
     }
@@ -328,16 +360,26 @@ tags:
         </section>
 
         <h2>Untangling the renderer headers</h2>
-        <p>The day opened by removing the circular include between <code>BackgroundRenderer</code> and <code>RendererFacade</code>. BatchVertex moved into <code>render/SharedPrimitives.hpp</code>, BackgroundRenderer slimmed down to shared primitives, and RendererFacade took back orchestration ownership. That rebuild kept the render modules acyclic and unblocked the live link step we deferred yesterday. (<a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L1580" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-10-24</a>)</p>
+        <p>The day opened by removing the circular include between <code>BackgroundRenderer</code> and <code>RendererFacade</code>. BatchVertex moved into <code>render/SharedPrimitives.hpp</code>, BackgroundRenderer slimmed down to shared primitives, and RendererFacade took back orchestration ownership. That rebuild kept the render modules acyclic and unblocked the live link step we deferred yesterday. (<a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L31" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-13</a>)</p>
 
         <h2>Regenerating GLAD for the long game</h2>
-        <p>We regenerated GLAD with binary loader support so Codex can ship precompiled loaders alongside source. The validation script stored hash <code>74f3b6d</code>, and the regenerated headers now ride with the repository for future audits. That prep ensures partner builds can reproduce the loader without touching the generator. (<a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L1581" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-10-24</a>)</p>
+        <p>We regenerated GLAD with binary loader support so Codex can ship precompiled loaders alongside source. The validation script stored hash <code>74f3b6d</code>, and the regenerated headers now ride with the repository for future audits. That prep ensures partner builds can reproduce the loader without touching the generator. (<a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L32" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-13</a>)</p>
 
         <h2>The first frame finally lands</h2>
-        <p>With headers clean and GLAD regenerated, we fired the engine and watched Frame 0001 bind the staging command buffer, attach the telemetry overlay, and draw the blue-white diagnostic grid from <code>Scene0Diagnostic</code>. RendererFacade recorded the frame hash <code>9c4a-d6</code> alongside an 11.4&nbsp;ms GPU time—our first proof that the render path holds under the real loop. (<a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L1582" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-10-24</a>; <a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L760" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-10-24</a>)</p>
+        <p>With headers clean and GLAD regenerated, we fired the engine and watched Frame 0001 bind the staging command buffer, attach the telemetry overlay, and draw the blue-white diagnostic grid from <code>Scene0Diagnostic</code>. RendererFacade recorded the frame hash <code>9c4a-d6</code> alongside an 11.4&nbsp;ms GPU time—our first proof that the render path holds under the real loop. (<a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L33" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-13</a>; <a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L25" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-13</a>)</p>
+
+        <figure class="first-frame-figure">
+          <img src="/assets/blog/FirstRender.png" alt="The BlackFrame engine's first render showing two jokingly arranged procedural pillars against the diagnostic grid." loading="lazy" />
+          <figcaption>
+            <strong>Frame 0001 — Studio inside joke</strong>
+            Our very first visible frame captured on June 13, 2025. The twin pillars were a deliberate gag from the team—if the world's first AI-built engine is going to draw something, it may as well make the internet laugh—yet it remains the authentic artifact of the render proof.
+          </figcaption>
+        </figure>
+
+        <p>Juvenile humor aside, preserving the exact screenshot keeps our audit trail honest; future partners can line it up with the telemetry hash to verify that the joke image is the same frame the engine logged on Day 6.</p>
 
         <h2>Telemetry stays in lockstep</h2>
-        <p>RenderSystem now streams its metrics into LogChannel, and Grafana’s <em>render-frame-times</em> lane confirmed a steady 60&nbsp;Hz feed tagged <code>frame-proof-1</code>. GameManager mirrored the tag so gameplay and engine telemetry remain synchronized. Together they capture the first visible frame as a forensic artifact instead of a screenshot. (<a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L1583" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-10-24</a>; <a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L761" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-10-24</a>)</p>
+        <p>RenderSystem now streams its metrics into LogChannel, and Grafana’s <em>render-frame-times</em> lane confirmed a steady 60&nbsp;Hz feed tagged <code>frame-proof-1</code>. GameManager mirrored the tag so gameplay and engine telemetry remain synchronized. Together they capture the first visible frame as a forensic artifact instead of a screenshot. (<a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L34" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-13</a>; <a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L26" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-13</a>; <a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L27" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-13</a>)</p>
 
         <h2>Why it matters for partners</h2>
         <p>This proof gives partners an auditable render baseline. The Day 6 log in the Devlog Vault captures commit IDs, hashes, and telemetry endpoints so external teams can replay the first frame on their own hardware. It’s the last prerequisite before we replace the diagnostic grid with production art and let Codex iterate live materials. (<a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlogs/day6-first-frame-validation.md" target="_blank" rel="noopener noreferrer">Day 6 First Frame Validation</a>)</p>
@@ -385,8 +427,8 @@ tags:
         "image": [
           "https://www.blackframeai.org/assets/social/proof-of-frame-og.svg"
         ],
-        "datePublished": "2025-10-24",
-        "dateModified": "2025-10-24",
+        "datePublished": "2025-06-13",
+        "dateModified": "2025-06-13",
         "author": {
           "@type": "Organization",
           "name": "BlackFrame AI Studio"

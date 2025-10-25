@@ -22,6 +22,9 @@ Progress updates on game systems.
 
 ## 2025-06-13
 - -- Implemented initial boss framework for multi-phase encounters.
+- 10:02:18Z Scene0Diagnostic now drives the renderer proof pass, building the diagnostic grid VBO and binding telemetry overlay sprites.
+- 10:47:03Z GameManager routes RenderSystem metrics into LogChannel so gameplay and engine telemetry stay in lockstep during the first visible frame run.
+- 11:12:49Z Logged validation tag frame-proof-1 against the Day 6 build artifacts, pairing frame hash 9c4a-d6 with the June 13 production log.
 
 ## 2025-06-16
 - -- Began testing space combat prototype with basic controls.
@@ -755,8 +758,3 @@ Progress updates on game systems.
 ## 2025-10-22
 - 2025-10-22T13:05:44Z Documented how the new InputRouter stub will hand controller events to GameManager once gameplay scenes wire in, keeping the runtime merge plan aligned with Phase 4 notes.
 - 2025-10-22T18:20:09Z Verified the stubbed scene handshake still boots through EngineController and logged future hooks so Day 5’s rendering work can attach without rewriting game state transitions.
-
-## 2025-10-24
-- 2025-10-24T10:02:18Z Scene0Diagnostic now drives the renderer proof pass, building the diagnostic grid VBO and binding telemetry overlay sprites.
-- 2025-10-24T10:47:03Z GameManager routes RenderSystem metrics into LogChannel so gameplay and engine telemetry stay in lockstep during the first visible frame run.
-- 2025-10-24T11:12:49Z Logged validation tag frame-proof-1 against the Day 6 build artifacts, pairing frame hash 9c4a-d6 with the June 13 production log.
