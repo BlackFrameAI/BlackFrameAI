@@ -1,0 +1,16 @@
+# opfor_training.md.backup
+
+This sanitized description captures the Opposed Force training system without referencing campaign-specific data.
+
+## Overview
+
+- Tracks elapsed training time and produces a scaling factor for enemy templates.
+- Uses configurable difficulty curves to adjust offensive and defensive stats.
+- Integrates with spawning systems so generated enemies inherit the current scaling profile.
+- Supports script overrides (for example, a `opfor_scale(time)` callback) to prototype alternate progressions.
+
+## Extended Use Cases
+
+- Automated combat simulations can apply the same scaling rules to entire squads.
+- Designers can pin minimum and maximum multipliers in data files to control test bounds.
+- Telemetry hooks record progression data for balancing without storing scenario identifiers.
