@@ -1,9 +1,13 @@
 Purge of the Crescent Veil — Master Development Log
-PROJECT LEAD: ParentalAdvisery
+PROJECT LEAD: [REDACTED]
 AI Co-Developer: OpenAI CODEX
 PROJECT TYPE: Indie game project with custom C++ game engine → built from scratch with AI-assisted development
 START DATE: 2025-06-07
 STATUS: 🚀 Active Development
+
+Sanitization audit (2025-10-22):
+- Personal identifiers have been replaced with [REDACTED].
+- Automated sweeps confirm no embedded API keys, tokens, login credentials, or email addresses remain in this log.
 
 📅 Project Timeline
 Phase   Start Date      Status  Notes

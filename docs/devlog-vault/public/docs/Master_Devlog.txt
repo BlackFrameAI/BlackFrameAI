@@ -5,6 +5,10 @@ PROJECT TYPE: Indie game project with a custom engine
 START DATE: 2025-06-07
 STATUS: Active Development
 
+Sanitization audit (2025-10-22):
+- Personal identifiers have been replaced with [REDACTED].
+- Automated sweeps confirm no embedded API keys, tokens, login credentials, or email addresses remain in this log.
+
 Project Timeline (Sanitized)
 Phase | Status | High-Level Notes
 PRE-PHASE 1 — Constraints Lock | Completed | Project scope and behavioral constraints documented.
