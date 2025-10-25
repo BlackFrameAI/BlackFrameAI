@@ -1,60 +1,27 @@
 # Thermal Transfer Reference Manifest
-> **Sanitized Copy:** Sensitive equations and parameters have been redacted for public release.
+> **Sanitized Copy:** Proprietary datasets, ignition coefficients, and solver constants have been removed.
 
-This manifest enables Codex to simulate realistic heat behavior across surfaces, materials, and environments. Supports fire systems, overheating logic, ignition thresholds, and radiant exposure.
-
----
-
-##  Heat Conduction & Surface Spread
-
-**Name:** *Heat Transfer  Incropera & DeWitt (Engineering Standard)*  
-**Type:** University Textbook  
-**URL:** https://www.wiley.com/en-us/Fundamentals+of+Heat+and+Mass+Transfer%2C+8th+Edition-p-9781119320425  
-
-**Summary:** [REDACTED – Detailed operational parameters removed.]
+This manifest outlines the thematic sources Codex references when modelling heat conduction, radiation, and combustion across environments.
 
 ---
 
-**Name:** *Thermal Diffusivity Database  NIST (National Institute of Standards and Technology)*  
-**Type:** Scientific Dataset  
-**URL:** https://www.nist.gov/programs-projects/thermal-conductivity  
-
-**Summary:** [REDACTED – Detailed operational parameters removed.]
-
----
-
-##  Radiative & Environmental Heat
-
-**Name:** *Planck Radiation Law  Blackbody Emission Profiles*  
-**Type:** Physics Formula & Behavior  
-**URL:** https://en.wikipedia.org/wiki/Planck%27s_law  
-
-**Summary:** [REDACTED – Detailed operational parameters removed.]
+## 🔥 Heat Conduction & Surface Spread
+**Source Category:** Widely used engineering heat-transfer textbooks and public domain primers\\
+**Access Level:** Commercial summaries and educational excerpts\\
+**Usage:** Guides conductive heat flow estimates, material layering effects, and surface-to-surface spread without revealing restricted numerical tables.
 
 ---
 
-**Name:** *Solar Heating Data  NASA Earth Science Division*  
-**Type:** Atmospheric Dataset  
-**URL:** https://power.larc.nasa.gov/  
-
-**Summary:** [REDACTED – Detailed operational parameters removed.]
-
----
-
-##  Ignition & Combustion Triggers
-
-**Name:** *Autoignition Temperatures  Engineering Toolbox*  
-**Type:** Technical Reference  
-**URL:** https://www.engineeringtoolbox.com/fuels-ignition-temperatures-d_171.html  
-
-**Summary:** [REDACTED – Detailed operational parameters removed.]
+## ☀️ Radiative & Environmental Heat
+**Source Category:** Government climate radiation briefs and general astrophysical references\\
+**Access Level:** Public datasets and encyclopaedic overviews\\
+**Usage:** Describes radiant emission behaviour, solar flux patterns, and ambient heating to support stealth distortion and environmental exposure while omitting calibrated model constants.
 
 ---
 
-**Name:** *Fire Spread Models  National Fire Protection Association (NFPA)*  
-**Type:** Applied Fire Science  
-**URL:** https://www.nfpa.org/News-and-Research  
-
-**Summary:** [REDACTED – Detailed operational parameters removed.]
+## 🚨 Ignition & Combustion Triggers
+**Source Category:** Safety engineering references and fire-science advisories\\
+**Access Level:** Public ignition temperature lists and emergency response guidance\\
+**Usage:** Provides ranges for autoignition, combustion progression, and structure burn characteristics without distributing restricted response playbooks or proprietary materials data.
 
 ---
