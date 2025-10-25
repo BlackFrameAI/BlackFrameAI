@@ -1,20 +1,23 @@
 # Procedural UI Input System
 
-The procedural UI input layer coordinates hover and click behaviour for dynamically generated interface elements without exposing low-level handles or internal identifiers. It converts pointing-device signals into the normalized grid space used by the UI renderer and maintains lightweight state flags so interface elements can react visually.
+The procedural UI input system mediates cursor-driven interactions for dynamic interface sprites without exposing internal pointer math or callback wiring. It maintains lightweight handles for each sprite so layouts can be animated or repositioned without leaking implementation details.
 
 ## Responsibilities
-- Normalize pointer coordinates to the virtual grid before comparisons.
-- Track interactive regions registered by the overlay layer.
-- Update transient hover and press state during the frame loop.
-- Relay state changes to any presentation logic that subscribed to updates.
+- Accept registration from UI sprites that want hover or click feedback.
+- Translate platform input events into abstract interaction states (idle, hovering, pressed) without disclosing coordinate transforms.
+- Dispatch sanitized notifications to subscribing overlays or logic blocks.
 
 ## Interaction Flow
-1. Registration supplies the bounds of each interactive element.
-2. The system samples current pointer location and button state.
-3. Hover and press flags are updated when the pointer transitions across element bounds.
-4. Subscribed callbacks receive notifications without exposing concrete function names or object references.
+1. A sprite registers and supplies a reference to the data it wants to monitor.
+2. The system samples current input state through the approved input facade.
+3. State transitions trigger normalized events that user interface layers can map to their own reactions.
 
-## Integration Notes
-- Designed for modular UI pipelines; elements can register or unregister at runtime.
-- Visual reactions (such as highlighting or scaling) are handled by the presenting overlay rather than by the input layer itself.
-- The system keeps processing costs predictable by iterating over a compact list of registered elements each frame.
+## Integration Guidelines
+- Always unregister sprites that are destroyed to prevent dangling handles.
+- Keep visual responses inside the owning overlay so interaction policy stays centralized.
+- Use dependency injection for callbacks so sensitive behavior is not hard-coded into the system.
+
+## Hygiene Notes
+- Avoid embedding business rules in hover or click events; forward only minimal signals.
+- Confirm that analytics hooks and scripting layers listen through vetted channels before acting on interaction data.
+- Treat any direct coordinate access as privileged and gate it behind reviewable helpers.

@@ -1,20 +1,27 @@
 # Quantum Statevector System
 
-The quantum statevector system provides a managed interface for running high-fidelity quantum simulations with optional hardware acceleration. It encapsulates simulator selection, trigger management, and seed harvesting so gameplay code interacts only with stable service endpoints.
+This brief outlines the Quantum Statevector Manager and its simulator partnership in a privacy-conscious manner. Detailed register sizes, gate schedules, and hardware thresholds are intentionally omitted.
 
-## Capabilities
-- Supports both CPU and GPU execution paths and can fall back seamlessly if acceleration libraries are unavailable.
-- Offers frame, chunk, and event-driven triggers so subsystems can schedule collapses without exposing sensitive identifiers.
-- Tracks summary statistics (entropy levels, collapse counts, execution mode) for diagnostics while omitting raw state information.
-- Stores harvested entropy seeds in named buckets, enabling later analytics without surfacing underlying probabilities.
+## Platform Abstraction
+- Supports both CPU and GPU execution paths through a pluggable backend interface.
+- Automatically selects an available backend according to deployment policy without disclosing device names.
+- Provides a uniform entry point for registering frame, chunk, or event triggers that request collapses.
 
-## Operational Flow
-1. Subsystems register triggers with optional tagging metadata.
-2. During updates the manager evaluates pending triggers and issues collapse requests to the active simulator.
-3. Resulting seeds and anonymized metrics are recorded for downstream consumers.
-4. Debug builds may emit additional telemetry when explicitly enabled; release configurations remain silent by default.
+## Collapse Handling
+- Each trigger queues a collapse request that is executed when the system reports readiness.
+- Collapses regenerate sanitized entropy tokens that downstream systems may use as deterministic seeds.
+- Probability data is aggregated into coarse statistics (totals, averages) so operational insight is available without exposing raw amplitudes.
 
-## Tooling Notes
-- Buckets and statistics can be cleared or queried through accessor methods that avoid leaking simulator internals.
-- Hashing routines reduce detailed probability data to deterministic seeds without preserving raw amplitudes.
-- Automated tests exercise initialization, fallback handling, and seed retrieval to ensure consistent behaviour across platforms.
+## Seed Buckets
+- Callers may label collapses with bucket names to organize telemetry.
+- Buckets expose high-level summaries and can be reset individually or globally.
+- Access to bucket contents should be gated through observability tooling with audit logging enabled.
+
+## Debug & Compliance
+- Diagnostic builds can emit redacted traces when explicitly enabled by configuration flags.
+- GPU-specific failures trigger warnings and gracefully fall back to CPU execution.
+- All logs should avoid printing qubit counts, memory sizes, or vendor identifiers unless clearance is granted.
+
+## Testing Notes
+- Automated tests focus on lifecycle validation, fallback safety, and deterministic seeding behavior.
+- Enable the testing target through the build system when verification is required, then run the curated subset of cases that ship with the project.

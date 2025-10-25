@@ -1,20 +1,23 @@
 # Quantum Pattern Translation Layer
 
-This layer acts as the safe bridge between gameplay systems and the engine's quantum services. It accepts intent descriptions from AI or procedural systems, brokers the appropriate simulation backend, and returns anonymized entropy seeds without exposing simulator internals or raw state vectors.
+The Quantum Pattern Translation Layer (QPTL) abstracts collapse orchestration for downstream systems while concealing simulator wiring and parameterization. It translates intent requests into reusable entropy tokens without surfacing qubit counts, hashing formulas, or oracle routing rules.
 
-## Core Concepts
-- Presents a simplified request API so callers do not need to manage qubits, collapse pipelines, or simulator ownership.
-- Chooses between deterministic and entropy-heavy backends according to live conditions.
-- Mixes in optional entropy hints that describe the desired tone of the response without revealing numeric parameters.
-- Logs promotion decisions for audit purposes without recording sensitive identifiers.
+## Responsibilities
+- Accept intent descriptors from gameplay, AI, or tooling components via a stable façade.
+- Broker requests between deterministic, hybrid, or chaotic backends without divulging prioritization logic.
+- Return normalized entropy tokens suitable for seeding procedural features.
 
-## Request Lifecycle
-1. A caller submits an intent that summarizes the scenario and desired randomness profile.
-2. The translation layer evaluates which quantum backend is available and healthy.
-3. Candidate seeds are validated against the intent before being approved.
-4. Approved seeds are cached for potential reuse when future intents describe similar entropy envelopes.
+## State Tracking
+- Maintains a mapper that records the provenance of previously issued tokens using coarse classifications only.
+- Supports optional reuse suggestions so callers can match prior outcomes without inspecting raw simulator state.
+- Logs operational metadata through redacted audit trails for compliance reviews.
 
-## Safety and Audit Trail
-- Validation checks ensure only vetted seeds are released to gameplay systems.
-- Reuse suggestions rely on hashed descriptors so no explicit state vectors or device identifiers leave the layer.
-- When a backend is unavailable the layer responds with a neutral value and records the incident for diagnostics.
+## Entropy Guidance
+- Callers may provide non-sensitive hints to steer collapse behavior (e.g., prefer stable vs. jittery results).
+- Hints are advisory and may be ignored when safety policies dictate.
+- All entropy mixing routines run behind vetted interfaces to prevent leakage of simulator characteristics.
+
+## Integration Practices
+- Verify that managers interacting with QPTL perform readiness checks before issuing requests.
+- Handle fallback results gracefully; a zero or null token indicates that the system deferred the collapse for safety.
+- Avoid storing raw responses alongside identifiable user or session data unless additional privacy measures are in place.
