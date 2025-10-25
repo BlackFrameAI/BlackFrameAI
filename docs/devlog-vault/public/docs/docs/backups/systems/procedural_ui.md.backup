@@ -1,0 +1,22 @@
+# Procedural UI System (Sanitized Backup)
+
+This backup retains high-level guidance for the procedural UI helpers while removing confidential implementation specifics.
+
+## Overview
+- Procedural UI sprites assemble widget geometry from primitive shapes and respond to basic interaction events.
+- Generators consume stencil descriptors and active theme data to keep overlays visually consistent.
+- Callback routing, theming heuristics, and asset bindings are [REDACTED].
+
+## ProceduralUIGenerator
+- Listens for descriptors, resolves style information, and produces sprites ready for immediate use or deferred retrieval.
+- Supports configurable dimensions, interaction hooks, and automatic cleanup.
+- Descriptor parsing, batching policies, and dependency injection details are [REDACTED].
+
+## UIShapeRegistry
+- Stores reusable shape builders for widgets rendered with SDF techniques.
+- Provides canonical identifiers for rounded rectangles, toggles, sliders, and similar elements.
+- Shape tessellation parameters, vendor integrations, and shader bindings are [REDACTED].
+
+## Usage Notes
+- Scenes load default shapes, request generated sprites as needed, and render them via the shared procedural pipeline.
+- Additional notes on renderer integration, licensing, and proprietary datasets are [REDACTED].

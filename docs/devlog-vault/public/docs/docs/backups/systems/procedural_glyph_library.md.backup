@@ -1,0 +1,16 @@
+# Procedural Glyph Library (Sanitized Backup)
+
+This backup summarizes the procedural glyph workflow while withholding proprietary tooling and datasets.
+
+## Glyph Path Generation
+- Glyph outlines are reconstructed from the internal font repository and normalized to a unit coordinate space before rasterization.
+- Runtime registration permits scenes to provide custom outlines that override the default catalog.
+- Curve tessellation thresholds, font ingestion routines, and other sensitive logic are [REDACTED].
+
+## SDF Integration
+- Glyph paths feed the shared SDF generator so text renders consistently alongside other procedural sprites.
+- Texture caching keys, smoothing heuristics, and GPU resource contracts are [REDACTED].
+
+## External Sources
+- Third-party font inputs must satisfy licensing checks and dimensional validation.
+- Vendor-specific normalization data, licensing audits, and import transforms are [REDACTED].
