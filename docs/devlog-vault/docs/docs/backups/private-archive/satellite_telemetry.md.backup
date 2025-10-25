@@ -17,13 +17,11 @@ This document outlines the **SatelliteTelemetrySystem** located under
 
 `SatelliteTelemetrySystem` is initialized with an API endpoint. If no endpoint is available you can supply a JSON string for offline testing.
 
-> Public copy redacts internal telemetry endpoints. Contact operations for full endpoint list.
-
 ```cpp
 #include "tracking/satellite/SatelliteTelemetrySystem.h"
 
 game::SatelliteTelemetrySystem telemetry;
-telemetry.initialize("[REDACTED: primary telemetry base URL]");
+telemetry.initialize("https://example.com/api/");
 telemetry.setSimulatedResponse(R"({"id":"1","lat":0.0,"lon":0.0,"alt":420.0})");
 ```
 
@@ -62,22 +60,3 @@ telemetry.enableSimulation(opts);
 
 Each call to `fetch` will advance the generator and return new latitude,
 longitude and altitude values.
-# Satellite Telemetry System (Public Edition)
-
-This public note outlines the purpose of the SatelliteTelemetrySystem without disclosing proprietary networking or simulation details.
-
-## Purpose
-- Provide optional orbital tracking data to gameplay modules.
-- Support both live API requests and offline simulation modes.
-
-## Initialization & Usage
-Systems can initialize the telemetry module with an endpoint or fallback data source. Concrete API shapes, authentication flows, and example payloads are **[REDACTED]**.
-
-## Engine Workflow
-Telemetry integrates with broader managers to distribute data where needed. Registration routines, threading behavior, and data retention policies are **[REDACTED]**.
-
-## Simulation Support
-A generator can supply synthetic orbital data when live feeds are unavailable. Parameter tuning, orbital math, and debugging commands are **[REDACTED]**.
-
-## Summary
-Consult the private repository for complete implementation details and operational checklists.
