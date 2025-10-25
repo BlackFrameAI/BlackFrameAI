@@ -13,6 +13,19 @@ Manual verification (2025-10-24):
 - Repository copy refreshed from canonical master devlog source.
 - Manual scan confirmed absence of credentials, API keys, or other secrets.
 
+Public sanitization checklist (2025-10-24 refresh):
+- All personal names, handles, or contact points remain replaced with [REDACTED] placeholders.
+- Email addresses, phone numbers, physical locations, and unique machine identifiers have been removed.
+- Telemetry snippets show only subsystem names and generic metrics—no file paths, hostnames, or IP addresses are retained.
+- Only public repository links are referenced; internal paths and tooling instructions stay in private operations docs.
+- Confirmed absence of API keys, tokens, secrets, and authentication credentials across the full document.
+
+Redaction policy for future updates:
+- Continue using [REDACTED] placeholders for any personal or partner identifiers.
+- Scrub raw transcripts or imported notes before commit so they match the checklist above.
+- Perform manual `rg -n "@"` and `rg -n "http"` sweeps (or equivalent secret scanning) before publishing updates.
+- Flag potential exposures in pull request summaries to guarantee secondary review before release.
+
 📅 Project Timeline
 Phase   Start Date      Status  Notes
 PRE-PHASE 1 — Constraints Lock  2025-06-07      ✅ Completed    Behavioral rules & project scope locked
