@@ -1,24 +1,19 @@
 # Scripting System Overview (Public Summary)
 
-This document summarizes the scripting layer while withholding sensitive bindings and file locations.
+This document presents a high-level look at the runtime scripting layer while masking concrete bindings, source locations, and debugging utilities.
 
 ## Purpose
 
-- Embed a lightweight language runtime that designers can use to author gameplay behavior.
-- Register engine callbacks through a curated binding table so scripts interact with gameplay features without touching internals.
-- Allow per-frame update hooks for reactive logic while maintaining performance safeguards.
+- Host a lightweight, data-driven language so designers can author gameplay behaviors without recompiling the engine.
+- Offer a curated bridge between scripts and gameplay systems that filters requests and enforces security constraints.
+- Provide optional per-frame callbacks for reactive behaviors while keeping scheduling details [REDACTED].
 
 ## Content Management
 
-Scripts are loaded from a controlled library; exact directories, naming conventions, and loader scripts are [REDACTED]. Narrative events can request matching scripts through identifiers, but implementation specifics remain internal.
+- Scripts are distributed through an internal library; naming schemes, packaging format, and patch workflows are [REDACTED].
+- Narrative triggers and event graphs resolve to script identifiers through a registry that is not exposed publicly.
+- All imports, helper scripts, and startup order requirements remain private to avoid leaking build pipeline structure.
 
-## Available Capabilities
+## Capability Envelope
 
-Scripts can:
-
-- Log diagnostic information through approved channels.
-- Spawn enemies or interactive objects defined by data tables.
-- Adjust player progression, inventory, and reputation values within safe ranges.
-- Toggle UI overlays or trigger narrative branches.
-
-Function names, parameter lists, and additional helpers are intentionally [REDACTED] in this public summary.
+Within defined guardrails, scripts may request combat encounters, adjust player-facing progression metrics, or toggle UI elements. Exact function signatures, parameter names, rate limits, and privileged helpers are [REDACTED] to prevent unauthorized reproduction of the toolchain.

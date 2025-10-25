@@ -1,19 +1,20 @@
 # SEED Layer Overview (Public Summary)
 
-This summary introduces the SEED kernel layer without disclosing binary names, command-line flags, or memory maps.
+This summary introduces the SEED kernel layer while withholding binary identifiers, deployment scripts, and memory layout diagrams.
 
 ## Mission
 
-- Host a minimal supervisor loop that boots the active engine kernel.
-- Provide isolation so new kernels can be validated without disrupting a live session.
-- Surface broker-style interfaces for graphics, audio, and input while keeping implementation handles [REDACTED].
+- Host a minimal supervisor loop that activates the current engine kernel and keeps it healthy.
+- Sandboxed validation allows candidate kernels to run without endangering a live session.
+- Broker-style adapters expose rendering, audio, and input services while masking handles and protocols behind [REDACTED] interfaces.
 
 ## Version Management
 
-The layer maintains a three-slot rotation containing active, backup, and candidate kernels. Health checks ensure a failed candidate cannot replace the stable version, and rollback paths remain available at all times.
+- A controlled rotation tracks which kernel is active, which acts as a fallback, and which is undergoing evaluation.
+- Integrity probes run continuously so an unhealthy candidate cannot displace the stable baseline.
+- Recovery routines guarantee that a known-good kernel is always available without revealing storage paths.
 
 ## Upgrade Flow
 
-- Requests to swap kernels are queued and processed when the engine reaches a safe state.
-- Validation routines confirm integrity before promotion; failure results in an automatic fallback to the backup slot.
-- Operational tooling and launch arguments required for this process are [REDACTED] for security.
+- Swap requests are deferred until the engine signals a maintenance window, preventing mid-frame changes.
+- Validation and rollback tooling operate behind internal automation; commands, environment variables, and transport paths are [REDACTED].
