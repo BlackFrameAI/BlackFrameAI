@@ -1,0 +1,13 @@
+# Vendor Inventory (Sanitized)
+
+High-level documentation of the vendor inventory module for public archives.
+
+## Overview
+- Coordinates item pools exposed to UI clients through abstracted services.
+- Applies configurable weighting rules provided by secure backend policies.
+- Maintains modular boundaries between hub and run-time vendors.
+
+## Sanitized Notes
+- Faction-based weighting details, drop tables, and reward schemas have been removed.
+- Integration notes for analytics and entitlement systems are retained privately.
+- Refer to the internal commerce specification for exhaustive balancing parameters.

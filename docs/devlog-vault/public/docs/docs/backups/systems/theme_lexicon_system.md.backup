@@ -1,0 +1,13 @@
+# Theme Lexicon System (Sanitized)
+
+The theme lexicon specification remains available at a conceptual level for public review.
+
+## Overview
+- Maps high-level theme identifiers to rendering configuration buckets.
+- Provides translation helpers that keep UI and rendering styles consistent.
+- Allows runtime swapping of approved visual themes.
+
+## Sanitized Notes
+- Enumerations, keyword tables, and debug shortcuts have been removed from this publication.
+- Implementation wiring to animation, physics, or reaction systems is documented only in the internal archive.
+- Refer to the private style guide for exhaustive theme definitions and authoring workflows.
