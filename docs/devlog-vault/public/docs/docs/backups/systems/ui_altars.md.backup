@@ -1,0 +1,13 @@
+# UI Altars (Sanitized)
+
+High-level altar interface guidance retained for public archival.
+
+## Overview
+- Describes altar interaction touchpoints without enumerating secure flows.
+- Highlights modular UI responsibilities shared across altar scenes.
+- Emphasizes alignment with accessibility and localization guidelines.
+
+## Sanitized Notes
+- Specific altar rituals, progression triggers, and reward routing have been removed.
+- Flowcharts, state diagrams, and diagnostic commands remain in the confidential design vault.
+- Use internal UI playbooks for full sequence charts and validation rules.

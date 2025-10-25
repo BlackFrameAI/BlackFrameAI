@@ -1,0 +1,12 @@
+# Time System (Sanitized)
+
+This summary preserves the intent of the TimeSystem while omitting sensitive runtime instrumentation details.
+
+## Overview
+- Tracks frame-to-frame delta values and accumulated uptime for the simulation loop.
+- Supplies timing data to dependent systems through a controlled query interface.
+- Supports configurable frame limiting without exposing diagnostic internals.
+
+## Sanitized Notes
+- References to internal profiling overlays, debug consoles, or logging channels have been removed.
+- Consult the secured engineering repository for complete integration diagrams and API signatures.

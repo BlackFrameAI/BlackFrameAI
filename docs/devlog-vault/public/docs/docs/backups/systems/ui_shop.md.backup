@@ -1,0 +1,13 @@
+# UI Shop (Sanitized)
+
+This edition summarizes the shop interface while omitting sensitive economic and routing data.
+
+## Overview
+- Presents the modular layout used for in-run and hub-based purchasing screens.
+- Supports configurable offer cards, currency displays, and confirmation prompts.
+- Aligns with vendor inventory services through abstracted interfaces.
+
+## Sanitized Notes
+- Pricing algorithms, offer weighting rules, and live telemetry callbacks have been removed.
+- Transaction auditing steps and entitlement validation are maintained privately.
+- Internal commerce guidelines describe the secure checkout and refund flows.
