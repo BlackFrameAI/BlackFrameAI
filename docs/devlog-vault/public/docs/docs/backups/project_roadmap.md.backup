@@ -1,0 +1,19 @@
+# Project Roadmap (Public Edition)
+
+This roadmap highlights the current state of *Purge of the Crescent Veil* without revealing sensitive scheduling data.
+
+## Completed Milestones
+- Core technology stack established and validated. Detailed subsystem diagrams and internal velocity notes are **[REDACTED]**.
+- Rendering, scripting, and save-management frameworks are operational. Integration metrics and regression dashboards are **[REDACTED]**.
+
+## In Progress
+- Gameplay scripting, space-combat links, and UI refinement continue. Sprint burndown targets and staffing allocations are **[REDACTED]**.
+- Windowing and accessibility adjustments remain underway pending full QA coverage.
+
+## Upcoming Goals
+- Extend network simulation, telemetry tooling, and scenario editor capabilities in future phases.
+- Explore optional rendering backends and automate testing expansion. Sequencing, vendor requirements, and dependency risks are **[REDACTED]**.
+- Quantum feature research persists inside the private archive; only summarized findings appear here.
+
+## Notes
+Public readers should treat this document as informational only. Authoritative planning artifacts live in the secured vault.
