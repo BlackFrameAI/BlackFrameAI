@@ -66,6 +66,28 @@
             ]
         },
         {
+            "title": "Engine Devlog",
+            "category": "Devlogs",
+            "summary": "Chronological engine updates covering scaffolds, telemetry, render backends, and tooling adjustments.",
+            "href": "./public/docs/docs/devlogs/engine_devlog.md",
+            "tags": [
+                "engine",
+                "telemetry",
+                "rendering"
+            ]
+        },
+        {
+            "title": "Game Devlog",
+            "category": "Devlogs",
+            "summary": "Tracks gameplay systems, hub features, faction alignment hooks, and procedural content integrations.",
+            "href": "./public/docs/docs/devlogs/game_devlog.md",
+            "tags": [
+                "gameplay",
+                "alignment",
+                "procedural"
+            ]
+        },
+        {
             "title": "Project Overview",
             "category": "Overview",
             "summary": "Outlines engine scope, modular structure, gameplay goals, constraints, and build prerequisites for collaborators.",
