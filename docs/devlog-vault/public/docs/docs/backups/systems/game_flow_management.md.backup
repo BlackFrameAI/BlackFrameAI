@@ -1,0 +1,14 @@
+# game_flow_management.md
+
+## Summary
+The game flow management stack handles transitions between high-level states such as menus, gameplay, and post-run screens while keeping persistence requests centralized.
+
+## Components
+- **GameManager** – orchestrates state changes and exposes the primary control surface for flow events.
+- **SceneCoordinator** – manages scene swaps and ensures transition effects complete before activating the next scene.
+- **PhaseController** – provides a lightweight API for systems that need to react to phase transitions.
+- **GamePhaseManager** – tracks the current `GameState` (for example `MainMenu`, `Playing`, or `GameOver`).
+- **SaveLoadCoordinator** – gathers data for serialization and routes save or load operations through the standard persistence layer.
+
+## Behavior
+`GameManager::SetState` selects the active phase, coordinates scene transitions, and notifies registered listeners. Save and load requests pass through `SaveLoadCoordinator` so managers can record profile details without reaching into storage backends directly.
