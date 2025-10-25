@@ -1,0 +1,10 @@
+# gpu_broker.md
+
+`GpuBroker` previously abstracted graphics device setup but has been **deprecated** in favor of [`MultiDisplayManager`](MultiDisplayManager). New implementations should use the display manager to create windows and manage render backends.
+
+## Responsibilities
+- Load required OpenGL functions through the rendering loader.
+- Shutdown and destroy the window at exit.
+- *Window creation, context management, and event polling are now handled by* [`MultiDisplayManager`](MultiDisplayManager).
+
+`GpuBroker` originally served as the entry point for the OpenGL `RenderSystem`, but this responsibility has shifted to `MultiDisplayManager`. `GpuBroker` remains as a lightweight wrapper for loading GLAD and for legacy scenarios where a minimal single window is required. `MultiDisplayManager` now provides window creation and backend management across all platforms. See [docs/modular/game_system_tree.md](../../modular/game_system_tree.md) for the current status.
