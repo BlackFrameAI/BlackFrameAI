@@ -1,45 +1,45 @@
 # Mythological Systems Manifest
 
-This manifest highlights open-access resources on global mythologies for cultural literacy and academic reference.
+[REDACTED] Summary: Curated open-access mythological references for cultural worldbuilding.
 
 ---
 
 ## ⚡ Greek & Roman Deity Structure
 
-**Name:** Theoi Project – Greek Mythology Reference\\
-**Type:** Academic Mythology Archive\\
+**Name:** Theoi Project – Greek Mythology Reference\
+**Type:** Academic Mythology Archive\
 **URL:** https://www.theoi.com/
 
-**Notes:** [REDACTED — narrative application removed]
+Use: Summary: Supports pantheon hierarchies and symbol catalogs.
 
 ---
 
 ## 🔨 Norse Cosmology & Runes
 
-**Name:** Poetic Edda – English Translations\\
-**Type:** Public Domain\\
+**Name:** Poetic Edda – English Translations\
+**Type:** Public Domain\
 **URL:** https://www.sacred-texts.com/neu/poe/index.htm
 
-**Notes:** [REDACTED — narrative application removed]
+Use: [REDACTED] Summary: Provides references for cosmology layouts and rune sets.
 
 ---
 
 ## 🐍 Mesopotamian Pantheons
 
-**Name:** Electronic Text Corpus of Sumerian Literature (ETCSL)\\
-**Type:** Academic Corpus\\
+**Name:** Electronic Text Corpus of Sumerian Literature (ETCSL)\
+**Type:** Academic Corpus\
 **URL:** http://etcsl.orinst.ox.ac.uk/
 
-**Notes:** [REDACTED — narrative application removed]
+Use: Summary: Offers mythic archetypes for relic and ritual design.
 
 ---
 
 ## 🔱 Hindu Deity Cycles
 
-**Name:** Sacred Texts Archive – Hinduism\\
-**Type:** Cultural Document Archive\\
+**Name:** Sacred Texts Archive – Hinduism\
+**Type:** Cultural Document Archive\
 **URL:** https://www.sacred-texts.com/hin/
 
-**Notes:** [REDACTED — narrative application removed]
+Use: Summary: Captures cyclical narratives for progression systems.
 
 ---
