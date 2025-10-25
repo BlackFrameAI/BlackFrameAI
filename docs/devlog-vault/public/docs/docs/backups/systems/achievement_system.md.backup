@@ -9,8 +9,8 @@ This document defines the **Achievement and Meta Progression System** for *Purge
 
 ## Core Concepts
 
-- The system is orchestrated by `AchievementManager`, a lightweight module under
-  `game/achievement/`. It tracks each achievement's unlocked state and exposes
+- The system is orchestrated by `[REDACTED]`, a lightweight module under
+  `[REDACTED]`. It tracks each achievement's unlocked state and exposes
   simple queries for the UI and save system.
 
 - Achievements provide **meta-loop progression** outside of runs.
@@ -47,7 +47,7 @@ This document defines the **Achievement and Meta Progression System** for *Purge
 
 ### Event Hooks
 
-The `EnemyManager` dispatches a `kEnemyDefeatedEvent` event whenever an enemy's
+The `[REDACTED]` dispatches a `[REDACTED]` event whenever an enemy's
 health reaches zero. `Game` registers a listener that unlocks the
-`first_blood` achievement on the first defeat. Future achievements can
+`[REDACTED]` achievement on the first defeat. Future achievements can
 subscribe to additional events in the same manner.
