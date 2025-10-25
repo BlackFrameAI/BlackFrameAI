@@ -1,37 +1,37 @@
 # character_visuals.md
 
-This document summarizes how `game/modules/graphics/CharacterVisuals.h` organizes the modular armor sprites used for humanoid characters.
+This public summary outlines how `game/modules/graphics/CharacterVisuals.h` assembles modular armor sprites for humanoid characters while omitting confidential asset names.
 
-The player uses a simple baseline sprite created via `createPlayerSprite()`. All armor modules below are layered on top of this base when building variants.
+The player uses a baseline sprite created through `createPlayerSprite()`. All armor modules listed below layer on top of this base to build visual variants.
 
 ## Modular Armor Helpers
 
-Each helper function returns a `cv::ProceduralSprite` assembled from multiple layered shapes. Rectangles, circles, lines and polygons are combined to form armor details. All dimensions are expressed relative to a ~120‑unit tall body so the pieces scale consistently. `SpriteParams` exposes a `tint` field (`p.tint`) and a `tintColor` field (`p.tintColor`). `tintColor` lets a runtime instance recolor the entire sprite (for example red enemies or green pickups) while `tint` continues to multiply per-frame highlights. The modules now include pulsing highlights that sample `p.time` for simple animation effects.
+Each helper returns a `cv::ProceduralSprite` composed from layered rectangles, circles, lines, and polygons. Dimensions target a ~120-unit tall figure so every module scales consistently. `SpriteParams` exposes `tint` (`p.tint`) and `tintColor` (`p.tintColor`) values. `tintColor` recolors the entire sprite at runtime (for example red enemies or green pickups) while `tint` multiplies per-frame highlights. Modules sample `p.time` to drive subtle pulsing animations.
 
-- **`createHelmetSprite`** – helmet dome with pulsing visor, crest and side vents.
+- **`createHelmetSprite`** – helmet dome with pulsing visor, crest, and side vents.
 - **`createShoulderSprite`** – layered pad with strap and triangular vent polygon. Pass `true` for left or `false` for right.
 - **`createChestplateSprite`** – torso plate with accent lines and a breathing chest light.
-- **`createBeltSprite`** – dual layer strap, buckle and vertical loops.
-- **`createArmSprite`** – plated upper arm, gauntlet, elbow strap and accent stud. Boolean controls left/right.
-- **`createLegSprite`** – layered thigh armor, knee highlight, boot and strap.
-- **`createBackModuleSprite`** – pack with inner panel, vents and power node.
+- **`createBeltSprite`** – dual-layer strap, buckle, and vertical loops.
+- **`createArmSprite`** – plated upper arm, gauntlet, elbow strap, and accent stud. Boolean controls left/right.
+- **`createLegSprite`** – layered thigh armor, knee highlight, boot, and strap.
+- **`createBackModuleSprite`** – pack with inner panel, vents, and power node.
 - **`createCapeSprite`** – cloth panel with tapered bottom and fold highlights.
-- **`createSwordSprite`** – blade with center line, crossguard and detailed hilt.
+- **`createSwordSprite`** – blade with center line, crossguard, and detailed hilt.
 
 ## Combining Modules
 
-`createBaseCharacterVisual()` instantiates each module once and draws them in a specific order. The cape is drawn first so it appears behind the body, followed by the back module, chest, belt and helmet. Shoulders, arms and legs are then rendered using offsets from the character origin. This helper returns a single `ProceduralSprite` representing a fully armored character. Because each module shares the same `SpriteParams`, tint and scale propagate consistently across all parts.
+`createBaseCharacterVisual()` instantiates each module once and draws them in a fixed order. The cape renders first so it sits behind the body, followed by the back module, chest, belt, and helmet. Shoulders, arms, and legs render using offsets from the character origin. The helper returns a single `ProceduralSprite` representing a fully armored character. Because every module shares the same `SpriteParams`, tint and scale propagate uniformly across all pieces.
 
-The sprite now contains additional idle frames that slightly offset and rotate the full body. Each frame samples `p.time` to produce a gentle sine-wave bob so the character appears to breathe and the visor flickers.
+The sprite includes additional idle frames that slightly offset and rotate the full body. Each frame samples `p.time` to produce a gentle sine-wave bob so the character appears to breathe while the visor flickers.
 
 ## Creating Variants
 
-To make a visual variant, call `createBaseCharacterVisual()` and adjust the returned frames. Two examples already exist (names withheld for confidentiality):
+Call `createBaseCharacterVisual()` and adjust the returned frames to form variants. Two internal examples (names redacted) demonstrate how tints can differentiate silhouettes:
 
 - `[REDACTED]` – applies a warm gold tint across all frames.
-- `[REDACTED]` – uses a blue-steel tint.
+- `[REDACTED]` – applies a cool steel tint across all frames.
 
-Additional variants can modify tint values or replace specific module sprites with custom helpers. The existing warm-metal variant sets `p.tint` to `0xff80ffff` for a gold tone, while the cool-metal variant sets `p.tint` to `0xffff8080`. Any new variant can follow the same pattern to recolor all armor pieces at once.
+Additional variants may tweak tint values or swap specific module sprites with custom helpers. The warm-metal variant sets `p.tint` to `0xff80ffff`, while the cool-metal variant sets `p.tint` to `0xffff8080`. Any new variant can reuse this pattern to recolor all armor pieces at once.
 
 ### Runtime Variant Switching
 
@@ -39,4 +39,4 @@ Additional variants can modify tint values or replace specific module sprites wi
 
 ## Procedural UI Elements
 
-The same sprite layering approach now powers the interface. `engine/modules/procedural/ui/ProceduralUI.h` defines a `ProceduralUISprite` class with default, hover, pressed and inactive tints. Helpers such as `createButtonSprite`, `createTextBoxSprite`, `createInventorySlotSprite` and various bar sprites build rectangular UI widgets directly from `drawRectScreenVGU` calls with stroke and fill parameters. UI overlays select the tint based on mouse or controller state so these elements respond to interaction without loading textures.
+The same sprite layering approach powers the interface. `engine/modules/procedural/ui/ProceduralUI.h` defines a `ProceduralUISprite` class with default, hover, pressed, and inactive tints. Helpers such as `createButtonSprite`, `createTextBoxSprite`, `createInventorySlotSprite`, and various bar sprites build rectangular UI widgets directly from `drawRectScreenVGU` calls with stroke and fill parameters. UI overlays select the tint based on mouse or controller state so these elements respond to interaction without loading textures.
