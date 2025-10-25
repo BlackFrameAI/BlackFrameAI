@@ -1,7 +1,13 @@
 # enemy_manager.md
 
 The **Enemy Manager** tracks active combatants and keeps their lifecycle organized. It stores lightweight records for each
-instance, forwards them to AI helpers for decision making, and exposes iterators used by collision and targeting systems.
+instance, forwards them to AI helpers for decision making, and exposes iterators used by collision and targeting systems without
+referencing private identifiers.
+
+## Redaction Notes
+
+- Removed mentions of proprietary event channels and tooling.
+- Generalized subsystem names to align with public-facing terminology.
 
 ## Responsibilities
 

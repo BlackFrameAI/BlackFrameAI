@@ -4,6 +4,11 @@ This document outlines the **Enemy AI System** guidelines for public distributio
 and validated against the latest module tree. A system remains **In-Progress** until documentation, cleanup, and tests are merged
 and verified.
 
+## Redaction Notes
+
+- Internal behavior identifiers and event names have been removed.
+- Example scripts now reference generic routing services instead of concrete class names.
+
 ---
 
 ## Core Principles
@@ -35,26 +40,18 @@ own triggers, audiovisual cues, and counterplay windows to keep fights readable 
 
 ## State Machines
 
-Enemies rely on lightweight state machines defined under `game/modules/enemy/`. Typical states include `Idle`, `Engage`, and
+Enemies rely on lightweight state machines hosted inside the enemy module. Typical states include `Idle`, `Engage`, and
 `Retreat`. Transitions evaluate player alignment scores and environment signals supplied by the active stage. Designers can add
-new states without modifying the underlying engine code.
-
-### Sample Usage
-
-```cpp
-enemyStateMachine.AddTransition(State::Idle, State::Engage,
-    [](float alignment, float environment){ return alignment < 0.f && environment > 0.5f; });
-```
-
-Scripts or data tables provide the threshold values so tuning can occur outside of code deployments.
+new states without modifying the underlying engine code, and public examples describe behavior in prose instead of executable
+snippets.
 
 ---
 
 ## Behavior Routing
 
-`EnemyAIController` collaborates with a `BehaviorRouter` that resolves each enemy's behavior module. Implementations may reference
-Lua scripts or native fallbacks, but public builds should only mention safe script names. The router surfaces lifecycle events so
-other systems (spawners, VFX, telemetry) can react without depending on private identifiers.
+The AI controller collaborates with a routing service that resolves each enemy's behavior module. Implementations may reference
+scripting assets or native fallbacks, but public builds should only mention safe script names. The router surfaces lifecycle events
+so other systems (spawners, VFX, telemetry) can react without depending on private identifiers.
 
 ---
 
