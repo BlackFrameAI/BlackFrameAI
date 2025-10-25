@@ -1,9 +1,0 @@
-# passive_tree.md (Sanitized)
-
-This public backup removes proprietary implementation specifics from the PassiveTree documentation.
-
-## Overview
-[REDACTED]
-
-## Public Summary
-The PassiveTree tracks character progression unlocks and ensures prerequisite relationships between passives without exposing the original data structures or quest triggers.

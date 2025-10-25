@@ -1,9 +1,0 @@
-# physics_core.md (Sanitized)
-
-This public backup omits proprietary engine architecture for the PhysicsCore module.
-
-## Overview
-[REDACTED]
-
-## Public Summary
-PhysicsCore manages deterministic simulation, collision handling, and integration points with other engine systems. Implementation details, solver configuration, and module layout have been redacted for internal use only.

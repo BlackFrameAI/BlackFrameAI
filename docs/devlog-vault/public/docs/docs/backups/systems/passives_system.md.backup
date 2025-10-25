@@ -1,9 +1,0 @@
-# passives_system.md (Sanitized)
-
-This document retains only a public-safe outline of the PassivesSystem.
-
-## Overview
-[REDACTED]
-
-## Public Summary
-The PassivesSystem aggregates passive bonuses from external data files and applies them through alignment-based checks. All proprietary data formats, thresholds, and multiplier logic have been withheld.
