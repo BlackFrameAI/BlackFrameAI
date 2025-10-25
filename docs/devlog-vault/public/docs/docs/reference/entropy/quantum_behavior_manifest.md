@@ -1,23 +1,51 @@
-# Quantum Behavior Reference (Sanitized)
+# Quantum Behavior Reference Manifest
 
-This outline provides a high-level primer on conceptual tools commonly mentioned when discussing quantum-inspired storytelling elements. It intentionally avoids implementation details so that internal engine logic remains authoritative.
+⚠️ This file is provided strictly for interpretive background. It excludes implementation strategies, numerical constants, or calculation workflows. Quantum engine code must never be replaced or reworked based on this summary.
 
-## Measurement Themes
-- Observations convert uncertain states into concrete outcomes within the story context.
-- The act of measuring can be treated as an in-world event that resolves tension or advances plot branches.
-- Designers can use measurement moments to highlight characters with special insight or technology.
+---
 
-## Decoherence and Classical Emergence
-- Environmental interaction tends to blur delicate quantum effects, leading to familiar classical behavior.
-- Narrative systems can model this as a gradual loss of ambiguity, causing blended timelines to separate over time.
-- Locations with strong isolation may preserve exotic states longer, creating unique gameplay zones.
+## 🧠 Collapse Interpretation & Measurement
 
-## Simulation Framework Ideas
-- Gate-based sequences, probability amplitudes, and error mitigation are useful metaphors for structuring puzzles or devices.
-- Visual interfaces can convey superposition through layered effects that collapse into a single outcome.
-- Maintaining internal consistency is more important than replicating any specific real-world toolkit.
+**Name:** *Quantum Measurement Problem — Stanford Encyclopedia of Philosophy*
+**Type:** Academic Overview
+**URL:** https://plato.stanford.edu/entries/qm-copenhagen/
 
-## Interpretive Models
-- Multiple interpretations exist for why quantum events resolve the way they do; choosing one guides tone and stakes.
-- Branching timelines emphasize exploration, while single-outcome perspectives reinforce determinism.
-- Blending interpretations can reinforce the project’s unique metaphysics without exposing technical detail.
+**Use:** Frames philosophical perspectives on observation and collapse in narrative-friendly terms, omitting any algorithmic translation.
+
+---
+
+**Name:** *Quantum Decoherence and the Classical World* – Physics Today
+**Type:** Scientific Review
+**URL:** https://physicstoday.scitation.org/doi/10.1063/1.881262
+
+**Use:** Offers a qualitative look at decoherence processes without sharing experimental constants or solver steps.
+
+---
+
+## ⚛️ Simulation Frameworks & QPU Behavior
+
+**Name:** *IBM Qiskit Documentation*
+**Type:** Quantum SDK Docs
+**URL:** https://qiskit.org/documentation/
+
+**Use:** Provides surface-level descriptions of quantum tooling for contextual awareness only.
+
+---
+
+**Name:** *Quantum Computing for Computer Scientists*
+**Type:** Textbook
+**URL:** https://cs.uwaterloo.ca/~compsec/research/qccs.pdf
+
+**Use:** Highlights conceptual approaches to quantum computation without exposing exact gate tables or error-correction constants.
+
+---
+
+## 🧬 Philosophical & Interpretive Models
+
+**Name:** *Many-Worlds Interpretation — Stanford Encyclopedia of Philosophy*
+**Type:** Academic Paper
+**URL:** https://plato.stanford.edu/entries/qm-manyworlds/
+
+**Use:** Provides high-level interpretive context for storytelling without leading to code-level alterations or numeric modeling.
+
+---

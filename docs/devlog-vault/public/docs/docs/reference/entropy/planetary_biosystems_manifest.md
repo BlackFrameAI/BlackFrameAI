@@ -1,18 +1,35 @@
-# Planetary Biosystems Reference (Sanitized)
+# Planetary Biosystems Manifest
 
-This summary highlights broad patterns that guide fictional ecosystems and planetary simulation work without relying on specific proprietary data.
+This manifest collects open resources that describe planetary and ecological behaviors at a broad conceptual level. Direct formulas, dataset extracts, or sensitive modeling constants have been withheld to preserve a sanitized public record.
 
-## Crust and Mineral Cycles
-- Minerals concentrate differently depending on tectonic history, volcanic activity, and fluid transport.
-- Layered crust models help explain where ores or crystals might surface after erosion or impact events.
-- Regional variation allows narrative flexibility: deserts, coastlines, and mountains can each feature distinct resources.
+---
 
-## Climate and Weather Feedbacks
-- Large-scale circulation moves heat from equatorial regions toward the poles, shaping storm tracks and seasonal shifts.
-- Terrain influences precipitation; rising air over mountains cools and condenses moisture, creating rain shadows.
-- Long-term climate stability depends on energy balance among the atmosphere, surface, and oceans.
+## 🌋 Planetary Crust & Mineral Dispersion
 
-## Atmospheric and Chemical Considerations
-- Gas composition determines sky color, greenhouse strength, and potential for life-supporting chemistry.
-- Trace elements or aerosols can produce unusual weather phenomena such as iridescent clouds or reactive dust storms.
-- Terraforming narratives can leverage gradual adjustments to pressure, composition, and biotic feedback loops.
+**Name:** USGS Mineral Resources Database\\
+**Type:** Federal Data Repository\\
+**URL:** https://mrdata.usgs.gov/
+
+Use: Points worldbuilders toward publicly available mineral overviews without relaying quantitative sampling values.
+
+---
+
+## 🌍 Climate Formation & Weather Patterns
+
+**Name:** NOAA Earth System Research Laboratory\\
+**Type:** Scientific Climate Models\\
+**URL:** https://www.esrl.noaa.gov/
+
+Use: Introduces large-scale climate behavior discussions while avoiding scenario-specific metrics or equations.
+
+---
+
+## 🧪 Planetary Chemistry & Atmospheres
+
+**Name:** Exoplanet Chemistry – NASA Astrobiology\\
+**Type:** Research Archive\\
+**URL:** https://astrobiology.nasa.gov/
+
+Use: Offers high-level chemistry context for fictional atmospheres without exposing calculation-ready datasets.
+
+---
