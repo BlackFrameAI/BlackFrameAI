@@ -7,7 +7,7 @@
             "sources": [
                 {
                     "label": "Master Development Log",
-                    "href": "./public/docs/Master_Devlog.txt"
+                    "href": "./public/Master_Devlog.txt"
                 },
                 {
                     "label": "Engine Devlog entries",
@@ -47,7 +47,7 @@
             "title": "Master Development Log",
             "category": "Devlogs",
             "summary": "Phase-by-phase status, the latest 2025-10-22 update, and upcoming focus items for Purge of the Crescent Veil.",
-            "href": "./public/docs/Master_Devlog.txt",
+            "href": "./public/Master_Devlog.txt",
             "tags": [
                 "timeline",
                 "status",
