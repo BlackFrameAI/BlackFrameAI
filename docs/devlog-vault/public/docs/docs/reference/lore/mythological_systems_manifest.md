@@ -1,33 +1,18 @@
-# Mythological Systems Manifest (Public Summary)
+# Mythological Systems Manifest (Public Digest)
 
-This abridged release retains only thematic guidance for pantheons, underworld structures, and creation myths while suppressing identifying translations or archival links.
+This digest presents neutral storytelling pillars drawn from world mythologies while suppressing protected translations and ceremonial lexicons.
 
----
+## Foundational Themes
+- Describe creation stories through universal archetypes such as emergence from chaos, world parents, or cosmic eggs.
+- Translate pantheon hierarchies into generic tiers (primary deity, steward, champion) without citing specific epics.
+- Highlight symbolism—light versus shadow, storm versus sea, life versus decay—to provide adaptable quest hooks.
 
-## ⚡ Classical Pantheons
+## Regional Inspiration Patterns
+- Summarize northern traditions by focusing on resilience, cyclical time, and runic abstraction without reproducing protected verses.
+- Capture desert and steppe myths via motifs like guided migration, hospitality codes, and celestial wayfinding.
+- Encourage cross-pollination of motifs to craft new cultures that nod to global heritage without appropriating sacred text.
 
-- **Source:** [REDACTED]
-- **Summary:** Compiled myth cycles describe Olympian hierarchies, divine symbols, and underworld geographies, enabling balanced faction design and ritual vocabulary without citing the primary archive.
-
----
-
-## 🔨 Northern Cosmology & Runes
-
-- **Source:** [REDACTED]
-- **Summary:** Epic poetry and rune studies inform realm interconnections, hero lineages, and sigil logic for cold-aligned cultures in a generalized format.
-
----
-
-## 🐍 Mesopotamian Myth Foundations
-
-- **Source:** [REDACTED]
-- **Summary:** Academic translations of Sumerian literature are condensed into notes on primordial gods, flood narratives, and clay-origin myths for artifact generation.
-
----
-
-## 🔱 Cyclical Deity Systems
-
-- **Source:** [REDACTED]
-- **Summary:** Summaries of South Asian theological texts frame avatar cycles, cosmic time, and karmic balance, supporting reincarnation mechanics without exposing protected scripture sets.
-
----
+## Application Guidance
+- Use this document as a tone baseline; place language-sensitive references in the secured backup archive for internal review only.
+- Build lore tables with opt-in toggles so production teams can tailor intensity for different regions or age ratings.
+- Reinforce cultural respect by including consultation checkpoints before publishing externally facing material.

@@ -1,41 +1,18 @@
-# Occult Systems Reference Manifest (Public Summary)
+# Symbolic Systems Reference (Public Digest)
 
-This redacted excerpt preserves design guidance for symbolic rituals, glyph construction, and summoning mechanics without exposing protected occult manuscripts or proprietary research links.
+This digest reframes sensitive esoteric research into broadly applicable design language so that interactive symbolism stays respectful and safe to publish.
 
----
+## Transformative Frameworks
+- Describe alchemical or metaphysical progressions as abstract stages (initiation, refinement, convergence) rather than quoting treatises.
+- Use shapes, colors, and elemental pairings as interface cues while omitting diagrams tied to closed traditions.
+- Document any culturally sensitive correspondences inside the private archive created for the backups.
 
-## Alchemical & Hermetic Frameworks
+## Interpretive Practices
+- Replace terminology like "divination" or "summoning" with neutral phrasing such as "pattern reading" or "signal projection."
+- Encourage collaborative reviews with cultural consultants before shipping symbolism-heavy quests.
+- Highlight player choice by offering multiple interpretations for a single omen or artifact.
 
-- **Source:** [REDACTED]
-- **Summary:** Foundational treatises on transformation rites and elemental correspondences are condensed into symbol mapping rules for procedural altar design.
-
----
-
-- **Source:** [REDACTED]
-- **Summary:** Public symbol charts are abstracted into generic notation for elemental glyphs, planetary influences, and transmutation cues.
-
----
-
-## Divination Systems & Symbol Reading
-
-- **Source:** [REDACTED]
-- **Summary:** Tarot and divination analyses translate into guidance for fate-driven mechanics, emotion-linked triggers, and entropy prediction overlays.
-
----
-
-- **Source:** [REDACTED]
-- **Summary:** Rune studies inform language-like magic systems, binding scripts, and sound-based spell interactions while omitting specific alphabets.
-
----
-
-## Magic Circle Logic & Geometric Spells
-
-- **Source:** [REDACTED]
-- **Summary:** Summoning manuals become generalized templates for containment circles, invocation prerequisites, and collapse fail-states.
-
----
-
-- **Source:** [REDACTED]
-- **Summary:** Modern sigil theory is summarized into heuristics for intention encoding, entropy channeling, and glyph complexity scaling.
-
----
+## Implementation Safeguards
+- Maintain a change log that tracks when symbolic assets borrow from real-world inspirations so clearances are auditable.
+- Provide accessibility notes that explain iconography through inclusive language rather than secret vocabularies.
+- Route any request for deeper lore to the secure documentation channel instead of the public knowledge base.
