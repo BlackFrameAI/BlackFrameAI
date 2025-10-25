@@ -1,0 +1,11 @@
+# Module 05 — Critical Failure Case Studies (Public Summary)
+
+This summary retains the lessons learned from past incidents while withholding sensitive diagnostic data. Specific tool references, timeline reconstructions, and recovery commands are [REDACTED].
+
+## Lessons Learned
+- Validate subsystem assumptions through direct inspection before issuing destructive changes.
+- Plan large migrations as staged efforts with rollback points and human review gates.
+- Interrupt iterative fix cycles that no longer track verified project state.
+- Reinforce environment-specific requirements whenever context shifts occur.
+
+Detailed case narratives and protocol updates are [REDACTED].
