@@ -1,6 +1,6 @@
 # Mythological Systems Manifest
 
-This manifest supports Codex in building myth-rooted cultures, gods, underworlds, and creation myths from historic pantheons. All references are drawn from public-access academic translations or open cultural repositories.
+[REDACTED] Summary: Curated open-access mythological references for cultural worldbuilding.
 
 ---
 
@@ -10,7 +10,7 @@ This manifest supports Codex in building myth-rooted cultures, gods, underworlds
 **Type:** Academic Mythology Archive\
 **URL:** https://www.theoi.com/
 
-Use: Olympian hierarchies, chthonic underworlds, divine symbols. Good for aligning magic classes, relic design, and temple lore.
+Use: Summary: Supports pantheon hierarchies and symbol catalogs.
 
 ---
 
@@ -20,7 +20,7 @@ Use: Olympian hierarchies, chthonic underworlds, divine symbols. Good for aligni
 **Type:** Public Domain\
 **URL:** https://www.sacred-texts.com/neu/poe/index.htm
 
-Use: Nine realms, Yggdrasil, Jotnar classifications, rune sets. Powers faction relationships, sigil logic, and cold/death domains.
+Use: [REDACTED] Summary: Provides references for cosmology layouts and rune sets.
 
 ---
 
@@ -30,7 +30,7 @@ Use: Nine realms, Yggdrasil, Jotnar classifications, rune sets. Powers faction r
 **Type:** Academic Corpus\
 **URL:** http://etcsl.orinst.ox.ac.uk/
 
-Use: Inanna, Enki, flood myths, clay creation. Supports ancient relics, primordial god logic, and burial rituals.
+Use: Summary: Offers mythic archetypes for relic and ritual design.
 
 ---
 
@@ -40,6 +40,6 @@ Use: Inanna, Enki, flood myths, clay creation. Supports ancient relics, primordi
 **Type:** Cultural Document Archive\
 **URL:** https://www.sacred-texts.com/hin/
 
-Use: Avatars, destruction/rebirth, cosmic time cycles. Ideal for rebirth systems, divine incarnations, or magical caste design.
+Use: Summary: Captures cyclical narratives for progression systems.
 
 ---

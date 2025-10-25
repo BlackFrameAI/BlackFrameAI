@@ -1,0 +1,27 @@
+# npc_and_faction_relations.md.backup
+
+This sanitized outline documents the NPC and Faction Relations systems in a setting-agnostic format.
+
+## Faction Framework
+
+- Maintain a configurable list of major factions stored in data assets.
+- Track standing values per faction for each player profile.
+- Surface helper utilities to query allies, neutrals, and hostiles at runtime.
+
+## Reputation Flow
+
+- Mutate reputation values through additive or absolute updates depending on event context.
+- Major events can consume helper functions such as `applySectorOutcome()` to distribute rewards and penalties without exposing narrative specifics.
+- Reputation influences vendor inventories, dialogue availability, quest hooks, and AI behavior flags.
+
+## NPC Integration
+
+- Dialogue nodes reference faction thresholds when selecting conversation branches.
+- NPC behavior scripts consult reputation values to toggle recruitable or hostile states.
+- Persistence is delegated to the Save System so relationship changes survive between sessions.
+
+## Implementation Guidelines
+
+- Keep faction metadata in external configuration; avoid embedding world lore in source-controlled code.
+- Validate that localization files provide neutral phrasing so sanitized exports remain spoiler-free.
+- Record balancing adjustments in design logs instead of system documentation.

@@ -1,14 +1,20 @@
 # Powerup Manager (Public Summary)
 
-The powerup manager supervises collectible boosts and their lifecycle without
-disclosing sensitive identifiers. It exposes high-level hooks for spawning,
-activating, and expiring bonuses while redacting the underlying data keys.
+The powerup manager governs collectible boosts while masking internal identifiers,
+spawn formulas, and rendering presets.
 
 ## Highlights
 
-- Tracks active powerups with anonymized handles so gameplay scripts only see
-  allowed metadata.
-- Coordinates pickup events and expiration timers without revealing the procedural
-  asset identifiers or render properties.
-- Provides sanitized notifications to UI and audio systems when a bonus changes
-  state.
+- Tracks active powerups via anonymized tokens so gameplay logic cannot infer asset
+  paths, procedural seeds, or database keys.
+- Coordinates spawn, pickup, and expiration workflows with sanitized payloads that
+  reveal only timing and category metadata.
+- Dispatches notifications to UI, audio, and analytics using redacted channels that
+  exclude component names and event subjects.
+
+## Governance
+
+- Audit trails log high-level lifecycle events (granted, refreshed, expired) without
+  storing character IDs or drop tables.
+- Tuning documents publish safe ranges (e.g., minimum duration, cooldown tiers) but
+  omit the formulas and rendering parameters used internally.

@@ -1,41 +1,18 @@
-# Ritual Architecture Reference Manifest (Public Summary)
+# Sanctum Architecture Reference (Public Digest)
 
-This public release outlines spatial logic for ceremonial spaces, altar design, and dimensional gateways while removing direct citations to restricted architectural studies.
+This document captures high-level spatial guidelines for sacred or contemplative environments while omitting restricted blueprints and invocations.
 
----
+## Geometric Planning
+- Frame layouts using approachable geometry terms—spiral, radial, axial—without referencing proprietary diagrams.
+- Discuss focal points as "convergence nodes" or "reflection hubs" instead of ceremonial altars.
+- Encourage modular room templates so teams can adjust symbolism intensity per project requirements.
 
-## Sacred Geometry Foundations
+## Flow & Experience Design
+- Map visitor journeys around themes like preparation, contemplation, and release rather than enumerating rites.
+- Emphasize environmental storytelling through lighting, acoustics, and material contrasts instead of coded markers.
+- Provide optional pathways for inclusive access, ensuring that mystical spaces remain navigable and respectful.
 
-- **Source:** [REDACTED]
-- **Summary:** Proportional geometry research becomes guidance for generating spiral motifs, pentagonal symmetry, and leyline anchoring in ritual rooms.
-
----
-
-- **Source:** [REDACTED]
-- **Summary:** Comparative temple analyses translate into rules for sanctum hierarchies, threshold control, and forbidden zones.
-
----
-
-## Blood Rite Layouts & Sacrificial Circles
-
-- **Source:** [REDACTED]
-- **Summary:** Cross-cultural studies on sacrificial logic inform energy exchange mechanics, altar tier progression, and risk-reward balancing.
-
----
-
-- **Source:** [REDACTED]
-- **Summary:** Summoning blueprints inform containment geometry, invocation staging, and collapse-trigger safeguards without exposing ritual diagrams.
-
----
-
-## Spatial Anchoring & Dimensional Gateways
-
-- **Source:** [REDACTED]
-- **Summary:** Architectural treatises on energy flow provide heuristics for portal alignment, center void maintenance, and transitional chambers.
-
----
-
-- **Source:** [REDACTED]
-- **Summary:** Comparative studies of sacred floorplans inspire radial layouts, dome structures, and pilgrimage pathways adapted for gameplay spaces.
-
----
+## Safety & Compliance Notes
+- Store any sensitive measurements and alignment instructions with the backed-up originals, not in the public mirror.
+- Conduct cultural sensitivity reviews before shipping spaces inspired by active traditions.
+- Pair internal design specs with wellness guidelines to prevent overwhelming or triggering content.

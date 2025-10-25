@@ -1,22 +1,24 @@
-# Combat Simulation System
+# Combat Simulation System (Public Summary)
 
-The Combat Simulation System provides an offline sandbox for testing encounter balance without exposing the underlying source code.
+The Combat Simulation System provides automated resolution of large-scale encounters for testing, analytics, and scripted events.
 
-## Purpose
+## Core Concepts
 
-- Runs automated skirmishes that pit two abstract forces against each other.
-- Consumes designer-authored data to determine unit compositions, morale, and relative strength.
-- Produces reports describing overall outcomes so that encounter tuning can be iterated quickly.
+- Armies consist of lightweight unit descriptors capturing population counts, offensive strength, defensive resilience, and morale factors.
+- Simulations advance through iterative rounds until a termination condition is met, applying randomized variation within designer-defined bounds.
+- Deterministic seeds allow reproducible results without exposing the proprietary randomization model.
 
-## Scenario Controls
+## Usage
 
-- Supports terrain, weather, and difficulty concepts, letting designers explore a wide range of combat contexts.
-- Allows optional randomization to study variance while shielding the math that drives casualty resolution.
-- Accepts scripted curves that reshape challenge over time, with the exact scaling functions kept private.
+- Game systems assemble armies and request simulation reports that summarize outcomes such as surviving forces and total rounds fought.
+- Scenario descriptions let designers express terrain, weather, difficulty scaling, and randomness budgets without revealing internal formulas.
 
-## Integrations
+## Dynamic Difficulty
 
-- Can ingest telemetry or other external signals to adjust difficulty, but request formats and normalization rules are redacted.
-- Optional quantum biasing introduces deterministic noise; implementation specifics remain internal.
+- Optional curves adjust encounter intensity over time, enabling battles to escalate or subside in controlled ways.
+- Baseline multipliers ensure that scenarios remain tunable even when no curve is supplied.
 
-This document intentionally omits class names, data schemas, and algorithmic details to protect proprietary logic.
+## External Data Hooks
+
+- Telemetry adapters can feed external data into the simulator to influence difficulty or targeting logic while keeping network details private.
+- Quantum bias integrations may introduce subtle variations between runs without disclosing the underlying algorithm.

@@ -1,36 +1,27 @@
 # Wound Modeling Manifest
-> **Sanitized Copy:** Sensitive equations and parameters have been redacted for public release.
+> **Sanitized Copy:** Classified research citations, proprietary trauma models, and unique identifiers have been removed.
 
-Codex uses these forensic and anatomical sources to generate realistic wound visuals, tear patterns, bleeding dynamics, necrosis spread, and tissue behavior under stress.
-
----
-
-## 🩸 Laceration Types & Tear Behavior
-
-**Name:** Wound Ballistics and Trauma Modeling\
-**Type:** DoD Research Summary\
-**URL:** https://apps.dtic.mil/sti/citations/ADA476462
-
-Summary: [REDACTED – Detailed operational parameters removed.]
+This manifest lists the knowledge domains Codex references when generating wound visuals, bleed dynamics, necrosis spread, and tissue behaviour under stress.
 
 ---
 
-## 🧬 Bruising & Subsurface Damage
+## ✂️ Laceration Types & Tear Behaviour
+**Source Category:** Public wound ballistics and trauma modelling summaries\\
+**Access Level:** Declassified reports and educational briefs\\
+**Usage:** Covers tear shape predictions, slicing versus ripping dynamics, and edge deformation insights without exposing restricted methodology or classified metrics.
 
-**Name:** Hematoma and Contusion Imaging\
-**Type:** Radiological Study\
-**URL:** https://pubs.rsna.org/doi/full/10.1148/radiol.2018171225
+---
 
-Summary: [REDACTED – Detailed operational parameters removed.]
+## 🌈 Bruising & Subsurface Damage
+**Source Category:** Radiology and forensic imaging reviews\\
+**Access Level:** Open-access journal articles and professional society primers\\
+**Usage:** Details bruise evolution, colour transitions, and force-direction indicators to drive procedural ageing systems without distributing sensitive case studies.
 
 ---
 
 ## 🦠 Necrosis, Infection, and Decay
-
-**Name:** Wound Healing and Tissue Necrosis (NIH)\
-**Type:** Medical Reference Article\
-**URL:** https://www.ncbi.nlm.nih.gov/books/NBK547656/
-
-Summary: [REDACTED – Detailed operational parameters removed.]
+**Source Category:** Medical wound-care references and pathology handbooks\\
+**Access Level:** Public encyclopaedia entries and government-funded guidance\\
+**Usage:** Provides infection progression cues, rot visualisation, and spread rates to support magical or disease-driven scenarios while withholding patient-specific data or proprietary treatment protocols.
 
 ---

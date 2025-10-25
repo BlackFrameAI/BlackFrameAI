@@ -1,9 +1,14 @@
 # debug_controller.md
 
-The **Debug Controller** manages developer-oriented diagnostics while the game is running. It listens for tool shortcuts routed
-through the input service and exposes high-level toggles for visual overlays, logging, and profiling utilities. Runtime actions
-include enabling and disabling debug layers, switching between telemetry dashboards, and pausing non-critical helpers so that
-devs can inspect a scene safely.
+The **Debug Controller** manages developer-oriented diagnostics while the game is running. It listens for remappable tool shortcuts
+and exposes high-level toggles for visual overlays, logging, and profiling utilities. Runtime actions include enabling and disabling
+debug layers, switching between telemetry dashboards, and pausing non-critical helpers so that devs can inspect a scene safely
+without revealing internal identifiers.
+
+## Redaction Notes
+
+- Sensitive key bindings and internal tool names have been removed.
+- Proprietary subsystem identifiers are replaced with generic descriptors suitable for public documentation.
 
 ## Integration Notes
 

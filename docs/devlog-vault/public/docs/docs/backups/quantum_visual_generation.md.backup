@@ -144,3 +144,27 @@ Visuals are cached and reused per entity to avoid redundant generation.
 This system enables chaos-driven, field-reactive, and entropy-modulated visual states with a fully deterministic backup. Assets no longer require manual authorship or animation tracks — they emerge from the field, are filtered by gates, and mutate in response to real-world entropy.
 
 Visuals are no longer static. They are **observed**, **evaluated**, and **promoted** from the fabric of chaos itself.
+# Quantum Visual Generation (Public Edition)
+
+This document summarizes how the engine approaches entropy-driven visuals without exposing internal schemas or tooling.
+
+## Overview
+Visual intent flows from player state into entropy sampling and deterministic fallbacks. Architectural flowcharts, parameter tables, and mutation recipes are **[REDACTED]**.
+
+## Collapse Sources
+The system blends ambient entropy with controlled generation paths. Sensor inventories, weighting algorithms, and gate thresholds are **[REDACTED]**.
+
+## Promotion & Filtering
+Seeds are evaluated for intent alignment before entering the render pipeline. Matching heuristics, rejection logs, and cache persistence rules are **[REDACTED]**.
+
+## Visual Mutation
+Sprites, materials, and animation parameters can adapt dynamically. Exact layering strategies, effect libraries, and performance budgets are **[REDACTED]**.
+
+## Level of Detail
+Outputs scale based on relevance to the player experience. Distance curves, mutation cooldowns, and draw-call batching strategies are **[REDACTED]**.
+
+## Predictability
+Deterministic fallback paths ensure reliable visuals when chaos output is unsuitable. Replay tooling, telemetry exports, and failure drills are **[REDACTED]**.
+
+## Summary
+Use this publication to understand the high-level goals of the visual generator. Full implementation guidance remains protected in the private vault.

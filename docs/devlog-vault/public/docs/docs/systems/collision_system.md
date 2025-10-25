@@ -1,9 +1,8 @@
-# Collision System
+# Collision System (Public Summary)
 
-The Collision System coordinates high-level hit detection between gameplay actors.
+The Collision System coordinates hit detection between projectiles, enemies, and destructible environment elements within the gameplay layer.
 
-- Resolves interactions between projectiles, characters, and destructible elements without exposing engine-side data structures.
-- Provides hooks for registering interactive objects and notifying game logic when contact occurs.
-- Offers optional visualization for debugging while keeping rendering internals private.
-
-All low-level routines, file layouts, and damage formulas have been intentionally removed from this public brief.
+- Performs overlap tests each update step and notifies higher-level code so that damage, destruction, or other scripted effects can run.
+- Allows registration of breakable objects and hazardous zones through simple data-driven hooks.
+- Provides optional debug rendering to visualize collision primitives during development without exposing proprietary tooling details.
+- Integrates with the modular game architecture described in the public system tree documentation.

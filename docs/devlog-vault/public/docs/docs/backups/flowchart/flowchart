@@ -1,0 +1,83 @@
+Flowchart Overview (Sanitized)
+[Context: High-level runtime boot process; internal file paths and maintenance procedures removed.]
+
+Launch
+  |
+  |-- Parse command line options
+  |-- Initialize core SeedCore services
+  |-- Create Game instance
+  |-- Engine initialization
+        |
+        |-- Initialize logging
+        |-- Initialize display management
+        |-- Initialize input systems
+        |-- Initialize timing and frame regulators
+        |-- Initialize audio systems
+        |-- Initialize resource management
+        |-- Initialize physics systems
+        |-- Initialize rendering backend
+        |-- Optional debug overlay
+        |-- Initialize post-processing pipeline
+        |-- Initialize scripting support
+        |-- Initialize save system
+        |-- Initialize localization
+        |-- Initialize theming
+        |-- Initialize telemetry collection
+        |-- Initialize network simulation
+        |-- Initialize entropy services
+        |-- Initialize hardware interface layer
+        |-- Construct gameplay manager (input, rendering, saving, localization)
+        |-- Initialize quantum subsystems
+        |   - State vector manager
+        |   - Dual-layer quantum manager
+        |   - Pattern translation layer
+        |-- Set initial scene state
+            * Main menu
+  |
+  |-- Engine main loop
+        |
+        |-- while running
+              |-- Update input
+              |-- Poll display events
+              |-- Begin frame limiting and timing
+              |-- Update core systems (resources, physics, time)
+              |-- Update network simulation
+              |-- Begin render frame
+              |-- Process gameplay input (exit/start triggers)
+              |-- Update game manager
+              |     |-- Update active scene
+              |     |-- Update gameplay managers
+              |           |-- Quantum state update
+              |           |-- Dual-layer quantum update
+              |           |-- Player management
+              |           |-- Enemy and spawn management
+              |           |-- Stage management
+              |           |-- Power-up management
+              |           |-- Collision handling
+              |           |-- Boss encounters
+              |           |-- Narrative events
+              |           |-- Space management
+              |           |-- Achievement tracking
+              |           |-- Alignment and chapter tracking
+              |           |-- Hub upgrades and faction reputation
+              |           |-- Particle and projectile systems
+              |-- Update audio synthesis
+              |-- Render active scene and entities
+              |-- Update timekeeping
+              |-- End render frame
+              |-- Optional debug overlay
+              |-- Present displays
+              |-- End frame timing
+              |-- Conclude frame limiting
+              |-- Increment frame counter
+  |
+  |-- Engine shutdown
+        |-- Cleanup gameplay managers
+        |-- Stop entropy services
+        |-- Shutdown rendering, overlays, and post-processing
+        |-- Shutdown audio systems
+        |-- Shutdown input systems
+        |-- Shutdown remaining managers
+        |-- Destroy game instance and close logging
+  |
+  |-- SeedControl.ProcessRequests [operational maintenance details removed]

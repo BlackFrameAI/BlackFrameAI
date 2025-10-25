@@ -1,6 +1,6 @@
 # stage_visuals.md
 
-Procedural sprites describing environmental elements such as room backgrounds and decorations.
+Procedural sprites describing environmental elements such as room backgrounds and decorations. Confidential stage identifiers have been redacted; only thematic summaries are provided.
 
 ## StageVisuals Helpers
 - `createRoomBackground(StageVariant variant)` – large wall panel with inner accent.
@@ -11,10 +11,10 @@ Procedural sprites describing environmental elements such as room backgrounds an
 - `createCrateSprite(StageVariant variant)` – storage crate with cross braces.
 - `createPillarSprite(StageVariant variant)` – vertical support pillar.
 
-Each helper returns a `cv::ProceduralSprite` built from rectangles, lines and circles. Colors and small geometry tweaks change depending on the `StageVariant`. Palettes range from industrial laboratories to weathered ruins and subterranean complexes, with the exact variant names `[REDACTED]` for public notes.
-Stage decorations created from these helpers keep an internal `ProceduralSpriteInstance`. StageManager updates each instance every frame so blinking terminals and bouncing chests animate correctly.
-During `StageManager::Update`, each decoration's instance advances its frame timer, ensuring animated backgrounds and props stay in sync with gameplay.
+Each helper returns a `cv::ProceduralSprite` built from rectangles, lines, and circles. Colors and minor geometry tweaks change depending on the `StageVariant`. Palettes span industrial laboratories, alien ruins, echoing valleys, submerged structures, and ancient forges; exact variant names are `[REDACTED]` for the public record.
+
+Stage decorations created from these helpers keep an internal `ProceduralSpriteInstance`. StageManager updates each instance every frame so blinking terminals and bouncing chests animate correctly. During `StageManager::Update`, each decoration's instance advances its frame timer, ensuring animated backgrounds and props stay in sync with gameplay.
 
 ## Usage Warning
 
-Available `StageVariant` values are `[REDACTED]`. Internally they cover industrial, alien, valley, submerged and forge-inspired themes that adjust colors and accents for each environment. `StageManager::LoadDecorationsForVariant` creates decorations for every variant.
+Available `StageVariant` values are `[REDACTED]`. Internally they correspond to the themes listed above. `StageManager::LoadDecorationsForVariant` creates decorations for each variant.

@@ -1,0 +1,17 @@
+# Procedural SDF Generator (Sanitized Backup)
+
+This document retains a high-level description of the signed distance field generator without exposing restricted kernels or datasets.
+
+## Core Responsibilities
+- Accept path descriptions composed of lines and curves, normalize them, and emit textures consumable by the renderer.
+- Provide helper utilities for common shapes so systems avoid duplicating geometry setup.
+- Sampling kernels, acceleration structures, and fidelity heuristics are [REDACTED].
+
+## Rendering Workflow
+- Generated textures integrate with renderer-managed batching and smoothing controls.
+- Anti-aliasing multipliers follow renderer fidelity hints to preserve crisp silhouettes across devices.
+- Shader bindings, gradient tricks, and GPU resource policies are [REDACTED].
+
+## Usage Pattern
+- Systems request a path, run the generator at the desired resolution, and submit the resulting texture within their render pass.
+- Concrete API signatures, platform-specific integrations, and diagnostic tooling are [REDACTED].

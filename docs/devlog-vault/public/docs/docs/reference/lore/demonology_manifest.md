@@ -1,41 +1,18 @@
-# Demonology Reference Manifest (Public Summary)
+# Adversarial Entity Framework (Public Digest)
 
-This sanitized digest keeps only the conceptual scaffolding for infernal hierarchies, summoning logic, and cultural variations while masking protected manuscripts and catalogues.
+This summary replaces restricted demonology catalogs with neutral guidance for constructing hierarchies of antagonistic entities in narrative-safe terms.
 
----
+## Tiering & Authority Patterns
+- Organize opponents into layered command structures (overseer, lieutenant, operative) based on behaviors rather than named figures.
+- Describe sigils, runes, or glyphs only as abstract interface cues; keep any encoded meanings in secured design notes.
+- Use temperament descriptors (strategist, enforcer, whisperer) to differentiate entity roles without invoking esoteric titles.
 
-## Hierarchies & Entity Classification
+## Cultural Variations
+- Capture regional myths by summarizing shared motifs such as guardian animals, elemental themes, or moral lessons.
+- When multiple cultures intersect, highlight how belief systems interpret the same phenomenon differently instead of quoting restricted passages.
+- Frame supernatural abilities as narrative metaphors (fear amplification, oath binding, memory haze) that avoid ritual terminology.
 
-- **Source:** [REDACTED]
-- **Summary:** Catalogued demon ranks, sigils, and domains are summarized as tier structures that drive AI authority chains and summoning requirements.
-
----
-
-- **Source:** [REDACTED]
-- **Summary:** Alternate historical listings reinforce cross-referencing logic for disputed titles, memory loss effects, and hidden subordinates.
-
----
-
-## Cultural Daemon Systems
-
-- **Source:** [REDACTED]
-- **Summary:** Folkloric spirits from non-Western traditions provide templates for biome-specific encounters, emotional resonance triggers, and non-Christian cosmologies.
-
----
-
-- **Source:** [REDACTED]
-- **Summary:** Ancient Near Eastern demonology is distilled into notes on disease spirits, desert threats, and chaos avatars for use in relic hunts or entropy events.
-
----
-
-## Binding, Seals, and Summoning Protocols
-
-- **Source:** [REDACTED]
-- **Summary:** Ritual diagrams and seasonal instructions become generalized failure states, containment requirements, and timing modifiers for summoning gameplay.
-
----
-
-- **Source:** [REDACTED]
-- **Summary:** Studies on sigil mathematics inform procedural glyph construction, containment lattices, and puzzle-based sealing mechanics without exposing proprietary schemes.
-
----
+## Implementation Notes for Designers
+- Store detailed encounter scripts and sensitive vocabulary exclusively inside the private archive that now holds the backups.
+- Provide tone guides and safety checks when handing off encounter briefs to collaborators or contractors.
+- Emphasize player agency and ethical decision points rather than depicting forbidden rites or invocations.

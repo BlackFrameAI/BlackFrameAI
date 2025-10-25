@@ -109,3 +109,25 @@ This isn’t just procedural generation. This is **quantum-temporal entropy modu
 You don’t build the asset. You define the intent.
 The engine *finds* it.
 Or *makes* it.
+# Quantum Collapse System Overview (Public Edition)
+
+This summary communicates the intent behind the dual-collapse architecture while omitting proprietary engineering details.
+
+## System Purpose
+The engine uses entropy-aware generation paired with deterministic fallbacks. Specific entropy harvest sources, gate equations, and cache strategies are **[REDACTED]**.
+
+## Dual-Path Concept
+1. **Oracle Path:** Provides opportunistic, high-reward outcomes informed by live entropy. Sampling cadence, acceptance heuristics, and chaos pool management are **[REDACTED]**.
+2. **Hybrid Path:** Guarantees deterministic results when constraints must be enforced. Gate definitions, validation code, and failover triggers are **[REDACTED]**.
+
+## Areas of Application
+The architecture influences visual assets, behavior trees, quest lines, and musical states. Implementation scripts, telemetry channels, and profiling captures are **[REDACTED]**.
+
+## Temporal Sampling
+Entropy is evaluated across multiple time windows to maximize useful seeds. Exact deltas, weighting formulas, and rejection policies are **[REDACTED]**.
+
+## Reliability Notes
+Chaos outputs can be recorded, replayed, or bypassed through the hybrid route. Toolchain integration plans and QA matrices are **[REDACTED]**.
+
+## Takeaway
+Treat this system as a guiding metaphor for how controlled entropy supports gameplay. Consult secured records for actionable engineering instructions.

@@ -1,52 +1,34 @@
 # Robotic Actuation Reference Manifest
-> **Sanitized Copy:** Sensitive equations and parameters have been redacted for public release.
+> **Sanitized Copy:** Specific vendor curves, calibration constants, and proprietary component identifiers have been removed.
 
-This manifest provides Codex with real-world data for simulating motors, servos, and artificial joint systems  including failure delay, mechanical lag, heat thresholds, and torque behaviors in robotic assemblies.
-
----
-
-##  Servo Mechanics & Control Systems
-
-**Name:** *How Servos Work  Princeton EduTech Series*  
-**Type:** Educational Guide  
-**URL:** https://www.princeton.edu/~achaney/tmve/wiki100k/docs/Servomechanism.html  
-
-**Summary:** [REDACTED – Detailed operational parameters removed.]
+This manifest catalogues the knowledge areas Codex references when simulating motors, servos, artificial joints, and their failure behaviours.
 
 ---
 
-**Name:** *Robotic Joints & Drives  FANUC Robotics*  
-**Type:** Industry Reference  
-**URL:** https://www.fanucamerica.com/products/robots/resources/robot-anatomy  
-
-**Summary:** [REDACTED – Detailed operational parameters removed.]
-
----
-
-##  Actuator Performance & Feedback Delay
-
-**Name:** *DC Motor and Servo Curve Calculator  Portescap*  
-**Type:** Engineering Tool  
-**URL:** https://www.portescap.com/en/lp/motor-calculators  
-
-**Summary:** [REDACTED – Detailed operational parameters removed.]
+## ⚙️ Servo Mechanics & Control Systems
+**Source Category:** Introductory electromechanical primers and robotics textbooks\\
+**Access Level:** Public technical explainers\\
+**Usage:** Establishes how command signals, duty cycles, and feedback loops interact so simulations can represent latency, drift, or corrupted inputs without embedding proprietary schematics.
 
 ---
 
-**Name:** *PID Control of Actuators  MIT OCW Robotics*  
-**Type:** University Lecture  
-**URL:** https://ocw.mit.edu/courses/mechanical-engineering/2-12-introduction-to-robotics-fall-2005/  
-
-**Summary:** [REDACTED – Detailed operational parameters removed.]
+## 🔩 Industrial Joint Design
+**Source Category:** Manufacturer-neutral robotics anatomy briefings and academic summaries\\
+**Access Level:** Public-facing overviews and conference posters\\
+**Usage:** Describes joint placement, torque balancing, and fatigue considerations to support limb collisions and shutdown logic while excluding brand-specific tolerances.
 
 ---
 
-##  Synthetic Joint Simulation
+## 📈 Actuator Performance & Feedback Delay
+**Source Category:** General motor performance calculators and control theory coursework\\
+**Access Level:** Open-access tools and lectures\\
+**Usage:** Supplies load-behaviour intuition, efficiency ranges, and PID tuning effects so Codex can model jitter, overheating, or unstable tracking without distributing proprietary datasets.
 
-**Name:** *Robotic Biomechanics  Biorobotics Lab (CMU)*  
-**Type:** Research Project  
-**URL:** https://www.cs.cmu.edu/~biorobotics/projects.html  
+---
 
-**Summary:** [REDACTED – Detailed operational parameters removed.]
+## 🦿 Synthetic Joint Simulation
+**Source Category:** Academic biomechanics and biorobotics publications\\
+**Access Level:** University-hosted research summaries\\
+**Usage:** Provides torque-driven gait patterns and adaptive balance strategies to power bipedal walkers and chaos-reactive systems while eliding restricted experiment data.
 
 ---

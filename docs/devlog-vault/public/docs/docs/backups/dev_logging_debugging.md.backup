@@ -1,0 +1,38 @@
+# Development Logging & Debugging (Redacted Summary)
+
+The original document contained detailed instructions for configuring runtime logging, overlays, and debug tooling. This public copy preserves the overall intent while removing environment-specific details.
+
+## Logger Initialization
+- The engine configures logging during startup so subsystems can immediately report status.
+- Files, directory names, and platform-specific paths have been replaced with [REDACTED].
+
+## Log Usage Guidance
+- Standard log levels and macros exist for runtime, rendering, memory, screenshot, and test categories.
+- Example macros and conditional compilation flags are [REDACTED].
+- Fatal logging captures recent history before shutting down the engine.
+
+## Log Storage & Rotation
+- Output is written to per-category log files with automatic rotation and archival.
+- Startup renames existing logs using timestamped suffixes. Exact naming conventions are [REDACTED].
+
+## Display & Overlay Diagnostics
+- Multi-window configurations and debug overlays allow developers to inspect rendering, input, and system metrics.
+- Specific configuration filenames, command-line flags, and keyboard shortcuts have been replaced with [REDACTED].
+
+## Graphics & Input Debugging
+- OpenGL debug callbacks, input event logging, and overlay toggles help isolate rendering and gameplay issues.
+- Detailed API calls, driver checks, and state validation steps are summarized here and original values are [REDACTED].
+
+## Performance Monitoring
+- Frame timing utilities collect CPU/GPU metrics and expose them through overlays.
+- Crash dumps, stack traces, and GPU state capture exist; exact file structures are [REDACTED].
+
+## Procedural Rendering & Validation
+- Visual debugging tools highlight draw order, sprite counts, and invalid states.
+- Helper functions verify graphics state before executing draw calls. Internal thresholds and identifiers are [REDACTED].
+
+## Systems Integration
+- Logging spans telemetry, procedural sprites, quantum systems, and other advanced subsystems.
+- Implementation notes referencing proprietary data have been replaced with high-level summaries.
+
+> All implementation specifics, file paths, ports, build flags, and credential references have been intentionally removed or replaced with `[REDACTED]` to protect environment-sensitive information.

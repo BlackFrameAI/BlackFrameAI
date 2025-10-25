@@ -1,36 +1,27 @@
 # Planetary Biosystems Manifest
-> **Sanitized Copy:** Sensitive equations and parameters have been redacted for public release.
+> **Sanitized Copy:** Proprietary formulas, datasets, and identifiers have been removed for public archival.
 
-This manifest anchors Codex’s worldgen logic in real-world planetary chemistry, mineral dispersion, climate behavior, and biotic/abiotic feedback loops.
+This manifest summarises the categories of references Codex uses to ground planetary chemistry, mineral dispersion, climate behaviour, and biotic/abiotic feedback loops without exposing restricted inputs.
 
 ---
 
 ## 🌋 Planetary Crust & Mineral Dispersion
-
-**Name:** USGS Mineral Resources Database\
-**Type:** Federal Data Repository\
-**URL:** https://mrdata.usgs.gov/
-
-Summary: [REDACTED – Detailed operational parameters removed.]
+**Source Category:** Government mineral survey summaries\\
+**Access Level:** Public aggregate reports\\
+**Usage:** Provides high-level trends for ore frequency, biome composition, and terrain clustering. Enables plausible dig sites, crafting resources, and geology simulations without disclosing internal weighting tables.
 
 ---
 
 ## 🌍 Climate Formation & Weather Patterns
-
-**Name:** NOAA Earth System Research Laboratory\
-**Type:** Scientific Climate Models\
-**URL:** https://www.esrl.noaa.gov/
-
-Summary: [REDACTED – Detailed operational parameters removed.]
+**Source Category:** Global climate modelling briefs from research institutions\\
+**Access Level:** Open publications and historical reanalysis archives\\
+**Usage:** Supplies jet stream behaviour, rainfall versus slope tendencies, and seasonal transitions so dynamic weather and erosion logic stay credible while omitting proprietary solver constants.
 
 ---
 
 ## 🧪 Planetary Chemistry & Atmospheres
-
-**Name:** Exoplanet Chemistry – NASA Astrobiology\
-**Type:** Research Archive\
-**URL:** https://astrobiology.nasa.gov/
-
-Summary: [REDACTED – Detailed operational parameters removed.]
+**Source Category:** Astrobiology and planetary chemistry literature surveys\\
+**Access Level:** Peer-reviewed articles and public educational resources\\
+**Usage:** Captures atmospheric mixing limits, habitability heuristics, and exotic reaction examples to drive toxic worlds, alien biomes, and terraforming scenarios without embedding restricted datasets.
 
 ---
