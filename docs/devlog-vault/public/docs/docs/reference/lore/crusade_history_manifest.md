@@ -1,26 +1,18 @@
-# Crusade History Manifest (Public Summary)
+# Crusade History Manifest (Public Digest)
 
-This public mirror summarizes high-level guidance for modeling religious warfare, medieval logistics, and faction motivations while withholding source-identifying details.
+This digest distills broad lessons from historical conflicts so designers can model faith-driven campaigns without revealing restricted documents or terminology.
 
----
+## Campaign Structure Guidance
+- Outline multi-stage conflicts using neutral labels such as "opening push," "siege cycle," and "reclamation phase."
+- Highlight how morale swings, supply pressure, and leadership disputes can shift the tone of a long campaign.
+- Encourage branching timelines so narrative outcomes are not tied to any specific real-world decree.
 
-## 🏰 Crusade Campaign Structure
+## Equipment and Logistics Notes
+- Summarize arms and armor as tiered categories (light, reinforced, fortified) rather than citing catalogued artifacts.
+- Describe siege tooling through functional roles like "breach support" or "defense hardening" instead of naming devices.
+- Emphasize sustainable provisioning, civilian impact, and humanitarian outcomes over doctrinal motivations.
 
-- **Source:** [REDACTED]
-- **Summary:** Chronologies and eyewitness records inform how multi-stage crusade campaigns, papal directives, and regional conflicts are sequenced for narrative arcs.
-
----
-
-## ⚔️ Weapon & Armor Technology
-
-- **Source:** [REDACTED]
-- **Summary:** Museum-grade research on arms, armor layering, and siege equipment is abstracted into tuning notes for equipment tiers, durability models, and blacksmithing gameplay.
-
----
-
-## 📜 Religious Justification & Knightly Orders
-
-- **Source:** [REDACTED]
-- **Summary:** Translated doctrinal rules and order constitutions outline faction codes, land rights, and relic stewardship, supporting AI behavior and justice mechanics without exposing archival text.
-
----
+## Cultural & Diplomatic Considerations
+- Focus on the interplay between allied factions, neutral parties, and civilian councils to keep scenarios grounded in diplomacy.
+- Replace explicit religious markers with thematic virtues (unity, perseverance, reconciliation) when drafting dialogue or objectives.
+- Document any sensitive inspirations in the secure archive rather than embedding them in scenario scripts.
