@@ -190,6 +190,12 @@ a:hover {
   text-transform: uppercase;
 }
 
+.site-brand picture,
+.logo-link picture {
+  display: inline-flex;
+  align-items: center;
+}
+
 .site-brand img {
   width: 52px;
   height: 52px;

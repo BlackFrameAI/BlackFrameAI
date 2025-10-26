@@ -34,7 +34,11 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="manifest" href="/manifest.json">
   <link rel="alternate" type="application/rss+xml" title="BlackFrame AI Studio Blog" href="/blog/feed.xml">
-  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="preload" href="/assets/styles.css" as="style">
+
+  <link rel="stylesheet" href="/assets/styles.css" media="print" onload="this.media='all'">
+
+  <noscript><link rel="stylesheet" href="/assets/styles.css"></noscript>
 
   <script defer data-domain="blackframeai.org" src="https://plausible.io/js/script.js"></script>
 </head>
