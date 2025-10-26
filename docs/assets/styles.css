@@ -304,6 +304,56 @@ select {
   font-size: 1.15rem;
 }
 
+.page-outline {
+  width: 100%;
+  max-width: 900px;
+  background: rgba(0, 18, 32, 0.78);
+  border: 1px solid rgba(77, 211, 255, 0.32);
+  border-radius: 24px;
+  padding: clamp(20px, 3vw, 28px);
+  box-shadow: 0 0 24px rgba(0, 120, 190, 0.25);
+}
+
+.page-outline__title {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(143, 215, 255, 0.9);
+}
+
+.page-outline__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.page-outline__list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55em 1.1em;
+  border-radius: 999px;
+  border: 1px solid rgba(143, 215, 255, 0.35);
+  background: rgba(0, 40, 70, 0.65);
+  color: #e6f5ff;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.page-outline__list a:hover,
+.page-outline__list a:focus-visible {
+  border-color: rgba(143, 215, 255, 0.75);
+  color: #ffffff;
+  box-shadow: 0 0 18px rgba(77, 211, 255, 0.45);
+  outline: none;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -726,6 +776,10 @@ select {
     padding-top: 12px;
     width: auto;
     align-items: center;
+  }
+
+  .page-outline__list {
+    justify-content: center;
   }
 }
 

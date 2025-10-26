@@ -1,0 +1,212 @@
+openapi: 3.0.3
+info:
+  title: BlackFrame AI Public API
+  version: "2025-10-26"
+  description: |
+    Schema for the Cloudflare Pages Functions exposed at https://www.blackframeai.org.
+    Upload this file to Cloudflare API Shield to enforce request validation.
+servers:
+  - url: https://www.blackframeai.org
+    description: Production website
+  - url: https://blackframeai.org
+    description: Apex domain
+paths:
+  /api/contact:
+    post:
+      operationId: submitContact
+      summary: Submit the studio contact form
+      description: |
+        Accepts contact requests that pass CSRF and Cloudflare Turnstile verification.
+        Requests must originate from the production site; schema validation blocks malformed
+        payloads before the worker executes business logic.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactRequest'
+      responses:
+        '200':
+          description: Submission accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '400':
+          description: Invalid payload or failed bot mitigation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: CSRF validation failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Missing required fields
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '502':
+          description: Downstream provider error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/newsletter:
+    post:
+      operationId: submitNewsletter
+      summary: Opt into the studio newsletter
+      description: |
+        Collects newsletter opt-ins after CSRF and Cloudflare Turnstile verification.
+        Only JSON payloads that match this schema reach the worker logic.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewsletterRequest'
+      responses:
+        '200':
+          description: Opt-in accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '400':
+          description: Invalid payload or failed bot mitigation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: CSRF validation failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Missing required fields
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '502':
+          description: Downstream provider error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    ContactRequest:
+      type: object
+      required:
+        - csrfToken
+        - turnstileToken
+        - name
+        - email
+        - message
+      additionalProperties: false
+      properties:
+        csrfToken:
+          type: string
+          description: Value of the anti-CSRF cookie mirrored into the form payload.
+          minLength: 32
+          maxLength: 256
+        turnstileToken:
+          type: string
+          description: Cloudflare Turnstile token returned by the widget.
+          minLength: 20
+          maxLength: 4096
+        formGuard:
+          type: string
+          description: Honeypot field; must be blank.
+          maxLength: 0
+        name:
+          type: string
+          description: Sender's name.
+          minLength: 1
+          maxLength: 200
+        email:
+          type: string
+          format: email
+          description: Sender's email address.
+          minLength: 3
+          maxLength: 320
+        company:
+          type: string
+          description: Optional company name.
+          maxLength: 200
+        topic:
+          type: string
+          description: Optional topic selector; defaults to general.
+          maxLength: 100
+        message:
+          type: string
+          description: Plain-text message body.
+          minLength: 1
+          maxLength: 5000
+    NewsletterRequest:
+      type: object
+      required:
+        - csrfToken
+        - turnstileToken
+        - email
+      additionalProperties: false
+      properties:
+        csrfToken:
+          type: string
+          description: Value of the anti-CSRF cookie mirrored into the form payload.
+          minLength: 32
+          maxLength: 256
+        turnstileToken:
+          type: string
+          description: Cloudflare Turnstile token returned by the widget.
+          minLength: 20
+          maxLength: 4096
+        formGuard:
+          type: string
+          description: Honeypot field; must be blank.
+          maxLength: 0
+        email:
+          type: string
+          format: email
+          description: Subscriber email address.
+          minLength: 3
+          maxLength: 320
+        focus:
+          type: string
+          description: Optional subscription interest, defaults to "Studio updates".
+          maxLength: 120
+        cadence:
+          type: string
+          description: Optional preferred cadence, defaults to "Weekly".
+          maxLength: 60
+        notes:
+          type: string
+          description: Optional free-form notes from the subscriber.
+          maxLength: 1000
+    SuccessResponse:
+      type: object
+      required:
+        - success
+        - message
+      properties:
+        success:
+          type: boolean
+          enum: [true]
+        message:
+          type: string
+          description: Human-readable acknowledgement returned to the browser.
+    ErrorResponse:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string
+          description: Explanation of why the request was rejected.
