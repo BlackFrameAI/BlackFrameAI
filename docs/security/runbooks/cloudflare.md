@@ -1,6 +1,6 @@
 # Cloudflare & GitHub Security Runbook
 
-This runbook covers the items that require elevated permissions outside the static site. Complete them to finish the security hardening sprint.
+This runbook covers the items that require elevated permissions outside the static site. Complete them to finish the security hardening sprint. The repository now ships a `_headers` file that injects the recommended HTTP headers when deployed to Cloudflare Pages or any host that honours the file—use these steps to mirror the same configuration at the edge so caching layers cannot strip them.
 
 ## 1. Enforce HSTS and security headers via Cloudflare
 
