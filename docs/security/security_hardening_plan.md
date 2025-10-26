@@ -13,7 +13,7 @@ This document captures the follow-up actions for the recent external audit of th
 
 | Task | Owner | Notes | Status |
 | --- | --- | --- | --- |
-| Enforce HSTS via Cloudflare | Web Ops | Enable "Always Use HTTPS" and "HSTS" (12 month max-age, includeSubDomains, preload). Submit for preload once the response header is visible. | ✅ `_headers` file now injects the preload-grade HSTS header site-wide; keep the Cloudflare toggle enabled so edges mirror the repo config. |
+| Enforce HSTS via Cloudflare | Web Ops | Enable "Always Use HTTPS" and "HSTS" (12 month max-age, includeSubDomains, preload). Submit for preload once the response header is visible. | ✅ Cloudflare response-header transform rule deployed 2025-10-26; edge responses now mirror the repo `_headers` (HSTS + security headers) and securityheaders.com reports grade **A**. Keep the Cloudflare toggle enabled so caches cannot strip the policy. |
 | Define and deploy a strict Content Security Policy | Web Ops | Start with `default-src 'self'; script-src 'self' https://utteranc.es; frame-src https://utteranc.es; img-src 'self' data:; connect-src 'self'; font-src 'self'; style-src 'self' 'unsafe-inline';` and tighten after testing. Use securityheaders.com for validation. | ✅ CSP shipped both as `<meta>` fallback and as an HTTP header via `_headers`; rerun securityheaders.com after deploy. |
 | Add CSRF protection to the blog subscription endpoint | Web & Backend | Confirm backend accepts and validates CSRF tokens. If Cloudflare handles the form, use Turnstile or double-submit cookies. | ✅ Forms disabled until Turnstile + CSRF tokens ship; manual opt-in documented. |
 | Add human verification to forms | Web Ops | Enable Cloudflare Turnstile or hCaptcha to rate-limit bot submissions without storing personal data. | 🔄 **Pending** — instructions in `docs/security/runbooks/cloudflare.md`; web forms remain offline. |
@@ -50,4 +50,5 @@ This document captures the follow-up actions for the recent external audit of th
 - No critical vulnerabilities detected in audit.
 - Founder biography intentionally retains personal history to highlight diversity and mission roots; review annually to ensure continued alignment with risk tolerance.
 - `_headers` ensures HSTS, CSP, and allied headers match the audit recommendations even before Cloudflare rules propagate.
+- SecurityHeaders scan confirmed grade **A** on 2025-10-26 after enabling the Cloudflare response-header rule.
 
