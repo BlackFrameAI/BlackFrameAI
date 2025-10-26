@@ -1,5 +1,6 @@
 /* Base global styles */
 :root {
+  --font-sans: "Inter", Arial, sans-serif;
   --sidebar-width: clamp(220px, 22vw, 280px);
   --text-primary: #edf7ff;
   --text-secondary: #d8ecff;
@@ -11,7 +12,7 @@ html, body {
   margin: 0;
   padding: 0;
   min-height: 100%;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-sans);
   background-color: #000;
   color: var(--text-primary);
 }

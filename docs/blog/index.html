@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BlackFrame AI, Studio Blog &amp; AI Engine Proof</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://utteranc.es https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://utteranc.es; font-src 'self'; connect-src 'self' https://plausible.io; frame-src https://utteranc.es; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://utteranc.es https://plausible.io https://challenges.cloudflare.com https://ajax.cloudflare.com; style-src 'self' 'unsafe-inline' https://cloudflarefonts.com; img-src 'self' data: https://utteranc.es; font-src 'self' https://cloudflarefonts.com https://fonts.cloudflare.com; connect-src 'self' https://plausible.io; frame-src https://utteranc.es; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
   <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
   <meta name="description" content="Follow the BlackFrame AI studio blog for the verified story behind BlackFrame Engine, the first AI-generated dual use engine." />
@@ -14,6 +14,7 @@
   <link rel="alternate" type="application/atom+xml" title="BlackFrame AI Studio Blog" href="/blog/atom.xml" />
   <link rel="canonical" href="https://www.blackframeai.org/blog/" />
   <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="https://cloudflarefonts.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin>
   <style>
     .post-log-note {
       margin: 0.4rem 0 0.8rem;
@@ -377,8 +378,8 @@
       </section>
     </main>
     <script src="/assets/blog-filter.js" defer></script>
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <script src="/assets/forms.js" defer></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer data-cfasync="false"></script>
+    <script src="/assets/forms.js" defer data-cfasync="false"></script>
     <footer>© 2025 BlackFrame AI Studio · <a href="mailto:studio@blackframeai.org">studio@blackframeai.org</a> · <a href="/privacy/">Privacy &amp; transparency</a> · <a href="/.well-known/security.txt">Responsible disclosure</a></footer>
   </div>
 </body>

@@ -3,7 +3,7 @@
   const CSRF_COOKIE = 'bf_csrf';
   const COOKIE_MAX_AGE = 60 * 60 * 24 * 7; // 7 days
 
-  document.addEventListener('DOMContentLoaded', () => {
+  function initializeForms() {
     const csrfToken = ensureCsrfToken();
     document.querySelectorAll('input[name="csrfToken"]').forEach((input) => {
       input.value = csrfToken;
@@ -18,7 +18,13 @@
     document.querySelectorAll('form[data-endpoint]').forEach((form) => {
       attachFormHandler(form);
     });
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeForms, { once: true });
+  } else {
+    initializeForms();
+  }
 
   function attachFormHandler(form) {
     const endpoint = form.dataset.endpoint;
