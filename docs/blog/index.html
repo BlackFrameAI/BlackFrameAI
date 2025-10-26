@@ -313,8 +313,39 @@
 
       <section class="newsletter-cta" aria-labelledby="newsletter-heading">
         <h2 id="newsletter-heading">Join the Transmission List</h2>
-        <p class="newsletter-privacy">We’ve paused automatic sign-ups while we deploy CSRF validation and Turnstile human verification.</p>
-        <p class="newsletter-privacy">Email <a href="mailto:studio@blackframeai.org?subject=Blog%20updates">studio@blackframeai.org</a> to opt in manually, or follow the <a href="/blog/feed.xml">RSS feed</a> for instant updates.</p>
+        <p class="newsletter-privacy">Get the latest devlogs, engine briefings, and partner openings delivered securely.</p>
+        <form class="newsletter-form" data-endpoint="/api/newsletter" data-success-message="Thanks! Check your inbox for our confirmation." novalidate>
+          <div>
+            <label for="blog-newsletter-email">Email <span class="required-marker" aria-hidden="true">*</span></label>
+            <input type="email" id="blog-newsletter-email" name="email" autocomplete="email" required placeholder="studio@example.com" />
+          </div>
+          <div>
+            <label for="blog-newsletter-focus">What do you want to hear about?</label>
+            <select id="blog-newsletter-focus" name="focus">
+              <option value="Devlogs & weekly recaps">Devlogs &amp; weekly recaps</option>
+              <option value="Partner opportunities">Partner opportunities</option>
+              <option value="Launch alerts">Launch alerts</option>
+            </select>
+          </div>
+          <div>
+            <label for="blog-newsletter-cadence">Preferred cadence</label>
+            <select id="blog-newsletter-cadence" name="cadence">
+              <option value="Weekly">Weekly pulse (default)</option>
+              <option value="Monthly">Monthly roundup</option>
+              <option value="Critical alerts only">Critical alerts only</option>
+            </select>
+          </div>
+          <div>
+            <label for="blog-newsletter-notes">Notes (optional)</label>
+            <textarea id="blog-newsletter-notes" name="notes" rows="3" placeholder="Share context or preferences."></textarea>
+          </div>
+          <input type="hidden" name="csrfToken" value="" />
+          <input class="form-guard" type="text" name="formGuard" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAB8yHm3IjOiTatk2" data-theme="dark"></div>
+          <div class="form-feedback" role="status" aria-live="polite"></div>
+          <button type="submit">Request access</button>
+        </form>
+        <p class="newsletter-privacy">Prefer RSS? <a href="/blog/feed.xml">Subscribe to the feed</a>. We verify every signup with Cloudflare Turnstile and CSRF tokens.</p>
       </section>
 
       <section class="topic-hubs" aria-labelledby="topic-heading">
@@ -345,6 +376,8 @@
       </section>
     </main>
     <script src="/assets/blog-filter.js" defer></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script src="/assets/forms.js" defer></script>
     <footer>© 2025 BlackFrame AI Studio · <a href="mailto:studio@blackframeai.org">studio@blackframeai.org</a> · <a href="/privacy/">Privacy &amp; transparency</a> · <a href="/.well-known/security.txt">Responsible disclosure</a></footer>
   </div>
 </body>
