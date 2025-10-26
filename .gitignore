@@ -10,3 +10,7 @@ Thumbs.db
 
 # Local backups
 docs/devlog-vault/docs/docs/backups/systems/original_backups/
+
+# local backups
+_html_backup/
+*.bak
