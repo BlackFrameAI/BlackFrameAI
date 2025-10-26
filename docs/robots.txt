@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /devlog-vault/public/
 Disallow: /devlog-vault/vault-data.json
+Disallow: /admin/
 
 Sitemap: https://www.blackframeai.org/sitemap.xml

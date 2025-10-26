@@ -78,5 +78,45 @@ These steps require repository owner or admin permissions. If the toggles are gr
 3. Replace the placeholder fingerprint in `docs/.well-known/security.txt` with the production fingerprint.
 4. Verify the `.well-known/security.txt` endpoint renders the updated link over HTTPS.
 
+## 5. Enforce API schema validation with Cloudflare API Shield
+
+Schema validation blocks malformed or unexpected API calls before they reach the functions layer. Upload the OpenAPI definition that mirrors the production APIs exposed on `blackframeai.org`.
+
+1. Start from the checked-in baseline at `docs/security/runbooks/assets/blackframeai-api-schema.yaml`. It already models `POST /api/contact` and `POST /api/newsletter` with the field-level validation enforced in the Pages Functions. Whenever the functions change, update the schema and bump `info.version` so each upload is traceable.
+2. Validate the file locally:
+   ```bash
+   npx @redocly/cli lint docs/security/runbooks/assets/blackframeai-api-schema.yaml
+   ```
+   Install the CLI globally if necessary (`npm install --global @redocly/cli`). Fix any lint errors—Cloudflare will reject malformed OpenAPI documents.
+3. Sign in to Cloudflare and open **Security → API Shield → Schema Validation**. Click **Upload schema**, choose the YAML above, and assign it to the `blackframeai.org` hostname. Leave **Mode** on **Log** for at least 24 hours the first time so you can monitor traffic safely.
+4. Open **Security → API Shield → Endpoint Management** to confirm Cloudflare enumerated `/api/contact` and `/api/newsletter`. If anything is missing, correct the schema path and re-upload.
+5. When the logs remain clean, edit the schema entry and change **Enforcement level** to **Block** so non-compliant requests are dropped before reaching the worker.
+6. Automate upkeep: commit schema edits alongside code changes, add a release checklist item that re-runs `redocly lint`, and store the upload date/version in the Devlog Vault changelog.
+7. After each deploy, monitor **Security → Events → API Schema Validation**. If Cloudflare blocks legitimate traffic, tighten the frontend validation to match the schema or adjust the specific field definition—avoid broad relaxations that re-open attack surface.
+
+## 6. Publish and monitor the SPF record for Zoho Mail
+
+Cloudflare Email Security is flagging the lack of an SPF record. Add the TXT record so recipients can verify studio email comes from Zoho.
+
+1. Sign in to Cloudflare and open the **DNS** tab for `blackframeai.org`.
+2. Locate the existing TXT record that currently reads `"v=spf1 include:zohocloud.ca ~all"`. Click **Edit**, replace the content with the Zoho-supported directive `v=spf1 include:zoho.com ~all`, and save. Keeping the same record prevents duplicate-SPF warnings.
+3. If you relay mail through other providers, append their `include:` values before the final `~all` (for example, `include:_spf.google.com`). Do not create additional SPF TXT records—combine everything into this single line.
+4. Wait five minutes, then verify the change:
+   ```bash
+   nslookup -type=TXT blackframeai.org
+   ```
+   The output should contain the updated policy with `include:zoho.com`. Re-run the Cloudflare Email Security scan to clear the alert.
+5. Log the change in the Devlog Vault (date, who updated it, and the final string) and create a quarterly reminder to confirm Zoho has not changed their published include record.
+
+## 7. Moderate Utterances comment threads
+
+Utterances stores comments as GitHub issues. A weekly moderation sweep keeps spam from piling up on public threads.
+
+1. Browse to <https://github.com/BlackFrameAI/BlackFrameAI/issues?q=label%3Ablog-comments> and sort by **Newest**.
+2. Review each comment for spam, harassment, or sensitive disclosures. Delete abusive posts and block repeat offenders directly from GitHub.
+3. Tag resolved discussions with `status:reviewed` so the next sweep can filter on `label:blog-comments -label:status:reviewed`.
+4. If a comment reveals a security issue, follow the incident response plan before replying publicly.
+5. Log the sweep (date, reviewer, actions taken) inside the Devlog Vault moderation log to maintain an audit trail.
+
 ---
 Document completion of each step in the issue tracker and update the status column inside `docs/security/security_hardening_plan.md` when finished.

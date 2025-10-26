@@ -144,6 +144,22 @@
       color: var(--accent);
     }
 
+    .noscript-message {
+      margin: 1.5rem auto 0;
+      padding: 1.1rem 1.4rem;
+      border-radius: 18px;
+      border: 1px solid var(--accent-soft);
+      background: rgba(20, 32, 52, 0.85);
+      color: var(--text-primary);
+      box-shadow: 0 12px 28px rgba(10, 28, 58, 0.45);
+      max-width: 680px;
+    }
+
+    .noscript-message a {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
     .search-toolbar {
       display: flex;
       flex-wrap: wrap;
@@ -451,9 +467,11 @@
   <footer>© <span id="current-year"></span> BlackFrame AI Studio</footer>
 
   <noscript>
-    <p style="text-align:center;color:#f8d7a0;padding:1rem 2rem;">
-      JavaScript is required to browse the Devlog Vault interactively. Enable it to search and filter the archive.
-    </p>
+    <div class="noscript-message" role="alert">
+      JavaScript powers the search, filters, and timeline visualizer. You can still read everything directly from the
+      <a href="/devlog-vault/public/">public documents directory</a> or download the
+      <a href="/devlog-vault/vault-data.json">complete JSON export</a> for offline review while you keep scripts disabled.
+    </div>
   </noscript>
 
   <script>
