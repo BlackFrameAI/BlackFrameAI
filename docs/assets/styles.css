@@ -1042,6 +1042,30 @@ select {
       box-shadow: 0 0 24px rgba(77, 211, 255, 0.55);
     }
 
+    .form-feedback {
+      font-size: 0.9rem;
+      color: rgba(198, 228, 255, 0.75);
+      min-height: 1.4em;
+    }
+
+    .form-feedback[data-state="error"] {
+      color: #ff9ac5;
+    }
+
+    .form-feedback[data-state="success"] {
+      color: #8fffcf;
+    }
+
+    .form-feedback[data-state="pending"] {
+      color: #8bbce8;
+    }
+
+    .newsletter-form button.is-disabled,
+    .contact-form button.is-disabled {
+      opacity: 0.7;
+      cursor: progress;
+    }
+
     .press-strip {
       display: grid;
       gap: 1rem;

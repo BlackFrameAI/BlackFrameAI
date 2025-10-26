@@ -42,10 +42,14 @@ Follow these exact clicks so Cloudflare injects the headers at the edge (HTML `<
    - Type: **Managed**
    - Domain: `www.blackframeai.org`
 2. Copy the **site key** and **secret key**. Store the secret in the shared 1Password vault.
-3. Update the static site forms to include the Turnstile widget and a server-side validation endpoint:
-   - For newsletter/contact, create a Cloudflare Worker or serverless endpoint that verifies both the Turnstile token and a double-submit CSRF cookie before sending mail.
-   - When the endpoint is live, swap the manual instructions back to the embedded forms and restrict `form-action` in the CSP accordingly.
-4. Until the endpoint ships, keep the forms disabled (already implemented in this repo).
+3. Configure the Cloudflare Pages Functions environment so the new endpoints validate tokens and forward submissions:
+   - `TURNSTILE_SECRET_KEY` — secret key from the widget above (keep in 1Password, set as an encrypted Pages secret).
+   - `TURNSTILE_ALLOWED_HOSTNAMES` — optional comma-separated override if you need to accept additional hostnames beyond the defaults (the functions already allow the production domains plus Pages previews).
+   - `MAILCHANNELS_FROM_EMAIL` and optionally `MAILCHANNELS_FROM_NAME` — the verified sender identity used with MailChannels.
+   - `CONTACT_RECIPIENT` — comma-separated inboxes for contact form alerts.
+   - `NEWSLETTER_RECIPIENT` — comma-separated inboxes for newsletter opt-ins (falls back to `CONTACT_RECIPIENT` if omitted).
+4. The repository now ships `/functions/api/contact.js` and `/functions/api/newsletter.js`; they enforce double-submit CSRF tokens plus Turnstile verification before invoking MailChannels. Each function checks the Turnstile `hostname` and `action` fields (see [Cloudflare docs](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/)) so spoofed tokens are rejected. Deploy the latest build so Pages picks up the functions.
+5. After redeploying, submit a test message and newsletter request. You should receive the MailChannels relayed copy and see a 200 JSON response in DevTools.
 
 ## 3. GitHub Advanced Security & Dependabot
 

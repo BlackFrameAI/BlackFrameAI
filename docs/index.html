@@ -278,8 +278,38 @@
           <a class="social-button" href="mailto:studio@blackframeai.org">Contact the Studio</a>
         </div>
         <div class="newsletter-hold">
-          <p class="description">Automated signups are offline while we wire in Cloudflare Turnstile and CSRF protections.</p>
-          <p class="description">Until then, email <a href="mailto:studio@blackframeai.org?subject=Manual%20subscription%20request">studio@blackframeai.org</a> to request access. We confirm consent manually before adding anyone.</p>
+          <form class="newsletter-form" data-endpoint="/api/newsletter" data-success-message="Thanks! Please check your inbox for our confirmation." novalidate>
+            <div>
+              <label for="newsletter-email">Email <span class="required-marker" aria-hidden="true">*</span></label>
+              <input type="email" id="newsletter-email" name="email" autocomplete="email" required placeholder="studio@example.com" />
+            </div>
+            <div>
+              <label for="newsletter-focus">What do you want to follow?</label>
+              <select id="newsletter-focus" name="focus">
+                <option value="Studio updates">Studio updates &amp; devlogs</option>
+                <option value="Partnership opportunities">Partnership opportunities</option>
+                <option value="Release alerts">Release alerts</option>
+              </select>
+            </div>
+            <div>
+              <label for="newsletter-cadence">Preferred cadence</label>
+              <select id="newsletter-cadence" name="cadence">
+                <option value="Weekly">Weekly pulse (default)</option>
+                <option value="Monthly">Monthly roundup</option>
+                <option value="Critical alerts only">Critical alerts only</option>
+              </select>
+            </div>
+            <div>
+              <label for="newsletter-notes">Notes (optional)</label>
+              <textarea id="newsletter-notes" name="notes" rows="3" placeholder="Share context or specific interests."></textarea>
+            </div>
+            <input type="hidden" name="csrfToken" value="" />
+            <input class="form-guard" type="text" name="formGuard" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAB8yHm3IjOiTatk2" data-action="newsletterForm" data-theme="dark"></div>
+            <div class="form-feedback" role="status" aria-live="polite"></div>
+            <button type="submit">Request access</button>
+          </form>
+          <p class="form-required-note">We confirm consent for every address and use Cloudflare Turnstile plus CSRF tokens to block spam.</p>
         </div>
         <p class="description">Prefer RSS? <a href="/blog/feed.xml">Follow the devlog feed</a> for daily drops.</p>
       </section>
@@ -358,6 +388,8 @@
     <div class="footer">© 2025 BlackFrame AI Studio · <a href="mailto:studio@blackframeai.org">studio@blackframeai.org</a> · <a href="/privacy/">Privacy &amp; transparency</a> · <a href="/.well-known/security.txt">Responsible disclosure</a></div>
   </div>
 
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <script src="/assets/forms.js" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
