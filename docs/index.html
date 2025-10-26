@@ -34,7 +34,10 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="manifest" href="/manifest.json">
   <link rel="alternate" type="application/rss+xml" title="BlackFrame AI Studio Blog" href="/blog/feed.xml">
-  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="preconnect" href="https://cloudflarefonts.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.cloudflare.com" crossorigin>
+  <link rel="preload" href="/assets/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/styles.css"></noscript>
   <link rel="stylesheet" href="https://cloudflarefonts.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin>
 
   <script defer data-domain="blackframeai.org" src="https://plausible.io/js/script.js"></script>
@@ -69,7 +72,7 @@
     <main id="main-content">
       <section class="hero" aria-labelledby="vision-heading">
         <a href="/" class="logo-link" aria-label="BlackFrame AI emblem">
-          <img src="/assets/blackflamelogo.png" alt="BlackFrame AI mark" class="logo" loading="lazy">
+          <img src="/assets/blackflamelogo.png" alt="BlackFrame AI mark" class="logo" fetchpriority="high" loading="eager">
         </a>
         <span class="pill" id="vision-heading">World's First Verifiable AI-Generated Dual Use Engine</span>
         <h1>We built BlackFrame, the world's first AI generated dual use engine with quantum grade simulators</h1>
