@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BlackFrame AI, Home of the First Verifiable AI-Generated Dual Use Engine</title>
 
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://utteranc.es; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://utteranc.es; font-src 'self'; connect-src 'self'; frame-src https://utteranc.es; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
+
   <!-- SEO Meta -->
   <meta name="description" content="BlackFrame AI built BlackFrame Engine, the first verifiable AI-generated dual use engine with quantum grade simulators, telemetry fusion, and dual mission tooling.">
   <meta name="author" content="BlackFrame AI Studio">
@@ -89,13 +93,12 @@
         <p class="founder-story__eyebrow">Who we are</p>
         <h2 id="founder-heading">BlackFrame AI is an underdog studio led by James Elliott, CEO and recovering addict turned founder</h2>
         <p>
-          James Elliott rebuilt his life after the streets and prison of Vancouver, guided by First Nations elders,
-          vision quests, and sweat lodges. He now leads BlackFrame AI Studio as a physically disabled founder,
-          navigating an unfused vertebra that limits mobility, fighting diabetes alongside his wife—his rock—and
-          parenting an autistic son. With more than a decade clean and no prior engine experience, he orchestrated
-          an agent-and-auditor crew of OpenAI systems to help craft the world's first verifiable AI-generated
-          modular engine. James Elliott refuses anonymity as part of his recovery, putting his full name and story
-          forward so others know exactly who is holding the door open.
+          James Elliott rebuilt his life after years in survival mode, guided by trusted mentors who helped him focus
+          on craft, accountability, and community. He now leads BlackFrame AI Studio as a visibly disabled founder with
+          more than a decade clean and no prior engine experience. James orchestrated an agent-and-auditor crew of
+          OpenAI systems to help craft the world's first verifiable AI-generated modular engine. He chooses to share
+          his name and recovery journey intentionally—see our <a href="/privacy/">privacy &amp; transparency statement</a>
+          for how we protect the rest of the team.
         </p>
         <div class="founder-story__grid" role="list">
           <article class="founder-story__card" role="listitem">
@@ -274,13 +277,10 @@
           <a class="social-button" href="https://github.com/BlackFrameAI" target="_blank" rel="noopener noreferrer">Track Builds on GitHub</a>
           <a class="social-button" href="mailto:studio@blackframeai.org">Contact the Studio</a>
         </div>
-        <form class="newsletter-form" action="https://formsubmit.co/studio@blackframeai.org" method="POST">
-          <input type="hidden" name="_subject" value="New BlackFrame AI newsletter subscriber">
-          <input type="hidden" name="_next" value="https://www.blackframeai.org/thanks.html">
-          <label for="newsletter-email">Subscribe for launch notes & weekly recaps</label>
-          <input id="newsletter-email" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
-          <button type="submit">Join the Transmission List</button>
-        </form>
+        <div class="newsletter-hold">
+          <p class="description">Automated signups are offline while we wire in Cloudflare Turnstile and CSRF protections.</p>
+          <p class="description">Until then, email <a href="mailto:studio@blackframeai.org?subject=Manual%20subscription%20request">studio@blackframeai.org</a> to request access. We confirm consent manually before adding anyone.</p>
+        </div>
         <p class="description">Prefer RSS? <a href="/blog/feed.xml">Follow the devlog feed</a> for daily drops.</p>
       </section>
 
@@ -355,7 +355,7 @@
         </div>
       </section>
     </main>
-    <div class="footer">© 2025 BlackFrame AI Studio · <a href="mailto:studio@blackframeai.org">studio@blackframeai.org</a></div>
+    <div class="footer">© 2025 BlackFrame AI Studio · <a href="mailto:studio@blackframeai.org">studio@blackframeai.org</a> · <a href="/privacy/">Privacy &amp; transparency</a> · <a href="/.well-known/security.txt">Responsible disclosure</a></div>
   </div>
 
   <script type="application/ld+json">

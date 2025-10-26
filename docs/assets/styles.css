@@ -1110,12 +1110,36 @@ select {
       text-shadow: 0 0 10px #00cfff88;
     }
 
-    .footer {
+    .newsletter-hold {
+      margin-top: 1.5rem;
+      padding: 1.2rem 1.5rem;
+      border: 1px solid rgba(77, 211, 255, 0.28);
+      border-radius: 18px;
+      background: rgba(0, 18, 32, 0.68);
+    }
+
+    .newsletter-hold .description,
+    .newsletter-hold .newsletter-privacy {
+      margin: 0.6rem 0;
+      font-size: 0.95rem;
+      color: rgba(199, 234, 255, 0.92);
+    }
+
+    .footer,
+    .page-footer,
+    footer {
       width: 100%;
       max-width: 960px;
       text-align: center;
       font-size: 0.85rem;
       color: #9aa3ac;
+      margin: 2rem auto;
+    }
+
+    .footer a,
+    .page-footer a,
+    footer a {
+      color: rgba(143, 215, 255, 0.95);
     }
 
     @keyframes fadeIn {
