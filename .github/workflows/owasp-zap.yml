@@ -13,7 +13,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  zap_scan:
+  zap-scan:
     name: ZAP Baseline Scan
     runs-on: ubuntu-latest
     timeout-minutes: 45
