@@ -5,7 +5,15 @@
     <link>https://www.blackframeai.org/blog/</link>
     <description>Daily dispatches, devlogs, and pillar guides from BlackFrame AI Studio.</description>
     <language>en-US</language>
-    <lastBuildDate>Sat, 25 Oct 2025 18:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 26 Oct 2025 18:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Bootstrap Recovery, Day 7 Codex Self-Heal</title>
+      <link>https://www.blackframeai.org/blog/bootstrap-recovery/</link>
+      <guid>https://www.blackframeai.org/blog/bootstrap-recovery/</guid>
+      <pubDate>Sun, 26 Oct 2025 09:00:00 GMT</pubDate>
+      <dc:date>2025-10-26T09:00:00Z</dc:date>
+      <description><![CDATA[Day 7 forced Codex to debug its own bootstrap—fixing the frozen input loop, snapshotting the V0.1 branch, and hard-vendoring GLFW so container agents stay online.]]></description>
+    </item>
     <item>
       <title>Proof of Frame, Day 6 Render Validation</title>
       <link>https://www.blackframeai.org/blog/proof-of-frame/</link>
