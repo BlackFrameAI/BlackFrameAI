@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact BlackFrame AI</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://utteranc.es; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://utteranc.es; font-src 'self'; connect-src 'self'; frame-src https://utteranc.es; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
   <meta name="description" content="Contact the BlackFrame AI studio for partnership inquiries, media requests, and community collaborations." />
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="manifest" href="/manifest.json" />
@@ -62,27 +65,13 @@
 
       <section class="content-section" aria-labelledby="contact-form">
         <h2 id="contact-form">Send a message</h2>
-        <form class="newsletter-form contact-form" action="https://formsubmit.co/studio@blackframeai.org" method="POST">
-          <input type="hidden" name="_subject" value="New inquiry from blackframeai.org" />
-          <input type="hidden" name="_next" value="https://www.blackframeai.org/thanks.html" />
-          <input type="text" name="_honey" class="form-guard" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          <p class="form-required-note">Fields marked with <span class="required-marker" aria-hidden="true">*</span> are required.</p>
-          <label for="contact-name">Name <span class="required-marker" aria-hidden="true">*</span></label>
-          <input id="contact-name" name="name" type="text" placeholder="Your name" required autocomplete="name" />
-          <label for="contact-email">Email <span class="required-marker" aria-hidden="true">*</span></label>
-          <input id="contact-email" name="email" type="email" placeholder="you@example.com" required autocomplete="email" />
-          <label for="contact-topic">Focus area <span class="required-marker" aria-hidden="true">*</span></label>
-          <select id="contact-topic" name="topic" required>
-            <option value="">Select one…</option>
-            <option value="partnership">Partnership inquiry</option>
-            <option value="media">Media / press</option>
-            <option value="community">Community &amp; events</option>
-            <option value="other">Something else</option>
-          </select>
-          <label for="contact-message">Tell us what you need <span class="required-marker" aria-hidden="true">*</span></label>
-          <textarea id="contact-message" name="message" rows="7" placeholder="Share goals, timelines, and any assets we should review." required></textarea>
-          <button type="submit">Send message</button>
-        </form>
+        <p>We’ve taken the web form offline while we implement CSRF tokens and Cloudflare Turnstile.</p>
+        <ol>
+          <li>Email <a href="mailto:studio@blackframeai.org?subject=Partner%20or%20press%20inquiry">studio@blackframeai.org</a> with your topic in the subject line.</li>
+          <li>Include the same details you would have submitted (goals, timelines, relevant links).</li>
+          <li>Our team will reply within two business days and schedule a secure follow-up if needed.</li>
+        </ol>
+        <p class="form-required-note">This temporary process prevents spoofed submissions until automated defenses are live.</p>
       </section>
 
       <section class="content-section" aria-labelledby="contact-signals">
@@ -119,7 +108,7 @@
         </div>
       </section>
     </main>
-    <div class="footer">© 2025 BlackFrame AI Studio · <a href="mailto:studio@blackframeai.org">studio@blackframeai.org</a></div>
+    <div class="footer">© 2025 BlackFrame AI Studio · <a href="mailto:studio@blackframeai.org">studio@blackframeai.org</a> · <a href="/privacy/">Privacy &amp; transparency</a> · <a href="/.well-known/security.txt">Responsible disclosure</a></div>
   </div>
 </body>
 </html>

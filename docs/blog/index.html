@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BlackFrame AI, Studio Blog & AI Engine Proof</title>
+  <title>BlackFrame AI, Studio Blog &amp; AI Engine Proof</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://utteranc.es; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://utteranc.es; font-src 'self'; connect-src 'self'; frame-src https://utteranc.es; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
   <meta name="description" content="Follow the BlackFrame AI studio blog for the verified story behind BlackFrame Engine, the first AI-generated dual use engine." />
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="manifest" href="/manifest.json">
@@ -310,14 +313,8 @@
 
       <section class="newsletter-cta" aria-labelledby="newsletter-heading">
         <h2 id="newsletter-heading">Join the Transmission List</h2>
-        <p>Get studio updates, release notes, and partner briefs delivered weekly.</p>
-        <form class="newsletter-form" action="https://formsubmit.co/studio@blackframeai.org" method="POST">
-          <input type="hidden" name="_subject" value="New BlackFrame AI newsletter subscriber">
-          <input type="hidden" name="_next" value="https://www.blackframeai.org/thanks.html">
-          <label for="newsletter-email-blog">Subscribe for launch notes &amp; weekly recaps</label>
-          <input id="newsletter-email-blog" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
-          <button type="submit">Join the Transmission List</button>
-        </form>
+        <p class="newsletter-privacy">We’ve paused automatic sign-ups while we deploy CSRF validation and Turnstile human verification.</p>
+        <p class="newsletter-privacy">Email <a href="mailto:studio@blackframeai.org?subject=Blog%20updates">studio@blackframeai.org</a> to opt in manually, or follow the <a href="/blog/feed.xml">RSS feed</a> for instant updates.</p>
       </section>
 
       <section class="topic-hubs" aria-labelledby="topic-heading">
@@ -348,7 +345,7 @@
       </section>
     </main>
     <script src="/assets/blog-filter.js" defer></script>
-    <footer>© 2025 BlackFrame AI Studio</footer>
+    <footer>© 2025 BlackFrame AI Studio · <a href="mailto:studio@blackframeai.org">studio@blackframeai.org</a> · <a href="/privacy/">Privacy &amp; transparency</a> · <a href="/.well-known/security.txt">Responsible disclosure</a></footer>
   </div>
 </body>
 </html>
