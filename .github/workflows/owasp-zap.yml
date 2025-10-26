@@ -27,4 +27,5 @@ jobs:
         with:
           target: https://www.blackframeai.org
           cmd_options: '-a'
+          artifact_name: zap-scan
           allow_issue_writing: false
