@@ -10,7 +10,11 @@
   <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="manifest" href="/manifest.json" />
-  <link rel="stylesheet" href="/assets/styles.css" />
+  <link rel="preload" href="/assets/styles.css" as="style">
+
+  <link rel="stylesheet" href="/assets/styles.css" media="print" onload="this.media='all'">
+
+  <noscript><link rel="stylesheet" href="/assets/styles.css"></noscript>
   <script defer data-domain="blackframeai.org" src="https://plausible.io/js/script.js"></script>
 </head>
 <body class="privacy-page">
@@ -18,7 +22,7 @@
   <header class="site-header" role="banner">
     <div class="site-header__inner">
       <a class="site-brand" href="/" aria-label="BlackFrame AI home">
-        <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" loading="lazy" />
+        <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" loading="lazy">
         <span>BlackFrame AI</span>
       </a>
       <nav class="site-nav" aria-label="Primary">

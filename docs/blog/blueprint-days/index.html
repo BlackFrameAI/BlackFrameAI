@@ -36,7 +36,11 @@ tags:
   <meta property="article:tag" content="agentic-workflows" />
   <meta property="article:tag" content="studio-culture" />
   <link rel="manifest" href="/manifest.json" />
-  <link rel="stylesheet" href="/assets/styles.css" />
+  <link rel="preload" href="/assets/styles.css" as="style">
+
+  <link rel="stylesheet" href="/assets/styles.css" media="print" onload="this.media='all'">
+
+  <noscript><link rel="stylesheet" href="/assets/styles.css"></noscript>
   <style>
     html, body {
       margin: 0;
@@ -422,7 +426,7 @@ tags:
   <header class="site-header" role="banner">
     <div class="site-header__inner">
       <a class="site-brand" href="/blog/" aria-label="BlackFrame AI blog home">
-        <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" loading="lazy" />
+        <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" loading="lazy">
         <span>Studio Blog</span>
       </a>
       <nav class="site-nav" aria-label="Primary">
@@ -445,7 +449,7 @@ tags:
   <div class="page">
     <header class="page-header">
       <a href="/blog/" class="page-home-link">
-        <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" loading="lazy" />
+        <img src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" loading="lazy">
         <span>Back to Blog</span>
       </a>
       <div class="page-header__actions">
