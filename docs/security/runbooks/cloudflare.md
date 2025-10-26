@@ -22,7 +22,7 @@ Follow these exact clicks so Cloudflare injects the headers at the edge (HTML `<
       - **Value:** `www.blackframeai.org`
       - Click **Or** and repeat for `blackframeai.org` if you serve the apex.
    3. Under **Then...**, add the following actions (each is a separate row set to **Set static**):
-      - `Content-Security-Policy` = `default-src 'self'; script-src 'self' https://utteranc.es; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://utteranc.es; font-src 'self'; connect-src 'self'; frame-src https://utteranc.es; base-uri 'self'; form-action 'self'; upgrade-insecure-requests`
+      - `Content-Security-Policy` = `default-src 'self'; script-src 'self' https://utteranc.es https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://utteranc.es; font-src 'self'; connect-src 'self' https://plausible.io; frame-src https://utteranc.es; base-uri 'self'; form-action 'self'; upgrade-insecure-requests`
       - `Permissions-Policy` = `geolocation=(), microphone=(), camera=()`
       - `Referrer-Policy` = `strict-origin-when-cross-origin`
       - `X-Content-Type-Options` = `nosniff`

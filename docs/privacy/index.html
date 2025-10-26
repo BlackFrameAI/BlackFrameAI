@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Privacy &amp; Transparency · BlackFrame AI</title>
   <meta name="description" content="Learn how BlackFrame AI handles personal data, newsletter requests, and responsible disclosure." />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://utteranc.es; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://utteranc.es; font-src 'self'; connect-src 'self'; frame-src https://utteranc.es; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://utteranc.es https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://utteranc.es; font-src 'self'; connect-src 'self' https://plausible.io; frame-src https://utteranc.es; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
   <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="manifest" href="/manifest.json" />
   <link rel="stylesheet" href="/assets/styles.css" />
+  <script defer data-domain="blackframeai.org" src="https://plausible.io/js/script.js"></script>
 </head>
 <body class="privacy-page">
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -50,6 +51,7 @@
         <li><strong>Manual inquiries:</strong> Emails sent to <a href="mailto:studio@blackframeai.org">studio@blackframeai.org</a>, <a href="mailto:press@blackframeai.org">press@blackframeai.org</a>, or other @blackframeai.org addresses include the details you provide. We store them in encrypted mailboxes and shared CRM notes.</li>
         <li><strong>Blog comments:</strong> Utterances embeds authenticate through GitHub. Your GitHub username and comment content are public in the associated GitHub issue.</li>
         <li><strong>Server logs:</strong> Cloudflare provides anonymized request metrics (IP truncated, no fingerprinting) so we can detect abuse.</li>
+        <li><strong>Analytics:</strong> Plausible analytics captures aggregate page views and events without cookies. It records the page URL, referrer, and approximate region only; IP addresses are discarded and nothing is tied to an individual.</li>
       </ul>
     </section>
 
@@ -58,6 +60,7 @@
       <ul>
         <li>Respond to partnership, press, and community inquiries.</li>
         <li>Share verified studio updates when you explicitly request them.</li>
+        <li>Monitor aggregate engagement so we can catch broken journeys without profiling visitors.</li>
         <li>Monitor service health, abuse, and fraud attempts.</li>
       </ul>
       <p>We do not sell or rent personal data. Automated decision making is limited to spam filtering on our email providers.</p>
@@ -88,7 +91,7 @@
 
     <section class="content-section" aria-labelledby="updates">
       <h2 id="updates">Updates</h2>
-      <p>This page was last revised on <time datetime="2025-06-21">June 21, 2025</time>. We will document meaningful changes in the site changelog and version control history.</p>
+      <p>This page was last revised on <time datetime="2025-10-30">October 30, 2025</time>. We will document meaningful changes in the site changelog and version control history.</p>
     </section>
   </main>
   <footer class="page-footer">© 2025 BlackFrame AI Studio · <a href="mailto:studio@blackframeai.org">studio@blackframeai.org</a> · <a href="/privacy/">Privacy &amp; transparency</a> · <a href="/.well-known/security.txt">Responsible disclosure</a></footer>

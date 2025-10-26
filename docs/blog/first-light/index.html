@@ -16,6 +16,9 @@ tags:
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://utteranc.es https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://utteranc.es; font-src 'self'; connect-src 'self' https://plausible.io; frame-src https://utteranc.es; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
   <title>First Light, Day 5 Render Bring-Up | BlackFrame AI Studio</title>
   <meta name="description" content="Day 5 pushed BlackFrame Engine from telemetry-only runs into real OpenGL output, wiring the window stack, renderer, and build pipeline so Codex can start drawing for real." />
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
@@ -299,6 +302,7 @@ tags:
       font-size: 0.9rem;
     }
   </style>
+  <script defer data-domain="blackframeai.org" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
   <div class="page">

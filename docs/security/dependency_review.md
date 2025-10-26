@@ -21,3 +21,8 @@ Socket flagged `safer-buffer@2.1.2` (a transitive dependency of `jest-environmen
 ## Follow-up actions
 - Re-run `npm test` and `npm audit` after dependency updates to confirm the suite passes and no additional vulnerabilities appear.
 - Capture future dependency approvals in this document so auditors can trace who accepted each risk and why.
+
+## October 30, 2025 dependency health check
+- `npm audit` reports **0 vulnerabilities** for the current dependency graph.
+- No direct or transitive updates were required after the Socket review.
+- Next review: align with the November Dependabot sweep unless new alerts appear sooner.
