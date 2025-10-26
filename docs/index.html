@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BlackFrame AI, Home of the First Verifiable AI-Generated Dual Use Engine</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://utteranc.es https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://utteranc.es; font-src 'self'; connect-src 'self' https://plausible.io; frame-src https://utteranc.es; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://utteranc.es https://plausible.io https://challenges.cloudflare.com https://ajax.cloudflare.com; style-src 'self' 'unsafe-inline' https://cloudflarefonts.com; img-src 'self' data: https://utteranc.es; font-src 'self' https://cloudflarefonts.com https://fonts.cloudflare.com; connect-src 'self' https://plausible.io; frame-src https://utteranc.es; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
   <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
 
@@ -35,6 +35,7 @@
   <link rel="manifest" href="/manifest.json">
   <link rel="alternate" type="application/rss+xml" title="BlackFrame AI Studio Blog" href="/blog/feed.xml">
   <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="https://cloudflarefonts.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin>
 
   <script defer data-domain="blackframeai.org" src="https://plausible.io/js/script.js"></script>
 </head>
@@ -403,8 +404,8 @@
     <div class="footer">© 2025 BlackFrame AI Studio · <a href="mailto:studio@blackframeai.org">studio@blackframeai.org</a> · <a href="/privacy/">Privacy &amp; transparency</a> · <a href="/.well-known/security.txt">Responsible disclosure</a></div>
   </div>
 
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-  <script src="/assets/forms.js" defer></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer data-cfasync="false"></script>
+  <script src="/assets/forms.js" defer data-cfasync="false"></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
