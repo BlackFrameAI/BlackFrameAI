@@ -5,6 +5,7 @@ title: Savepoint Uprising, Day 8 Codex Reinvents the Bootstrap | BlackFrame AI S
 description: Day 8 of Project BlackFrame: the save-system hardening and apt-over-apt-get pivot that unlocked autonomous builds and kept Codex in the fight.
 slug: 2025-10-27-savepoint-uprising
 publishDate: 2025-10-27
+updatedDate: 2025-10-27
 socialImage: /assets/social/savepoint-uprising-og.svg
 tags:
   - engine-rd
@@ -259,6 +260,36 @@ tags:
       text-decoration: underline;
     }
 
+    .changelog {
+      margin-top: 3rem;
+      padding: 1.8rem;
+      border: 1px solid rgba(77, 211, 255, 0.35);
+      border-radius: 18px;
+      background: rgba(0, 18, 32, 0.6);
+      box-shadow: 0 0 20px rgba(0, 120, 190, 0.2);
+    }
+
+    .changelog h2 {
+      margin-top: 0;
+      font-size: 1.35rem;
+      letter-spacing: 0.05em;
+      color: #8fd7ff;
+      text-transform: uppercase;
+    }
+
+    .changelog ul {
+      margin: 1rem 0 0;
+      padding-left: 1.2rem;
+      color: #d6e9ff;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .changelog time {
+      font-weight: 600;
+      color: #4dd3ff;
+    }
+
     .community-lead a {
       color: #66d0ff;
     }
@@ -321,29 +352,33 @@ tags:
           <ul class="tldr">
             <li>Rebuilt the SaveSystem’s checkpoint writes so Codex can auto-lock runs without corrupting progress.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L39-L41" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-15</a></sup></li>
             <li>Refactored <code>scripts/setup.sh</code> to swap brittle <code>apt-get</code> calls for reliable <code>apt</code> installs, clearing the container boot chokepoint.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2886-L2913" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup></li>
-            <li>Permanently un-vendored GLFW/GLAD and set the stage for an OpenGL vendorization audit Codex can now run autonomously.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2816-L2852" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup></li>
+            <li>Permanently un-vendored GLFW/GLAD, reinstated FetchContent, and queued an OpenGL vendorization audit Codex can now run autonomously.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2816-L2922" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup></li>
           </ul>
         </header>
 
         <section class="ai-claim-callout" aria-labelledby="ai-proof-heading">
           <span class="ai-claim-callout__label" id="ai-proof-heading">Why this day matters</span>
-          <p>Day 8 is where the studio proved Codex isn’t just a clever assistant—it’s a platform engineer. The SaveSystem began writing bulletproof checkpoints, and the bootstrap stack shed years of brittle vendor hacks. From now on, the only blockers are real code bugs, not container ghosts.</p>
+          <p>Day 8 is where the studio proved Codex isn’t just a clever assistant, it’s a platform engineer. The SaveSystem began writing bulletproof checkpoints, and the bootstrap stack shed years of brittle vendor hacks. From now on, the only blockers are real code bugs, not container ghosts.</p>
         </section>
 
         <h2>Setup</h2>
-        <p>The morning opened with the same dread we’ve seen on half the community forums: builds that freeze mid-link, saves that corrupt the second you need them. We had a reproducible repro—Codex would play the first few beats and then choke when it tried to persist a run. The mission for Day 8 was simple: lock the state, harden the bootstrap, and give Codex the freedom to test without waiting on human intervention.</p>
+        <p>The morning opened with the same dread we’ve seen on half the community forums: builds that freeze mid-link, saves that corrupt the second you need them. The master log documented Codex containers hanging before the linker ever touched OpenGL symbols and enumerated every dependency that still lived outside the sandbox.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2800-L2832" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup> We had a reproducible repro, Codex would play the first few beats and then choke when it tried to persist a run. The mission for Day 8 was simple: lock the state, harden the bootstrap, and give Codex the freedom to test without waiting on human intervention.</p>
+        <p>Phase 9.8 formally kicked off with an evidence pack that listed every failing symbol, every container hang, and the vendor isolation rules we needed to respect: no submodules, no external fetches, keep <code>setup.sh</code> authoritative.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2816-L2852" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup> That same block set the expectation that we would document each fix inside the vault, so every future Codex agent inherits the stabilized path instead of guessing.</p>
 
         <h2>Breakthroughs</h2>
         <p>Codex started by rewiring the SaveSystem. Checkpoints now flush deterministically, eliminating the phantom writes that cost us full runs earlier in the week. With the tighter write path, SaveSystem no longer drops data under heavy load, giving GameManager a reliable spine for every wave, boss phase, and menu transition.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L39-L41" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-15</a></sup></p>
-        <p>That same entry shows the second breakthrough: the build pipeline itself stabilized. Codex purged the stale vendor copies of GLFW and GLAD, reclaiming CMake’s native FetchContent flow so dependencies stay verifiable and diffable.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2915-L2922" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup> Suddenly the bootstrap looked clean again—no hidden forks, no silent mismatches, just upstream sources the agent can audit in real time.</p>
-        <p>With confidence restored, we charted Phase 9.8: an OpenGL vendorization audit that documents every symbol the container linker touches. The plan lays out four concrete steps, from packaging GL headers to validating mesa-free link passes, and Codex now has the breathing room to execute it without babysitting.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2816-L2852" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup></p>
+        <p>That same entry shows the second breakthrough: the build pipeline itself stabilized. Codex purged the stale vendor copies of GLFW and GLAD, reclaiming CMake’s native FetchContent flow so dependencies stay verifiable and diffable, and captured the before/after delta as a five-line state table inside the vault.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2915-L2930" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup> Suddenly the bootstrap looked clean again, no hidden forks, no silent mismatches, just upstream sources the agent can audit in real time.</p>
+        <p>Codex also wrote down the global repair order: <code>sudo apt update -y</code>, install the full stack of mesa, Wayland, RandR, and X11 headers, then rebuild without ever vendoring the graphics toolchain again.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2886-L2930" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup> The state table spelled out every before and after row so other teams can see how live-source fetches replaced brittle archives.</p>
+        <p>With confidence restored, we charted Phase 9.8: an OpenGL vendorization audit that documents every symbol the container linker touches. The plan lays out four concrete steps, from embedding portable headers, to validating mesa-free link passes, and locks in the no-submodule, no-network constraints Codex must follow as it executes autonomously.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2816-L2852" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup></p>
+        <p>The vault didn’t stop at local wins; it recorded the global blast radius. By the end of the day we had a published rule-set stating that all future Codex bootstrap work must treat <code>scripts/setup.sh</code> as canonical and lean on <code>apt</code> for Ubuntu 24.04 containers, guidance meant to unblock every other team still wrestling the same failure.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2932-L2952" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup></p>
 
         <h2>Failures &amp; Fixes</h2>
-        <p>We found the real villain hiding in plain sight: <code>apt-get</code>. Every failed build, every ghosted dependency report, traced back to a single assumption that Ubuntu 24.04 containers behaved like 20.04. They don’t. Entire families of graphics headers moved out of <code>apt-get</code>’s resolver, leaving Codex to spin endlessly.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2862-L2893" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup></p>
-        <p>The fix was almost insulting in its simplicity once we saw it: switch to <code>apt</code>, force an update, and install the full suite—Mesa, Wayland, RandR, X11—before we ever touch CMake. The script now codifies that flow, keeps an <code>apt-get</code> fallback for legacy nodes, and turns bootstrap red failures into actionable errors instead of silent timeouts.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2896-L2913" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup></p>
+        <p>We found the real villain hiding in plain sight: <code>apt-get</code>. Every failed build, every ghosted dependency report, traced back to a single assumption that Ubuntu 24.04 containers behaved like 20.04. They don’t. The log spells out the failure tree, missing Wayland, RandR, EGL, X11 headers, plus the community impact of two years of forum escalations caused by that mismatch.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2862-L2884" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup></p>
+        <p>The fix was almost insulting in its simplicity once we saw it: switch to <code>apt</code>, force an update, and install the full suite, Mesa, Wayland, RandR, X11, before we ever touch CMake. The script now codifies that flow, keeps an <code>apt-get</code> fallback for legacy nodes, and turns bootstrap red failures into actionable errors instead of silent timeouts.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2896-L2930" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup></p>
+        <p>Manual verification runs logged every package resolution in the vault, including the apt output that confirmed mesa-dev and glfw3Config now install without human hand-holding.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2886-L2929" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup> That record is what lets us point other studios at the transcript instead of making them relive the outage.</p>
 
         <h2>Next Steps</h2>
-        <p>Day 9’s objectives are already queued. Codex will execute the OpenGL vendorization probe, confirm GLAD’s generator stays locked to repo, and finish wiring cloud-sync backups into the hardened SaveSystem. More importantly, every future failure will actually be a game bug. The bootstrap is no longer a suspect.</p>
+        <p>Day 9’s objectives are already queued. Codex will execute the OpenGL vendorization probe, confirm GLAD’s generator stays locked to repo, and finish wiring cloud-sync backups into the hardened SaveSystem. The immediate action items are spelled out in the vault: embed portable GL headers, validate mesa-free link passes, document every symbol touchpoint, and keep <code>setup.sh</code> as the launchpad for every container repair.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2833-L2851" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup> More importantly, every future failure will actually be a game bug. The bootstrap is no longer a suspect.</p>
 
         <section class="author-card" aria-labelledby="author-heading">
           <h2 id="author-heading">Authored by BlackFrame AI Studio</h2>
@@ -358,9 +393,16 @@ tags:
           </ul>
         </section>
 
+        <section class="changelog" aria-labelledby="changelog-heading">
+          <h2 id="changelog-heading">Changelog</h2>
+          <ul>
+            <li><time datetime="2025-10-27">October 27, 2025</time>, Expanded Day 8 recap with container diagnostics, FetchContent reversals, and global bootstrap policy notes sourced from the devlog vault.</li>
+          </ul>
+        </section>
+
         <section class="community-section" aria-labelledby="community-heading">
           <h2 id="community-heading">Join the studio signal</h2>
-          <p class="community-lead">Follow <a href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">@blackframeai</a> on X for live drops, then leave your take below—every comment feeds the training data we use to steer the next sprint.</p>
+          <p class="community-lead">Follow <a href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">@blackframeai</a> on X for live drops, then leave your take below, every comment feeds the training data we use to steer the next sprint.</p>
           <div class="comment-container">
             <script src="https://utteranc.es/client.js"
               repo="BlackFrameAI/BlackFrameAI"
