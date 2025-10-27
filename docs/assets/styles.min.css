@@ -594,12 +594,12 @@ select {
 }
 
 .glossary-term {
+  --glossary-icon-size: 42px;
+  --glossary-gap: 0.75rem;
   border-left: 3px solid rgba(143, 215, 255, 0.7);
   padding-left: 1.2rem;
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.6rem 1rem;
-  align-items: flex-start;
+  gap: 0.4rem;
 }
 
 .glossary-term dt {
@@ -607,21 +607,20 @@ select {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #8fd7ff;
+  display: flex;
+  align-items: center;
+  gap: var(--glossary-gap);
 }
 
 .glossary-term dd {
   margin: 0;
+  margin-left: calc(var(--glossary-icon-size) + var(--glossary-gap));
   color: var(--text-secondary);
 }
 
-.glossary-definition {
-  display: grid;
-  gap: 0.4rem;
-}
-
 .glossary-icon {
-  width: 42px;
-  height: 42px;
+  width: var(--glossary-icon-size);
+  height: var(--glossary-icon-size);
   border-radius: 12px;
   background: rgba(53, 192, 255, 0.12);
   border: 1px solid rgba(143, 215, 255, 0.35);
@@ -629,6 +628,7 @@ select {
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 18px rgba(53, 192, 255, 0.25);
+  flex-shrink: 0;
 }
 
 .glossary-icon svg {
@@ -654,6 +654,23 @@ select {
     background: rgba(0, 20, 35, 0.9);
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
     padding: 2.2rem;
+  }
+
+  .glossary-term {
+    gap: 0.6rem;
+  }
+
+  .glossary-term dt {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .glossary-term dt .glossary-icon {
+    margin-bottom: 0.4rem;
+  }
+
+  .glossary-term dd {
+    margin-left: 0;
   }
 
   .site-header__inner {

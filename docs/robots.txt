@@ -1,3 +1,4 @@
+# Content-signal: search=yes, ai-train=no
 User-agent: *
 Allow: /
 Disallow: /devlog-vault/public/
