@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="preload" as="image" href="/assets/blackflame_logo_cleaned.svg" type="image/svg+xml">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BlackFrame AI, Home of the First Verifiable AI-Generated Dual Use Engine</title>
@@ -36,9 +37,9 @@
   <link rel="alternate" type="application/rss+xml" title="BlackFrame AI Studio Blog" href="/blog/feed.xml">
   <link rel="preconnect" href="https://cloudflarefonts.com" crossorigin>
   <link rel="preconnect" href="https://fonts.cloudflare.com" crossorigin>
-  <link rel="preload" href="/assets/styles.css" as="style">
-  <link rel="stylesheet" href="/assets/styles.css">
-  <noscript><link rel="stylesheet" href="/assets/styles.css"></noscript>
+  <link rel="preload" href="/assets/styles.min.css" as="style">
+  <link rel="stylesheet" href="/assets/styles.min.css">
+  <noscript><link rel="stylesheet" href="/assets/styles.min.css"></noscript>
   <link rel="stylesheet" href="https://cloudflarefonts.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin>
 
   <script defer data-domain="blackframeai.org" src="https://plausible.io/js/script.js"></script>
@@ -49,17 +50,7 @@
   <header class="site-header" role="banner">
     <div class="site-header__inner">
       <a class="site-brand" href="/" aria-label="BlackFrame AI home">
-        <picture>
-  <source srcset="/assets/blackflamelogo.avif" type="image/avif">
-  <source srcset="/assets/blackflamelogo.webp" type="image/webp">
-  <picture>
-  <source srcset="/assets/blackflamelogo.avif" type="image/avif">
-  <source srcset="/assets/blackflamelogo.webp" type="image/webp">
-  <picture>
-  <source srcset="/assets/blackflamelogo.avif" type="image/avif">
-  <source srcset="/assets/blackflamelogo.webp" type="image/webp">
-  <img    src="/assets/blackflamelogo.png" alt="BlackFrame AI logo" loading="lazy" loading="lazy" loading="lazy" loading="lazy">
-</picture>
+        <img src="/assets/blackflame_logo_cleaned.svg" alt="BlackFrame AI mark" class="logo" width="400" height="400" fetchpriority="high" loading="eager">
 </picture>
 </picture>
         <span>BlackFrame AI</span>
@@ -85,17 +76,7 @@
     <main id="main-content">
       <section class="hero" aria-labelledby="vision-heading">
         <a href="/" class="logo-link" aria-label="BlackFrame AI emblem">
-          <picture>
-  <source srcset="/assets/blackflamelogo.avif" type="image/avif">
-  <source srcset="/assets/blackflamelogo.webp" type="image/webp">
-  <picture>
-  <source srcset="/assets/blackflamelogo.avif" type="image/avif">
-  <source srcset="/assets/blackflamelogo.webp" type="image/webp">
-  <picture>
-  <source srcset="/assets/blackflamelogo.avif" type="image/avif">
-  <source srcset="/assets/blackflamelogo.webp" type="image/webp">
-  <img    src="/assets/blackflamelogo.png" alt="BlackFrame AI mark" class="logo" fetchpriority="high" loading="eager" loading="lazy" loading="lazy" loading="lazy">
-</picture>
+          <img src="/assets/blackflame_logo_cleaned.svg" alt="BlackFrame AI mark" class="logo" width="400" height="400" fetchpriority="high" loading="eager">
 </picture>
 </picture>
         </a>
@@ -440,7 +421,7 @@
       "@type": "Organization",
       "name": "BlackFrame AI Studio",
       "url": "https://www.blackframeai.org/",
-      "logo": "https://www.blackframeai.org/assets/blackflamelogo.png",
+      "logo": "https://www.blackframeai.org/assets/blackflame_logo_cleaned.svg",
       "description": "BlackFrame AI builds AI-powered game engines, creator co-pilots, and original interactive worlds.",
       "sameAs": [
         "https://x.com/blackframeai",
