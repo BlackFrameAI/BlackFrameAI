@@ -43,7 +43,16 @@
   <link rel="stylesheet" href="https://cloudflarefonts.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin>
 
   <script defer data-domain="blackframeai.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/assets/hotfix.css">
 </head>
+  <style id="hotfix-logo">
+/* HOTFIX: hero + sidebar logo */
+.logo{display:block;margin:0 auto;position:relative;left:0;transform:none;opacity:1;filter:none;mix-blend-mode:normal;z-index:2;max-width:420px;width:min(55vw,420px);height:auto}
+@media (max-width:640px){.logo{width:min(85vw,320px)}}
+aside img.logo,aside .logo,.sidebar img.logo,.sidebar .logo,aside img[alt*="BlackFrame"]{display:block!important;max-width:140px;width:min(22vw,140px);height:auto;margin:16px auto!important}
+aside,.sidebar{overflow:visible}
+  </style>
+
 
 <body class="home-page">
   <a class="skip-link" href="#main-content">Skip to main content</a>
