@@ -21,3 +21,6 @@ _html_backup/
 
 # local perf reports
 lh-*.json
+
+# local backups
+*.bak*
