@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<!--
+---
+title: Savepoint Uprising, Day 8 Codex Reinvents the Bootstrap | BlackFrame AI Studio
+description: Day 8 of Project BlackFrame: the save-system hardening and apt-over-apt-get pivot that unlocked autonomous builds and kept Codex in the fight.
+slug: 2025-10-27-savepoint-uprising
+publishDate: 2025-10-27
+socialImage: /assets/social/savepoint-uprising-og.svg
+tags:
+  - engine-rd
+  - agentic-workflows
+  - studio-culture
+---
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://utteranc.es https://plausible.io https://challenges.cloudflare.com https://ajax.cloudflare.com; style-src 'self' 'unsafe-inline' https://cloudflarefonts.com; img-src 'self' data: https://utteranc.es; font-src 'self' https://cloudflarefonts.com https://fonts.cloudflare.com; connect-src 'self' https://plausible.io; frame-src https://utteranc.es; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
+  <title>Savepoint Uprising, Day 8 Codex Reinvents the Bootstrap | BlackFrame AI Studio</title>
+  <meta name="description" content="Day 8 of Project BlackFrame: the save-system hardening and apt-over-apt-get pivot that unlocked autonomous builds and kept Codex in the fight." />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="canonical" href="https://www.blackframeai.org/blog/2025-10-27-savepoint-uprising/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Savepoint Uprising, Day 8 Codex Reinvents the Bootstrap" />
+  <meta property="og:description" content="Day 8 of Project BlackFrame hardened saves, refactored bootstrap scripts, and proved Codex can self-heal its build chain." />
+  <meta property="og:url" content="https://www.blackframeai.org/blog/2025-10-27-savepoint-uprising/" />
+  <meta property="og:image" content="https://www.blackframeai.org/assets/social/savepoint-uprising-og.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Savepoint Uprising, Day 8 Codex Reinvents the Bootstrap" />
+  <meta name="twitter:description" content="Day 8 of Project BlackFrame hardened saves, refactored bootstrap scripts, and proved Codex can self-heal its build chain." />
+  <meta name="twitter:image" content="https://www.blackframeai.org/assets/social/savepoint-uprising-og.svg" />
+  <meta property="article:tag" content="engine-rd" />
+  <meta property="article:tag" content="agentic-workflows" />
+  <meta property="article:tag" content="studio-culture" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <link rel="preconnect" href="https://cloudflarefonts.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.cloudflare.com" crossorigin>
+  <link rel="preload" href="/assets/styles.min.css" as="style">
+  <link rel="stylesheet" href="/assets/styles.min.css">
+  <noscript><link rel="stylesheet" href="/assets/styles.min.css"></noscript>
+  <link rel="stylesheet" href="https://cloudflarefonts.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: "Arial", sans-serif;
+      background:
+        url('/assets/bg_blackleather_processed.jpg') center center / cover no-repeat,
+        #000;
+      color: #f0f0f0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('/assets/tracer_animated_glow.svg') center center / cover no-repeat;
+      z-index: 0;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      backdrop-filter: blur(2px);
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      padding-top: 120px;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 32px 0;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .page-home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #f0f6ff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.9em;
+      text-decoration: none;
+    }
+
+    .page-home-link img {
+      height: 54px;
+      width: auto;
+      filter: drop-shadow(0 0 6px rgba(0, 191, 255, 0.45));
+    }
+
+    .cta,
+    .social-link {
+      padding: 0.6em 1.2em;
+      border: 1px solid #00afff88;
+      border-radius: 999px;
+      color: #f0f6ff;
+      font-size: 0.95em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(0, 30, 50, 0.55);
+      box-shadow: 0 0 12px rgba(0, 191, 255, 0.35);
+      backdrop-filter: blur(4px);
+      text-decoration: none;
+    }
+
+    .cta:hover,
+    .social-link:hover {
+      color: #fff;
+      border-color: #4dd3ff;
+      box-shadow: 0 0 18px rgba(77, 211, 255, 0.6);
+    }
+
+    .page-header__actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    main {
+      flex: 1;
+      width: min(960px, 92vw);
+      margin: 40px auto 80px;
+      background: rgba(0, 10, 20, 0.75);
+      border: 1px solid rgba(0, 160, 255, 0.25);
+      border-radius: 24px;
+      box-shadow: 0 0 35px rgba(0, 120, 190, 0.25);
+      padding: clamp(32px, 6vw, 72px);
+    }
+
+    article {
+      display: grid;
+      gap: 1.8rem;
+    }
+
+    article header {
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    article header p {
+      margin: 0;
+    }
+
+    article h1 {
+      font-size: clamp(2.6rem, 4vw, 3.2rem);
+      letter-spacing: 0.04em;
+      margin: 0;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    article h2 {
+      font-size: clamp(1.6rem, 2.4vw, 2rem);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 2.8rem;
+      color: #e3f5ff;
+    }
+
+    p {
+      line-height: 1.75;
+      font-size: 1.05rem;
+      color: #d6e9ff;
+      margin: 0;
+    }
+
+    ul.tldr {
+      margin: 0;
+      padding-left: 1.2rem;
+      display: grid;
+      gap: 0.4rem;
+      color: #d4ebff;
+      font-size: 1.05rem;
+    }
+
+    .ai-claim-callout {
+      border: 1px solid rgba(77, 211, 255, 0.4);
+      border-radius: 16px;
+      padding: 1.4rem;
+      background: rgba(0, 25, 45, 0.6);
+      box-shadow: 0 0 18px rgba(77, 211, 255, 0.15);
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .ai-claim-callout__label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #8bbce8;
+    }
+
+    .timeline-note {
+      margin: 1.8rem 0 2.4rem;
+      padding: 1.2rem 1.6rem;
+      border: 1px solid rgba(0, 160, 255, 0.35);
+      border-radius: 18px;
+      background: rgba(0, 20, 40, 0.65);
+      box-shadow: 0 0 18px rgba(0, 120, 190, 0.25);
+      color: #d4ebff;
+      line-height: 1.6;
+    }
+
+    .timeline-note strong {
+      display: block;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #8bbce8;
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-note time {
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .author-card,
+    .related-posts,
+    .community-section {
+      border-top: 1px solid rgba(77, 211, 255, 0.2);
+      padding-top: 1.6rem;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .related-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .related-list a {
+      color: #c6ebff;
+      text-decoration: none;
+    }
+
+    .related-list a:hover {
+      text-decoration: underline;
+    }
+
+    .community-lead a {
+      color: #66d0ff;
+    }
+
+    .community-lead a:hover {
+      text-decoration: underline;
+    }
+
+    .comment-container {
+      margin-top: 1.5rem;
+      background: rgba(12, 24, 40, 0.6);
+      border-radius: 16px;
+      padding: 1.2rem;
+      border: 1px solid rgba(120, 180, 255, 0.25);
+    }
+
+    .moderation-note {
+      font-size: 0.9rem;
+      color: #8bbce8;
+    }
+
+    footer {
+      padding: 32px;
+      text-align: center;
+      color: #8bbce8;
+      font-size: 0.9rem;
+    }
+  </style>
+  <script defer data-domain="blackframeai.org" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="page-header">
+      <a class="page-home-link" href="/blog/">
+        <picture>
+  <source srcset="/assets/blackflamelogo.avif" type="image/avif">
+  <source srcset="/assets/blackflamelogo.webp" type="image/webp">
+  <picture>
+  <source srcset="/assets/blackflamelogo.avif" type="image/avif">
+  <source srcset="/assets/blackflamelogo.webp" type="image/webp">
+  <img    src="/assets/blackflame_logo_cleaned.svg" alt="BlackFrame AI logo" loading="lazy" loading="lazy" loading="lazy" width="400" height="400" fetchpriority="high" loading="eager">
+</picture>
+</picture>
+        <span>Back to blog</span>
+      </a>
+      <div class="page-header__actions">
+        <a class="social-link" href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow on X</a>
+        <a class="cta" href="/contact/">Contact Studio</a>
+      </div>
+    </header>
+    <main>
+      <article>
+        <header>
+          <p class="timeline-note">
+            <strong>Production Log</strong>
+            Day 8 • <time datetime="2025-06-15">June 15, 2025</time>
+          </p>
+          <p>Studio Dispatch · Published <time datetime="2025-10-27">October 27, 2025</time></p>
+          <h1>Savepoint Uprising, Day 8 Codex Reinvents the Bootstrap</h1>
+          <ul class="tldr">
+            <li>Rebuilt the SaveSystem’s checkpoint writes so Codex can auto-lock runs without corrupting progress.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L39-L41" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-15</a></sup></li>
+            <li>Refactored <code>scripts/setup.sh</code> to swap brittle <code>apt-get</code> calls for reliable <code>apt</code> installs, clearing the container boot chokepoint.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2886-L2913" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup></li>
+            <li>Permanently un-vendored GLFW/GLAD and set the stage for an OpenGL vendorization audit Codex can now run autonomously.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2816-L2852" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup></li>
+          </ul>
+        </header>
+
+        <section class="ai-claim-callout" aria-labelledby="ai-proof-heading">
+          <span class="ai-claim-callout__label" id="ai-proof-heading">Why this day matters</span>
+          <p>Day 8 is where the studio proved Codex isn’t just a clever assistant—it’s a platform engineer. The SaveSystem began writing bulletproof checkpoints, and the bootstrap stack shed years of brittle vendor hacks. From now on, the only blockers are real code bugs, not container ghosts.</p>
+        </section>
+
+        <h2>Setup</h2>
+        <p>The morning opened with the same dread we’ve seen on half the community forums: builds that freeze mid-link, saves that corrupt the second you need them. We had a reproducible repro—Codex would play the first few beats and then choke when it tried to persist a run. The mission for Day 8 was simple: lock the state, harden the bootstrap, and give Codex the freedom to test without waiting on human intervention.</p>
+
+        <h2>Breakthroughs</h2>
+        <p>Codex started by rewiring the SaveSystem. Checkpoints now flush deterministically, eliminating the phantom writes that cost us full runs earlier in the week. With the tighter write path, SaveSystem no longer drops data under heavy load, giving GameManager a reliable spine for every wave, boss phase, and menu transition.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L39-L41" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-15</a></sup></p>
+        <p>That same entry shows the second breakthrough: the build pipeline itself stabilized. Codex purged the stale vendor copies of GLFW and GLAD, reclaiming CMake’s native FetchContent flow so dependencies stay verifiable and diffable.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2915-L2922" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup> Suddenly the bootstrap looked clean again—no hidden forks, no silent mismatches, just upstream sources the agent can audit in real time.</p>
+        <p>With confidence restored, we charted Phase 9.8: an OpenGL vendorization audit that documents every symbol the container linker touches. The plan lays out four concrete steps, from packaging GL headers to validating mesa-free link passes, and Codex now has the breathing room to execute it without babysitting.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2816-L2852" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup></p>
+
+        <h2>Failures &amp; Fixes</h2>
+        <p>We found the real villain hiding in plain sight: <code>apt-get</code>. Every failed build, every ghosted dependency report, traced back to a single assumption that Ubuntu 24.04 containers behaved like 20.04. They don’t. Entire families of graphics headers moved out of <code>apt-get</code>’s resolver, leaving Codex to spin endlessly.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2862-L2893" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup></p>
+        <p>The fix was almost insulting in its simplicity once we saw it: switch to <code>apt</code>, force an update, and install the full suite—Mesa, Wayland, RandR, X11—before we ever touch CMake. The script now codifies that flow, keeps an <code>apt-get</code> fallback for legacy nodes, and turns bootstrap red failures into actionable errors instead of silent timeouts.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2896-L2913" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-15</a></sup></p>
+
+        <h2>Next Steps</h2>
+        <p>Day 9’s objectives are already queued. Codex will execute the OpenGL vendorization probe, confirm GLAD’s generator stays locked to repo, and finish wiring cloud-sync backups into the hardened SaveSystem. More importantly, every future failure will actually be a game bug. The bootstrap is no longer a suspect.</p>
+
+        <section class="author-card" aria-labelledby="author-heading">
+          <h2 id="author-heading">Authored by BlackFrame AI Studio</h2>
+          <p>We pair autonomous agents with human editors to ship production-ready engines, tools, and dispatches. Have questions? <a href="mailto:studio@blackframeai.org">studio@blackframeai.org</a></p>
+        </section>
+
+        <section class="related-posts" aria-labelledby="related-heading">
+          <h2 id="related-heading">Continue the arc</h2>
+          <ul class="related-list">
+            <li><a href="/blog/bootstrap-recovery/">Bootstrap Recovery, Day 7 Codex Self-Heal</a></li>
+            <li><a href="/blog/proof-of-frame/">Proof of Frame, Day 6 Render Validation</a></li>
+          </ul>
+        </section>
+
+        <section class="community-section" aria-labelledby="community-heading">
+          <h2 id="community-heading">Join the studio signal</h2>
+          <p class="community-lead">Follow <a href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">@blackframeai</a> on X for live drops, then leave your take below—every comment feeds the training data we use to steer the next sprint.</p>
+          <div class="comment-container">
+            <script src="https://utteranc.es/client.js"
+              repo="BlackFrameAI/BlackFrameAI"
+              issue-term="pathname"
+              label="blog-comments"
+              theme="github-dark"
+              crossorigin="anonymous"
+              async>
+            </script>
+            <p class="moderation-note">Community guidelines are simple: stay constructive, cite your sources, and help us keep the vault verifiable.</p>
+          </div>
+        </section>
+      </article>
+    </main>
+    <footer>
+      &copy; <span id="year">2025</span> BlackFrame AI Studio. All rights reserved.
+    </footer>
+  </div>
+  <script>
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
+</html>

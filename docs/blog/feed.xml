@@ -5,7 +5,15 @@
     <link>https://www.blackframeai.org/blog/</link>
     <description>Daily dispatches, devlogs, and pillar guides from BlackFrame AI Studio.</description>
     <language>en-US</language>
-    <lastBuildDate>Sun, 26 Oct 2025 18:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 27 Oct 2025 18:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Savepoint Uprising, Day 8 Codex Reinvents the Bootstrap</title>
+      <link>https://www.blackframeai.org/blog/2025-10-27-savepoint-uprising/</link>
+      <guid>https://www.blackframeai.org/blog/2025-10-27-savepoint-uprising/</guid>
+      <pubDate>Mon, 27 Oct 2025 09:00:00 GMT</pubDate>
+      <dc:date>2025-10-27T09:00:00Z</dc:date>
+      <description><![CDATA[Day 8 hardened the SaveSystem, swapped apt-get for apt, and reopened FetchContent so Codex can self-heal its builds.]]></description>
+    </item>
     <item>
       <title>Bootstrap Recovery, Day 7 Codex Self-Heal</title>
       <link>https://www.blackframeai.org/blog/bootstrap-recovery/</link>

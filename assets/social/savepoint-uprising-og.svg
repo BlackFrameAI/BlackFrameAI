@@ -1,0 +1,29 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#050e1d" />
+      <stop offset="45%" stop-color="#0b1e35" />
+      <stop offset="100%" stop-color="#133757" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#34d0ff" />
+      <stop offset="50%" stop-color="#6ea7ff" />
+      <stop offset="100%" stop-color="#9b7cff" />
+    </linearGradient>
+    <radialGradient id="flare" cx="0.5" cy="0.3" r="0.8">
+      <stop offset="0%" stop-color="rgba(77,211,255,0.55)" />
+      <stop offset="100%" stop-color="rgba(10,20,40,0)" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#flare)" />
+  <g fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2">
+    <path d="M80 140h1040M80 260h1040M80 380h1040M80 500h1040" />
+    <path d="M140 90v470M300 90v470M460 90v470M620 90v470M780 90v470M940 90v470" />
+  </g>
+  <text x="110" y="200" fill="#4dd3ff" font-family="'Segoe UI', 'Inter', sans-serif" font-size="70" letter-spacing="0.04em">BLACKFRAME AI DEVLOG</text>
+  <text x="110" y="285" fill="#f4f8ff" font-family="'Segoe UI', 'Inter', sans-serif" font-size="58" letter-spacing="0.06em">DAY 8 · SAVEPOINT UPRISING</text>
+  <text x="110" y="360" fill="#cbe7ff" font-family="'Segoe UI', 'Inter', sans-serif" font-size="32" letter-spacing="0.08em">APT OVER APT-GET · SAVE HARDENING · AUTONOMOUS BOOTSTRAP</text>
+  <rect x="110" y="400" width="520" height="6" fill="url(#accent)" rx="3" />
+  <text x="110" y="470" fill="#8bbce8" font-family="'Segoe UI', 'Inter', sans-serif" font-size="28" letter-spacing="0.12em">EVIDENCE TRAIL LOCKED IN DEVLOG VAULT</text>
+</svg>
