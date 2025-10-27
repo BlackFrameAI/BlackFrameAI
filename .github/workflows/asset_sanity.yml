@@ -1,0 +1,16 @@
+name: asset-sanity
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify assets referenced in HTML exist
+        run: |
+          set -e
+          missing=0
+          list=$(awk 'match($0,/src="(\/assets\/[^"]+\.(png|jpe?g|webp|avif))"/,m){print m[1]}' docs/**/*.html 2>/dev/null | sort -u)
+          for p in $list; do
+            [ -f "docs$p" ] || { echo "MISSING: docs$p"; missing=1; }
+          done
+          exit $missing
