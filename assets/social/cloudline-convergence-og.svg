@@ -1,0 +1,29 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#040b16" />
+      <stop offset="45%" stop-color="#0b1d31" />
+      <stop offset="100%" stop-color="#163a5b" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#29d8ff" />
+      <stop offset="50%" stop-color="#5da7ff" />
+      <stop offset="100%" stop-color="#9a7cff" />
+    </linearGradient>
+    <radialGradient id="flare" cx="0.6" cy="0.3" r="0.8">
+      <stop offset="0%" stop-color="rgba(77,211,255,0.55)" />
+      <stop offset="100%" stop-color="rgba(10,20,40,0)" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#flare)" />
+  <g fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2">
+    <path d="M90 150h1020M90 270h1020M90 390h1020M90 510h1020" />
+    <path d="M150 100v450M310 100v450M470 100v450M630 100v450M790 100v450M950 100v450" />
+  </g>
+  <text x="120" y="205" fill="#4dd3ff" font-family="'Segoe UI','Inter',sans-serif" font-size="70" letter-spacing="0.04em">BLACKFRAME AI DEVLOG</text>
+  <text x="120" y="290" fill="#f4f8ff" font-family="'Segoe UI','Inter',sans-serif" font-size="58" letter-spacing="0.06em">DAY 9 · CLOUDLINE CONVERGENCE</text>
+  <text x="120" y="365" fill="#cbe7ff" font-family="'Segoe UI','Inter',sans-serif" font-size="32" letter-spacing="0.08em">AUTONOMOUS SAVES · FACTION SIGNALS · CLOUD BACKUPS</text>
+  <rect x="120" y="405" width="540" height="6" fill="url(#accent)" rx="3" />
+  <text x="120" y="475" fill="#8bbce8" font-family="'Segoe UI','Inter',sans-serif" font-size="28" letter-spacing="0.12em">EVIDENCE TRAIL LOCKED IN DEVLOG VAULT</text>
+</svg>

@@ -5,7 +5,15 @@
     <link>https://www.blackframeai.org/blog/</link>
     <description>Daily dispatches, devlogs, and pillar guides from BlackFrame AI Studio.</description>
     <language>en-US</language>
-    <lastBuildDate>Mon, 27 Oct 2025 18:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 28 Oct 2025 18:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Cloudline Convergence, Day 9 Codex Locks the Run</title>
+      <link>https://www.blackframeai.org/blog/2025-10-28-cloudline-convergence/</link>
+      <guid>https://www.blackframeai.org/blog/2025-10-28-cloudline-convergence/</guid>
+      <pubDate>Tue, 28 Oct 2025 09:00:00 GMT</pubDate>
+      <dc:date>2025-10-28T09:00:00Z</dc:date>
+      <description><![CDATA[Day 9 bound StageManager, hub overlays, and cloud backups so Codex can pivot factions mid-run without losing progress.]]></description>
+    </item>
     <item>
       <title>Savepoint Uprising, Day 8 Codex Reinvents the Bootstrap</title>
       <link>https://www.blackframeai.org/blog/2025-10-27-savepoint-uprising/</link>
