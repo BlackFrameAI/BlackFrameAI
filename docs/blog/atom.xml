@@ -3,11 +3,19 @@
   <title>BlackFrame AI Studio Blog</title>
   <link href="https://www.blackframeai.org/blog/" />
   <link rel="self" type="application/atom+xml" href="https://www.blackframeai.org/blog/atom.xml" />
-  <updated>2025-10-27T18:00:00Z</updated>
+  <updated>2025-10-28T18:00:00Z</updated>
   <id>https://www.blackframeai.org/blog/</id>
   <author>
     <name>BlackFrame AI Studio</name>
   </author>
+  <entry>
+    <title>Cloudline Convergence, Day 9 Codex Locks the Run</title>
+    <link href="https://www.blackframeai.org/blog/2025-10-28-cloudline-convergence/" />
+    <id>https://www.blackframeai.org/blog/2025-10-28-cloudline-convergence/</id>
+    <updated>2025-10-28T09:00:00Z</updated>
+    <published>2025-10-28T09:00:00Z</published>
+    <summary type="html"><![CDATA[Day 9 bound StageManager, hub overlays, and cloud backups so Codex can pivot factions mid-run without losing progress.]]></summary>
+  </entry>
   <entry>
     <title>Savepoint Uprising, Day 8 Codex Reinvents the Bootstrap</title>
     <link href="https://www.blackframeai.org/blog/2025-10-27-savepoint-uprising/" />

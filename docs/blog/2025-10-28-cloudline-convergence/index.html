@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!--
+---
+title: Cloudline Convergence, Day 9 Codex Locks the Run | BlackFrame AI Studio
+description: Day 9 of Project BlackFrame: wiring StageManager into autonomous saves, lighting faction-aware overlays, and letting Codex sync cloud backups while it reshapes the hub.
+slug: 2025-10-28-cloudline-convergence
+publishDate: 2025-10-28
+updatedDate: 2025-10-28
+socialImage: /assets/social/cloudline-convergence-og.svg
+tags:
+  - engine-rd
+  - agentic-workflows
+  - studio-culture
+---
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://utteranc.es https://plausible.io https://challenges.cloudflare.com https://ajax.cloudflare.com; style-src 'self' 'unsafe-inline' https://cloudflarefonts.com; img-src 'self' data: https://utteranc.es; font-src 'self' https://cloudflarefonts.com https://fonts.cloudflare.com; connect-src 'self' https://plausible.io; frame-src https://utteranc.es; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
+  <title>Cloudline Convergence, Day 9 Codex Locks the Run | BlackFrame AI Studio</title>
+  <meta name="description" content="Day 9 of Project BlackFrame: wiring StageManager into autonomous saves, lighting faction-aware overlays, and letting Codex sync cloud backups while it reshapes the hub." />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="canonical" href="https://www.blackframeai.org/blog/2025-10-28-cloudline-convergence/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Cloudline Convergence, Day 9 Codex Locks the Run" />
+  <meta property="og:description" content="Day 9 of Project BlackFrame connected StageManager to autonomous saves, turned on faction-aware overlays, and taught Codex to sync cloud backups mid-run." />
+  <meta property="og:url" content="https://www.blackframeai.org/blog/2025-10-28-cloudline-convergence/" />
+  <meta property="og:image" content="https://www.blackframeai.org/assets/social/cloudline-convergence-og.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cloudline Convergence, Day 9 Codex Locks the Run" />
+  <meta name="twitter:description" content="Day 9 of Project BlackFrame connected StageManager to autonomous saves, turned on faction-aware overlays, and taught Codex to sync cloud backups mid-run." />
+  <meta name="twitter:image" content="https://www.blackframeai.org/assets/social/cloudline-convergence-og.svg" />
+  <meta property="article:tag" content="engine-rd" />
+  <meta property="article:tag" content="agentic-workflows" />
+  <meta property="article:tag" content="studio-culture" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <link rel="preconnect" href="https://cloudflarefonts.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.cloudflare.com" crossorigin>
+  <link rel="preload" href="/assets/styles.min.css" as="style">
+  <link rel="stylesheet" href="/assets/styles.min.css">
+  <noscript><link rel="stylesheet" href="/assets/styles.min.css"></noscript>
+  <link rel="stylesheet" href="https://cloudflarefonts.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: "Arial", sans-serif;
+      background:
+        url('/assets/bg_blackleather_processed.jpg') center center / cover no-repeat,
+        #000;
+      color: #f0f0f0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('/assets/tracer_animated_glow.svg') center center / cover no-repeat;
+      z-index: 0;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      backdrop-filter: blur(2px);
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      padding-top: 120px;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 32px 0;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .page-home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #f0f6ff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.9em;
+      text-decoration: none;
+    }
+
+    .page-home-link img {
+      height: 54px;
+      width: auto;
+      filter: drop-shadow(0 0 6px rgba(0, 191, 255, 0.45));
+    }
+
+    .cta,
+    .social-link {
+      padding: 0.6em 1.2em;
+      border: 1px solid #00afff88;
+      border-radius: 999px;
+      color: #f0f6ff;
+      font-size: 0.95em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(0, 30, 50, 0.55);
+      box-shadow: 0 0 12px rgba(0, 191, 255, 0.35);
+      backdrop-filter: blur(4px);
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta:hover,
+    .cta:focus,
+    .social-link:hover,
+    .social-link:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 0 18px rgba(0, 191, 255, 0.55);
+    }
+
+    main {
+      flex: 1 0 auto;
+      padding: 0 32px 80px;
+    }
+
+    article {
+      max-width: 960px;
+      margin: 0 auto;
+      background: rgba(10, 20, 40, 0.65);
+      border: 1px solid rgba(0, 180, 255, 0.25);
+      border-radius: 18px;
+      padding: 48px;
+      box-shadow: 0 35px 120px rgba(0, 0, 0, 0.45);
+    }
+
+    article header > p {
+      margin: 0 0 0.6em;
+      font-size: 1em;
+      color: #d9e8ff;
+    }
+
+    article header h1 {
+      margin: 0 0 0.6em;
+      font-size: 2.6em;
+      line-height: 1.1;
+      color: #f6fbff;
+      text-shadow: 0 0 22px rgba(0, 191, 255, 0.35);
+    }
+
+    .timeline-note {
+      display: inline-flex;
+      gap: 8px;
+      align-items: baseline;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #87d6ff;
+    }
+
+    .tldr {
+      margin: 1.5em 0 0;
+      padding-left: 1.2em;
+      color: #e2f3ff;
+      font-size: 1.05em;
+      line-height: 1.6;
+    }
+
+    .tldr li {
+      margin-bottom: 0.8em;
+    }
+
+    .ai-claim-callout {
+      margin: 2.5em 0;
+      padding: 1.8em 2em;
+      border: 1px solid rgba(77, 211, 255, 0.4);
+      border-radius: 16px;
+      background: rgba(20, 40, 70, 0.6);
+      box-shadow: inset 0 0 24px rgba(0, 191, 255, 0.25);
+      color: #cde9ff;
+    }
+
+    .ai-claim-callout__label {
+      display: inline-block;
+      margin-bottom: 0.6em;
+      font-size: 0.85em;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #71d0ff;
+    }
+
+    h2 {
+      margin-top: 2.5em;
+      margin-bottom: 0.8em;
+      font-size: 1.9em;
+      color: #f1fbff;
+      text-shadow: 0 0 16px rgba(0, 191, 255, 0.25);
+    }
+
+    p {
+      line-height: 1.75;
+      margin-bottom: 1.4em;
+      color: #d4e7ff;
+    }
+
+    a {
+      color: #7ad7ff;
+    }
+
+    a:hover,
+    a:focus {
+      color: #b2e6ff;
+    }
+
+    .author-card,
+    .related-posts,
+    .community-section,
+    .changelog {
+      margin-top: 3em;
+      padding-top: 2em;
+      border-top: 1px solid rgba(0, 180, 255, 0.25);
+    }
+
+    .related-list {
+      display: grid;
+      gap: 0.8em;
+      list-style: none;
+      padding: 0;
+      margin: 1.4em 0 0;
+    }
+
+    .related-list a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #b7e4ff;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .related-list a::after {
+      content: '→';
+      font-size: 0.9em;
+      transition: transform 0.2s ease;
+    }
+
+    .related-list a:hover::after,
+    .related-list a:focus::after {
+      transform: translateX(4px);
+    }
+
+    .community-section .comment-container {
+      margin-top: 1.6em;
+      padding: 1.2em;
+      background: rgba(12, 28, 48, 0.65);
+      border-radius: 12px;
+      border: 1px solid rgba(77, 211, 255, 0.2);
+    }
+
+    footer {
+      padding: 32px;
+      text-align: center;
+      font-size: 0.9em;
+      letter-spacing: 0.06em;
+      color: rgba(200, 230, 255, 0.68);
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding: 0 16px 60px;
+      }
+
+      article {
+        padding: 32px;
+      }
+
+      article header h1 {
+        font-size: 2.2em;
+      }
+    }
+  </style>
+  <script defer data-domain="blackframeai.org" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="page-header">
+      <a class="page-home-link" href="/blog/">
+        <picture>
+  <source srcset="/assets/blackflamelogo.avif" type="image/avif">
+  <source srcset="/assets/blackflamelogo.webp" type="image/webp">
+  <picture>
+  <source srcset="/assets/blackflamelogo.avif" type="image/avif">
+  <source srcset="/assets/blackflamelogo.webp" type="image/webp">
+  <img    src="/assets/blackflame_logo_cleaned.svg" alt="BlackFrame AI logo" loading="lazy" loading="lazy" loading="lazy" width="400" height="400" fetchpriority="high" loading="eager">
+</picture>
+</picture>
+        <span>Back to blog</span>
+      </a>
+      <div class="page-header__actions">
+        <a class="social-link" href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow on X</a>
+        <a class="cta" href="/contact/">Contact Studio</a>
+      </div>
+    </header>
+    <main>
+      <article>
+        <header>
+          <p class="timeline-note">
+            <strong>Production Log</strong>
+            Day 9 • <time datetime="2025-06-16">June 16, 2025</time>
+          </p>
+          <p>Studio Dispatch · Published <time datetime="2025-10-28">October 28, 2025</time></p>
+          <h1>Cloudline Convergence, Day 9 Codex Locks the Run</h1>
+          <ul class="tldr">
+            <li>StageManager, SaveSystem, and the lore overlays now move in sync, triggering automatic saves after waves while surfacing stage briefs inside the UI chrome.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L43-L63" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-16</a></sup></li>
+            <li>Faction reputation, alignment audio, and boss scaling now persist between hubs, letting the AchievementsOverlay, vendors, and dialogue react to Codex-driven choices.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L29-L47" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-16</a></sup></li>
+            <li>Codex gained manual and cloud fail-safes—`BackupCurrentRun`, hub-triggered saves, and cloud sync flip the run into archival mode whenever the operator calls it.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L52-L65" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-16</a></sup></li>
+          </ul>
+        </header>
+
+        <section class="ai-claim-callout" aria-labelledby="ai-proof-heading">
+          <span class="ai-claim-callout__label" id="ai-proof-heading">Why this day matters</span>
+          <p>Day 9 is when the engine’s safety net finally caught up with its ambition. The vault shows Codex lacing every stage transition into the SaveSystem, tinting the hub to match faction politics, and layering audio swells on top of the same state data. Runs no longer depend on perfect play; they survive because the agent can back them up on command.</p>
+        </section>
+
+        <h2>Setup</h2>
+        <p>We entered Day 9 still hunting the container instability that kicked off Phase 9.8. The master log framed the objective as isolating OpenGL symbols without breaking Codex’s network quarantine, spelling out the vendorization ground rules and the four-step probe the agent will run.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2820-L2852" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-16</a></sup> With that plan parked in the background, Codex turned toward the in-engine fallout: the SaveSystem could lock checkpoints, but it still depended on manual timing, and the hub lacked a trustworthy way to surface the state it was protecting.</p>
+        <p>The engine devlog captures how the team cataloged every missing hook before touching code. StageManager needed to broadcast wave completions, the overlays still painted static colors, and the new hub menu had no ability to fire backups or show legal disclaimers on first boot.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L43-L55" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-16</a></sup> Meanwhile, the gameplay log outlined a faction-heavy feature list: StarMap deployment, passive trees, alignment-driven dialogue, and the AchievementsOverlay all arrived without a persistence layer to bind them together.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L29-L47" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-16</a></sup> Day 9’s remit was to weave these systems into a single state spine.</p>
+
+        <h2>Breakthroughs</h2>
+        <p>The first breakthrough fused StageManager with the SaveSystem. Every wave, boss phase, and interaction now calls back into the save layer, guaranteeing that faction reputation, powerups, and hub progress are persisted the moment the encounter resolves.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L45-L63" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-16</a></sup> Stage definitions load from disk at startup, a random stage rolls for each run, and the overlays broadcast the lore snippet and stage name as soon as the selection lands, finally marrying narrative flavor to mechanical progression.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L57-L60" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-16</a></sup></p>
+        <p>The hub stopped being a static lobby. AchievementsOverlay lists unlocked feats, FactionReputation now persists in the SaveSystem, and the HUD shifts colors to telegraph a player’s standing with each faction.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L50-L63" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-16</a></sup> Game-side, the StarMap, vendor inventory filters, alignment-aware boss dialogue, and the new EnemyStateMachine all read from that same reputation store so Codex’s decisions ripple through the hub, the shop, and every combatant that spawns.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L29-L47" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-16</a></sup></p>
+        <p>Audio joined the feedback loop. The engine log shows AudioManager now juggling multiple buffers per channel and blending volumes so ambient, combat, and boss tracks crossfade based on alignment—and it even ships a <code>cv_audio_tests</code> unit test to keep the mix honest.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L54-L56" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-16</a></sup> The gameplay log mirrors that work with a music system that reacts to alignment, plus boss stat scaling that ensures the same reputation flag influences both the soundtrack and the fight.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L39-L42" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-16</a></sup> Add joystick detection and button support, and Codex can now feel the alignment arc through the controller as well as the screen.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L48-L51" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-16</a></sup></p>
+
+        <h2>Failures &amp; Fixes</h2>
+        <p>Day 9’s glaring weakness was resilience. Until this morning, if a wave collapsed or a build hiccup forced a restart, the studio had to replay the entire sequence because there was no operator-triggered backup. The devlog answers that gap by adding <code>SaveSystem::BackupCurrentRun</code>, wiring a dedicated hub overlay to fire it, and enabling cloud sync whenever the engine boots with the proper flag.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L52-L65" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-16</a></sup> Now Codex can snapshot the run before experimenting with new systems, then roll back without corrupting the slot.</p>
+        <p>The second failure hid inside repetition. Stage selection still pointed to a single hard-coded template, which meant testing faction tuning required manual scene swaps. By loading every stage definition from <code>game/assets/stages</code> and randomizing the pick, the engine now stress-tests enemy pools and lore intros automatically. StageProgressOverlay and StageDetailOverlay broadcast the results, so when reputation shifts an enemy roster, the UI proves it immediately.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L57-L61" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-16</a></sup></p>
+
+        <h2>Next Steps</h2>
+        <p>Phase 9.8 still looms. The vendorization brief recorded in the master log demands a full OpenGL audit: embed portable headers, document every symbol the linker touches, and keep <code>setup.sh</code> authoritative with <code>apt</code> as the default package resolver.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/Master_Devlog.txt#L2820-L2941" target="_blank" rel="noopener noreferrer">Master Devlog · 2025-06-16</a></sup> On the gameplay side, tomorrow’s tasks expand the same reputation backbone into altar events, vendor shuffles, and faction-tagged stage definitions, all queued in the June 17 entries.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L49-L71" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-17</a></sup> With backups secured, Codex finally gets to chase the rendering probe without risking the save stack.</p>
+
+        <section class="author-card" aria-labelledby="author-heading">
+          <h2 id="author-heading">Authored by BlackFrame AI Studio</h2>
+          <p>We pair autonomous agents with human editors to ship production-ready engines, tools, and dispatches. Have questions? <a href="mailto:studio@blackframeai.org">studio@blackframeai.org</a></p>
+        </section>
+
+        <section class="related-posts" aria-labelledby="related-heading">
+          <h2 id="related-heading">Continue the arc</h2>
+          <ul class="related-list">
+            <li><a href="/blog/2025-10-27-savepoint-uprising/">Savepoint Uprising, Day 8 Codex Reinvents the Bootstrap</a></li>
+            <li><a href="/blog/bootstrap-recovery/">Bootstrap Recovery, Day 7 Codex Self-Heal</a></li>
+          </ul>
+        </section>
+
+        <section class="changelog" aria-labelledby="changelog-heading">
+          <h2 id="changelog-heading">Changelog</h2>
+          <ul>
+            <li><time datetime="2025-10-28">October 28, 2025</time>, Initial publication distilling the Day 9 cloud-sync, faction persistence, and stage automation work logged in the Devlog Vault.</li>
+          </ul>
+        </section>
+
+        <section class="community-section" aria-labelledby="community-heading">
+          <h2 id="community-heading">Join the studio signal</h2>
+          <p class="community-lead">Follow <a href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">@blackframeai</a> on X for live drops, then leave your take below, every comment feeds the training data we use to steer the next sprint.</p>
+          <div class="comment-container">
+            <script src="https://utteranc.es/client.js"
+              repo="BlackFrameAI/BlackFrameAI"
+              issue-term="pathname"
+              label="blog-comments"
+              theme="github-dark"
+              crossorigin="anonymous"
+              async>
+            </script>
+            <p class="moderation-note">Community guidelines are simple: stay constructive, cite your sources, and help us keep the vault verifiable.</p>
+          </div>
+        </section>
+      </article>
+    </main>
+    <footer>
+      &copy; <span id="year">2025</span> BlackFrame AI Studio. All rights reserved.
+    </footer>
+  </div>
+  <script>
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
+</html>
