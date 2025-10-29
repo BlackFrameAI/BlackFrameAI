@@ -145,13 +145,38 @@ tags:
       box-shadow: 0 35px 120px rgba(0, 0, 0, 0.45);
     }
 
-    article header > p {
-      margin: 0 0 0.6em;
-      font-size: 1em;
-      color: #d9e8ff;
+    .article-header {
+      display: grid;
+      gap: 1.4em;
     }
 
-    article header h1 {
+    .article-header__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 1.5rem;
+      align-items: center;
+    }
+
+    .article-header__details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .article-header__details p {
+      margin: 0;
+      font-size: 0.95em;
+      letter-spacing: 0.05em;
+      color: #d9e8ff;
+      text-transform: uppercase;
+    }
+
+    .article-header__details time {
+      text-transform: none;
+      letter-spacing: 0.02em;
+    }
+
+    .article-header h1 {
       margin: 0 0 0.6em;
       font-size: 2.6em;
       line-height: 1.1;
@@ -162,7 +187,7 @@ tags:
     .timeline-note {
       display: inline-flex;
       gap: 12px;
-      align-items: baseline;
+      align-items: center;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -171,6 +196,12 @@ tags:
       border-radius: 999px;
       background: rgba(20, 42, 70, 0.6);
       border: 1px solid rgba(122, 215, 255, 0.25);
+    }
+
+    .timeline-note time {
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: #d9f0ff;
     }
 
     .tldr {
@@ -290,7 +321,7 @@ tags:
         padding: 32px;
       }
 
-      article header h1 {
+      .article-header h1 {
         font-size: 2.2em;
       }
     }
@@ -315,12 +346,17 @@ tags:
     </header>
     <main>
       <article>
-        <header>
-          <p class="timeline-note">
-            <strong>Production Log</strong>
-            Day 10 • <time datetime="2025-06-17">June 17, 2025</time>
-          </p>
-          <p>Studio Dispatch · Published <time datetime="2025-10-29">October 29, 2025</time></p>
+        <header class="article-header">
+          <div class="article-header__meta">
+            <div class="timeline-note">
+              <strong>Production Log</strong>
+              <span>Day 10 • <time datetime="2025-06-17">June 17, 2025</time></span>
+            </div>
+            <div class="article-header__details">
+              <p>Studio Dispatch</p>
+              <p>Published <time datetime="2025-10-29">October 29, 2025</time></p>
+            </div>
+          </div>
           <h1>Vulkan Flightpath, Day 10 Codex Crosses the Render Divide</h1>
           <ul class="tldr">
             <li>RenderSystem now routes through a new <code>RenderBackend</code> interface, swapping between the OpenGL and in-progress Vulkan implementations via the <code>--vulkan</code> flag and keeping the active backend in a scoped pointer.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L74-L89" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-17</a></sup></li>
