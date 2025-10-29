@@ -5,7 +5,15 @@
     <link>https://www.blackframeai.org/blog/</link>
     <description>Daily dispatches, devlogs, and pillar guides from BlackFrame AI Studio.</description>
     <language>en-US</language>
-    <lastBuildDate>Tue, 28 Oct 2025 18:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 29 Oct 2025 18:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Vulkan Flightpath, Day 10 Codex Crosses the Render Divide</title>
+      <link>https://www.blackframeai.org/blog/2025-10-29-vulkan-flight/</link>
+      <guid>https://www.blackframeai.org/blog/2025-10-29-vulkan-flight/</guid>
+      <pubDate>Wed, 29 Oct 2025 09:00:00 GMT</pubDate>
+      <dc:date>2025-10-29T09:00:00Z</dc:date>
+      <description><![CDATA[Day 10 split the renderer into pluggable backends, piped telemetry into CombatSimulator, and synced faction overlays to the same state spine.]]></description>
+    </item>
     <item>
       <title>Cloudline Convergence, Day 9 Codex Locks the Run</title>
       <link>https://www.blackframeai.org/blog/2025-10-28-cloudline-convergence/</link>
