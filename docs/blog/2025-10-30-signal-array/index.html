@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<!--
+---
+title: Signal Array, Day 11 Codex Orchestrates Multi-Window Control | BlackFrame AI Studio
+description: Day 11 of Project BlackFrame: Codex centralizes the display stack, routes telemetry into a studio-wide hub, and hardens saves with UI anchors and inventory restores.
+slug: 2025-10-30-signal-array
+publishDate: 2025-10-30
+updatedDate: 2025-10-30
+socialImage: /assets/social/signal-array-og.svg
+tags:
+  - engine-rd
+  - workflow-automation
+  - agentic-workflows
+---
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://utteranc.es https://plausible.io https://challenges.cloudflare.com https://ajax.cloudflare.com; style-src 'self' 'unsafe-inline' https://cloudflarefonts.com; img-src 'self' data: https://utteranc.es; font-src 'self' https://cloudflarefonts.com https://fonts.cloudflare.com; connect-src 'self' https://plausible.io; frame-src https://utteranc.es; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
+  <title>Signal Array, Day 11 Codex Orchestrates Multi-Window Control | BlackFrame AI Studio</title>
+  <meta name="description" content="Day 11 of Project BlackFrame: Codex centralizes the display stack, routes telemetry into a studio-wide hub, and hardens saves with UI anchors and inventory restores." />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="canonical" href="https://www.blackframeai.org/blog/2025-10-30-signal-array/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Signal Array, Day 11 Codex Orchestrates Multi-Window Control" />
+  <meta property="og:description" content="Day 11 centralized the display stack, routed telemetry into a studio-wide hub, and hardened saves with UI anchors and inventory restores." />
+  <meta property="og:url" content="https://www.blackframeai.org/blog/2025-10-30-signal-array/" />
+  <meta property="og:image" content="https://www.blackframeai.org/assets/social/signal-array-og.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Signal Array, Day 11 Codex Orchestrates Multi-Window Control" />
+  <meta name="twitter:description" content="Day 11 centralized the display stack, routed telemetry into a studio-wide hub, and hardened saves with UI anchors and inventory restores." />
+  <meta name="twitter:image" content="https://www.blackframeai.org/assets/social/signal-array-og.svg" />
+  <meta property="article:tag" content="engine-rd" />
+  <meta property="article:tag" content="workflow-automation" />
+  <meta property="article:tag" content="agentic-workflows" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <link rel="preconnect" href="https://cloudflarefonts.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.cloudflare.com" crossorigin>
+  <link rel="preload" href="/assets/styles.min.css" as="style">
+  <link rel="stylesheet" href="/assets/styles.min.css">
+  <noscript><link rel="stylesheet" href="/assets/styles.min.css"></noscript>
+  <link rel="stylesheet" href="https://cloudflarefonts.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: "Arial", sans-serif;
+      background:
+        url('/assets/bg_blackleather_processed.jpg') center center / cover no-repeat,
+        #000;
+      color: #f0f0f0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('/assets/tracer_animated_glow.svg') center center / cover no-repeat;
+      z-index: 0;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      backdrop-filter: blur(2px);
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      padding-top: 120px;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 32px 0;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .page-home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #f0f6ff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.9em;
+      text-decoration: none;
+    }
+
+    .page-home-link img {
+      height: 54px;
+      width: auto;
+      filter: drop-shadow(0 0 6px rgba(0, 191, 255, 0.45));
+    }
+
+    .cta,
+    .social-link {
+      padding: 0.6em 1.2em;
+      border: 1px solid #00afff88;
+      border-radius: 999px;
+      color: #f0f6ff;
+      font-size: 0.95em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(0, 30, 50, 0.55);
+      box-shadow: 0 0 12px rgba(0, 191, 255, 0.35);
+      backdrop-filter: blur(4px);
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta:hover,
+    .cta:focus,
+    .social-link:hover,
+    .social-link:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 0 18px rgba(0, 191, 255, 0.55);
+    }
+
+    main {
+      flex: 1 0 auto;
+      padding: 0 32px 80px;
+    }
+
+    article {
+      max-width: 960px;
+      margin: 0 auto;
+      background: rgba(10, 20, 40, 0.65);
+      border: 1px solid rgba(0, 180, 255, 0.25);
+      border-radius: 18px;
+      padding: 48px;
+      box-shadow: 0 35px 120px rgba(0, 0, 0, 0.45);
+    }
+
+    .article-header {
+      display: grid;
+      gap: 1.4em;
+    }
+
+    .article-header__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 1.5rem;
+      align-items: center;
+    }
+
+    .article-header__details {
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .article-header__details span {
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #8bbce8;
+    }
+
+    .article-header h1 {
+      font-size: 2.8rem;
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .article-header .tldr {
+      list-style: disc;
+      padding-left: 1.25rem;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    section {
+      margin-top: 2.5rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8bbce8;
+    }
+
+    p {
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .ai-claim-callout {
+      border-left: 4px solid rgba(0, 191, 255, 0.6);
+      padding: 1rem 1.5rem;
+      background: rgba(0, 60, 100, 0.35);
+      border-radius: 12px;
+    }
+
+    .ai-claim-callout__label {
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #52cfff;
+      display: inline-block;
+      margin-bottom: 0.4rem;
+    }
+
+    .author-card,
+    .related-posts,
+    .changelog,
+    .community-section {
+      background: rgba(0, 25, 55, 0.45);
+      border: 1px solid rgba(0, 180, 255, 0.2);
+      border-radius: 14px;
+      padding: 1.75rem;
+    }
+
+    .related-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .related-list a {
+      color: #cbe7ff;
+      text-decoration: none;
+    }
+
+    .related-list a:hover,
+    .related-list a:focus {
+      text-decoration: underline;
+    }
+
+    .community-section .comment-container {
+      margin-top: 1.5rem;
+      background: rgba(0, 0, 0, 0.35);
+      border-radius: 12px;
+      padding: 1rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(0, 191, 255, 0.1);
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(203, 231, 255, 0.7);
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding: 0 16px 64px;
+      }
+
+      article {
+        padding: 32px 24px;
+      }
+
+      .article-header h1 {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
+  <script defer data-domain="blackframeai.org" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+  <header class="page-header">
+    <a class="page-home-link" href="/blog/" aria-label="Back to blog home">
+      <img src="/assets/blackflame_logo_cleaned.svg" alt="BlackFrame AI flame logo" loading="lazy" />
+      <span>Back to blog</span>
+    </a>
+    <div class="page-header__actions">
+      <a class="social-link" href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow on X</a>
+      <a class="cta" href="/contact/">Contact Studio</a>
+    </div>
+  </header>
+
+  <div class="page">
+    <main>
+      <article>
+        <header class="article-header">
+          <div class="article-header__meta">
+            <div class="article-header__details">
+              <span>Day 11 • <time datetime="2025-06-20">June 20, 2025</time></span>
+              <span>Studio Dispatch</span>
+            </div>
+          </div>
+          <h1>Signal Array, Day 11 Codex Orchestrates Multi-Window Control</h1>
+          <ul class="tldr">
+            <li>MultiDisplayManager now owns presentation for every backend, loads window presets from disk or command-line, and ships with a RuntimeLauncher so operators can boot common flag sets in one hop.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L122-L139" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-20</a></sup></li>
+            <li>TelemetryManager aggregates live sensors, offline JSON captures, and the new HIL interface while the game layer consumes the same feed for combat rehearsals and hub dashboards.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L117-L168" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-20</a></sup><sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L85-L88" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-20</a></sup></li>
+            <li>SaveSystem quarantines corrupt slots, restores inventories and abilities, and pairs with anchored overlays plus stage timing fields so checkpoints replay exactly as Codex recorded them.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L162-L169" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-21</a></sup><sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L116-L137" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-21</a></sup></li>
+          </ul>
+        </header>
+
+        <section class="ai-claim-callout" aria-labelledby="ai-proof-heading">
+          <span class="ai-claim-callout__label" id="ai-proof-heading">Why this day matters</span>
+          <p>Day 11 documents Codex wiring the studio cockpit. Multi-window orchestration, telemetry routing, and resilient checkpoints now live inside the same evidence trail, proving the agent can coordinate screens, sensors, and saves without human babysitting.</p>
+        </section>
+
+        <h2>Setup</h2>
+        <p>The vault opens with the multi-display backlog we have ignored since the render bring-up: extra windows existed on paper, yet the engine only ever drove the primary surface and left the rest as placeholders.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L149-L155" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-21</a></sup> Until we solved presentation centrally, Vulkan, DX12, and Metal experiments risked trampling each other’s swapchains. The same log shows SaveSystem still reporting corrupt files in the wild, so failed writes could haunt the next run.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L162-L169" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-21</a></sup></p>
+        <p>Gameplay pressure was no lighter. The game log reminded us that telemetry had to be portable—combat and hub systems needed the same packets whether sensors were online or sourced from archival JSON.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L85-L88" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-20</a></sup> Meanwhile StageManager still lacked cadence fields, overlays overlapped, and checkpoints ignored inventory timers.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L118-L137" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-21</a></sup></p>
+
+        <h2>Breakthroughs</h2>
+        <p>Codex started by turning MultiDisplayManager into the presentation conductor. Displays now load from <code>game/assets/config/display.json</code> or a <code>--display-config</code> override, a new <code>--single-window</code> flag simplifies debug boots, and RuntimeLauncher packages common flag sets for operators.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L122-L139" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-20</a></sup><sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L146-L147" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-21</a></sup> With presentation now centralized, render backends stop swapping buffers directly, the stats window gains a dedicated RenderSystem, and Codex can experiment with the new DirectX and Metal stubs without touching the main loop.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L134-L155" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-20</a></sup></p>
+        <p>The second win is telemetry cohesion. TelemetryManager now unifies satellite feeds, offline JSON captures, and fresh HILInterface packets before exposing the stream to the Game layer.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L117-L168" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-20</a></sup> Gameplay consumes the same bus to fuel hub dashboards and combat rehearsals, meaning we can rehearse a sector siege even if the live sensors are cold.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L85-L88" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-20</a></sup></p>
+        <p>Finally, resilience caught up to ambition. SaveSystem now renames corrupted slots instead of overwriting them, serializes inventory and ability cooldowns, and restores the same payload on load.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L162-L169" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-21</a></sup> Stage definitions gained duration, spawn, and powerup intervals while overlays can anchor to any corner, giving Codex deterministic layouts each time a checkpoint replays.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L164-L165" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-21</a></sup><sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L118-L132" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-21</a></sup></p>
+
+        <h2>Failures &amp; Fixes</h2>
+        <p>Centralizing displays unearthed brittle edges. MultiDisplayManager needed a fallback when configs were missing and a quick escape hatch for single-window runs, both of which landed before the day closed.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L142-L147" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-21</a></sup> We also hit recursion in MemoryTracker while allocating the default context and patched it with raw <code>std::malloc</code> plus stack-overflow guards to keep diagnostics online.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L150-L151" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-21</a></sup></p>
+        <p>On the gameplay side we discovered our layouts could still collide when JSON failed to load. GameUIManager now falls back to built-in positions, logs the failure, and StageManager warns when definitions are missing so we never boot into an empty run without an alert.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L92-L132" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-21</a></sup></p>
+
+        <h2>Next Steps</h2>
+        <p>Additional windows still ship as placeholders, so tomorrow we push Codex to populate secondary displays with analytics and editor views now that presentation is centralized.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L149-L155" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-21</a></sup> Telemetry packets already feed stage timers and save restores, and the vault queues deeper work—hooking the new interval fields into encounter pacing and letting CombatSimulator replay those scripts under cloud-sync.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L118-L137" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-21</a></sup></p>
+
+        <section class="author-card" aria-labelledby="author-heading">
+          <h2 id="author-heading">Authored by BlackFrame AI Studio</h2>
+          <p>We pair autonomous agents with human editors to ship production-ready engines, tools, and dispatches. Have questions? <a href="mailto:studio@blackframeai.org">studio@blackframeai.org</a></p>
+        </section>
+
+        <section class="related-posts" aria-labelledby="related-heading">
+          <h2 id="related-heading">Continue the arc</h2>
+          <ul class="related-list">
+            <li><a href="/blog/2025-10-29-vulkan-flight/">Vulkan Flightpath, Day 10 Codex Crosses the Render Divide</a></li>
+            <li><a href="/blog/2025-10-28-cloudline-convergence/">Cloudline Convergence, Day 9 Codex Locks the Run</a></li>
+          </ul>
+        </section>
+
+        <section class="changelog" aria-labelledby="changelog-heading">
+          <h2 id="changelog-heading">Changelog</h2>
+          <ul>
+            <li><time datetime="2025-10-30">October 30, 2025</time>, Initial publication covering the Day 11 multi-window orchestration, telemetry routing, and checkpoint hardening captured in the Devlog Vault.</li>
+          </ul>
+        </section>
+
+        <section class="community-section" aria-labelledby="community-heading">
+          <h2 id="community-heading">Join the studio signal</h2>
+          <p class="community-lead">Follow <a href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">@blackframeai</a> on X for live drops, then leave your take below, every comment feeds the training data we use to steer the next sprint.</p>
+          <div class="comment-container">
+            <script src="https://utteranc.es/client.js"
+              repo="BlackFrameAI/BlackFrameAI"
+              issue-term="pathname"
+              label="blog-comments"
+              theme="github-dark"
+              crossorigin="anonymous"
+              async>
+            </script>
+            <p class="moderation-note">Community guidelines are simple: stay constructive, cite your sources, and help us keep the vault verifiable.</p>
+          </div>
+        </section>
+      </article>
+    </main>
+    <footer>
+      &copy; <span id="year">2025</span> BlackFrame AI Studio. All rights reserved.
+    </footer>
+  </div>
+  <script>
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
+</html>
