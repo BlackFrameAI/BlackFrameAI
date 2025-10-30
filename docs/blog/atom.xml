@@ -3,11 +3,19 @@
   <title>BlackFrame AI Studio Blog</title>
   <link href="https://www.blackframeai.org/blog/" />
   <link rel="self" type="application/atom+xml" href="https://www.blackframeai.org/blog/atom.xml" />
-  <updated>2025-10-29T18:00:00Z</updated>
+  <updated>2025-10-30T18:00:00Z</updated>
   <id>https://www.blackframeai.org/blog/</id>
   <author>
     <name>BlackFrame AI Studio</name>
   </author>
+  <entry>
+    <title>Signal Array, Day 11 Codex Orchestrates Multi-Window Control</title>
+    <link href="https://www.blackframeai.org/blog/2025-10-30-signal-array/" />
+    <id>https://www.blackframeai.org/blog/2025-10-30-signal-array/</id>
+    <updated>2025-10-30T09:00:00Z</updated>
+    <published>2025-10-30T09:00:00Z</published>
+    <summary type="html"><![CDATA[Day 11 centralizes multi-window control, unifies telemetry routing, and hardens checkpoints with anchored UI and inventory restores.]]></summary>
+  </entry>
   <entry>
     <title>Vulkan Flightpath, Day 10 Codex Crosses the Render Divide</title>
     <link href="https://www.blackframeai.org/blog/2025-10-29-vulkan-flight/" />

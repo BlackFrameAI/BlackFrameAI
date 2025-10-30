@@ -5,7 +5,15 @@
     <link>https://www.blackframeai.org/blog/</link>
     <description>Daily dispatches, devlogs, and pillar guides from BlackFrame AI Studio.</description>
     <language>en-US</language>
-    <lastBuildDate>Wed, 29 Oct 2025 18:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 30 Oct 2025 18:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Signal Array, Day 11 Codex Orchestrates Multi-Window Control</title>
+      <link>https://www.blackframeai.org/blog/2025-10-30-signal-array/</link>
+      <guid>https://www.blackframeai.org/blog/2025-10-30-signal-array/</guid>
+      <pubDate>Thu, 30 Oct 2025 09:00:00 GMT</pubDate>
+      <dc:date>2025-10-30T09:00:00Z</dc:date>
+      <description><![CDATA[Day 11 centralizes multi-window control, unifies telemetry routing, and hardens checkpoints with anchored UI and inventory restores.]]></description>
+    </item>
     <item>
       <title>Vulkan Flightpath, Day 10 Codex Crosses the Render Divide</title>
       <link>https://www.blackframeai.org/blog/2025-10-29-vulkan-flight/</link>
