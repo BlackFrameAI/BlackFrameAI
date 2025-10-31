@@ -3,11 +3,19 @@
   <title>BlackFrame AI Studio Blog</title>
   <link href="https://www.blackframeai.org/blog/" />
   <link rel="self" type="application/atom+xml" href="https://www.blackframeai.org/blog/atom.xml" />
-  <updated>2025-10-30T18:00:00Z</updated>
+  <updated>2025-10-31T18:00:00Z</updated>
   <id>https://www.blackframeai.org/blog/</id>
   <author>
     <name>BlackFrame AI Studio</name>
   </author>
+  <entry>
+    <title>Multiframe Failsafe, Day 12 Codex Locks the Recovery Spine</title>
+    <link href="https://www.blackframeai.org/blog/2025-10-31-multiframe-failsafe/" />
+    <id>https://www.blackframeai.org/blog/2025-10-31-multiframe-failsafe/</id>
+    <updated>2025-10-31T09:00:00Z</updated>
+    <published>2025-10-31T09:00:00Z</published>
+    <summary type="html"><![CDATA[Day 12 adds a multi-window failsafe, anchors every overlay, wires telemetry into the HUD, and deepens checkpoint restores.]]></summary>
+  </entry>
   <entry>
     <title>Signal Array, Day 11 Codex Orchestrates Multi-Window Control</title>
     <link href="https://www.blackframeai.org/blog/2025-10-30-signal-array/" />

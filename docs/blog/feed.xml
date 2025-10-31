@@ -5,7 +5,15 @@
     <link>https://www.blackframeai.org/blog/</link>
     <description>Daily dispatches, devlogs, and pillar guides from BlackFrame AI Studio.</description>
     <language>en-US</language>
-    <lastBuildDate>Thu, 30 Oct 2025 18:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 31 Oct 2025 18:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Multiframe Failsafe, Day 12 Codex Locks the Recovery Spine</title>
+      <link>https://www.blackframeai.org/blog/2025-10-31-multiframe-failsafe/</link>
+      <guid>https://www.blackframeai.org/blog/2025-10-31-multiframe-failsafe/</guid>
+      <pubDate>Fri, 31 Oct 2025 09:00:00 GMT</pubDate>
+      <dc:date>2025-10-31T09:00:00Z</dc:date>
+      <description><![CDATA[Day 12 adds a multi-window failsafe, anchors every overlay, wires telemetry into the HUD, and deepens checkpoint restores.]]></description>
+    </item>
     <item>
       <title>Signal Array, Day 11 Codex Orchestrates Multi-Window Control</title>
       <link>https://www.blackframeai.org/blog/2025-10-30-signal-array/</link>
