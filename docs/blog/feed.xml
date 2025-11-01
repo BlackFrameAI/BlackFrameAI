@@ -5,7 +5,15 @@
     <link>https://www.blackframeai.org/blog/</link>
     <description>Daily dispatches, devlogs, and pillar guides from BlackFrame AI Studio.</description>
     <language>en-US</language>
-    <lastBuildDate>Thu, 30 Oct 2025 18:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 01 Nov 2025 18:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Vector Surge, Day 13 Codex Threads Fonts, Network, and Stage FX</title>
+      <link>https://www.blackframeai.org/blog/2025-11-01-vector-surge/</link>
+      <guid>https://www.blackframeai.org/blog/2025-11-01-vector-surge/</guid>
+      <pubDate>Sat, 01 Nov 2025 09:00:00 GMT</pubDate>
+      <dc:date>2025-11-01T09:00:00Z</dc:date>
+      <description><![CDATA[Day 13 unifies procedural sprite parameters, upgrades to vector typography, and keeps network simulation aligned with new stage and space effects.]]></description>
+    </item>
     <item>
       <title>Signal Array, Day 11 Codex Orchestrates Multi-Window Control</title>
       <link>https://www.blackframeai.org/blog/2025-10-30-signal-array/</link>
