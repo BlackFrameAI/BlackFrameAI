@@ -13,6 +13,22 @@
       <pubDate>Sun, 02 Nov 2025 09:00:00 GMT</pubDate>
       <dc:date>2025-11-02T09:00:00Z</dc:date>
       <description><![CDATA[Day 14 layers debug overlays, SynthEngine audio logging, and GPU state capture so Codex can audit every frame.]]></description>
+    <lastBuildDate>Sat, 01 Nov 2025 18:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Vector Surge, Day 13 Codex Threads Fonts, Network, and Stage FX</title>
+      <link>https://www.blackframeai.org/blog/2025-11-01-vector-surge/</link>
+      <guid>https://www.blackframeai.org/blog/2025-11-01-vector-surge/</guid>
+      <pubDate>Sat, 01 Nov 2025 09:00:00 GMT</pubDate>
+      <dc:date>2025-11-01T09:00:00Z</dc:date>
+      <description><![CDATA[Day 13 unifies procedural sprite parameters, upgrades to vector typography, and keeps network simulation aligned with new stage and space effects.]]></description>
+    </item>
+    <item>
+      <title>Multiframe Failsafe, Day 12 Codex Locks the Recovery Spine</title>
+      <link>https://www.blackframeai.org/blog/2025-10-31-multiframe-failsafe/</link>
+      <guid>https://www.blackframeai.org/blog/2025-10-31-multiframe-failsafe/</guid>
+      <pubDate>Fri, 31 Oct 2025 09:00:00 GMT</pubDate>
+      <dc:date>2025-10-31T09:00:00Z</dc:date>
+      <description><![CDATA[Day 12 adds a multi-window failsafe, anchors every overlay, wires telemetry into the HUD, and deepens checkpoint restores.]]></description>
     </item>
     <item>
       <title>Signal Array, Day 11 Codex Orchestrates Multi-Window Control</title>
