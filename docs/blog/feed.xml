@@ -5,6 +5,14 @@
     <link>https://www.blackframeai.org/blog/</link>
     <description>Daily dispatches, devlogs, and pillar guides from BlackFrame AI Studio.</description>
     <language>en-US</language>
+    <lastBuildDate>Mon, 03 Nov 2025 18:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Instrumented Frontier, Day 15 Codex Verifies the Run</title>
+      <link>https://www.blackframeai.org/blog/2025-11-03-instrumented-frontier/</link>
+      <guid>https://www.blackframeai.org/blog/2025-11-03-instrumented-frontier/</guid>
+      <pubDate>Mon, 03 Nov 2025 09:00:00 GMT</pubDate>
+      <dc:date>2025-11-03T09:00:00Z</dc:date>
+      <description><![CDATA[Day 15 tightens GL validation, visualizes anchor layouts, toggles logging noise, and boots gameplay telemetry with cached builds.]]></description>
     <lastBuildDate>Sun, 02 Nov 2025 18:00:00 GMT</lastBuildDate>
     <item>
       <title>Diagnostic Cascade, Day 14 Codex Instruments the Signal Spine</title>

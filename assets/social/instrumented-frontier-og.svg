@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">BlackFrame AI Day 15 Instrumented Frontier</title>
+  <desc id="desc">Cover graphic for the Instrumented Frontier devlog featuring layered grids and telemetry lines.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020611" />
+      <stop offset="50%" stop-color="#0a2746" />
+      <stop offset="100%" stop-color="#041221" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f5ff" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#00b1ff" stop-opacity="0.6" />
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1ad6ff" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#005f9e" stop-opacity="0" />
+    </linearGradient>
+    <mask id="grid-mask">
+      <rect width="1200" height="630" fill="white" />
+      <g stroke="black" stroke-width="2">
+        <path d="M0 90h1200M0 180h1200M0 270h1200M0 360h1200M0 450h1200M0 540h1200" />
+        <path d="M120 0v630M240 0v630M360 0v630M480 0v630M600 0v630M720 0v630M840 0v630M960 0v630M1080 0v630" />
+      </g>
+    </mask>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <g opacity="0.6" mask="url(#grid-mask)">
+    <rect width="1200" height="630" fill="url(#accent)" />
+  </g>
+  <g fill="none" stroke="#3ee2ff" stroke-width="3" stroke-linecap="round" opacity="0.6">
+    <path d="M80 500 C 260 390, 380 410, 520 320 S 780 240, 1120 180" />
+    <path d="M80 440 C 200 360, 360 300, 520 260 S 860 210, 1080 120" opacity="0.35" />
+    <path d="M160 560 C 340 430, 460 420, 640 300 S 960 250, 1120 220" opacity="0.45" />
+  </g>
+  <g>
+    <text x="90" y="180" fill="#6fe5ff" font-family="'Inter', 'Segoe UI', sans-serif" font-size="42" letter-spacing="0.4em" text-transform="uppercase">Day 15</text>
+    <text x="90" y="250" fill="#e6f8ff" font-family="'Inter', 'Segoe UI', sans-serif" font-size="96" font-weight="700">Instrumented Frontier</text>
+    <text x="90" y="320" fill="#8fd8ff" font-family="'Inter', 'Segoe UI', sans-serif" font-size="40">Codex validates every frame, caches the build,</text>
+    <text x="90" y="370" fill="#8fd8ff" font-family="'Inter', 'Segoe UI', sans-serif" font-size="40">and lights up gameplay telemetry.</text>
+  </g>
+  <rect x="90" y="420" width="420" height="8" fill="url(#glow)" />
+  <text x="90" y="470" fill="#c4e9ff" font-family="'Inter', 'Segoe UI', sans-serif" font-size="28" letter-spacing="0.2em" text-transform="uppercase">BlackFrame AI Studio</text>
+</svg>
