@@ -4,11 +4,6 @@
   <link href="https://www.blackframeai.org/blog/" />
   <link rel="self" type="application/atom+xml" href="https://www.blackframeai.org/blog/atom.xml" />
   <updated>2025-11-06T18:00:00Z</updated>
-  <updated>2025-11-05T18:00:00Z</updated>
-  <updated>2025-11-04T18:00:00Z</updated>
-  <updated>2025-11-03T18:00:00Z</updated>
-  <updated>2025-11-02T18:00:00Z</updated>
-  <updated>2025-11-01T18:00:00Z</updated>
   <id>https://www.blackframeai.org/blog/</id>
   <author>
     <name>BlackFrame AI Studio</name>
@@ -20,30 +15,40 @@
     <updated>2025-11-06T09:00:00Z</updated>
     <published>2025-11-06T09:00:00Z</published>
     <summary type="html"><![CDATA[Day 18 unifies batched procedural rendering, unattended autotest runs, and registry-backed overlays to keep Codex's pipeline steady.]]></summary>
+  </entry>
+  <entry>
     <title>Procedural Takeover, Day 17 Codex Locks the HUD to Bind Defaults</title>
     <link href="https://www.blackframeai.org/blog/2025-11-05-procedural-takeover/" />
     <id>https://www.blackframeai.org/blog/2025-11-05-procedural-takeover/</id>
     <updated>2025-11-05T09:00:00Z</updated>
     <published>2025-11-05T09:00:00Z</published>
     <summary type="html"><![CDATA[Day 17 enforces bind-default helpers, throttles diagnostics, and cuts legacy loaders so the procedural HUD can stand on its own.]]></summary>
+  </entry>
+  <entry>
     <title>Crosswind Hardening, Day 16 Codex Stabilizes the Windows Sweep</title>
     <link href="https://www.blackframeai.org/blog/2025-11-04-crosswind-hardening/" />
     <id>https://www.blackframeai.org/blog/2025-11-04-crosswind-hardening/</id>
     <updated>2025-11-04T09:00:00Z</updated>
     <published>2025-11-04T09:00:00Z</published>
     <summary type="html"><![CDATA[Day 16 locks down Windows diagnostics, standardizes patch pipelines, and proves save persistence survives network recovery.]]></summary>
+  </entry>
+  <entry>
     <title>Instrumented Frontier, Day 15 Codex Verifies the Run</title>
     <link href="https://www.blackframeai.org/blog/2025-11-03-instrumented-frontier/" />
     <id>https://www.blackframeai.org/blog/2025-11-03-instrumented-frontier/</id>
     <updated>2025-11-03T09:00:00Z</updated>
     <published>2025-11-03T09:00:00Z</published>
     <summary type="html"><![CDATA[Day 15 tightens GL validation, visualizes anchor layouts, toggles logging noise, and boots gameplay telemetry with cached builds.]]></summary>
+  </entry>
+  <entry>
     <title>Diagnostic Cascade, Day 14 Codex Instruments the Signal Spine</title>
     <link href="https://www.blackframeai.org/blog/2025-11-02-diagnostic-cascade/" />
     <id>https://www.blackframeai.org/blog/2025-11-02-diagnostic-cascade/</id>
     <updated>2025-11-02T09:00:00Z</updated>
     <published>2025-11-02T09:00:00Z</published>
     <summary type="html"><![CDATA[Day 14 layers debug overlays, SynthEngine audio logging, and GPU state capture so Codex can audit every frame.]]></summary>
+  </entry>
+  <entry>
     <title>Vector Surge, Day 13 Codex Threads Fonts, Network, and Stage FX</title>
     <link href="https://www.blackframeai.org/blog/2025-11-01-vector-surge/" />
     <id>https://www.blackframeai.org/blog/2025-11-01-vector-surge/</id>
