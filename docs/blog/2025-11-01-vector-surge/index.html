@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<!--
+---
+title: Vector Surge, Day 13 Codex Threads Fonts, Network, and Stage FX | BlackFrame AI Studio
+description: Day 13 of Project BlackFrame: Codex parameterizes procedural sprites, swaps in a vector font UI, and syncs network simulation with fresh stage and space effects.
+slug: 2025-11-01-vector-surge
+publishDate: 2025-11-01
+updatedDate: 2025-11-01
+socialImage: /assets/social/vector-surge-og.svg
+tags:
+  - engine-rd
+  - workflow-automation
+  - agentic-workflows
+---
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://utteranc.es https://plausible.io https://challenges.cloudflare.com https://ajax.cloudflare.com; style-src 'self' 'unsafe-inline' https://cloudflarefonts.com; img-src 'self' data: https://utteranc.es; font-src 'self' https://cloudflarefonts.com https://fonts.cloudflare.com; connect-src 'self' https://plausible.io; frame-src https://utteranc.es; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
+  <title>Vector Surge, Day 13 Codex Threads Fonts, Network, and Stage FX | BlackFrame AI Studio</title>
+  <meta name="description" content="Day 13 of Project BlackFrame: Codex parameterizes procedural sprites, swaps in a vector font UI, and syncs network simulation with fresh stage and space effects." />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="canonical" href="https://www.blackframeai.org/blog/2025-11-01-vector-surge/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Vector Surge, Day 13 Codex Threads Fonts, Network, and Stage FX" />
+  <meta property="og:description" content="Day 13 parameterizes procedural sprites, swaps in a vector font UI, and syncs network simulation with fresh stage and space effects." />
+  <meta property="og:url" content="https://www.blackframeai.org/blog/2025-11-01-vector-surge/" />
+  <meta property="og:image" content="https://www.blackframeai.org/assets/social/vector-surge-og.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vector Surge, Day 13 Codex Threads Fonts, Network, and Stage FX" />
+  <meta name="twitter:description" content="Day 13 parameterizes procedural sprites, swaps in a vector font UI, and syncs network simulation with fresh stage and space effects." />
+  <meta name="twitter:image" content="https://www.blackframeai.org/assets/social/vector-surge-og.svg" />
+  <meta property="article:tag" content="engine-rd" />
+  <meta property="article:tag" content="workflow-automation" />
+  <meta property="article:tag" content="agentic-workflows" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <link rel="preconnect" href="https://cloudflarefonts.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.cloudflare.com" crossorigin>
+  <link rel="preload" href="/assets/styles.min.css" as="style">
+  <link rel="stylesheet" href="/assets/styles.min.css">
+  <noscript><link rel="stylesheet" href="/assets/styles.min.css"></noscript>
+  <link rel="stylesheet" href="https://cloudflarefonts.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: "Arial", sans-serif;
+      background:
+        url('/assets/bg_blackleather_processed.jpg') center center / cover no-repeat,
+        #000;
+      color: #f0f0f0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('/assets/tracer_animated_glow.svg') center center / cover no-repeat;
+      z-index: 0;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      backdrop-filter: blur(2px);
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      padding-top: 120px;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 32px 0;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .page-home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #f0f6ff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.9em;
+      text-decoration: none;
+    }
+
+    .page-home-link img {
+      height: 54px;
+      width: auto;
+      filter: drop-shadow(0 0 6px rgba(0, 191, 255, 0.45));
+    }
+
+    .cta,
+    .social-link {
+      padding: 0.6em 1.2em;
+      border: 1px solid #00afff88;
+      border-radius: 999px;
+      color: #f0f6ff;
+      font-size: 0.95em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(0, 30, 50, 0.55);
+      box-shadow: 0 0 12px rgba(0, 191, 255, 0.35);
+      backdrop-filter: blur(4px);
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta:hover,
+    .cta:focus,
+    .social-link:hover,
+    .social-link:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 0 18px rgba(0, 191, 255, 0.55);
+    }
+
+    main {
+      flex: 1 0 auto;
+      padding: 0 32px 80px;
+    }
+
+    article {
+      max-width: 960px;
+      margin: 0 auto;
+      background: rgba(10, 20, 40, 0.65);
+      border: 1px solid rgba(0, 180, 255, 0.25);
+      border-radius: 18px;
+      padding: 48px;
+      box-shadow: 0 35px 120px rgba(0, 0, 0, 0.45);
+    }
+
+    .article-header {
+      display: grid;
+      gap: 1.4em;
+    }
+
+    .article-header__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 1.5rem;
+      align-items: center;
+    }
+
+    .article-header__details {
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .article-header__details span {
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #8bbce8;
+    }
+
+    .article-header h1 {
+      font-size: 2.8rem;
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .article-header .tldr {
+      list-style: disc;
+      padding-left: 1.25rem;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    section {
+      margin-top: 2.5rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8bbce8;
+    }
+
+    p {
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .ai-claim-callout {
+      border-left: 4px solid rgba(0, 191, 255, 0.6);
+      padding: 1rem 1.5rem;
+      background: rgba(0, 60, 100, 0.35);
+      border-radius: 12px;
+    }
+
+    .ai-claim-callout__label {
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #52cfff;
+      display: inline-block;
+      margin-bottom: 0.4rem;
+    }
+
+    .author-card,
+    .related-posts,
+    .changelog,
+    .community-section {
+      background: rgba(0, 25, 55, 0.45);
+      border: 1px solid rgba(0, 180, 255, 0.2);
+      border-radius: 14px;
+      padding: 1.75rem;
+    }
+
+    .related-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .related-list a {
+      color: #cbe7ff;
+      text-decoration: none;
+    }
+
+    .related-list a:hover,
+    .related-list a:focus {
+      text-decoration: underline;
+    }
+
+    .community-section .comment-container {
+      margin-top: 1.5rem;
+      background: rgba(0, 0, 0, 0.35);
+      border-radius: 12px;
+      padding: 1rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(0, 191, 255, 0.1);
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(203, 231, 255, 0.7);
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding: 0 16px 64px;
+      }
+
+      article {
+        padding: 32px 24px;
+      }
+
+      .article-header h1 {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
+  <script defer data-domain="blackframeai.org" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+  <header class="page-header">
+    <a class="page-home-link" href="/blog/" aria-label="Back to blog home">
+      <img src="/assets/blackflame_logo_cleaned.svg" alt="BlackFrame AI flame logo" loading="lazy" />
+      <span>Back to blog</span>
+    </a>
+    <div class="page-header__actions">
+      <a class="social-link" href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow on X</a>
+      <a class="cta" href="/contact/">Contact Studio</a>
+    </div>
+  </header>
+
+  <div class="page">
+    <main>
+      <article>
+        <header class="article-header">
+          <div class="article-header__meta">
+            <div class="article-header__details">
+              <span>Day 13 • <time datetime="2025-06-22">June 22, 2025</time></span>
+              <span>Studio Dispatch</span>
+            </div>
+          </div>
+          <h1>Vector Surge, Day 13 Codex Threads Fonts, Network, and Stage FX</h1>
+          <ul class="tldr">
+            <li>ProceduralSpriteFrame now ingests a shared <code>SpriteParams</code> payload while the game’s factories assign rotation, scale, and tint defaults for every module, finally unifying how procedural sprites animate across both layers.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L171-L181" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-22</a></sup><sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L140-L154" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-22</a></sup></li>
+            <li>A minimal vector font now powers HUD overlays, ProceduralUI widgets, and the new Game Over scene so every screen inherits scalable typography without <code>stb_easy_font</code> artifacts.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L183-L187" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-22</a></sup><sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L156-L181" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-22</a></sup></li>
+            <li>NetworkSimulationManager now runs end-to-end while StageManager and SpaceManager paint fresh procedural FX, keeping netplay sync in lockstep with animated stages and fleet telemetry.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L191-L211" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-22</a></sup><sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L157-L179" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-22</a></sup></li>
+          </ul>
+        </header>
+
+        <section class="ai-claim-callout" aria-labelledby="ai-proof-heading">
+          <span class="ai-claim-callout__label" id="ai-proof-heading">Why this day matters</span>
+          <p>Day 13 shows Codex welding the visual stack and the simulation spine together. Sprite parameters, typography, and network replay now share one evidence trail, so art direction and deterministic sync finally move in the same stride.</p>
+        </section>
+
+        <h2>Setup</h2>
+        <p>We entered the shift with procedural sprites still carrying bespoke parameter structs. The engine log calls out the migration pressure—frames now need the unified <code>SpriteParams</code> bundle—while the game log proves every factory adopts the same rotation, scale, and tint defaults so modules no longer diverge.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L171-L181" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-22</a></sup><sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L140-L154" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-22</a></sup></p>
+        <p>Typography posed the second constraint. HUD overlays and buttons were still rendered with <code>stb_easy_font</code>, and the game log called for a Game Over scene that matched our procedural aesthetic—forcing Codex to land a vector font pipeline and ProceduralUI helpers instead of another placeholder pass.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L183-L187" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-22</a></sup><sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L156-L181" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-22</a></sup></p>
+        <p>The last blocker lived in the simulation spine. Engine work wired a NetworkSimulationManager and even opened the port, yet the game still had to drive it frame-by-frame while StageManager, SpaceManager, and ParticleManager shifted from placeholder shapes to animated procedural effects that reflect live telemetry.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L191-L211" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-22</a></sup><sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L149-L179" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-22</a></sup></p>
+
+        <h2>Breakthroughs</h2>
+        <p>Codex refactored ProceduralSpriteFrame to merge every draw-time parameter into <code>SpriteParams</code>, exposing rotation, scale, tint, and animation time to both engine tooling and gameplay factories. The game log confirms character modules, pickups, and FX helpers all adopt those defaults, removing the hand-tuned lambda math that previously desynced armor palettes and slash trails.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L171-L181" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-22</a></sup><sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L140-L155" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-22</a></sup></p>
+        <p>A minimal vector font renderer arrived next. The engine now exposes <code>drawTextScreen</code> while HUD overlays and buttons switch to the scalable glyph set; ProceduralUI helpers ride the same path so every widget inherits vector typography. Gameplay closes the loop by shipping a Game Over scene that leans entirely on the new font stack instead of the pixelated fallback.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L183-L187" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-22</a></sup><sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L156-L181" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-22</a></sup></p>
+        <p>On the simulation side, Engine now instantiates NetworkSimulationManager during startup and exposes the instance to the Game, complete with a live port binding and telemetry documentation. The game loop immediately consumes it, replicating player position, reconnecting HIL, and reacting to inbound packets so the same system drives co-op rehearsals and powerup triggers.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L191-L210" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-22</a></sup><sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L157-L176" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-22</a></sup></p>
+        <p>Stage and space rendering levelled up alongside networking. Engine authors SpaceVisuals with procedural ships and a star map, while the game’s StageManager, EnemyVisuals, PickupVisuals, and EffectSprites replace every placeholder primitive with animated geometry that refreshes each stage and pulses with telemetry-fed fleet positions.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L196-L204" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-22</a></sup><sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L149-L179" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-22</a></sup></p>
+
+        <h2>Failures &amp; Fixes</h2>
+        <p>The day’s cleanup focused on the remnants of our texture era. Enemy and powerup structs still held legacy texture handles, blocking procedural variants from hot-swapping frames. Engine stripped those members, stored live <code>ProceduralSpriteInstance</code> data instead, and the game managers followed by removing the old handles so rendering relies solely on procedural sprites.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L203-L207" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-22</a></sup><sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L170-L173" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-22</a></sup></p>
+        <p>Networking demanded similar triage. Save loads previously forgot to restore the network frame or HIL session, leaving clients desynced after a checkpoint. Engine now serializes the frame alongside physics state while the game layer reconnects interfaces and keeps player replication running each tick, preventing ghost inputs when a session resumes.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L208-L210" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-22</a></sup><sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L174-L176" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-22</a></sup></p>
+
+        <h2>Next Steps</h2>
+        <p>With variant switching helpers live in the engine and StageManager refreshing decor every stage, the next sprint pushes these procedural palettes into live rotation—cycling ship liveries and room effects through the same parameter set now that the groundwork is unified.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/engine_devlog.md#L211-L212" target="_blank" rel="noopener noreferrer">Engine Devlog · 2025-06-22</a></sup><sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L178-L179" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-22</a></sup></p>
+        <p>SpaceManager already parses telemetry packets and updates fleet positions; tying those feeds into CombatSimulator’s difficulty scaling will close the loop so the same network hooks drive both visuals and encounter tuning.<sup><a href="https://github.com/BlackFrameAI/BlackFrameAI/blob/main/docs/devlog-vault/public/docs/docs/devlogs/game_devlog.md#L159-L165" target="_blank" rel="noopener noreferrer">Game Devlog · 2025-06-22</a></sup></p>
+
+        <section class="related-posts" aria-labelledby="related-heading">
+          <h2 id="related-heading">Related dispatches</h2>
+          <ul class="related-list">
+            <li><a href="/blog/2025-10-30-signal-array/">Signal Array, Day 11 Codex Orchestrates Multi-Window Control</a></li>
+            <li><a href="/blog/2025-10-29-vulkan-flight/">Vulkan Flightpath, Day 10 Codex Crosses the Render Divide</a></li>
+          </ul>
+        </section>
+
+        <section class="community-section" aria-labelledby="community-heading">
+          <h2 id="community-heading">Join the BlackFrame community</h2>
+          <p>Follow <a href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">@blackframeai</a> for daily dispatches, engine drops, and partner calls. Drop a comment below if you want a deeper dive or to collaborate on the next systems sprint.</p>
+          <div class="comment-container">
+            <script src="https://utteranc.es/client.js"
+                    repo="BlackFrameAI/BlackFrameAI"
+                    issue-term="pathname"
+                    label="blog-comments"
+                    theme="photon-dark"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer>
+      <p>&copy; <span id="footer-year">2025</span> BlackFrame AI Studio. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
