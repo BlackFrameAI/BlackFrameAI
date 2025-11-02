@@ -3,11 +3,19 @@
   <title>BlackFrame AI Studio Blog</title>
   <link href="https://www.blackframeai.org/blog/" />
   <link rel="self" type="application/atom+xml" href="https://www.blackframeai.org/blog/atom.xml" />
-  <updated>2025-10-30T18:00:00Z</updated>
+  <updated>2025-11-04T18:00:00Z</updated>
   <id>https://www.blackframeai.org/blog/</id>
   <author>
     <name>BlackFrame AI Studio</name>
   </author>
+  <entry>
+    <title>Crosswind Hardening, Day 16 Codex Stabilizes the Windows Sweep</title>
+    <link href="https://www.blackframeai.org/blog/2025-11-04-crosswind-hardening/" />
+    <id>https://www.blackframeai.org/blog/2025-11-04-crosswind-hardening/</id>
+    <updated>2025-11-04T09:00:00Z</updated>
+    <published>2025-11-04T09:00:00Z</published>
+    <summary type="html"><![CDATA[Day 16 locks down Windows diagnostics, standardizes patch pipelines, and proves save persistence survives network recovery.]]></summary>
+  </entry>
   <entry>
     <title>Signal Array, Day 11 Codex Orchestrates Multi-Window Control</title>
     <link href="https://www.blackframeai.org/blog/2025-10-30-signal-array/" />
