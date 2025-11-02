@@ -5,6 +5,14 @@
     <link>https://www.blackframeai.org/blog/</link>
     <description>Daily dispatches, devlogs, and pillar guides from BlackFrame AI Studio.</description>
     <language>en-US</language>
+    <lastBuildDate>Wed, 05 Nov 2025 18:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Procedural Takeover, Day 17 Codex Locks the HUD to Bind Defaults</title>
+      <link>https://www.blackframeai.org/blog/2025-11-05-procedural-takeover/</link>
+      <guid>https://www.blackframeai.org/blog/2025-11-05-procedural-takeover/</guid>
+      <pubDate>Wed, 05 Nov 2025 09:00:00 GMT</pubDate>
+      <dc:date>2025-11-05T09:00:00Z</dc:date>
+      <description><![CDATA[Day 17 enforces bind-default helpers, throttles diagnostics, and cuts legacy loaders so the procedural HUD can stand on its own.]]></description>
     <lastBuildDate>Tue, 04 Nov 2025 18:00:00 GMT</lastBuildDate>
     <item>
       <title>Crosswind Hardening, Day 16 Codex Stabilizes the Windows Sweep</title>
