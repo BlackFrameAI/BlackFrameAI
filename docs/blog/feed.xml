@@ -5,6 +5,14 @@
     <link>https://www.blackframeai.org/blog/</link>
     <description>Daily dispatches, devlogs, and pillar guides from BlackFrame AI Studio.</description>
     <language>en-US</language>
+    <lastBuildDate>Sun, 02 Nov 2025 18:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Diagnostic Cascade, Day 14 Codex Instruments the Signal Spine</title>
+      <link>https://www.blackframeai.org/blog/2025-11-02-diagnostic-cascade/</link>
+      <guid>https://www.blackframeai.org/blog/2025-11-02-diagnostic-cascade/</guid>
+      <pubDate>Sun, 02 Nov 2025 09:00:00 GMT</pubDate>
+      <dc:date>2025-11-02T09:00:00Z</dc:date>
+      <description><![CDATA[Day 14 layers debug overlays, SynthEngine audio logging, and GPU state capture so Codex can audit every frame.]]></description>
     <lastBuildDate>Sat, 01 Nov 2025 18:00:00 GMT</lastBuildDate>
     <item>
       <title>Vector Surge, Day 13 Codex Threads Fonts, Network, and Stage FX</title>
