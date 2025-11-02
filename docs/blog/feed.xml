@@ -13,7 +13,7 @@
       <pubDate>Thu, 06 Nov 2025 09:00:00 GMT</pubDate>
       <dc:date>2025-11-06T09:00:00Z</dc:date>
       <description><![CDATA[Day 18 unifies batched procedural rendering, unattended autotest runs, and registry-backed overlays to keep Codex's pipeline steady.]]></description>
-    <lastBuildDate>Wed, 05 Nov 2025 18:00:00 GMT</lastBuildDate>
+    </item>
     <item>
       <title>Procedural Takeover, Day 17 Codex Locks the HUD to Bind Defaults</title>
       <link>https://www.blackframeai.org/blog/2025-11-05-procedural-takeover/</link>
@@ -21,7 +21,7 @@
       <pubDate>Wed, 05 Nov 2025 09:00:00 GMT</pubDate>
       <dc:date>2025-11-05T09:00:00Z</dc:date>
       <description><![CDATA[Day 17 enforces bind-default helpers, throttles diagnostics, and cuts legacy loaders so the procedural HUD can stand on its own.]]></description>
-    <lastBuildDate>Tue, 04 Nov 2025 18:00:00 GMT</lastBuildDate>
+    </item>
     <item>
       <title>Crosswind Hardening, Day 16 Codex Stabilizes the Windows Sweep</title>
       <link>https://www.blackframeai.org/blog/2025-11-04-crosswind-hardening/</link>
@@ -29,7 +29,7 @@
       <pubDate>Tue, 04 Nov 2025 09:00:00 GMT</pubDate>
       <dc:date>2025-11-04T09:00:00Z</dc:date>
       <description><![CDATA[Day 16 locks down Windows diagnostics, standardizes patch pipelines, and proves save persistence survives network recovery.]]></description>
-    <lastBuildDate>Mon, 03 Nov 2025 18:00:00 GMT</lastBuildDate>
+    </item>
     <item>
       <title>Instrumented Frontier, Day 15 Codex Verifies the Run</title>
       <link>https://www.blackframeai.org/blog/2025-11-03-instrumented-frontier/</link>
@@ -37,7 +37,7 @@
       <pubDate>Mon, 03 Nov 2025 09:00:00 GMT</pubDate>
       <dc:date>2025-11-03T09:00:00Z</dc:date>
       <description><![CDATA[Day 15 tightens GL validation, visualizes anchor layouts, toggles logging noise, and boots gameplay telemetry with cached builds.]]></description>
-    <lastBuildDate>Sun, 02 Nov 2025 18:00:00 GMT</lastBuildDate>
+    </item>
     <item>
       <title>Diagnostic Cascade, Day 14 Codex Instruments the Signal Spine</title>
       <link>https://www.blackframeai.org/blog/2025-11-02-diagnostic-cascade/</link>
@@ -45,7 +45,7 @@
       <pubDate>Sun, 02 Nov 2025 09:00:00 GMT</pubDate>
       <dc:date>2025-11-02T09:00:00Z</dc:date>
       <description><![CDATA[Day 14 layers debug overlays, SynthEngine audio logging, and GPU state capture so Codex can audit every frame.]]></description>
-    <lastBuildDate>Sat, 01 Nov 2025 18:00:00 GMT</lastBuildDate>
+    </item>
     <item>
       <title>Vector Surge, Day 13 Codex Threads Fonts, Network, and Stage FX</title>
       <link>https://www.blackframeai.org/blog/2025-11-01-vector-surge/</link>
