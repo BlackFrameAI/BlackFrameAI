@@ -5,7 +5,15 @@
     <link>https://www.blackframeai.org/blog/</link>
     <description>Daily dispatches, devlogs, and pillar guides from BlackFrame AI Studio.</description>
     <language>en-US</language>
-    <lastBuildDate>Thu, 30 Oct 2025 18:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 06 Nov 2025 18:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Batched Horizon, Day 18 Codex Locks the Procedural Frontline</title>
+      <link>https://www.blackframeai.org/blog/2025-11-06-batched-horizon/</link>
+      <guid>https://www.blackframeai.org/blog/2025-11-06-batched-horizon/</guid>
+      <pubDate>Thu, 06 Nov 2025 09:00:00 GMT</pubDate>
+      <dc:date>2025-11-06T09:00:00Z</dc:date>
+      <description><![CDATA[Day 18 unifies batched procedural rendering, unattended autotest runs, and registry-backed overlays to keep Codex's pipeline steady.]]></description>
+    </item>
     <item>
       <title>Signal Array, Day 11 Codex Orchestrates Multi-Window Control</title>
       <link>https://www.blackframeai.org/blog/2025-10-30-signal-array/</link>
