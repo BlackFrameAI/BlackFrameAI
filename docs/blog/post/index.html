@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BlackFrame AI – Blog Poster</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://utteranc.es https://plausible.io https://challenges.cloudflare.com https://ajax.cloudflare.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://plausible.io; frame-src https://utteranc.es; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://utteranc.es https://plausible.io https://challenges.cloudflare.com https://ajax.cloudflare.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://plausible.io; frame-src https://utteranc.es; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta http-equiv="Referrer-Policy" content="same-origin">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
@@ -516,11 +516,11 @@
             <div class="grid two">
               <div>
                 <label for="new-passcode">New Passcode</label>
-                <input type="password" id="new-passcode" name="new-passcode" minlength="8" placeholder="At least 8 characters" required>
+              <input type="password" id="new-passcode" name="new-passcode" minlength="8" placeholder="At least 8 characters" autocomplete="new-password" required>
               </div>
               <div>
                 <label for="confirm-passcode">Confirm Passcode</label>
-                <input type="password" id="confirm-passcode" name="confirm-passcode" minlength="8" required>
+              <input type="password" id="confirm-passcode" name="confirm-passcode" minlength="8" autocomplete="new-password" required>
               </div>
             </div>
             <div class="button-row">
