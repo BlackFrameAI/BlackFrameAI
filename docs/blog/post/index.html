@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BlackFrame AI – Blog Poster</title>
+  <meta http-equiv="Referrer-Policy" content="same-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #04101a, #010307 62%);
+      color: #f0f6ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px 48px;
+    }
+
+    .shell {
+      width: min(100%, 1080px);
+      background: rgba(0, 12, 25, 0.92);
+      border: 1px solid rgba(0, 180, 255, 0.22);
+      border-radius: 18px;
+      padding: 40px;
+      box-shadow:
+        0 35px 120px rgba(0, 0, 0, 0.6),
+        inset 0 0 38px rgba(0, 150, 255, 0.08);
+      backdrop-filter: blur(6px);
+    }
+
+    h1, h2 {
+      margin: 0 0 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin: 0 0 1rem;
+      line-height: 1.6;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.45rem;
+      color: #7ecbff;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="time"],
+    textarea {
+      width: 100%;
+      padding: 0.75rem 0.85rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 180, 255, 0.35);
+      background: rgba(0, 20, 40, 0.55);
+      color: inherit;
+      font-size: 1rem;
+      transition: border 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: rgba(0, 200, 255, 0.75);
+      box-shadow: 0 0 0 3px rgba(0, 200, 255, 0.15);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+      line-height: 1.5;
+    }
+
+    fieldset {
+      border: 1px solid rgba(0, 120, 200, 0.35);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin: 0 0 1.75rem;
+      background: rgba(0, 10, 25, 0.55);
+    }
+
+    legend {
+      padding: 0 0.6rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(121, 205, 255, 0.95);
+    }
+
+    button {
+      cursor: pointer;
+      border: 1px solid rgba(0, 200, 255, 0.65);
+      background: linear-gradient(135deg, rgba(0, 150, 255, 0.55), rgba(0, 90, 180, 0.65));
+      color: #f5fbff;
+      padding: 0.85rem 1.75rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover,
+    button:focus {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 38px rgba(0, 150, 255, 0.35);
+      outline: none;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .output-block {
+      margin-top: 2.5rem;
+      border: 1px solid rgba(0, 200, 255, 0.35);
+      padding: 1.25rem 1.25rem 1.75rem;
+      border-radius: 16px;
+      background: rgba(0, 8, 20, 0.78);
+      box-shadow: inset 0 0 18px rgba(0, 140, 255, 0.08);
+    }
+
+    .output-block h2 {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .output-block textarea {
+      min-height: 140px;
+      max-height: 320px;
+    }
+
+    .copy-btn {
+      align-self: flex-start;
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+      border-radius: 12px;
+      background: rgba(0, 120, 240, 0.45);
+    }
+
+    .notice {
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 200, 255, 0.35);
+      background: rgba(0, 25, 55, 0.72);
+      font-size: 0.95rem;
+      margin: 1.25rem 0;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 24px 12px 32px;
+      }
+
+      .shell {
+        padding: 28px 20px 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell" id="app">
+    <section id="login-view">
+      <h1>BlackFrame Blog Poster</h1>
+      <p>Private publishing surface for daily dispatches. Keep this endpoint unlisted.</p>
+      <form id="login-form" autocomplete="off">
+        <label for="admin-passcode">Passcode</label>
+        <input type="password" id="admin-passcode" name="admin-passcode" required autofocus>
+        <p class="notice">Default passcode is <code>frame-lock-2025</code>. Update <code>passwordHash</code> in the source after you change it.</p>
+        <div class="button-row">
+          <button type="submit">Unlock</button>
+        </div>
+      </form>
+      <p id="login-error" class="notice hidden" style="border-color: rgba(255, 90, 90, 0.65); background: rgba(72, 0, 0, 0.55); color: #ffe3e3;">Incorrect passcode. Try again.</p>
+    </section>
+
+    <section id="poster-view" class="hidden" aria-live="polite">
+      <h1>Dispatch Generator</h1>
+      <p>Paste the AI draft, refine the fields, then generate the full post package. Keep an eye on the snippets for feeds and the blog index.</p>
+      <form id="post-form" autocomplete="off">
+        <fieldset>
+          <legend>Core Metadata</legend>
+          <div class="grid two">
+            <div>
+              <label for="title">Post Title</label>
+              <input type="text" id="title" name="title" placeholder="Signal Array, Day 19 ..." required>
+            </div>
+            <div>
+              <label for="slug">Slug Override (optional)</label>
+              <input type="text" id="slug" name="slug" placeholder="auto-generated">
+            </div>
+          </div>
+          <div class="grid two">
+            <div>
+              <label for="publish-date">Publish Date (UTC)</label>
+              <input type="date" id="publish-date" name="publish-date" required>
+            </div>
+            <div>
+              <label for="publish-time">Publish Time (UTC)</label>
+              <input type="time" id="publish-time" name="publish-time" value="09:00" required>
+            </div>
+          </div>
+          <div class="grid two">
+            <div>
+              <label for="log-label">Production Log Label</label>
+              <input type="text" id="log-label" name="log-label" placeholder="Day 19" required>
+            </div>
+            <div>
+              <label for="log-date">Production Log Date</label>
+              <input type="date" id="log-date" name="log-date" required>
+            </div>
+          </div>
+          <div class="grid two">
+            <div>
+              <label for="meta-description">Meta Description</label>
+              <textarea id="meta-description" name="meta-description" placeholder="Short punchy summary for meta, og, and twitter tags." required></textarea>
+            </div>
+            <div>
+              <label for="excerpt">Blog Index Excerpt</label>
+              <textarea id="excerpt" name="excerpt" placeholder="One sentence teaser for the /blog card." required></textarea>
+            </div>
+          </div>
+          <div class="grid two">
+            <div>
+              <label for="rss-summary">Feed Summary (RSS/Atom)</label>
+              <textarea id="rss-summary" name="rss-summary" placeholder="If empty we reuse the meta description."></textarea>
+            </div>
+            <div>
+              <label for="social-image">Social Image Path</label>
+              <input type="text" id="social-image" name="social-image" placeholder="/assets/social/..." required>
+            </div>
+          </div>
+          <div>
+            <label for="tags">Tags (space or comma separated)</label>
+            <input type="text" id="tags" name="tags" placeholder="engine-rd workflow-automation agentic-workflows" required>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Article Content</legend>
+          <div>
+            <label for="tldr">TL;DR Bullets (one per line, HTML allowed)</label>
+            <textarea id="tldr" name="tldr" placeholder="Batch renderer collapses procedural draws...\nAutotest harness validates overlays...\nRegistry throttles UI warnings..."></textarea>
+          </div>
+          <div>
+            <label for="impact">Why this day matters</label>
+            <textarea id="impact" name="impact" placeholder="Paragraph describing why this dispatch matters. Superscripts or links allowed."></textarea>
+          </div>
+          <div>
+            <label for="article-body">Article Body (Markdown-lite or HTML)</label>
+            <textarea id="article-body" name="article-body" placeholder="## Setup&#10;Paragraphs...&#10;&#10;## Breakthroughs&#10;- Bullet&#10;- Bullet&#10;&#10;## Next Steps&#10;Paragraph"></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Related &amp; Changelog</legend>
+          <div class="grid two">
+            <div>
+              <label for="related-one-title">Related Link 1 Title</label>
+              <input type="text" id="related-one-title" name="related-one-title" placeholder="Signal Array, Day 11 ..." >
+            </div>
+            <div>
+              <label for="related-one-url">Related Link 1 URL</label>
+              <input type="text" id="related-one-url" name="related-one-url" placeholder="/blog/2025-10-30-signal-array/">
+            </div>
+          </div>
+          <div class="grid two">
+            <div>
+              <label for="related-two-title">Related Link 2 Title</label>
+              <input type="text" id="related-two-title" name="related-two-title">
+            </div>
+            <div>
+              <label for="related-two-url">Related Link 2 URL</label>
+              <input type="text" id="related-two-url" name="related-two-url">
+            </div>
+          </div>
+          <div>
+            <label for="changelog-note">Changelog Note</label>
+            <textarea id="changelog-note" name="changelog-note" placeholder="Initial publication covering ..."></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Feed Timings</legend>
+          <div class="grid two">
+            <div>
+              <label for="rss-build-time">Feed Build Time (UTC)</label>
+              <input type="time" id="rss-build-time" name="rss-build-time" value="18:00" required>
+            </div>
+            <div>
+              <label for="timezone-label">Display Timezone Label</label>
+              <input type="text" id="timezone-label" name="timezone-label" value="GMT">
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="button-row">
+          <button type="submit">Generate Post Package</button>
+          <button type="reset" id="reset-btn">Reset Form</button>
+        </div>
+      </form>
+      <p class="notice">Reminder: after cutting a new dispatch, remove the <strong>Latest Post</strong> badge from yesterday’s card on <code>docs/blog/index.html</code>.</p>
+    </section>
+
+    <section id="results-view" class="hidden">
+      <h2>Output Package</h2>
+      <p>Copy each block into the matching file. Paths are relative to repo root.</p>
+      <div class="output-block">
+        <h2>Post Path</h2>
+        <p id="post-path"></p>
+      </div>
+      <div class="output-block">
+        <h2>New Post HTML (<code>docs/blog/&lt;slug&gt;/index.html</code>)</h2>
+        <div class="button-row">
+          <button type="button" class="copy-btn" data-copy-target="post-html">Copy</button>
+        </div>
+        <textarea id="post-html" readonly></textarea>
+      </div>
+      <div class="output-block">
+        <h2>Blog Index Card Snippet (<code>docs/blog/index.html</code>)</h2>
+        <div class="button-row">
+          <button type="button" class="copy-btn" data-copy-target="index-card">Copy</button>
+        </div>
+        <textarea id="index-card" readonly></textarea>
+      </div>
+      <div class="output-block">
+        <h2>JSON-LD Entry (add near top of <code>blogPost</code> array)</h2>
+        <div class="button-row">
+          <button type="button" class="copy-btn" data-copy-target="json-ld">Copy</button>
+        </div>
+        <textarea id="json-ld" readonly></textarea>
+      </div>
+      <div class="output-block">
+        <h2>RSS Item (<code>docs/blog/feed.xml</code>)</h2>
+        <div class="button-row">
+          <button type="button" class="copy-btn" data-copy-target="rss-item">Copy</button>
+        </div>
+        <textarea id="rss-item" readonly></textarea>
+      </div>
+      <div class="output-block">
+        <h2>Atom Entry (<code>docs/blog/atom.xml</code>)</h2>
+        <div class="button-row">
+          <button type="button" class="copy-btn" data-copy-target="atom-entry">Copy</button>
+        </div>
+        <textarea id="atom-entry" readonly></textarea>
+      </div>
+      <div class="output-block">
+        <h2>Commit Message Suggestion</h2>
+        <textarea id="commit-message" readonly></textarea>
+      </div>
+    </section>
+  </main>
+  <script>
+    const passwordHash = '5c66d079f8d31416043c31feca860699aa1067b96933ef6ce353e4f6c140aff8'; // sha256("frame-lock-2025")
+
+    const loginView = document.getElementById('login-view');
+    const loginForm = document.getElementById('login-form');
+    const loginError = document.getElementById('login-error');
+    const posterView = document.getElementById('poster-view');
+    const resultsView = document.getElementById('results-view');
+    const form = document.getElementById('post-form');
+    const resetBtn = document.getElementById('reset-btn');
+
+    const outputFields = {
+      postPath: document.getElementById('post-path'),
+      postHtml: document.getElementById('post-html'),
+      indexCard: document.getElementById('index-card'),
+      jsonLd: document.getElementById('json-ld'),
+      rssItem: document.getElementById('rss-item'),
+      atomEntry: document.getElementById('atom-entry'),
+      commitMessage: document.getElementById('commit-message'),
+    };
+
+    const defaultPwdKey = 'blogPosterAuthV1';
+
+    async function sha256(text) {
+      const encoder = new TextEncoder();
+      const data = encoder.encode(text);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map((b) => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    async function handleLogin(event) {
+      event.preventDefault();
+      const pass = loginForm['admin-passcode'].value.trim();
+      if (!pass) {
+        return;
+      }
+      const digest = await sha256(pass);
+      if (digest === passwordHash) {
+        localStorage.setItem(defaultPwdKey, digest);
+        loginView.classList.add('hidden');
+        posterView.classList.remove('hidden');
+        loginError.classList.add('hidden');
+        posterView.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        loginError.classList.remove('hidden');
+      }
+    }
+
+    function checkStoredAuth() {
+      const stored = localStorage.getItem(defaultPwdKey);
+      if (stored && stored === passwordHash) {
+        loginView.classList.add('hidden');
+        posterView.classList.remove('hidden');
+      }
+    }
+
+    function setDefaultDates() {
+      const publishInput = form['publish-date'];
+      const logInput = form['log-date'];
+      const today = new Date();
+      const tomorrow = new Date(today);
+      tomorrow.setDate(today.getDate() + 1);
+      const format = (d) => d.toISOString().slice(0, 10);
+      if (!publishInput.value) {
+        publishInput.value = format(tomorrow);
+      }
+      if (!logInput.value) {
+        logInput.value = format(today);
+      }
+    }
+
+    function slugify(text) {
+      return text
+        .toLowerCase()
+        .replace(/&/g, ' and ')
+        .replace(/[^a-z0-9\s-]/g, '')
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-');
+    }
+
+    function escapeHtml(text) {
+      return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function escapeAttr(text) {
+      return escapeHtml(text).replace(/`/g, '&#96;');
+    }
+
+    function formatDisplayDate(dateStr) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return new Intl.DateTimeFormat('en-US', options).format(new Date(dateStr + 'T00:00:00Z'));
+    }
+
+    function formatRssDate(dateStr, timeStr, zoneLabel) {
+      const date = new Date(dateStr + 'T' + timeStr + ':00Z');
+      const weekday = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][date.getUTCDay()];
+      const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][date.getUTCMonth()];
+      const day = String(date.getUTCDate()).padStart(2, '0');
+      const year = date.getUTCFullYear();
+      const hh = String(date.getUTCHours()).padStart(2, '0');
+      const mm = String(date.getUTCMinutes()).padStart(2, '0');
+      const ss = '00';
+      return `${weekday}, ${day} ${month} ${year} ${hh}:${mm}:${ss} ${zoneLabel}`;
+    }
+
+    function isoPublish(dateStr, timeStr) {
+      return `${dateStr}T${timeStr}:00Z`;
+    }
+
+    function tldrList(raw) {
+      if (!raw.trim()) {
+        return '';
+      }
+      const items = raw
+        .split('\\n')
+        .map((line) => line.trim())
+        .filter(Boolean)
+        .map((line) => `<li>${line}</li>`)
+        .join('\\n            ');
+      return `<ul class="tldr">
+            ${items}
+          </ul>`;
+    }
+
+    function markdownLiteToHtml(input) {
+      if (!input.trim()) {
+        return '';
+      }
+      if (/<[a-z][\\s\\S]*>/i.test(input)) {
+        return input.trim();
+      }
+
+      const lines = input.split(/\\r?\\n/);
+      const html = [];
+      let buffer = [];
+      let inList = false;
+
+      const flushParagraph = () => {
+        if (!buffer.length) return;
+        const text = buffer.join(' ').trim();
+        if (text) {
+          html.push(`<p>${escapeHtml(text)}</p>`);
+        }
+        buffer = [];
+      };
+
+      lines.forEach((rawLine) => {
+        const line = rawLine.trim();
+        if (!line) {
+          flushParagraph();
+          if (inList) {
+            html.push('</ul>');
+            inList = false;
+          }
+          return;
+        }
+
+        const headingMatch = line.match(/^(#{1,3})\\s+(.*)$/);
+        if (headingMatch) {
+          flushParagraph();
+          if (inList) {
+            html.push('</ul>');
+            inList = false;
+          }
+          const level = headingMatch[1].length + 1; // start at h2
+          const text = escapeHtml(headingMatch[2].trim());
+          html.push(`<h${level}>${text}</h${level}>`);
+          return;
+        }
+
+        if (/^[-*]\\s+/.test(line)) {
+          flushParagraph();
+          if (!inList) {
+            html.push('<ul>');
+            inList = true;
+          }
+          const item = line.replace(/^[-*]\\s+/, '');
+          html.push(`<li>${escapeHtml(item)}</li>`);
+          return;
+        }
+
+        buffer.push(line);
+      });
+
+      flushParagraph();
+      if (inList) {
+        html.push('</ul>');
+      }
+
+      return html.join('\\n        ');
+    }
+
+    function tagBadge(tag) {
+      const mapping = {
+        'engine-rd': 'Engine R&amp;D',
+        'workflow-automation': 'Workflow Automation',
+        'agentic-workflows': 'Agentic Workflows',
+        'partner-playbooks': 'Partner Playbooks',
+        'studio-culture': 'Studio Culture',
+        'devlog-vault': 'Devlog Vault',
+      };
+      return mapping[tag] || escapeHtml(tag.replace(/-/g, ' ')).replace(/\\b\\w/g, (c) => c.toUpperCase());
+    }
+
+    function generatePostTemplate(data) {
+      const {
+        title,
+        slug,
+        publishDate,
+        metaDescription,
+        socialImage,
+        tags,
+        tldrHtml,
+        impactHtml,
+        articleHtml,
+        publishIso,
+        displayDate,
+        logLabel,
+        logDate,
+        logDisplayDate,
+        excerpt,
+        relatedLinks,
+        changelogNote,
+      } = data;
+
+      const frontMatterTags = tags.map((tag) => `  - ${tag}`).join('\\n');
+      const metaTags = tags.map((tag) => `  <meta property="article:tag" content="${escapeAttr(tag)}" />`).join('\\n  ');
+
+      const relatedList = relatedLinks
+        .filter((link) => link.title && link.url)
+        .map((link) => `<li><a href="${escapeAttr(link.url)}">${escapeHtml(link.title)}</a></li>`)
+        .join('\\n            ');
+
+      const changelog = changelogNote
+        ? `<li><time datetime="${publishDate}">${displayDate}</time>, ${escapeHtml(changelogNote)}</li>`
+        : `<li><time datetime="${publishDate}">${displayDate}</time>, Initial publication.</li>`;
+
+      const articleBody = articleHtml || '<p>Draft content missing.</p>';
+
+      return `<!DOCTYPE html>
+<!--
+---
+title: ${escapeHtml(title)} | BlackFrame AI Studio
+description: ${escapeHtml(metaDescription)}
+slug: ${slug}
+publishDate: ${publishDate}
+updatedDate: ${publishDate}
+socialImage: ${socialImage}
+tags:
+${frontMatterTags || '  - engine-rd'}
+---
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://utteranc.es https://plausible.io https://challenges.cloudflare.com https://ajax.cloudflare.com; style-src 'self' 'unsafe-inline' https://cloudflarefonts.com; img-src 'self' data: https://utteranc.es; font-src 'self' https://cloudflarefonts.com https://fonts.cloudflare.com; connect-src 'self' https://plausible.io; frame-src https://utteranc.es; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
+  <title>${escapeHtml(title)} | BlackFrame AI Studio</title>
+  <meta name="description" content="${escapeAttr(metaDescription)}" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="canonical" href="https://www.blackframeai.org/blog/${slug}/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="${escapeAttr(title)}" />
+  <meta property="og:description" content="${escapeAttr(metaDescription)}" />
+  <meta property="og:url" content="https://www.blackframeai.org/blog/${slug}/" />
+  <meta property="og:image" content="https://www.blackframeai.org${escapeAttr(socialImage)}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="${escapeAttr(title)}" />
+  <meta name="twitter:description" content="${escapeAttr(metaDescription)}" />
+  <meta name="twitter:image" content="https://www.blackframeai.org${escapeAttr(socialImage)}" />
+  ${metaTags || ''}
+  <link rel="manifest" href="/manifest.json" />
+
+  <link rel="preconnect" href="https://cloudflarefonts.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.cloudflare.com" crossorigin>
+  <link rel="preload" href="/assets/styles.min.css" as="style">
+  <link rel="stylesheet" href="/assets/styles.min.css">
+  <noscript><link rel="stylesheet" href="/assets/styles.min.css"></noscript>
+  <link rel="stylesheet" href="https://cloudflarefonts.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin>
+</head>
+<body>
+  <a class="skip-link" href="#article-main">Skip to article content</a>
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a class="site-brand" href="/blog/" aria-label="BlackFrame AI blog home">
+        <picture>
+          <source srcset="/assets/blackflamelogo.avif" type="image/avif">
+          <source srcset="/assets/blackflamelogo.webp" type="image/webp">
+          <img src="/assets/blackflame_logo_cleaned.svg" alt="BlackFrame AI logo" width="400" height="400" loading="eager" fetchpriority="high">
+        </picture>
+        <span>Studio Blog</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="/">Home</a></li>
+          <li><a class="site-nav__link" href="/blog/" aria-current="page">Blog</a></li>
+          <li><a class="site-nav__link" href="/services/">Services</a></li>
+          <li><a class="site-nav__link" href="/partner-playbooks/">Partner Playbooks</a></li>
+          <li><a class="site-nav__link" href="/devlog-vault/">Devlog Vault</a></li>
+          <li><a class="site-nav__link" href="/contact/">Contact</a></li>
+        </ul>
+        <div class="site-nav__meta" role="group" aria-label="Studio quick links">
+          <a href="https://cal.com/blackframeai/partnership-intro" target="_blank" rel="noopener noreferrer">Book a capabilities call</a>
+          <a href="mailto:studio@blackframeai.org">studio@blackframeai.org</a>
+          <a href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow @blackframeai</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <div class="page">
+    <main id="article-main">
+      <article class="blog-article">
+        <header class="article-header">
+          <div class="article-header__meta">
+            <p class="article-header__details">
+              <span class="article-type">Studio Dispatch</span>
+              <time datetime="${publishDate}">${displayDate}</time>
+            </p>
+            <p class="article-production-log">Production log: ${escapeHtml(logLabel)} · <time datetime="${logDate}">${logDisplayDate}</time></p>
+          </div>
+          <h1>${escapeHtml(title)}</h1>
+          ${tldrHtml}
+        </header>
+
+        <section class="ai-claim-callout" aria-labelledby="ai-proof-heading">
+          <span class="ai-claim-callout__label" id="ai-proof-heading">Why this day matters</span>
+          ${impactHtml || '<p>Summarize why this dispatch matters.</p>'}
+        </section>
+
+        ${articleBody}
+
+        <section class="author-card" aria-labelledby="author-heading">
+          <h2 id="author-heading">Authored by BlackFrame AI Studio</h2>
+          <p>We pair autonomous agents with human editors to ship production-ready engines, tools, and dispatches. Have questions? <a href="mailto:studio@blackframeai.org">studio@blackframeai.org</a></p>
+        </section>
+
+        <section class="related-posts" aria-labelledby="related-heading">
+          <h2 id="related-heading">Continue the arc</h2>
+          <ul class="related-list">
+            ${relatedList || '<li><a href="/blog/">Browse the archive</a></li>'}
+          </ul>
+        </section>
+
+        <section class="changelog" aria-labelledby="changelog-heading">
+          <h2 id="changelog-heading">Changelog</h2>
+          <ul>
+            ${changelog}
+          </ul>
+        </section>
+
+        <section class="community-section" aria-labelledby="community-heading">
+          <h2 id="community-heading">Join the studio signal</h2>
+          <p class="community-lead">Follow <a href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">@blackframeai</a> on X for live drops, then leave your take below—every comment feeds the training data steering the next sprint.</p>
+          <div class="comment-container">
+            <script src="https://utteranc.es/client.js"
+              repo="BlackFrameAI/BlackFrameAI"
+              issue-term="pathname"
+              label="blog-comments"
+              theme="github-dark"
+              crossorigin="anonymous"
+              async>
+            </script>
+            <p class="moderation-note">Community guidelines stay simple: stay constructive, cite sources, and help us keep the vault verifiable.</p>
+          </div>
+        </section>
+      </article>
+    </main>
+    <footer>
+      &copy; <span id="year">2025</span> BlackFrame AI Studio. All rights reserved.
+    </footer>
+  </div>
+  <script>
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
+</html>`;
+    }
+
+    function generateIndexCard(data) {
+      const { slug, title, publishDate, displayDate, logLabel, logDate, logDisplayDate, tags, excerpt } = data;
+      const tagAttr = tags.join(' ');
+      const tagBadges = tags.map((tag) => `<span class="tag-badge">${tagBadge(tag)}</span>`).join('\\n            ');
+      const slugTail = slug.replace(/^\\d{4}-\\d{2}-\\d{2}-/, '');
+      return `<article class="post-card" aria-labelledby="post-${slugTail}" data-tags="${tagAttr}" data-publish="${publishDate}" data-log="${logDate}">
+  <p class="post-meta">
+    <span class="latest-badge">Latest Post</span>
+    <span>Studio Dispatch</span>
+    <time datetime="${publishDate}">${displayDate}</time>
+  </p>
+  <p class="post-log-note">Production log: ${escapeHtml(logLabel)} • <time datetime="${logDate}">${logDisplayDate}</time></p>
+  <h2 id="post-${slugTail}"><a href="/blog/${slug}/">${escapeHtml(title)}</a></h2>
+  <div class="tag-badges" aria-label="Post tags">
+    ${tagBadges}
+  </div>
+  <p class="post-excerpt">${escapeHtml(excerpt)}</p>
+  <a class="post-cta" href="/blog/${slug}/" aria-label="Read ${escapeHtml(title)}">
+    Read the full story
+    <span aria-hidden="true">→</span>
+  </a>
+</article>`;
+    }
+
+    function generateJsonLdEntry(data) {
+      const { title, slug, publishDate, logDate } = data;
+      return `{
+        "@type": "BlogPosting",
+        "headline": "${escapeAttr(title)}",
+        "url": "https://www.blackframeai.org/blog/${slug}/",
+        "datePublished": "${publishDate}",
+        "dateCreated": "${logDate}"
+      }`;
+    }
+
+    function generateRssItem(data) {
+      const { title, slug, rssSummary, rssDate, publishIso } = data;
+      return `<item>
+      <title>${escapeAttr(title)}</title>
+      <link>https://www.blackframeai.org/blog/${slug}/</link>
+      <guid>https://www.blackframeai.org/blog/${slug}/</guid>
+      <pubDate>${rssDate}</pubDate>
+      <dc:date>${publishIso}</dc:date>
+      <description><![CDATA[${rssSummary}]]></description>
+    </item>`;
+    }
+
+    function generateAtomEntry(data) {
+      const { title, slug, publishIso, rssSummary } = data;
+      return `<entry>
+    <title>${escapeAttr(title)}</title>
+    <link href="https://www.blackframeai.org/blog/${slug}/" />
+    <id>https://www.blackframeai.org/blog/${slug}/</id>
+    <updated>${publishIso}</updated>
+    <published>${publishIso}</published>
+    <summary type="html"><![CDATA[${rssSummary}]]></summary>
+  </entry>`;
+    }
+
+    function buildDataFromForm(formData) {
+      const title = formData.get('title').trim();
+      if (!title) {
+        throw new Error('Title is required.');
+      }
+
+      const publishDate = formData.get('publish-date');
+      const publishTime = formData.get('publish-time') || '09:00';
+      const logDate = formData.get('log-date');
+      const logLabel = formData.get('log-label').trim() || 'Day 0';
+      const metaDescription = formData.get('meta-description').trim();
+      const excerpt = formData.get('excerpt').trim();
+      const rssSummaryRaw = formData.get('rss-summary').trim();
+      const rssSummary = rssSummaryRaw || metaDescription;
+      const socialImage = formData.get('social-image').trim() || '/assets/social/default.svg';
+      const impactRaw = formData.get('impact').trim();
+      const articleRaw = formData.get('article-body');
+      const tldrRaw = formData.get('tldr');
+      const changelogNote = formData.get('changelog-note').trim();
+      const rssBuildTime = formData.get('rss-build-time') || '18:00';
+      const timezoneLabel = formData.get('timezone-label').trim() || 'GMT';
+
+      const relatedLinks = [
+        {
+          title: formData.get('related-one-title').trim(),
+          url: formData.get('related-one-url').trim(),
+        },
+        {
+          title: formData.get('related-two-title').trim(),
+          url: formData.get('related-two-url').trim(),
+        },
+      ];
+
+      const rawTags = formData.get('tags').split(/[\\s,]+/).map((tag) => tag.trim()).filter(Boolean);
+      if (!rawTags.length) {
+        throw new Error('At least one tag is required.');
+      }
+
+      const slugOverride = formData.get('slug').trim();
+      const generatedSlugTail = slugify(title);
+      const datedSlugTail = generatedSlugTail ? generatedSlugTail : 'untitled';
+      const slug = slugOverride || `${publishDate}-${datedSlugTail}`;
+
+      const displayDate = formatDisplayDate(publishDate);
+      const logDisplayDate = formatDisplayDate(logDate);
+      const publishIso = isoPublish(publishDate, publishTime);
+      const rssDate = formatRssDate(publishDate, publishTime, timezoneLabel);
+      const buildIso = isoPublish(publishDate, rssBuildTime);
+
+      const tldrHtml = tldrList(tldrRaw);
+      const impactHtml = impactRaw
+        ? (/<[a-z][\\s\\S]*>/i.test(impactRaw) ? impactRaw : `<p>${escapeHtml(impactRaw)}</p>`)
+        : '';
+      const articleHtml = markdownLiteToHtml(articleRaw);
+
+      return {
+        title,
+        slug,
+        publishDate,
+        publishTime,
+        publishIso,
+        metaDescription,
+        socialImage,
+        tags: rawTags,
+        tldrHtml,
+        impactHtml,
+        articleHtml,
+        displayDate,
+        logLabel,
+        logDate,
+        logDisplayDate,
+        excerpt,
+        relatedLinks,
+        changelogNote,
+        rssSummary: rssSummary,
+        rssDate,
+        buildIso,
+      };
+    }
+
+    function handleGenerate(event) {
+      event.preventDefault();
+      try {
+        const formData = new FormData(form);
+        const data = buildDataFromForm(formData);
+
+        const postHtml = generatePostTemplate(data);
+        const indexCard = generateIndexCard(data);
+        const jsonLd = generateJsonLdEntry(data);
+        const rssItem = generateRssItem(data);
+        const atomEntry = generateAtomEntry(data);
+        const path = `docs/blog/${data.slug}/index.html`;
+        const commitMessage = `blog: publish ${data.publishDate} ${data.title}`;
+
+        outputFields.postPath.textContent = path;
+        outputFields.postHtml.value = postHtml;
+        outputFields.indexCard.value = indexCard;
+        outputFields.jsonLd.value = jsonLd;
+        outputFields.rssItem.value = rssItem;
+        outputFields.atomEntry.value = atomEntry;
+        outputFields.commitMessage.value = commitMessage;
+
+        resultsView.classList.remove('hidden');
+        resultsView.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } catch (error) {
+        alert(error.message);
+      }
+    }
+
+    function handleCopy(event) {
+      const trigger = event.target.closest('[data-copy-target]');
+      if (!trigger) return;
+      const targetId = trigger.getAttribute('data-copy-target');
+      const field = document.getElementById(targetId);
+      if (!field) return;
+      field.select();
+      document.execCommand('copy');
+      trigger.textContent = 'Copied!';
+      setTimeout(() => {
+        trigger.textContent = 'Copy';
+      }, 1600);
+    }
+
+    function handleReset() {
+      resultsView.classList.add('hidden');
+      outputFields.postHtml.value = '';
+      outputFields.indexCard.value = '';
+      outputFields.jsonLd.value = '';
+      outputFields.rssItem.value = '';
+      outputFields.atomEntry.value = '';
+      outputFields.commitMessage.value = '';
+      outputFields.postPath.textContent = '';
+      setDefaultDates();
+    }
+
+    loginForm.addEventListener('submit', handleLogin);
+    form.addEventListener('submit', handleGenerate);
+    resetBtn.addEventListener('click', handleReset);
+    resultsView.addEventListener('click', handleCopy);
+
+    setDefaultDates();
+    checkStoredAuth();
+  </script>
+</body>
+</html>
