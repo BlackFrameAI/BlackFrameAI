@@ -244,6 +244,7 @@
       <h1>BlackFrame Blog Poster</h1>
       <p>Private publishing surface for daily dispatches. Keep this endpoint unlisted.</p>
       <form id="login-form" autocomplete="off">
+        <input type="text" name="username" autocomplete="username" aria-hidden="true" hidden>
         <label for="admin-passcode">Passcode</label>
         <input type="password" id="admin-passcode" name="admin-passcode" autocomplete="current-password" required autofocus>
         <div class="button-row">
@@ -475,6 +476,6 @@
       </div>
     </section>
   </main>
-  <script type="module" src="./poster.js"></script>
+  <script type="module" src="./poster.js" data-cfasync="false" crossorigin="anonymous"></script>
 </body>
 </html>
