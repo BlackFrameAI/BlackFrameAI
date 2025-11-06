@@ -11,6 +11,18 @@ const resultsView = document.getElementById('results-view');
 const form = document.getElementById('post-form');
 const resetBtn = document.getElementById('reset-btn');
 const logoutBtn = document.getElementById('logout-btn');
+const tabButtons = document.querySelectorAll('[data-pane-target]');
+const adminPanes = document.querySelectorAll('.admin-pane');
+const managePane = document.getElementById('manage-pane');
+const manageList = document.getElementById('manage-list');
+const manageSearch = document.getElementById('manage-search');
+const manageCount = document.querySelector('[data-manage-count]');
+const manageEmpty = document.getElementById('manage-empty');
+const manageActions = document.getElementById('manage-actions');
+const removalStepsField = document.getElementById('removal-steps');
+const removalCommitField = document.getElementById('removal-commit');
+const selectedPostMeta = document.getElementById('selected-post-meta');
+const selectedPostHeading = document.getElementById('selected-post-heading');
 
 const outputFields = {
   postPath: document.getElementById('post-path'),
@@ -32,6 +44,9 @@ const passwordHashOutput = document.getElementById('password-hash-output');
 const passwordSnippet = document.getElementById('password-snippet');
 const passwordCommand = document.getElementById('password-command');
 
+let postsCache = null;
+let fullPostCount = 0;
+
 async function sha256Hex(text) {
   const encoder = new TextEncoder();
   const data = encoder.encode(text);
@@ -45,6 +60,16 @@ function showPoster() {
   loginView.classList.add('hidden');
   posterView.classList.remove('hidden');
   loginError.classList.add('hidden');
+  activatePane('create-pane');
+  resetRemovalOutputs();
+  if (manageSearch) manageSearch.value = '';
+  if (postsCache) {
+    renderManageList(postsCache);
+  } else {
+    if (manageList) manageList.innerHTML = '';
+    if (manageCount) manageCount.textContent = 'Feed not loaded';
+    if (manageEmpty) manageEmpty.classList.add('hidden');
+  }
 }
 
 function hidePoster() {
@@ -72,6 +97,35 @@ function setDefaultDates() {
   const fmt = (d) => d.toISOString().slice(0, 10);
   if (publishInput) publishInput.value = publishInput.value || fmt(tomorrow);
   if (logInput) logInput.value = logInput.value || fmt(today);
+}
+
+function activatePane(targetId) {
+  tabButtons.forEach((button) => {
+    const isActive = button.getAttribute('data-pane-target') === targetId;
+    button.classList.toggle('is-active', isActive);
+    button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+  });
+  adminPanes.forEach((pane) => {
+    const isActive = pane.id === targetId;
+    pane.classList.toggle('hidden', !isActive);
+  });
+}
+
+function setupTabs() {
+  if (!tabButtons.length) return;
+  tabButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const targetId = button.getAttribute('data-pane-target');
+      activatePane(targetId);
+      if (targetId === 'manage-pane') {
+        loadPosts();
+      }
+    });
+  });
+  activatePane('create-pane');
+  if (manageCount) {
+    manageCount.textContent = 'Feed not loaded';
+  }
 }
 
 function slugify(value) {
@@ -121,6 +175,193 @@ function formatRssDate(dateStr, timeStr, zoneLabel) {
 
 function isoPublish(dateStr, timeStr) {
   return `${dateStr}T${timeStr || '00:00'}:00Z`;
+}
+
+async function loadPosts(force = false) {
+  if (!manageList) {
+    return;
+  }
+  if (postsCache && !force) {
+    renderManageList(postsCache);
+    return;
+  }
+  try {
+    if (manageCount) {
+      manageCount.textContent = 'Loading feed…';
+    }
+    const response = await fetch('/blog/feed.xml', { cache: 'no-store' });
+    if (!response.ok) {
+      throw new Error(`Feed request failed: ${response.status}`);
+    }
+    const text = await response.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(text, 'application/xml');
+    if (doc.querySelector('parsererror')) {
+      throw new Error('Unable to parse RSS feed.');
+    }
+    const items = Array.from(doc.querySelectorAll('item'));
+    const mapped = items
+      .map((item) => {
+        const title = item.querySelector('title')?.textContent?.trim() ?? 'Untitled dispatch';
+        const link = item.querySelector('link')?.textContent?.trim() ?? '';
+        const slug = link
+          .replace(/^https?:\/\/www\.blackframeai\.org\/blog\//, '')
+          .replace(/^https?:\/\/blackframeai\.org\/blog\//, '')
+          .replace(/\/$/, '');
+        if (!slug) {
+          return null;
+        }
+        const dcDate = item.querySelector('dc\\:date')?.textContent?.trim()
+          || item.querySelector('date')?.textContent?.trim()
+          || item.querySelector('pubDate')?.textContent?.trim()
+          || '';
+        let publishDate = '';
+        if (dcDate) {
+          if (dcDate.includes('T')) {
+            publishDate = dcDate.slice(0, 10);
+          } else {
+            const parsed = new Date(dcDate);
+            if (!Number.isNaN(parsed.getTime())) {
+              publishDate = parsed.toISOString().slice(0, 10);
+            }
+          }
+        }
+        const displayDate = publishDate ? formatDisplayDate(publishDate) : 'Unknown date';
+        const summary = item.querySelector('description')?.textContent?.trim() ?? '';
+        return { title, link, slug, publishDate, displayDate, summary };
+      })
+      .filter(Boolean);
+
+    postsCache = mapped;
+    fullPostCount = postsCache.length;
+    postsCache.sort((a, b) => {
+      const aTime = new Date(a.publishDate || 0).getTime();
+      const bTime = new Date(b.publishDate || 0).getTime();
+      return bTime - aTime;
+    });
+    renderManageList(postsCache);
+  } catch (error) {
+    showManageError(error);
+  }
+}
+
+function renderManageList(posts) {
+  if (!manageList) return;
+  resetRemovalOutputs();
+  const query = (manageSearch?.value || '').trim().toLowerCase();
+  const filtered = posts.filter((post) => {
+    return post.title.toLowerCase().includes(query) || post.slug.toLowerCase().includes(query);
+  });
+
+  manageList.innerHTML = '';
+
+  if (manageCount) {
+    if (!posts.length) {
+      manageCount.textContent = 'No posts found';
+    } else if (!filtered.length) {
+      manageCount.textContent = `${posts.length} posts`;
+    } else if (filtered.length === posts.length) {
+      manageCount.textContent = `${posts.length} posts`;
+    } else {
+      manageCount.textContent = `${filtered.length} of ${posts.length} posts`;
+    }
+  }
+
+  if (!filtered.length) {
+    if (manageEmpty) {
+      manageEmpty.textContent = query ? 'No posts match this filter.' : 'No posts available yet.';
+      manageEmpty.classList.remove('hidden');
+    }
+    return;
+  }
+
+  if (manageEmpty) manageEmpty.classList.add('hidden');
+
+  const fragment = document.createDocumentFragment();
+  filtered.forEach((post) => {
+    const card = document.createElement('article');
+    card.className = 'manage-card';
+    card.setAttribute('role', 'listitem');
+
+    const summaryHtml = post.summary
+      ? `<p class="manage-card__summary">${escapeHtml(post.summary)}</p>`
+      : '';
+
+    card.innerHTML = `
+      <h3 class="manage-card__title">${escapeHtml(post.title)}</h3>
+      <p class="manage-card__meta">Published ${escapeHtml(post.displayDate)} · ${escapeHtml(post.slug)}</p>
+      ${summaryHtml}
+      <div class="manage-card__buttons">
+        <a href="${escapeAttr(post.link)}" target="_blank" rel="noopener noreferrer">View Live</a>
+        <button type="button" data-action="removal" data-slug="${escapeAttr(post.slug)}">Removal Checklist</button>
+      </div>
+    `;
+
+    fragment.appendChild(card);
+  });
+
+  manageList.appendChild(fragment);
+}
+
+function handleManageSearch() {
+  if (!postsCache) return;
+  renderManageList(postsCache);
+  resetRemovalOutputs();
+}
+
+function handleManageListClick(event) {
+  const trigger = event.target.closest('[data-action="removal"]');
+  if (!trigger || !postsCache) return;
+  const slug = trigger.getAttribute('data-slug');
+  const post = postsCache.find((item) => item.slug === slug);
+  if (!post) return;
+  populateRemovalOutputs(post);
+}
+
+function populateRemovalOutputs(post) {
+  if (!removalStepsField || !removalCommitField || !manageActions || !selectedPostHeading || !selectedPostMeta) return;
+  selectedPostHeading.textContent = `Removal Checklist – ${post.title}`;
+  const metaText = post.publishDate
+    ? `${post.displayDate} · /blog/${post.slug}/`
+    : `/blog/${post.slug}/`;
+  selectedPostMeta.textContent = metaText;
+  removalStepsField.value = buildRemovalChecklist(post);
+  removalCommitField.value = `blog: remove ${post.slug}`;
+  manageActions.classList.remove('hidden');
+  manageActions.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function buildRemovalChecklist(post) {
+  const steps = [
+    `Remove the generated directory: rm -rf docs/blog/${post.slug}`,
+    'Edit docs/blog/index.html and delete the post card linking to this slug (including the Latest Post badge if relevant).',
+    'Update the JSON-LD array inside docs/blog/index.html and remove the entry referencing this post URL.',
+    'Edit docs/blog/feed.xml and remove the <item> block for this link.',
+    'Edit docs/blog/atom.xml and remove the corresponding <entry> block.',
+    `Review any internal links that reference /blog/${post.slug}/ and update them if necessary.`,
+    'Run git status to verify removals, then commit and push.'
+  ];
+
+  return steps.map((line, idx) => `${idx + 1}. ${line}`).join('\n');
+}
+
+function resetRemovalOutputs() {
+  if (manageActions) manageActions.classList.add('hidden');
+  if (removalStepsField) removalStepsField.value = '';
+  if (removalCommitField) removalCommitField.value = '';
+  if (selectedPostMeta) selectedPostMeta.textContent = '';
+  if (selectedPostHeading) selectedPostHeading.textContent = 'Removal Checklist';
+}
+
+function showManageError(error) {
+  console.error(error);
+  if (manageCount) manageCount.textContent = 'Feed unavailable';
+  if (manageEmpty) {
+    manageEmpty.textContent = 'Unable to load the feed. Pull the latest main branch or check network access.';
+    manageEmpty.classList.remove('hidden');
+  }
+  if (manageList) manageList.innerHTML = '';
+  resetRemovalOutputs();
 }
 
 function buildTldrList(raw) {
@@ -724,6 +965,12 @@ function handleLogout() {
   hidePoster();
   resultsView.classList.add('hidden');
   clearPasswordOutputs();
+  if (manageSearch) manageSearch.value = '';
+  if (manageCount) manageCount.textContent = 'Feed not loaded';
+  if (manageList) manageList.innerHTML = '';
+  if (manageEmpty) manageEmpty.classList.add('hidden');
+  postsCache = null;
+  resetRemovalOutputs();
   const passField = loginForm ? loginForm.querySelector('#admin-passcode') : null;
   if (passField) {
     passField.focus();
@@ -732,12 +979,19 @@ function handleLogout() {
 
 function init() {
   setDefaultDates();
+  setupTabs();
   checkStoredAuth();
 
   loginForm.addEventListener('submit', handleLogin);
   form.addEventListener('submit', handleGenerate);
   resetBtn.addEventListener('click', handleReset);
   posterView.addEventListener('click', handleCopy);
+  if (manageSearch) {
+    manageSearch.addEventListener('input', handleManageSearch);
+  }
+  if (manageList) {
+    manageList.addEventListener('click', handleManageListClick);
+  }
 
   if (passwordForm) {
     passwordForm.addEventListener('submit', handlePasswordForm);
