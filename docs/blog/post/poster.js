@@ -1,7 +1,7 @@
 'use strict';
 
-const passwordHash = '5c66d079f8d31416043c31feca860699aa1067b96933ef6ce353e4f6c140aff8'; // sha256("frame-lock-2025")
-const storageKey = 'blogPosterAuthV1';
+const passwordHash = 'd5a226c87fe957fa58e08821fcaaf28abebb6e1730e7dbe836d6908179fa83b0'; // sha256(new passcode)
+const storageKey = 'blogPosterAuthV3';
 
 const loginView = document.getElementById('login-view');
 const loginForm = document.getElementById('login-form');
