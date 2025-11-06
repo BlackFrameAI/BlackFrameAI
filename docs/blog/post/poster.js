@@ -10,6 +10,7 @@ const posterView = document.getElementById('poster-view');
 const resultsView = document.getElementById('results-view');
 const form = document.getElementById('post-form');
 const resetBtn = document.getElementById('reset-btn');
+const logoutBtn = document.getElementById('logout-btn');
 
 const outputFields = {
   postPath: document.getElementById('post-path'),
@@ -711,6 +712,24 @@ function handlePasswordReset(event) {
   clearPasswordOutputs();
 }
 
+function handleLogout() {
+  try {
+    localStorage.removeItem(storageKey);
+  } catch (_) {
+    // ignore storage errors
+  }
+  if (loginForm) {
+    loginForm.reset();
+  }
+  hidePoster();
+  resultsView.classList.add('hidden');
+  clearPasswordOutputs();
+  const passField = loginForm ? loginForm.querySelector('#admin-passcode') : null;
+  if (passField) {
+    passField.focus();
+  }
+}
+
 function init() {
   setDefaultDates();
   checkStoredAuth();
@@ -725,6 +744,9 @@ function init() {
   }
   if (passwordResetBtn) {
     passwordResetBtn.addEventListener('click', handlePasswordReset);
+  }
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', handleLogout);
   }
 }
 
