@@ -20,6 +20,9 @@ const manageCount = document.querySelector('[data-manage-count]');
 const manageEmpty = document.getElementById('manage-empty');
 const manageActions = document.getElementById('manage-actions');
 const removalStepsField = document.getElementById('removal-steps');
+const removalShellField = document.getElementById('removal-shell');
+const removalPowerShellField = document.getElementById('removal-powershell');
+const removalGitField = document.getElementById('removal-git');
 const removalCommitField = document.getElementById('removal-commit');
 const selectedPostMeta = document.getElementById('selected-post-meta');
 const selectedPostHeading = document.getElementById('selected-post-heading');
@@ -326,6 +329,9 @@ function populateRemovalOutputs(post) {
     : `/blog/${post.slug}/`;
   selectedPostMeta.textContent = metaText;
   removalStepsField.value = buildRemovalChecklist(post);
+  if (removalShellField) removalShellField.value = buildShellCommands(post);
+  if (removalPowerShellField) removalPowerShellField.value = buildPowerShellCommands(post);
+  if (removalGitField) removalGitField.value = buildGitWorkflow(post);
   removalCommitField.value = `blog: remove ${post.slug}`;
   manageActions.classList.remove('hidden');
   manageActions.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -333,21 +339,80 @@ function populateRemovalOutputs(post) {
 
 function buildRemovalChecklist(post) {
   const steps = [
-    `Remove the generated directory: rm -rf docs/blog/${post.slug}`,
-    'Edit docs/blog/index.html and delete the post card linking to this slug (including the Latest Post badge if relevant).',
-    'Update the JSON-LD array inside docs/blog/index.html and remove the entry referencing this post URL.',
-    'Edit docs/blog/feed.xml and remove the <item> block for this link.',
-    'Edit docs/blog/atom.xml and remove the corresponding <entry> block.',
-    `Review any internal links that reference /blog/${post.slug}/ and update them if necessary.`,
-    'Run git status to verify removals, then commit and push.'
+    `Delete the generated HTML directory at docs/blog/${post.slug}/ (see command blocks below).`,
+    'Edit docs/blog/index.html and remove the entire <article> card that links to this slug. If this was the latest entry, move the "Latest Post" badge to the next article manually.',
+    'While still in docs/blog/index.html, search for the JSON-LD object that contains the post URL (look for "https://www.blackframeai.org/blog/' + `${post.slug}/"` + ') and delete that object, making sure commas and brackets stay valid.',
+    'Open docs/blog/feed.xml, find the <item> element whose <link> matches the slug, and delete the whole <item> block.',
+    'Open docs/blog/atom.xml, locate the <entry> whose <id> or <link> matches the slug, and delete the entire <entry> block.',
+    `Search the repository for "/blog/${post.slug}/" to catch any manual cross-links or references (e.g., build notes).`,
+    'After making edits, run git status, review changes, then stage, commit, and push (commands provided below).'
   ];
 
   return steps.map((line, idx) => `${idx + 1}. ${line}`).join('\n');
 }
 
+function buildShellCommands(post) {
+  const slug = post.slug;
+  return [
+    '# Delete generated directory',
+    `rm -rf docs/blog/${slug}`,
+    '',
+    '# Inspect HTML index for the card and JSON-LD entry',
+    `rg -n "${slug}" docs/blog/index.html`,
+    '',
+    '# Remove RSS item',
+    `rg -n "<link>https://www.blackframeai.org/blog/${slug}/" docs/blog/feed.xml`,
+    '',
+    '# Remove Atom entry',
+    `rg -n "<id>https://www.blackframeai.org/blog/${slug}/" docs/blog/atom.xml`,
+    '',
+    '# Optional: search repo for cross-links',
+    `rg -n "/blog/${slug}/"`
+  ].join('\n');
+}
+
+function buildPowerShellCommands(post) {
+  const slug = post.slug;
+  return [
+    '# Delete generated directory',
+    `Remove-Item -Recurse -Force "docs/blog/${slug}"`,
+    '',
+    '# Inspect HTML index for the card and JSON-LD entry',
+    `Select-String -Path "docs/blog/index.html" -Pattern "${slug}"`,
+    '',
+    '# Remove RSS item',
+    `Select-String -Path "docs/blog/feed.xml" -Pattern "<link>https://www.blackframeai.org/blog/${slug}/"`,
+    '',
+    '# Remove Atom entry',
+    `Select-String -Path "docs/blog/atom.xml" -Pattern "<id>https://www.blackframeai.org/blog/${slug}/"`,
+    '',
+    '# Optional: search repo for cross-links',
+    `Select-String -Path "*" -Pattern "/blog/${slug}/" -Recurse`
+  ].join('\n');
+}
+
+function buildGitWorkflow(post) {
+  const slug = post.slug;
+  return [
+    '# Review changes',
+    'git status',
+    '',
+    '# Stage deletions and edits',
+    `git add -A docs/blog/${slug}`,
+    'git add docs/blog/index.html docs/blog/feed.xml docs/blog/atom.xml',
+    '',
+    '# Commit and push',
+    `git commit -m "blog: remove ${slug}"`,
+    'git push'
+  ].join('\n');
+}
+
 function resetRemovalOutputs() {
   if (manageActions) manageActions.classList.add('hidden');
   if (removalStepsField) removalStepsField.value = '';
+  if (removalShellField) removalShellField.value = '';
+  if (removalPowerShellField) removalPowerShellField.value = '';
+  if (removalGitField) removalGitField.value = '';
   if (removalCommitField) removalCommitField.value = '';
   if (selectedPostMeta) selectedPostMeta.textContent = '';
   if (selectedPostHeading) selectedPostHeading.textContent = 'Removal Checklist';
