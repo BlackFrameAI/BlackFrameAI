@@ -191,6 +191,36 @@
       display: none !important;
     }
 
+    .password-tools {
+      margin-top: 2.5rem;
+      padding: 1.5rem;
+      border: 1px solid rgba(0, 180, 255, 0.35);
+      border-radius: 18px;
+      background: rgba(0, 8, 20, 0.72);
+      box-shadow: inset 0 0 24px rgba(0, 120, 255, 0.08);
+    }
+
+    .password-tools h2 {
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+    }
+
+    .password-tools p {
+      margin-bottom: 0.9rem;
+    }
+
+    .password-tools .grid.two {
+      margin-bottom: 1.2rem;
+    }
+
+    .password-tools .output-block {
+      margin-top: 1.4rem;
+    }
+
+    .password-feedback {
+      margin-top: 1rem;
+    }
+
     code {
       background: rgba(0, 40, 80, 0.55);
       padding: 0.2rem 0.35rem;
@@ -350,6 +380,51 @@
         </div>
       </form>
       <p class="notice">Reminder: after cutting a new dispatch, remove the <strong>Latest Post</strong> badge from yesterday’s card on <code>docs/blog/index.html</code>.</p>
+
+      <section class="password-tools" aria-labelledby="password-tools-heading">
+        <h2 id="password-tools-heading">Password Tools</h2>
+        <p>Generate a new passcode hash and copy the snippet below to update <code>docs/blog/post/poster.js</code>. Commit and push to lock in the change.</p>
+        <form id="password-form" autocomplete="off">
+          <div class="grid two">
+            <div>
+              <label for="new-passcode">New Passcode</label>
+              <input type="password" id="new-passcode" name="new-passcode" minlength="8" placeholder="At least 8 characters" required>
+            </div>
+            <div>
+              <label for="confirm-passcode">Confirm Passcode</label>
+              <input type="password" id="confirm-passcode" name="confirm-passcode" minlength="8" required>
+            </div>
+          </div>
+          <div class="button-row">
+            <button type="submit">Generate Hash &amp; Snippet</button>
+            <button type="button" id="password-reset-btn">Clear</button>
+          </div>
+        </form>
+        <p id="password-feedback" class="notice hidden password-feedback"></p>
+        <div id="password-output" class="hidden">
+          <div class="output-block">
+            <h2>SHA-256 Hash</h2>
+            <div class="button-row">
+              <button type="button" class="copy-btn" data-copy-target="password-hash-output">Copy</button>
+            </div>
+            <textarea id="password-hash-output" readonly></textarea>
+          </div>
+          <div class="output-block">
+            <h2>Code Snippet</h2>
+            <div class="button-row">
+              <button type="button" class="copy-btn" data-copy-target="password-snippet">Copy</button>
+            </div>
+            <textarea id="password-snippet" readonly></textarea>
+          </div>
+          <div class="output-block">
+            <h2>One-Liner to Update Locally</h2>
+            <div class="button-row">
+              <button type="button" class="copy-btn" data-copy-target="password-command">Copy</button>
+            </div>
+            <textarea id="password-command" readonly></textarea>
+          </div>
+        </div>
+      </section>
     </section>
 
     <section id="results-view" class="hidden">

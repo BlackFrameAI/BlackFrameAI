@@ -21,6 +21,16 @@ const outputFields = {
   commitMessage: document.getElementById('commit-message'),
 };
 
+const passwordForm = document.getElementById('password-form');
+const passwordResetBtn = document.getElementById('password-reset-btn');
+const passwordOutput = document.getElementById('password-output');
+const passwordFeedback = document.getElementById('password-feedback');
+const newPassInput = document.getElementById('new-passcode');
+const confirmPassInput = document.getElementById('confirm-passcode');
+const passwordHashOutput = document.getElementById('password-hash-output');
+const passwordSnippet = document.getElementById('password-snippet');
+const passwordCommand = document.getElementById('password-command');
+
 async function sha256Hex(text) {
   const encoder = new TextEncoder();
   const data = encoder.encode(text);
@@ -635,6 +645,72 @@ function handleReset() {
   setDefaultDates();
 }
 
+function clearPasswordOutputs() {
+  if (passwordHashOutput) passwordHashOutput.value = '';
+  if (passwordSnippet) passwordSnippet.value = '';
+  if (passwordCommand) passwordCommand.value = '';
+  if (passwordOutput) passwordOutput.classList.add('hidden');
+  if (passwordFeedback) {
+    passwordFeedback.classList.add('hidden');
+    passwordFeedback.textContent = '';
+    passwordFeedback.classList.remove('notice--error');
+  }
+  if (newPassInput) newPassInput.value = '';
+  if (confirmPassInput) confirmPassInput.value = '';
+}
+
+function showPasswordFeedback(message, isError = false) {
+  if (!passwordFeedback) return;
+  passwordFeedback.textContent = message;
+  passwordFeedback.classList.remove('hidden');
+  if (isError) {
+    passwordFeedback.classList.add('notice--error');
+  } else {
+    passwordFeedback.classList.remove('notice--error');
+  }
+}
+
+async function handlePasswordForm(event) {
+  event.preventDefault();
+  if (!newPassInput || !confirmPassInput) return;
+  const pass = newPassInput.value.trim();
+  const confirm = confirmPassInput.value.trim();
+  if (!pass || pass.length < 8) {
+    showPasswordFeedback('Passcode must be at least 8 characters.', true);
+    return;
+  }
+  if (pass !== confirm) {
+    showPasswordFeedback('Passcodes do not match. Try again.', true);
+    return;
+  }
+  try {
+    const hash = await sha256Hex(pass);
+    const snippet = `const passwordHash = '${hash}'; // sha256(new passcode)`;
+    const command =
+      `node -e "const fs=require('fs');const file='docs/blog/post/poster.js';const hash='${hash}';` +
+      `let src=fs.readFileSync(file,'utf8');` +
+      `if(!/const passwordHash = '.+';/.test(src)){throw new Error('passwordHash constant not found');}` +
+      `src=src.replace(/const passwordHash = '.*';/, \`const passwordHash = '\${hash}';\`);` +
+      `fs.writeFileSync(file,src);"`;
+
+    if (passwordHashOutput) passwordHashOutput.value = hash;
+    if (passwordSnippet) passwordSnippet.value = snippet;
+    if (passwordCommand) passwordCommand.value = command;
+    if (passwordOutput) passwordOutput.classList.remove('hidden');
+    showPasswordFeedback('Hash generated. Replace the constant, commit, and push to finalize the new passcode.');
+  } catch (error) {
+    showPasswordFeedback(`Unable to generate hash: ${error.message}`, true);
+  }
+}
+
+function handlePasswordReset(event) {
+  event.preventDefault();
+  if (passwordForm) {
+    passwordForm.reset();
+  }
+  clearPasswordOutputs();
+}
+
 function init() {
   setDefaultDates();
   checkStoredAuth();
@@ -642,7 +718,14 @@ function init() {
   loginForm.addEventListener('submit', handleLogin);
   form.addEventListener('submit', handleGenerate);
   resetBtn.addEventListener('click', handleReset);
-  resultsView.addEventListener('click', handleCopy);
+  posterView.addEventListener('click', handleCopy);
+
+  if (passwordForm) {
+    passwordForm.addEventListener('submit', handlePasswordForm);
+  }
+  if (passwordResetBtn) {
+    passwordResetBtn.addEventListener('click', handlePasswordReset);
+  }
 }
 
 init();
