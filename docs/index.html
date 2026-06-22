@@ -1,99 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="preload" as="image" href="/assets/blackflame_logo_cleaned.svg" type="image/svg+xml">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BlackFrame AI, Home of the First Verifiable AI-Generated Dual Use Engine</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://utteranc.es https://plausible.io https://challenges.cloudflare.com https://ajax.cloudflare.com; style-src 'self' 'unsafe-inline' https://cloudflarefonts.com; img-src 'self' data: https://utteranc.es; font-src 'self' https://cloudflarefonts.com https://fonts.cloudflare.com; connect-src 'self' https://plausible.io; frame-src https://utteranc.es; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
-  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
-  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
-
-  <!-- SEO Meta -->
-  <meta name="description" content="BlackFrame AI built BlackFrame Engine, the first verifiable AI-generated dual use engine with quantum grade simulators, telemetry fusion, and dual mission tooling.">
-  <meta name="author" content="BlackFrame AI Studio">
-  <link rel="canonical" href="https://www.blackframeai.org/" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="BlackFrame AI, Home of the First Verifiable AI-Generated Dual Use Engine">
-  <meta property="og:description" content="BlackFrame Engine is the first verifiable AI-generated dual use engine with quantum ready simulators, telemetry fusion, and human-audited governance.">
-  <meta property="og:url" content="https://www.blackframeai.org/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="BlackFrame AI">
-  <meta property="og:image" content="https://www.blackframeai.org/assets/BlackFrameBanner.jpg">
-  <meta property="og:image:width" content="1280">
-  <meta property="og:image:height" content="640">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="BlackFrame AI, Home of the First Verifiable AI-Generated Dual Use Engine">
-  <meta name="twitter:description" content="BlackFrame Engine is the first verifiable AI-generated dual use engine with quantum ready simulators, telemetry fusion, and human-audited governance.">
-  <meta property="og:image:alt" content="BlackFrame Engine dual use engine hero art">
-  <meta name="twitter:image" content="https://www.blackframeai.org/assets/BlackFrameBanner.jpg">
-
-  <!-- Favicon + Manifest -->
+  
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="alternate" type="application/rss+xml" title="BlackFrame AI Studio Blog" href="/blog/feed.xml">
-  <link rel="preconnect" href="https://cloudflarefonts.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.cloudflare.com" crossorigin>
-  <link rel="preload" href="/assets/styles.min.css" as="style">
-  <link rel="stylesheet" href="/assets/styles.min.css">
-  <noscript><link rel="stylesheet" href="/assets/styles.min.css"></noscript>
-  <link rel="stylesheet" href="https://cloudflarefonts.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin>
-
-  <script defer data-domain="blackframeai.org" src="https://plausible.io/js/script.js"></script>
-  <link rel="stylesheet" href="/assets/hotfix.css">
+  <!-- Link explicitly and solely to the new DARPA Obsidian stylesheet -->
+  <link rel="stylesheet" href="/assets/darpa-obsidian.css">
 </head>
-  <style id="hotfix-logo">
-/* HOTFIX: hero + sidebar logo */
-.logo{display:block;margin:0 auto;position:relative;left:0;transform:none;opacity:1;filter:none;mix-blend-mode:normal;z-index:2;max-width:420px;width:min(55vw,420px);height:auto}
-@media (max-width:640px){.logo{width:min(85vw,320px)}}
-aside img.logo,aside .logo,.sidebar img.logo,.sidebar .logo,aside img[alt*="BlackFrame"]{display:block!important;max-width:140px;width:min(22vw,140px);height:auto;margin:16px auto!important}
-aside,.sidebar{overflow:visible}
-.site-header .site-brand{flex-direction:column;align-items:center;gap:18px;text-align:center}
-.site-header .site-brand span{display:block;font-size:.85rem;letter-spacing:.12em}
-.site-header .site-brand .logo{max-width:160px!important;width:min(32vw,160px)!important;margin:0 auto!important;height:auto!important;filter:drop-shadow(0 0 12px rgba(0,180,255,.35))}
-  </style>
+<body>
+  <div class="mesh-bg"></div>
+  <div class="glow-orb orb1"></div>
+  <div class="glow-orb orb2"></div>
 
-
-<body class="home-page">
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-  <header class="site-header" role="banner">
-    <div class="site-header__inner">
-      <a class="site-brand" href="/" aria-label="BlackFrame AI home">
-        <img src="/assets/blackflamelogo.png" style="display:block;width:400px;height:auto;opacity:1;filter:none;mix-blend-mode:normal;z-index:2" alt="BlackFrame AI mark" class="logo" width="400" height="400" fetchpriority="high" loading="eager" style="display:block;margin:0 auto;max-width:420px;width:min(55vw,420px);height:auto;position:static !important;left:auto !important;right:auto !important;transform:none !important;align-self:center !important;opacity:1;filter:none;mix-blend-mode:normal;z-index:2">
-
-
-        <span>BlackFrame AI</span>
-      </a>
-      <nav class="site-nav" aria-label="Primary">
-        <ul class="site-nav__list">
-          <li><a class="site-nav__link" href="/" aria-current="page">Home</a></li>
-          <li><a class="site-nav__link" href="/services/">Services</a></li>
-          <li><a class="site-nav__link" href="/partner-playbooks/">Partner Playbooks</a></li>
-          <li><a class="site-nav__link" href="/devlog-vault/">Devlog Vault</a></li>
-          <li><a class="site-nav__link" href="/blog/">Blog</a></li>
-          <li><a class="site-nav__link" href="/contact/">Contact</a></li>
+  <header class="darpa-header">
+    <div class="darpa-header-inner">
+      <a class="darpa-brand" href="/">BLACKFRAME AI</a>
+      <nav aria-label="Primary">
+        <ul class="darpa-nav-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/partner-playbooks/">Playbooks</a></li>
+          <li><a href="/devlog-vault/">Vault</a></li>
+          <li><a href="/blog/">Blog</a></li>
         </ul>
-        <div class="site-nav__meta" role="group" aria-label="Studio quick links">
-          <a href="https://cal.com/blackframeai/partnership-intro" target="_blank" rel="noopener noreferrer">Book a capabilities call</a>
-          <a href="mailto:studio@blackframeai.org">studio@blackframeai.org</a>
-          <a href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow @blackframeai</a>
-        </div>
       </nav>
     </div>
   </header>
-  <div class="container">
-    <main id="main-content">
-      <section class="hero" aria-labelledby="vision-heading">
-        <a href="/" class="logo-link" aria-label="BlackFrame AI emblem">
-          <img src="/assets/blackflamelogo.png" style="display:block;width:400px;height:auto;opacity:1;filter:none;mix-blend-mode:normal;z-index:2" alt="BlackFrame AI mark" class="logo" width="400" height="400" fetchpriority="high" loading="eager" style="display:block;margin:16px auto !important;max-width:140px;width:min(22vw,140px);height:auto;position:static !important;left:auto !important;right:auto !important;transform:none !important;align-self:center !important;opacity:1;filter:none;mix-blend-mode:normal;z-index:2">
 
-
-        </a>
-        <span class="pill" id="vision-heading">World's First Verifiable AI-Generated Dual Use Engine</span>
-        <h1>We built BlackFrame, the world's first AI generated dual use engine with quantum grade simulators</h1>
+  <div class="darpa-container">
+    <main>
+      <!-- Hero Section -->
+      <section class="darpa-glass-panel darpa-hero">
+        <div class="darpa-hero-logo">
+          <img src="/assets/blackflamelogo.png" alt="Base Shield">
+          <object type="image/svg+xml" data="/assets/tracer_animated_glow.svg"></object>
+        </div>
+        <span class="darpa-pill">World's First Verifiable AI-Generated Dual Use Engine</span>
+        <h1>We built BlackFrame, the world's first AI generated dual use engine</h1>
         <p>
           BlackFrame AI is an independent studio proving that agentic development can ship production-grade
           technology. BlackFrame Engine is the first verifiable AI-generated dual use engine, with Codex writing
@@ -105,364 +50,77 @@ aside,.sidebar{overflow:visible}
           giving partners a plug ready path for hardware in the loop experiments on real quantum devices when they
           are available, with policy locks that document every escalation path.
         </p>
-        <div class="hero-actions" role="group" aria-label="Primary actions">
-          <a class="hero-button" href="https://cal.com/blackframeai/partnership-intro" target="_blank" rel="noopener noreferrer">Book a Capabilities Call</a>
-          <a class="hero-button secondary" href="/devlog-vault/">Explore the Devlog Vault</a>
+        <div class="darpa-actions">
+          <a class="darpa-btn darpa-btn-primary" href="https://cal.com/blackframeai/partnership-intro">Book a Capabilities Call</a>
+          <a class="darpa-btn darpa-btn-secondary" href="/devlog-vault/">Explore the Vault</a>
         </div>
       </section>
 
-      <nav class="page-outline" aria-label="On-page navigation">
-        <h2 class="page-outline__title">Jump to a section</h2>
-        <ul class="page-outline__list">
-          <li><a href="#founder-heading">Founder story</a></li>
-          <li><a href="#claim-heading">Verified milestone</a></li>
-          <li><a href="#differentiators-heading">Why this is different</a></li>
-          <li><a href="#technology-heading">What we're building</a></li>
-          <li><a href="#visuals-heading">Showcase</a></li>
-          <li><a href="#partnership-heading">Partner with us</a></li>
-          <li><a href="#community-heading">Community</a></li>
-          <li><a href="#glossary-heading">Glossary</a></li>
-          <li><a href="#press-heading">Press</a></li>
-        </ul>
-      </nav>
-
-      <section class="content-section founder-story" aria-labelledby="founder-heading" role="region">
-        <p class="founder-story__eyebrow">Who we are</p>
-        <h2 id="founder-heading">BlackFrame AI is an underdog studio led by James Elliott, CEO and recovering addict turned founder</h2>
+      <!-- Founder Story -->
+      <section class="darpa-glass-panel">
+        <h2>BlackFrame AI is an underdog studio led by James Elliott</h2>
         <p>
           James Elliott rebuilt his life after years in survival mode, guided by trusted mentors who helped him focus
           on craft, accountability, and community. He now leads BlackFrame AI Studio as a visibly disabled founder with
-          more than a decade clean and no prior engine experience. James orchestrated an agent-and-auditor crew of
-          OpenAI systems to help craft the world's first verifiable AI-generated modular engine. He chooses to share
-          his name and recovery journey intentionally—see our <a href="/privacy/">privacy &amp; transparency statement</a>
-          for how we protect the rest of the team.
+          more than a decade clean and no prior engine experience.
         </p>
-        <div class="founder-story__grid" role="list">
-          <article class="founder-story__card" role="listitem">
+        <div class="darpa-grid-3">
+          <article class="darpa-metric-card">
             <h3>Recovery fuels the mission</h3>
-            <p>James Elliott shares his addiction story to support others in recovery, honoring family and friends lost along the way.</p>
+            <span>James Elliott shares his addiction story to support others in recovery, honoring family and friends lost along the way.</span>
           </article>
-          <article class="founder-story__card" role="listitem">
-            <h3>Built with relentless transparency</h3>
-            <p>Every build log, policy call, and audit is preserved so partners can verify how an unemployed, disabled founder and a crew of agents built the engine.</p>
+          <article class="darpa-metric-card">
+            <h3>Relentless transparency</h3>
+            <span>Every build log, policy call, and audit is preserved so partners can verify how an unemployed founder and agents built the engine.</span>
           </article>
-          <article class="founder-story__card" role="listitem">
-            <h3>Community-first creativity</h3>
-            <p>Outside the lab, James Elliott explores FFR theory and alt-history on YouTube to spark curiosity without dogma, keeping room for laughs and critical thinking.</p>
+          <article class="darpa-metric-card">
+            <h3>Community-first</h3>
+            <span>Outside the lab, James explores FFR theory and alt-history on YouTube to spark curiosity without dogma.</span>
           </article>
-        </div>
-        <blockquote class="founder-story__quote">
-          <p>“Unemployed recovering addict with over a decade clean, now physically disabled and with zero engine experience, builds the world’s first verifiable AI-generated modular engine with nothing but grit, OpenAI agents, and transparent logs to prove it. My name is James Elliott, and I won’t hide behind anonymity.”</p>
-        </blockquote>
-        <div class="founder-story__cta" role="group" aria-label="Connect with James Elliott and the studio">
-          <a class="cta-button" href="mailto:studio@blackframeai.org?subject=Your%20story%20matters">Reach out to James Elliott</a>
-          <a class="cta-button cta-secondary" href="https://www.youtube.com/@parental__advisory" target="_blank" rel="noopener noreferrer">Explore the YouTube channel</a>
-          <p class="founder-story__support">Fighting addiction? DM @blackframeai anytime—James Elliott is right there with you.</p>
         </div>
       </section>
 
-      <section class="ai-claim-banner" aria-labelledby="claim-heading" role="region">
-        <p class="ai-claim-banner__eyebrow">Verified milestone</p>
-        <h2 id="claim-heading">BlackFrame Engine is the first verifiable AI-generated dual use engine</h2>
+      <!-- Verified Milestone & Metrics -->
+      <section class="darpa-glass-panel">
+        <h2>Verified milestone</h2>
         <p>
           We define an AI-generated engine as a complete, runnable engine whose source scaffolding, architecture,
           and iterative code were authored by a large language model operating under autonomous or semi-autonomous
-          control. Our pipeline meets that bar and documents every decision. BlackFrame extends that baseline with
-          native dual use modules and quantum simulator hooks that no prior AI generated runtime has demonstrated in
-          public, while preserving a transparent audit chain for reviewers.
+          control.
         </p>
-        <ul class="ai-claim-points">
-          <li>Codex generated EngineCore, system managers, rendering, audio, input, simulation, telemetry, and build tooling while humans served as reviewers, red-teamers, and policy enforcers.</li>
-          <li>Quantum simulator adapters were specified in natural language, scaffolded by Codex, and validated against our entropy libraries so the engine can hand off workloads to quantum hardware today and log every experiment.</li>
-          <li>Phase logged devlogs capture the journey from empty repository to shipped executable in <a href="/devlog-vault/">the Devlog Vault</a>, providing reproducible proof.</li>
-          <li>No prior public archive shows an end to end AI authored engine that combines dual use training modules, self auditing routines, and quantum ready integrations under the same verifiable governance.</li>
-        </ul>
-        <p class="ai-claim-footnote">The claim is defensible for partners, press, and academics because every artifact is timestamped, version-controlled, and reviewable. All verification logs, audits, and supporting evidence were finalized and time-locked at the beginning of June 2025.</p>
+        <div class="darpa-grid-3">
+          <div class="darpa-metric-card">
+            <strong>82%</strong>
+            <span>Average reduction in prototype assembly time.</span>
+          </div>
+          <div class="darpa-metric-card">
+            <strong>6 hrs</strong>
+            <span>Fastest Codex-guided sprint to playable sandbox.</span>
+          </div>
+          <div class="darpa-metric-card">
+            <strong>4×</strong>
+            <span>Increase in narrative iteration cadence.</span>
+          </div>
+        </div>
       </section>
 
-      <section class="content-section" aria-labelledby="differentiators-heading">
-        <h2 id="differentiators-heading">Why This Is Different From Other AI Engine Headlines</h2>
-        <p>
-          Other AI assisted engines and aerospace demonstrations are impressive, yet they do not satisfy the same
-          criteria that make BlackFrame a first. We share this context with partners so the comparison is clear.
-        </p>
+      <!-- What we are building -->
+      <section class="darpa-glass-panel">
+        <h2>What We're Building</h2>
         <ul>
-          <li>University rocket engine tests and LEAP71 hardware are AI designed components, not full software runtimes that self assemble, self audit, and operate across entertainment and defense simulations.</li>
-          <li>Mirage, GameNGen, and similar prompt driven game generators output playable slices but lack public proof that an autonomous agent authored and governed the entire engine codebase.</li>
-          <li>Autonomous refactoring agents and self programming frameworks optimize existing stacks rather than ship a brand new runtime with quantum simulators, telemetry fusion, and red team policy baked in.</li>
+          <li><strong>BlackFrame Engine:</strong> A hybrid rendering and simulation toolkit tuned for stylized sci-fi worlds and operational training scenarios.</li>
+          <li><strong>Creator Co-Pilots:</strong> Workflow agents that help writers, level designers, mission planners, and live ops teams move faster.</li>
+          <li><strong>Quantum and Entropy Labs:</strong> Custom simulators, entropy injectors, and hardware bridges.</li>
         </ul>
-        <p>
-          BlackFrame documents every commit, policy decision, and evaluation artifact so external teams can verify the claim.
-          The evidence shows an AI generated core upgraded with human oversight into a mission ready engine, not a prototype or marketing demo.
-        </p>
-      </section>
-      <section class="content-section" id="services" aria-labelledby="technology-heading">
-        <h2 id="technology-heading">What We're Building</h2>
-        <p>
-          We are actively developing a modular engine stack that combines procedural simulation, adaptive
-          narrative design, real-time telemetry, and quantum grade experimentation. Each system is trained on
-          curated datasets to enhance human creativity, never to replace it. If you are exploring AI assisted
-          production, defense ready simulations, or quantum hybrid workflows, we are excited to collaborate—and we
-          share the audit evidence so your compliance and safety teams can move quickly.
-        </p>
-        <ul>
-          <li><strong>BlackFrame Engine:</strong> A hybrid rendering and simulation toolkit tuned for stylized sci-fi worlds and operational training scenarios, complete with documentation proving every AI-authored subsystem.</li>
-          <li><strong>Creator Co-Pilots:</strong> Workflow agents that help writers, level designers, mission planners, and live ops teams move faster while respecting human review checkpoints.</li>
-          <li><strong>Quantum and Entropy Labs:</strong> Custom simulators, entropy injectors, and hardware bridges that let partners rehearse scenarios on classical or quantum resources with reproducible experiment logs.</li>
-        </ul>
-        <div class="proof-points" aria-label="Recent proof points">
-          <p>Proof from the lab: each sprint is anchored in shipped experiments and measurable gains.</p>
-          <div class="proof-points__grid">
-            <div class="proof-card">
-              <h3>Procedural Batching Online</h3>
-              <p><a href="/blog/2025-11-06-batched-horizon/">Batched Horizon</a> shows Codex batching procedural sprites, running unattended autotests, and locking UI state with a shared registry.</p>
-              <h3>Diagnostics on Demand</h3>
-              <p><a href="/blog/2025-11-02-diagnostic-cascade/">Diagnostic Cascade</a> shows Codex layering live overlays, SynthEngine audio logs, and GPU dumps so every frame carries proof.</p>
-            </div>
-            <div class="proof-card">
-              <h3>Agentic Production Days</h3>
-              <p>The <a href="/blog/blueprint-days/">Blueprint sprint</a> shows Codex steering scaffolds, freeing engineers to tune systems instead of wiring boilerplate.</p>
-            </div>
-            <div class="proof-card">
-              <h3>Partner Playbooks</h3>
-              <p>Our new <a href="/blog/ai-engine-foundations/">AI Engine Foundations</a> pillar distills how we onboard collaborators into modular workflows.</p>
-            </div>
-          </div>
-          <div class="metrics-grid" aria-label="Key performance signals">
-            <div class="metric-card">
-              <strong>82%</strong>
-              <span>Average reduction in prototype assembly time after adopting the Markdown-to-engine loop.</span>
-            </div>
-            <div class="metric-card">
-              <strong>6 hrs</strong>
-              <span>Fastest Codex-guided sprint from brief to playable sandbox during Blueprint Days.</span>
-            </div>
-            <div class="metric-card">
-              <strong>4×</strong>
-              <span>Increase in narrative iteration cadence once creator co-pilots seeded story beats automatically.</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="content-section" id="visuals" aria-labelledby="visuals-heading">
-        <h2 id="visuals-heading">Show, Don't Just Tell</h2>
-        <p>Peek inside our modular stack, where each layer combines AI assistance with human direction to keep the vibe intentional.</p>
-        <div class="visual-showcase" role="list">
-          <article class="visual-card" role="listitem">
-            <svg viewBox="0 0 64 64" role="img" aria-label="Simulation Spine schematic">
-              <path fill="#8fd7ff" d="M12 8h40a4 4 0 0 1 4 4v12H8V12a4 4 0 0 1 4-4zm-4 24h48v6H8zm0 12h48v12a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4z" opacity="0.45"/>
-              <path fill="#35c0ff" d="M16 16h32v6H16zm0 28h32v6H16z"/>
-            </svg>
-            <h3>Simulation Spine</h3>
-            <p>Layered physics, encounter orchestration, and telemetry streaming into the same control plane.</p>
-          </article>
-          <article class="visual-card" role="listitem">
-            <svg viewBox="0 0 64 64" role="img" aria-label="Narrative Codex diagram">
-              <path fill="#8fd7ff" d="M32 6 6 20v24l26 14 26-14V20z" opacity="0.45"/>
-              <path fill="#35c0ff" d="M32 16 14 25v14l18 9 18-9V25z"/>
-            </svg>
-            <h3>Narrative Codex</h3>
-            <p>Branching canon stays coherent with automated canon checks, style guards, and intent tagging.</p>
-          </article>
-          <article class="visual-card" role="listitem">
-            <svg viewBox="0 0 64 64" role="img" aria-label="Creator co-pilot interface">
-              <rect x="8" y="10" width="48" height="44" rx="6" fill="rgba(53,192,255,0.25)" stroke="#35c0ff" stroke-width="2"/>
-              <path d="M16 20h20M16 28h32M16 36h24" stroke="#8fd7ff" stroke-width="3" stroke-linecap="round"/>
-            </svg>
-            <h3>Creator Co-Pilots</h3>
-            <p>Assistive tooling drafts blueprints, scenes, and encounter notes alongside human leads.</p>
-          </article>
-          <article class="visual-card" role="listitem">
-            <svg viewBox="0 0 64 64" role="img" aria-label="Ops and observability dashboard">
-              <circle cx="20" cy="24" r="8" fill="#35c0ff" opacity="0.5"/>
-              <circle cx="44" cy="34" r="10" fill="#8fd7ff" opacity="0.45"/>
-              <path d="M12 48h40" stroke="#35c0ff" stroke-width="4" stroke-linecap="round"/>
-            </svg>
-            <h3>Ops & Observability</h3>
-            <p>Live dashboards surface quality bars, player sentiment, and automated regression catches.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="content-section" id="partner-offerings" aria-labelledby="partnership-heading">
-        <div class="partnership-cta">
-          <div class="partnership-cta__header">
-            <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
-              <path fill="#00c6ff" d="M32 6a10 10 0 0 1 10 10v6h4a8 8 0 0 1 8 8v20a8 8 0 0 1-8 8H18a8 8 0 0 1-8-8V30a8 8 0 0 1 8-8h4v-6A10 10 0 0 1 32 6zm0 6a4 4 0 0 0-4 4v6h8v-6a4 4 0 0 0-4-4zm16 18H18a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h30a2 2 0 0 0 2-2V32a2 2 0 0 0-2-2z"/>
-            </svg>
-            <h2 id="partnership-heading">Partner with the Studio</h2>
-          </div>
-          <p>
-            Ready to prototype a new universe, automate live-ops, or stress-test an AI-first workflow? We host capability calls for
-            studios, publishers, defense primes, and creative labs who want to ship faster without losing the soul of their worlds.
-          </p>
-          <div class="cta-actions">
-            <a class="cta-button" href="https://cal.com/blackframeai/partnership-intro" target="_blank" rel="noopener noreferrer">Book a Capabilities Call</a>
-            <a class="cta-button cta-secondary" href="mailto:studio@blackframeai.org?subject=BlackFrame%20AI%20Partnership%20Inquiry">Request a Studio Packet</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="content-section" aria-labelledby="community-heading">
-        <h2 id="community-heading">Stay in the Loop</h2>
-        <p>
-          Follow our development updates, devlogs, and behind-the-scenes drops. We're sharing research notes,
-          early prototypes, and production learnings so fellow studios and fans can grow with us.
-        </p>
-        <div class="community-links">
-          <a class="social-button" href="https://x.com/blackframeai" target="_blank" rel="noopener noreferrer">Follow on X</a>
-          <a class="blog-button" href="/blog/">Visit the Studio Blog</a>
-          <a class="social-button" href="https://github.com/BlackFrameAI" target="_blank" rel="noopener noreferrer">Track Builds on GitHub</a>
-          <a class="social-button" href="mailto:studio@blackframeai.org">Contact the Studio</a>
-        </div>
-        <div class="newsletter-hold">
-          <form class="newsletter-form" data-endpoint="/api/newsletter" data-success-message="Thanks! Please check your inbox for our confirmation." novalidate>
-            <div>
-              <label for="newsletter-email">Email <span class="required-marker" aria-hidden="true">*</span></label>
-              <input type="email" id="newsletter-email" name="email" autocomplete="email" required placeholder="studio@example.com" />
-            </div>
-            <div>
-              <label for="newsletter-focus">What do you want to follow?</label>
-              <select id="newsletter-focus" name="focus">
-                <option value="Studio updates">Studio updates &amp; devlogs</option>
-                <option value="Partnership opportunities">Partnership opportunities</option>
-                <option value="Release alerts">Release alerts</option>
-              </select>
-            </div>
-            <div>
-              <label for="newsletter-cadence">Preferred cadence</label>
-              <select id="newsletter-cadence" name="cadence">
-                <option value="Weekly">Weekly pulse (default)</option>
-                <option value="Monthly">Monthly roundup</option>
-                <option value="Critical alerts only">Critical alerts only</option>
-              </select>
-            </div>
-            <div>
-              <label for="newsletter-notes">Notes (optional)</label>
-              <textarea id="newsletter-notes" name="notes" rows="3" placeholder="Share context or specific interests."></textarea>
-            </div>
-            <input type="hidden" name="csrfToken" value="" />
-            <input class="form-guard" type="text" name="formGuard" tabindex="-1" autocomplete="off" aria-hidden="true" />
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAAB8yHm3IjOiTatk2" data-action="newsletterForm" data-theme="dark"></div>
-            <div class="form-feedback" role="status" aria-live="polite"></div>
-            <button type="submit">Request access</button>
-          </form>
-          <p class="form-required-note">We confirm consent for every address and use Cloudflare Turnstile plus CSRF tokens to block spam.</p>
-        </div>
-        <p class="description">Prefer RSS? <a href="/blog/feed.xml">Follow the devlog feed</a> for daily drops.</p>
-      </section>
-
-      <section class="content-section" aria-labelledby="changelog-heading">
-        <div class="changelog-callout">
-          <h2 id="changelog-heading">Live Devlog Timeline</h2>
-          <p>Track every notable push, refactor, and release candidate inside the <strong>Devlog Vault</strong>. We publish transparent changelog notes, archived briefs, and production maps so partners can audit momentum.</p>
-          <a href="/devlog-vault/" class="cta-button cta-secondary">Explore the Devlog Vault</a>
-        </div>
-      </section>
-
-      <section class="content-section" aria-labelledby="glossary-heading">
-        <h2 id="glossary-heading">Glossary for New Collaborators</h2>
-        <p>We keep the language clear so anyone can follow our workflows. Start here if you're new to AI-assisted production.</p>
-        <dl class="glossary-list">
-          <div class="glossary-term">
-            <dt>
-              <span class="glossary-icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32" role="img" aria-hidden="true">
-                  <path d="M4 6h24v4H4zm4 8h16v4H8zm-4 8h24v4H4z" />
-                </svg>
-              </span>
-              <span class="glossary-term-title">Vibe Coding</span>
-            </dt>
-            <dd>Our practice of authoring systems in expressive Markdown that compiles into runnable prototypes with human review gates.</dd>
-          </div>
-          <div class="glossary-term">
-            <dt>
-              <span class="glossary-icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32" role="img" aria-hidden="true">
-                  <path d="M16 4 4 10v12l12 6 12-6V10z" />
-                </svg>
-              </span>
-              <span class="glossary-term-title">Codex</span>
-            </dt>
-            <dd>The orchestration brain coordinating agents, testing harnesses, and validation flows across the engine stack.</dd>
-          </div>
-          <div class="glossary-term">
-            <dt>
-              <span class="glossary-icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32" role="img" aria-hidden="true">
-                  <path d="M6 8h8v4H6zm12 0h8v4h-8zM6 20h8v4H6zm12 0h8v4h-8zM6 14h20v4H6z" />
-                </svg>
-              </span>
-              <span class="glossary-term-title">Agentic Workflow</span>
-            </dt>
-            <dd>A production loop where AI agents and humans share tasks with telemetry so creative leads stay accountable and in control.</dd>
-          </div>
-          <div class="glossary-term">
-            <dt>
-              <span class="glossary-icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32" role="img" aria-hidden="true">
-                  <path d="M4 6h6l2 4h8l2-4h6v20H4z" />
-                </svg>
-              </span>
-              <span class="glossary-term-title">Telemetry Streams</span>
-            </dt>
-            <dd>Real-time observability feeds capturing performance, narrative continuity, and player sentiment for rapid tuning.</dd>
-          </div>
-        </dl>
-      </section>
-
-      <section class="content-section" aria-labelledby="press-heading">
-        <div class="press-strip">
-          <h2 id="press-heading">Press &amp; Mentions</h2>
-          <p>We’ll keep this space updated with interviews, showcases, and community shout-outs as they land.</p>
-          <div class="press-strip__list" aria-live="polite">
-            <span class="press-chip">Spotlight your story, <a href="mailto:studio@blackframeai.org">reach out</a></span>
-            <span class="press-chip">First community feature scheduled for Q3</span>
-            <span class="press-chip">Blog syndication rolling out via RSS</span>
-          </div>
+        <div class="darpa-actions">
+          <a class="darpa-btn darpa-btn-primary" href="/services/">View Operations</a>
         </div>
       </section>
     </main>
-    <div class="footer">© 2025 BlackFrame AI Studio · <a href="mailto:studio@blackframeai.org">studio@blackframeai.org</a> · <a href="/privacy/">Privacy &amp; transparency</a> · <a href="/.well-known/security.txt">Responsible disclosure</a></div>
-  </div>
 
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer data-cfasync="false"></script>
-  <script src="/assets/forms.js" defer data-cfasync="false"></script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "BlackFrame AI Studio",
-      "url": "https://www.blackframeai.org/",
-      "logo": "https://www.blackframeai.org/assets/blackflame_logo_cleaned.svg",
-      "description": "BlackFrame AI builds AI-powered game engines, creator co-pilots, and original interactive worlds.",
-      "sameAs": [
-        "https://x.com/blackframeai",
-        "https://github.com/BlackFrameAI",
-        "https://discord.gg/FbAMyfBRHt",
-        "https://www.linkedin.com/company/blackframe-ai/",
-        "https://www.youtube.com/@BlackFrameAI"
-      ],
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "contactType": "press",
-          "email": "studio@blackframeai.org"
-        },
-        {
-          "@type": "ContactPoint",
-          "contactType": "partnerships",
-          "email": "studio@blackframeai.org"
-        }
-      ],
-      "areaServed": "Global",
-      "foundingDate": "2024",
-      "founder": {
-        "@type": "Organization",
-        "name": "BlackFrame AI Founding Team"
-      }
-    }
-  </script>
+    <div class="darpa-footer">
+      © 2025 BlackFrame AI Studio · studio@blackframeai.org
+    </div>
+  </div>
 </body>
 </html>
