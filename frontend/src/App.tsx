@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ReactLenis } from '@studio-freight/react-lenis';
+import { ReactLenis } from 'lenis/react';
 import { Shield } from 'lucide-react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import CustomCursor from './components/CustomCursor';
