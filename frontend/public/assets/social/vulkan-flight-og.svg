@@ -1,0 +1,29 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#030813" />
+      <stop offset="40%" stop-color="#0a1631" />
+      <stop offset="100%" stop-color="#132a4d" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#29d8ff" />
+      <stop offset="55%" stop-color="#5d7dff" />
+      <stop offset="100%" stop-color="#9a63ff" />
+    </linearGradient>
+    <radialGradient id="flare" cx="0.65" cy="0.25" r="0.75">
+      <stop offset="0%" stop-color="rgba(77,211,255,0.6)" />
+      <stop offset="100%" stop-color="rgba(10,20,40,0)" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#flare)" />
+  <g fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2">
+    <path d="M100 150h1000M100 270h1000M100 390h1000M100 510h1000" />
+    <path d="M160 110v410M320 110v410M480 110v410M640 110v410M800 110v410M960 110v410" />
+  </g>
+  <text x="120" y="200" fill="#52cfff" font-family="'Segoe UI','Inter',sans-serif" font-size="70" letter-spacing="0.04em">BLACKFRAME AI DEVLOG</text>
+  <text x="120" y="285" fill="#f4f8ff" font-family="'Segoe UI','Inter',sans-serif" font-size="58" letter-spacing="0.06em">DAY 10 · VULKAN FLIGHTPATH</text>
+  <text x="120" y="360" fill="#cbe7ff" font-family="'Segoe UI','Inter',sans-serif" font-size="32" letter-spacing="0.08em">RENDER BACKENDS · TELEMETRY LOOPS · FACTION STATE</text>
+  <rect x="120" y="400" width="560" height="6" fill="url(#accent)" rx="3" />
+  <text x="120" y="470" fill="#8bbce8" font-family="'Segoe UI','Inter',sans-serif" font-size="28" letter-spacing="0.12em">EVIDENCE TRAIL LOCKED IN DEVLOG VAULT</text>
+</svg>

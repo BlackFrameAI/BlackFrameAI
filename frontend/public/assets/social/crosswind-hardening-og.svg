@@ -1,0 +1,21 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#05070D"/>
+  <rect x="60" y="60" width="1080" height="510" rx="40" fill="url(#gradient)" stroke="#00BFFF" stroke-opacity="0.35" stroke-width="3"/>
+  <g filter="url(#glow)">
+    <path d="M200 420C230 340 320 300 420 300C550 300 640 360 760 360C860 360 940 320 1000 240" stroke="#6FD3FF" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="120" y="200" fill="#89C5FF" font-family="'Inter', 'Arial', sans-serif" font-size="54" font-weight="600" letter-spacing="0.35em">BLACKFRAME AI STUDIO</text>
+  <text x="120" y="280" fill="#FFFFFF" font-family="'Inter', 'Arial', sans-serif" font-size="90" font-weight="700" letter-spacing="0.12em">CROSSWIND HARDENING</text>
+  <text x="120" y="360" fill="#82E8FF" font-family="'Inter', 'Arial', sans-serif" font-size="42" font-weight="600" letter-spacing="0.32em">DAY 16 • WINDOWS DIAGNOSTICS</text>
+  <text x="120" y="450" fill="#FFFFFF" font-family="'Inter', 'Arial', sans-serif" font-size="36" letter-spacing="0.08em">Centralized headers, patch verification, and persistent saves across reconnects.</text>
+  <defs>
+    <linearGradient id="gradient" x1="60" y1="60" x2="1140" y2="570" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#081B2F"/>
+      <stop offset="1" stop-color="#020A14"/>
+    </linearGradient>
+    <filter id="glow" x="140" y="220" width="920" height="280" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feBlend in="SourceGraphic" in2="blur" mode="screen"/>
+    </filter>
+  </defs>
+</svg>

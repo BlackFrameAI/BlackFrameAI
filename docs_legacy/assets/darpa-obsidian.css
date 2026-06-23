@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Inter:wght@400;600&family=Michroma&display=swap');
+
+:root {
+  --bg-color: #000000;
+  --obsidian-base: #030508;
+  --hud-grid: rgba(53, 192, 255, 0.1);
+  --hud-accent: #35c0ff;
+  --text-primary: #e6f0ff;
+  --text-secondary: #8aa6c1;
+  
+  --chamfer-sm: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  --chamfer-lg: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+  
+  --btn-primary-bg: #35c0ff;
+  --btn-primary-text: #000;
+  
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Michroma", "Outfit", sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0; padding: 0; min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Global Scanline Overlay */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: repeating-linear-gradient(0deg, rgba(0,0,0,0.15) 0px, rgba(0,0,0,0.15) 1px, transparent 1px, transparent 2px);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+a { color: var(--hud-accent); text-decoration: none; transition: all 0.3s ease; }
+a:hover { text-shadow: 0 0 10px var(--hud-accent); }
+ul { margin: 0 0 20px 20px; padding: 0; }
+
+/* Background Mesh */
+.mesh-bg {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: -2;
+  background-image: linear-gradient(var(--hud-grid) 1px, transparent 1px), linear-gradient(90deg, var(--hud-grid) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* Layout Structure - Symmetrical HUD */
+.hud-viewport {
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  gap: 30px;
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Symmetrical Flanks */
+.hud-flank-left, .hud-flank-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 1px solid var(--hud-accent);
+  border-right: 1px solid var(--hud-accent);
+  opacity: 0.4;
+  position: relative;
+}
+.hud-flank-left::before {
+  content: "SYS.L";
+  position: absolute; top: 20px; left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display); font-size: 0.8rem; color: var(--hud-accent);
+}
+.hud-flank-right::before {
+  content: "SYS.R";
+  position: absolute; top: 20px; left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display); font-size: 0.8rem; color: var(--hud-accent);
+}
+
+.tactical-mark {
+  width: 100%; height: 2px;
+  background: var(--hud-accent);
+  margin: 20px 0;
+}
+
+/* Central Core */
+.hud-central-core {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Pseudo-element 3D Brackets for Core */
+.hud-central-core::before, .hud-central-core::after {
+  content: "";
+  position: absolute;
+  width: 50px; height: 50px;
+  border: 2px solid var(--hud-accent);
+  pointer-events: none;
+  z-index: 10;
+}
+.hud-central-core::before { top: -20px; left: -20px; border-right: none; border-bottom: none; }
+.hud-central-core::after { bottom: -20px; right: -20px; border-left: none; border-top: none; }
+
+/* The Chamfer Box Component */
+.chamfer-box {
+  background: rgba(3, 5, 8, 0.8);
+  border: 1px solid var(--hud-accent);
+  clip-path: var(--chamfer-lg);
+  padding: 40px;
+  margin-bottom: 40px;
+  box-shadow: inset 0 0 20px rgba(53, 192, 255, 0.05);
+  position: relative;
+  backdrop-filter: blur(8px);
+}
+
+/* Typography */
+h1, h2, h3, h4 { font-family: var(--font-display); color: #fff; margin-top: 0; text-transform: uppercase; }
+h1 { font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.1; margin-bottom: 24px; text-shadow: 0 0 10px rgba(53, 192, 255, 0.5); letter-spacing: -0.02em; text-align: center; }
+h2 { font-size: 2rem; margin-bottom: 20px; letter-spacing: 0.05em; border-bottom: 1px solid rgba(53, 192, 255, 0.3); padding-bottom: 10px; }
+h3 { font-size: 1.2rem; color: var(--hud-accent); margin-bottom: 10px; }
+p, li { color: var(--text-secondary); font-size: 1.1rem; }
+
+/* Header Nav */
+.darpa-header {
+  margin-bottom: 40px;
+  position: relative;
+  width: 100%;
+  z-index: 100;
+}
+.darpa-header-inner {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 32px;
+  background: rgba(3, 5, 8, 0.9);
+  border: 1px solid var(--hud-accent);
+  clip-path: var(--chamfer-sm);
+}
+.darpa-brand { font-family: var(--font-display); font-weight: 900; font-size: 1.2rem; letter-spacing: 0.1em; color: #fff; text-decoration: none; }
+.darpa-nav-list { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; align-items: center; }
+.darpa-nav-list a { color: var(--text-secondary); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; }
+.darpa-nav-list a:hover { color: var(--hud-accent); }
+
+/* Hero Section */
+.darpa-hero { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.darpa-hero-logo { position: relative; width: 400px; height: 400px; margin-bottom: 40px; }
+.darpa-hero-logo img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; filter: drop-shadow(0 0 20px rgba(53, 192, 255, 0.5)); z-index: 1; }
+.darpa-hero-logo object { position: absolute; top: 0; left: 0; width: 100%; height: 100%; mix-blend-mode: screen; z-index: 2; filter: drop-shadow(0 0 10px rgba(53, 192, 255, 0.8)); }
+
+.darpa-pill {
+  display: inline-block; padding: 8px 24px;
+  background: rgba(53, 192, 255, 0.05); color: var(--hud-accent); border: 1px solid var(--hud-accent);
+  clip-path: var(--chamfer-sm);
+  font-size: 0.85rem; font-family: monospace; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 24px;
+}
+
+.darpa-hero p { max-width: 800px; margin: 0 auto 32px auto; }
+
+/* Buttons */
+.darpa-actions { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+.darpa-btn {
+  display: inline-block; padding: 16px 40px; font-weight: 700;
+  font-family: var(--font-display); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.1em;
+  transition: all 0.2s ease; text-align: center; cursor: pointer;
+  clip-path: var(--chamfer-sm);
+}
+.darpa-btn-primary {
+  background: var(--btn-primary-bg); color: var(--btn-primary-text);
+  border: none;
+}
+.darpa-btn-primary:hover { transform: translateY(-2px); text-shadow: 2px 2px 0px rgba(255,255,255,0.3); background: #fff; }
+.darpa-btn-secondary {
+  background: transparent; color: var(--hud-accent); border: 1px solid var(--hud-accent);
+}
+.darpa-btn-secondary:hover { background: rgba(53, 192, 255, 0.1); transform: translateY(-2px); }
+
+/* Grids */
+.darpa-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 30px; }
+.darpa-metric-card { text-align: center; padding: 30px; background: rgba(0, 5, 10, 0.9); border: 1px solid rgba(53, 192, 255, 0.3); clip-path: var(--chamfer-sm); }
+.darpa-metric-card strong { display: block; font-family: var(--font-display); font-size: 3rem; color: var(--hud-accent); margin-bottom: 10px; }
+.darpa-metric-card strong::before { content: "[ "; color: rgba(53, 192, 255, 0.3); }
+.darpa-metric-card strong::after { content: " ]"; color: rgba(53, 192, 255, 0.3); }
+.darpa-metric-card span { display: block; color: var(--text-secondary); font-size: 1rem; }
+
+.darpa-footer { text-align: center; padding: 40px 20px; color: var(--text-secondary); border-top: 1px solid rgba(53, 192, 255, 0.2); margin-top: 40px; font-size: 0.9rem; }
+
+@media (max-width: 900px) {
+  .hud-viewport { grid-template-columns: 1fr; }
+  .hud-flank-left, .hud-flank-right { display: none; }
+}

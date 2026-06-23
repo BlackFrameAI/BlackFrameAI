@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="768" version="1.1">
+  <defs><filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+  <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+  <feMerge>
+    <feMergeNode in="blur"/>
+    <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+</filter><style>
+@keyframes breatheGlow {
+  0%, 100% {
+    opacity: 0.2;
+    filter: drop-shadow(0 0 0px #a0d8ff);
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 6px #a0d8ff);
+  }
+}
+.breathing-logo {
+  animation: breatheGlow 6s ease-in-out infinite;
+}
+</style></defs><image xmlns:ns0="http://www.w3.org/1999/xlink" href="blackflamelogo.png" x="0" y="0" width="768" height="768" preserveAspectRatio="xMidYMid meet" ns0:href="blackflamelogo.png" class="breathing-logo"/>
+</svg>

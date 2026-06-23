@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Day 7, Bootstrap Recovery Codex Self-Heal</title>
+  <desc id="desc">Social preview graphic for the Day 7 devlog highlighting Codex fixing its own bootstrap.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#01050c" />
+      <stop offset="45%" stop-color="#071a32" />
+      <stop offset="100%" stop-color="#10314f" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4dd3ff" />
+      <stop offset="50%" stop-color="#63a6ff" />
+      <stop offset="100%" stop-color="#8a7dff" />
+    </linearGradient>
+    <radialGradient id="flare" cx="0.5" cy="0.2" r="0.7">
+      <stop offset="0%" stop-color="rgba(77,211,255,0.6)" />
+      <stop offset="100%" stop-color="rgba(10,20,40,0)" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#flare)" />
+  <g fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2">
+    <path d="M80 140h1040M80 260h1040M80 380h1040M80 500h1040" />
+    <path d="M160 80v470M320 80v470M480 80v470M640 80v470M800 80v470M960 80v470" />
+  </g>
+  <text x="110" y="200" fill="#4dd3ff" font-family="'Segoe UI', 'Inter', sans-serif" font-size="72" letter-spacing="0.04em">BLACKFRAME AI DEVLOG</text>
+  <text x="110" y="290" fill="#f4f8ff" font-family="'Segoe UI', 'Inter', sans-serif" font-size="56" letter-spacing="0.06em">DAY 7 · BOOTSTRAP RECOVERY</text>
+  <text x="110" y="360" fill="#cbe7ff" font-family="'Segoe UI', 'Inter', sans-serif" font-size="32" letter-spacing="0.08em">INPUT LOOP FIX · V0.1 SNAPSHOT · GLFW HARDENING</text>
+  <rect x="110" y="400" width="480" height="6" fill="url(#accent)" rx="3" />
+  <text x="110" y="470" fill="#8bbce8" font-family="'Segoe UI', 'Inter', sans-serif" font-size="28" letter-spacing="0.12em">EVIDENCE TRAIL LOCKED IN DEVLOG VAULT</text>
+</svg>

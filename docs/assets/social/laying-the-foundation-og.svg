@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Day 4, Engine Heartbeat Online</title>
+  <desc id="desc">Social preview graphic for the Day 4 devlog covering the engine loop foundation.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#02060f" />
+      <stop offset="45%" stop-color="#0a1f38" />
+      <stop offset="100%" stop-color="#122b45" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4dd3ff" />
+      <stop offset="100%" stop-color="#8f74ff" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <g fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2">
+    <path d="M80 120h1040M80 240h1040M80 360h1040M80 480h1040" />
+    <path d="M160 60v510M320 60v510M480 60v510M640 60v510M800 60v510M960 60v510" />
+  </g>
+  <text x="110" y="210" fill="#4dd3ff" font-family="'Segoe UI', 'Inter', sans-serif" font-size="72" letter-spacing="0.04em">BLACKFRAME AI DEVLOG</text>
+  <text x="110" y="300" fill="#ffffff" font-family="'Segoe UI Semibold', 'Inter', sans-serif" font-size="110" letter-spacing="0.03em">ENGINE HEARTBEAT</text>
+  <text x="110" y="390" fill="#8f74ff" font-family="'Segoe UI', 'Inter', sans-serif" font-size="48" letter-spacing="0.05em">DAY 4, FOUNDATION LOOP ONLINE</text>
+  <rect x="110" y="430" width="460" height="6" fill="url(#accent)" rx="3" />
+  <text x="110" y="500" fill="#d6e8ff" font-family="'Segoe UI', 'Inter', sans-serif" font-size="34" letter-spacing="0.05em">Core systems initialized • Logging becomes the dashboard</text>
+  <text x="110" y="550" fill="#88c4ff" font-family="'Segoe UI', 'Inter', sans-serif" font-size="30" letter-spacing="0.05em">BlackFrame Engine, Studio Dispatch</text>
+</svg>
