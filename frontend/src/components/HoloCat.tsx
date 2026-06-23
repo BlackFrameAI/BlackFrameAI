@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Environment, Float, useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
 
@@ -55,17 +55,26 @@ function CatMesh({ modelPath, position, baseRotationY = 0, scale = 1.5 }: { mode
   )
 }
 
+function SceneLayout() {
+  const { viewport } = useThree()
+  // If viewport is narrow (mobile), center the cat and scale it down. Otherwise, offset to left.
+  const isMobile = viewport.width < 8;
+  const position: [number, number, number] = isMobile ? [0, -1, -2] : [-3.20, 0.20, -2];
+  const scale = isMobile ? 1.8 : 2.5;
+
+  return (
+    <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
+      <CatMesh modelPath="/assets/cat_lowpoly.glb" position={position} baseRotationY={-0.54} scale={scale} />
+    </Float>
+  )
+}
+
 export default function HoloCat() {
   return (
     <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: -1, pointerEvents: 'none' }}>
       <Canvas camera={{ position: [0, 0, 10], fov: 45 }}>
         <ambientLight intensity={0.5} />
-        
-        {/* The Final Winner: Cat Lowpoly */}
-        <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
-          <CatMesh modelPath="/assets/cat_lowpoly.glb" position={[-3.20, 0.20, -2]} baseRotationY={-0.54} scale={2.5} />
-        </Float>
-
+        <SceneLayout />
         <Environment preset="city" />
       </Canvas>
     </div>
