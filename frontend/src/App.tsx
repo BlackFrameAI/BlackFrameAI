@@ -1,8 +1,9 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import Lenis from 'lenis';
+import { ReactLenis } from '@studio-freight/react-lenis';
 import { Shield } from 'lucide-react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import CustomCursor from './components/CustomCursor';
 import HoloCat from './components/HoloCat';
 import Home from './pages/Home';
 import BlogList from './pages/BlogList';
@@ -23,30 +24,12 @@ function ScrollToTop() {
 function App() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
-    return () => lenis.destroy();
-  }, []);
-
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="mesh-bg" />
+    <ReactLenis root options={{ lerp: 0.1, duration: 1.2, smoothWheel: true }}>
+      <Router>
+        <ScrollToTop />
+        <CustomCursor />
+        <div className="mesh-bg" />
       
       {/* 3D WebGL Canvas Layer */}
       <HoloCat />
@@ -111,6 +94,7 @@ function App() {
 
       </div>
     </Router>
+    </ReactLenis>
   );
 }
 
