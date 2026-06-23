@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { Environment, Float, useGLTF } from '@react-three/drei'
+import { Environment, Float, useGLTF, Sparkles } from '@react-three/drei'
 import * as THREE from 'three'
 import Loader from './Loader'
 
@@ -65,15 +65,20 @@ function CatMesh({ modelPath, position, baseRotationY = 0, scale = 1.5 }: { mode
 
 function SceneLayout() {
   const { viewport } = useThree()
-  // If viewport is narrow (mobile), center the cat and scale it. Otherwise, offset to left.
+  // If viewport is narrow (mobile), we kill the cat entirely.
   const isMobile = viewport.width < 8;
-  const position: [number, number, number] = isMobile ? [0, -0.2, 0] : [-3.20, 0.20, -2];
-  const scale = isMobile ? 2.0 : 2.5;
+  const position: [number, number, number] = [-3.20, 0.20, -2];
+  const scale = 2.5;
 
   return (
-    <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
-      <CatMesh modelPath="/assets/cat_lowpoly.glb" position={position} baseRotationY={-0.54} scale={scale} />
-    </Float>
+    <>
+      <Sparkles count={200} scale={15} size={2} speed={0.4} opacity={0.3} color="#35c0ff" />
+      {!isMobile && (
+        <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
+          <CatMesh modelPath="/assets/cat_lowpoly.glb" position={position} baseRotationY={-0.54} scale={scale} />
+        </Float>
+      )}
+    </>
   )
 }
 
