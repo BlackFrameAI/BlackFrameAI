@@ -5,13 +5,14 @@ import SpotlightCard from '../components/SpotlightCard';
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => {
+    return typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches;
+  });
 
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.matchMedia('(max-width: 768px)').matches);
     };
-    checkMobile();
     const media = window.matchMedia('(max-width: 768px)');
     if (media.addEventListener) {
       media.addEventListener('change', checkMobile);
@@ -22,14 +23,21 @@ export default function Home() {
     }
   }, []);
 
-  const { scrollYProgress } = useScroll();
+  const { scrollY } = useScroll();
 
-  // Parallax effects: disable vertical translation on mobile to prevent overlaps
-  const yTextVal = useTransform(scrollYProgress, [0, 1], ["0%", "150%"]);
-  const yText = isMobile ? "0%" : yTextVal;
+  // Dynamic pixel-based parallax translation: lock to 0% on mobile
+  const yText = useTransform(scrollY, (latest) => {
+    if (isMobile) return "0px";
+    // Desktop: translate down as we scroll (max 150px translation)
+    return `${Math.min(latest * 0.4, 150)}px`;
+  });
 
-  // Fade out much faster on mobile (first 8% scroll progress) to clear screen before bottom panel scrolls up
-  const opacityText = useTransform(scrollYProgress, [0, isMobile ? 0.08 : 0.25], [1, 0]);
+  // Dynamic pixel-based opacity fade out: fade out within 120px on mobile, 300px on desktop
+  const opacityText = useTransform(scrollY, (latest) => {
+    const fadeDistance = isMobile ? 120 : 300;
+    if (latest >= fadeDistance) return 0;
+    return 1 - (latest / fadeDistance);
+  });
 
   return (
     <div ref={containerRef}>
