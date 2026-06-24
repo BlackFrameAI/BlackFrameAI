@@ -73,7 +73,7 @@ function SceneLayout() {
   return (
     <>
       <Float speed={0.5} rotationIntensity={0.1} floatIntensity={0.2}>
-        <Sparkles count={60} scale={18} size={2} speed={0.2} opacity={0.4} noise={0.2} color="#5ccdf5" />
+        <Sparkles count={60} scale={18} size={1.2} speed={0.2} opacity={0.15} noise={0.2} color="#5ccdf5" />
       </Float>
       {!isMobile && (
         <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
