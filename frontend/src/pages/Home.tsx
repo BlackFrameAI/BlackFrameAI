@@ -1,10 +1,11 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SpotlightCard from '../components/SpotlightCard';
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [scrollY, setScrollY] = useState(0);
   const [isMobile, setIsMobile] = useState(() => {
     return typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches;
   });
@@ -16,28 +17,38 @@ export default function Home() {
     const media = window.matchMedia('(max-width: 768px)');
     if (media.addEventListener) {
       media.addEventListener('change', checkMobile);
-      return () => media.removeEventListener('change', checkMobile);
     } else {
       media.addListener(checkMobile);
-      return () => media.removeListener(checkMobile);
     }
+
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Initial call to set correct position on mount/refresh
+    handleScroll();
+
+    return () => {
+      if (media.removeEventListener) {
+        media.removeEventListener('change', checkMobile);
+      } else {
+        media.removeListener(checkMobile);
+      }
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
-  const { scrollY } = useScroll();
+  // Opacity: fades out completely within 100px on mobile, 300px on desktop
+  const fadeDistance = isMobile ? 100 : 300;
+  const opacityText = Math.max(1 - scrollY / fadeDistance, 0);
 
-  // Dynamic pixel-based parallax translation: lock to 0% on mobile
-  const yText = useTransform(scrollY, (latest) => {
-    if (isMobile) return "0px";
-    // Desktop: translate down as we scroll (max 150px translation)
-    return `${Math.min(latest * 0.4, 150)}px`;
-  });
+  // Parallax: lock to 0px on mobile, translate down up to 150px on desktop
+  const yTextVal = isMobile ? 0 : Math.min(scrollY * 0.4, 150);
+  const yText = `${yTextVal}px`;
 
-  // Dynamic pixel-based opacity fade out: fade out within 120px on mobile, 300px on desktop
-  const opacityText = useTransform(scrollY, (latest) => {
-    const fadeDistance = isMobile ? 120 : 300;
-    if (latest >= fadeDistance) return 0;
-    return 1 - (latest / fadeDistance);
-  });
+  // Hard hide: set display to none when fully faded to clear layout space
+  const displayStyle = opacityText === 0 ? 'none' : 'block';
 
   return (
     <div ref={containerRef}>
@@ -46,7 +57,7 @@ export default function Home() {
         <div className="hero-glow-container">
           <div className="hero-glass-orb" />
         </div>
-        <motion.div style={{ y: yText, opacity: opacityText, position: 'relative', zIndex: 10 }}>
+        <motion.div style={{ transform: `translate3d(0, ${yText}, 0)`, opacity: opacityText, display: displayStyle, position: 'relative', zIndex: 10 }}>
           <motion.div 
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
