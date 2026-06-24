@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useMemo } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Environment, Float, useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
 import Loader from './Loader'
@@ -7,18 +7,31 @@ import Loader from './Loader'
 // We store global mouse coordinates so the canvas tracks even when the mouse is over the HTML UI
 const globalMouse = { x: 0, y: 0 };
 
-window.addEventListener('mousemove', (e) => {
-  // Normalize coordinates from -1 to 1
-  globalMouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-  globalMouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
-});
+if (typeof window !== 'undefined') {
+  window.addEventListener('mousemove', (e) => {
+    // Normalize coordinates from -1 to 1
+    globalMouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+    globalMouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+  });
 
-window.addEventListener('touchmove', (e) => {
-  if (e.touches.length > 0) {
-    globalMouse.x = (e.touches[0].clientX / window.innerWidth) * 2 - 1;
-    globalMouse.y = -(e.touches[0].clientY / window.innerHeight) * 2 + 1;
-  }
-});
+  const handleTouch = (e: TouchEvent) => {
+    if (e.touches.length > 0) {
+      globalMouse.x = (e.touches[0].clientX / window.innerWidth) * 2 - 1;
+      globalMouse.y = -(e.touches[0].clientY / window.innerHeight) * 2 + 1;
+    }
+  };
+
+  window.addEventListener('touchstart', handleTouch, { passive: true });
+  window.addEventListener('touchmove', handleTouch, { passive: true });
+
+  const resetTouch = () => {
+    globalMouse.x = 0;
+    globalMouse.y = 0;
+  };
+
+  window.addEventListener('touchend', resetTouch, { passive: true });
+  window.addEventListener('touchcancel', resetTouch, { passive: true });
+}
 
 function CatMesh({ modelPath, position, baseRotationY = 0, scale = 1.5 }: { modelPath: string, position: [number, number, number], baseRotationY?: number, scale?: number }) {
   const meshRef = useRef<THREE.Group>(null)
@@ -147,14 +160,19 @@ function QuantumParticles({ count = 60 }: { count?: number }) {
 }
 
 function SceneLayout() {
-  const position: [number, number, number] = [-3.20, 0.20, -2];
-  const scale = 2.5;
+  const { viewport } = useThree()
+  // Centered at the top on mobile, on the left on desktop
+  const isMobile = viewport.width < 8;
+  const position: [number, number, number] = isMobile 
+    ? [0, 1.4, -3.2] // Centered at the top on mobile (sits behind the hero section top)
+    : [-3.20, 0.20, -2]; // Left flank on desktop
+  const scale = isMobile ? 1.6 : 2.5;
 
   return (
     <>
       <QuantumParticles count={70} />
-      <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
-        <CatMesh modelPath="/assets/cat_lowpoly.glb" position={position} baseRotationY={-0.54} scale={scale} />
+      <Float speed={isMobile ? 1.5 : 2} rotationIntensity={0.2} floatIntensity={isMobile ? 0.3 : 0.5}>
+        <CatMesh modelPath="/assets/cat_lowpoly.glb" position={position} baseRotationY={isMobile ? -0.2 : -0.54} scale={scale} />
       </Float>
     </>
   )
