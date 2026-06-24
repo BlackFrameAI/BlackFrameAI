@@ -17,7 +17,7 @@ export default function Playbooks() {
         </p>
       </motion.div>
 
-      <div style={{ display: 'grid', gap: '32px', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', marginBottom: '60px' }}>
+      <div style={{ display: 'grid', gap: '32px', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', marginBottom: '60px' }}>
         {[
           { title: 'AI Engine Foundations', desc: 'Overview of the simulation spine, narrative codex, and co-pilot layers that power our internal stack.', slug: 'ai-engine-foundations' },
           { title: 'Blueprint Days Sprint Map', desc: 'Day-by-day breakdown of how Codex scaffolds a new build, including Markdown spec templates and QA hooks.', slug: 'blueprint-days' },

@@ -73,7 +73,30 @@ p {
     padding: 0 16px;
     gap: 20px;
   }
-  .desktop-flank {
+}
+
+/* Tactical Flank Columns */
+.desktop-flank-left {
+  border-right: 1px solid var(--hud-accent);
+  opacity: 0.3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.desktop-flank-right {
+  border-left: 1px solid var(--hud-accent);
+  opacity: 0.3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+}
+
+@media (max-width: 1024px) {
+  .desktop-flank-left,
+  .desktop-flank-right {
     display: none !important;
   }
 }
@@ -91,6 +114,7 @@ p {
 .nav-scroll {
   display: flex;
   gap: 32px;
+  min-width: 0;
 }
 
 @media (max-width: 768px) {
@@ -101,6 +125,8 @@ p {
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     justify-content: space-between;
   }
   .nav-scroll::-webkit-scrollbar {
@@ -261,7 +287,7 @@ p {
 .matrix-grid {
   display: grid;
   gap: 32px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
 }
 
 .matrix-card {
@@ -555,7 +581,7 @@ p {
 .blog-grid {
   display: grid;
   gap: 32px;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
 }
 
 .blog-card {

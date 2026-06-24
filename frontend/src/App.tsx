@@ -37,7 +37,7 @@ function App() {
       <div className="hud-viewport" ref={containerRef}>
         
         {/* Tactical Flank Left */}
-        <aside className="desktop-flank" style={{ borderRight: '1px solid var(--hud-accent)', opacity: 0.3, display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '40px' }}>
+        <aside className="desktop-flank-left">
           <div style={{ fontFamily: 'var(--font-display)', color: 'var(--hud-accent)', fontSize: '0.8rem', writingMode: 'vertical-rl', letterSpacing: '0.5em' }}>
             SYS.L // OVR
           </div>
@@ -91,7 +91,7 @@ function App() {
         </main>
 
         {/* Tactical Flank Right */}
-        <aside className="desktop-flank" style={{ borderLeft: '1px solid var(--hud-accent)', opacity: 0.3, display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '40px' }}>
+        <aside className="desktop-flank-right">
           <div style={{ fontFamily: 'var(--font-display)', color: 'var(--hud-accent)', fontSize: '0.8rem', writingMode: 'vertical-rl', letterSpacing: '0.5em' }}>
             SYS.R // OVR
           </div>
