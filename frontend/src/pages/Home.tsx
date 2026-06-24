@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import SpotlightCard from '../components/SpotlightCard';
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -47,6 +48,19 @@ export default function Home() {
           >
             The world's first AI-generated dual use engine, with Codex writing the scaffolding, architecture, and subsystems while our team enforced audits, policy, direction, and red-team gates that kept the build verifiable.
           </motion.p>
+
+          <motion.button
+            whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(53, 192, 255, 0.4)" }}
+            whileTap={{ scale: 0.95 }}
+            style={{
+              marginTop: '40px', padding: '16px 32px', background: 'transparent',
+              border: '1px solid var(--hud-accent)', color: 'var(--hud-accent)',
+              fontFamily: 'var(--font-display)', fontSize: '1rem', letterSpacing: '0.1em',
+              cursor: 'pointer', outline: 'none', transition: 'box-shadow 0.3s ease'
+            }}
+          >
+            EXPLORE THE VAULT
+          </motion.button>
         </motion.div>
       </section>
 
@@ -57,10 +71,12 @@ export default function Home() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          style={{ padding: '60px', border: '1px solid rgba(53, 192, 255, 0.3)', background: 'rgba(3, 5, 8, 0.8)', backdropFilter: 'blur(10px)', clipPath: 'polygon(30px 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px)' }}
+          style={{ maxWidth: '800px', width: '100%' }}
         >
-          <h2>Quantum Simulators & Entropy Labs</h2>
-          <p style={{ maxWidth: '600px' }}>The same runtime that renders stylized encounters also routes telemetry into our quantum simulator suite, giving partners a plug-ready path for hardware-in-the-loop experiments.</p>
+          <SpotlightCard>
+            <h2>Quantum Simulators & Entropy Labs</h2>
+            <p style={{ maxWidth: '600px' }}>The same runtime that renders stylized encounters also routes telemetry into our quantum simulator suite, giving partners a plug-ready path for hardware-in-the-loop experiments.</p>
+          </SpotlightCard>
         </motion.div>
       </section>
     </div>

@@ -67,7 +67,30 @@ p {
 @media (max-width: 1024px) {
   .hud-viewport {
     grid-template-columns: 1fr;
-    padding: 0 20px;
+    padding: 0 16px;
+    gap: 20px;
+  }
+  .desktop-flank {
+    display: none !important;
+  }
+}
+
+/* Nav scrolling container for mobile */
+.nav-scroll {
+  display: flex;
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .nav-scroll {
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav-scroll::-webkit-scrollbar {
+    display: none;
   }
 }
 

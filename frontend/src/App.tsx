@@ -37,7 +37,7 @@ function App() {
       <div className="hud-viewport" ref={containerRef}>
         
         {/* Tactical Flank Left */}
-        <aside style={{ borderRight: '1px solid var(--hud-accent)', opacity: 0.3, display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '40px' }}>
+        <aside className="desktop-flank" style={{ borderRight: '1px solid var(--hud-accent)', opacity: 0.3, display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '40px' }}>
           <div style={{ fontFamily: 'var(--font-display)', color: 'var(--hud-accent)', fontSize: '0.8rem', writingMode: 'vertical-rl', letterSpacing: '0.5em' }}>
             SYS.L // OVR
           </div>
@@ -45,7 +45,7 @@ function App() {
         </aside>
 
         {/* Central Core */}
-        <main style={{ position: 'relative', display: 'flex', flexDirection: 'column' }}>
+        <main style={{ position: 'relative', display: 'flex', flexDirection: 'column', width: '100%' }}>
           
           {/* Header */}
           <motion.header 
@@ -55,14 +55,15 @@ function App() {
             style={{ 
               display: 'flex', justifyContent: 'space-between', alignItems: 'center', 
               padding: '24px 0', borderBottom: '1px solid rgba(53, 192, 255, 0.2)',
-              position: 'sticky', top: 0, zIndex: 100, backdropFilter: 'blur(10px)'
+              position: 'sticky', top: 0, zIndex: 100, backdropFilter: 'blur(10px)',
+              flexWrap: 'wrap', gap: '16px'
             }}
           >
             <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '16px', textDecoration: 'none' }}>
               <Shield color="var(--hud-accent)" size={28} />
               <span style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: '1.2rem', letterSpacing: '0.1em', color: 'var(--hud-text)' }}>BLACKFRAME AI</span>
             </Link>
-            <nav style={{ display: 'flex', gap: '32px' }}>
+            <nav className="nav-scroll">
               <Link to="/" style={{ fontFamily: 'var(--font-display)', fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-secondary)', textDecoration: 'none' }}>Home</Link>
               <Link to="/services" style={{ fontFamily: 'var(--font-display)', fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-secondary)', textDecoration: 'none' }}>Services</Link>
               <Link to="/playbooks" style={{ fontFamily: 'var(--font-display)', fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-secondary)', textDecoration: 'none' }}>Playbooks</Link>
@@ -85,7 +86,7 @@ function App() {
         </main>
 
         {/* Tactical Flank Right */}
-        <aside style={{ borderLeft: '1px solid var(--hud-accent)', opacity: 0.3, display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '40px' }}>
+        <aside className="desktop-flank" style={{ borderLeft: '1px solid var(--hud-accent)', opacity: 0.3, display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '40px' }}>
           <div style={{ fontFamily: 'var(--font-display)', color: 'var(--hud-accent)', fontSize: '0.8rem', writingMode: 'vertical-rl', letterSpacing: '0.5em' }}>
             SYS.R // OVR
           </div>
