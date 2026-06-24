@@ -11,9 +11,7 @@ export default function SpotlightCard({ children, className = '', glowColor = 'r
   const ref = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Motion values for the glow position
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
+
 
   // Motion values for 3D tilt
   const tiltX = useMotionValue(0);
