@@ -45,7 +45,7 @@ function App() {
         </aside>
 
         {/* Central Core */}
-        <main style={{ position: 'relative', display: 'flex', flexDirection: 'column', width: '100%', minHeight: '100vh' }}>
+        <main className="hud-main">
           
           {/* Header */}
           <motion.header 
@@ -54,9 +54,9 @@ function App() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="hud-header"
           >
-            <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '16px', textDecoration: 'none' }}>
+            <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none', whiteSpace: 'nowrap' }}>
               <Shield color="var(--hud-accent)" size={28} />
-              <span style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: '1.2rem', letterSpacing: '0.1em', color: 'var(--hud-text)' }}>BLACKFRAME AI</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'clamp(0.95rem, 4vw, 1.2rem)', letterSpacing: '0.1em', color: 'var(--hud-text)' }}>BLACKFRAME AI</span>
             </Link>
             <nav className="nav-scroll">
               {[

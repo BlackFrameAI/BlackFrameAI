@@ -56,7 +56,7 @@ p {
 /* Symmetrical Layout Utilities */
 .hud-viewport {
   display: grid;
-  grid-template-columns: 80px 1fr 80px;
+  grid-template-columns: 80px minmax(0, 1fr) 80px;
   gap: 40px;
   min-height: 100vh;
   width: 100%;
@@ -69,13 +69,22 @@ p {
 
 @media (max-width: 1024px) {
   .hud-viewport {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     padding: 0 16px;
     gap: 20px;
   }
   .desktop-flank {
     display: none !important;
   }
+}
+
+.hud-main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  min-width: 0; /* Prevents flex-child items from overflowing */
 }
 
 /* Nav scrolling container for mobile */
@@ -91,6 +100,8 @@ p {
     padding-bottom: 8px;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
+    width: 100%;
+    justify-content: space-between;
   }
   .nav-scroll::-webkit-scrollbar {
     display: none;
