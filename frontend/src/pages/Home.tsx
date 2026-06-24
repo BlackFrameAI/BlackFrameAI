@@ -18,8 +18,10 @@ export default function Home() {
     <div ref={containerRef}>
       {/* Hero Section */}
       <section style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', position: 'relative' }}>
-        {/* Background logo removed to maintain professional minimalist aesthetic against WebGL */}
-        <motion.div style={{ y: yText, opacity: opacityText }}>
+        <div className="hero-glow-container">
+          <div className="hero-glass-orb" />
+        </div>
+        <motion.div style={{ y: yText, opacity: opacityText, position: 'relative', zIndex: 10 }}>
           <motion.div 
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}

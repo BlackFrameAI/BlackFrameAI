@@ -54,9 +54,13 @@ function App() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             style={{ 
               display: 'flex', justifyContent: 'space-between', alignItems: 'center', 
-              padding: '24px 0', borderBottom: '1px solid rgba(53, 192, 255, 0.2)',
-              position: 'sticky', top: 0, zIndex: 100, backdropFilter: 'blur(10px)',
-              flexWrap: 'wrap', gap: '16px'
+              padding: '20px 24px', borderBottom: '1px solid rgba(53, 192, 255, 0.15)',
+              position: 'sticky', top: 0, zIndex: 100, 
+              background: 'rgba(3, 5, 8, 0.75)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+              flexWrap: 'wrap', gap: '16px',
+              margin: '0 -24px'
             }}
           >
             <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '16px', textDecoration: 'none' }}>

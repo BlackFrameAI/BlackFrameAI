@@ -16,33 +16,14 @@ export default function BlogList() {
         <p style={{ color: 'var(--text-secondary)' }}>Decrypted transmission logs and studio dispatches.</p>
       </motion.div>
 
-      <div style={{ display: 'grid', gap: '32px', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))' }}>
+      <div className="blog-grid">
         {blogs.map((post, i) => (
           <Link to={`/blog/${post.slug}`} key={post.slug} style={{ textDecoration: 'none' }}>
             <motion.article 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              style={{
-                border: '1px solid rgba(53, 192, 255, 0.2)',
-                background: 'rgba(3, 5, 8, 0.6)',
-                padding: '24px',
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '16px',
-                backdropFilter: 'blur(10px)',
-                transition: 'all 0.3s ease',
-                cursor: 'pointer',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.border = '1px solid var(--hud-accent)';
-                e.currentTarget.style.background = 'rgba(53, 192, 255, 0.05)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.border = '1px solid rgba(53, 192, 255, 0.2)';
-                e.currentTarget.style.background = 'rgba(3, 5, 8, 0.6)';
-              }}
+              className="blog-card"
             >
               <div style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', fontFamily: 'var(--font-display)', letterSpacing: '0.1em' }}>
                 {new Date(post.date).toLocaleDateString()}
