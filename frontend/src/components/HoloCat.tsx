@@ -161,7 +161,7 @@ function SceneLayout() {
 
 export default function HoloCat() {
   return (
-    <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, pointerEvents: 'none' }}>
+    <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, pointerEvents: 'none', overflow: 'hidden' }}>
       <Canvas camera={{ position: [0, 0, 10], fov: 45 }}>
         <React.Suspense fallback={<Loader />}>
           <ambientLight intensity={0.5} />
