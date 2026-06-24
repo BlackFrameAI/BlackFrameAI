@@ -74,19 +74,13 @@ function App() {
                 { name: 'Blog', path: '/blog' },
                 { name: 'Contact', path: '/contact' }
               ].map((link) => (
-                <MotionLink 
+                <Link 
                   key={link.name}
                   to={link.path} 
-                  whileHover={{ scale: 1.1, y: -2, color: '#ffffff', textShadow: '0 0 12px rgba(53,192,255,0.8)' }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  style={{ 
-                    fontFamily: 'var(--font-display)', fontSize: '0.8rem', letterSpacing: '0.1em', 
-                    textTransform: 'uppercase', color: 'var(--text-secondary)', textDecoration: 'none',
-                    display: 'block', padding: '8px 12px', transition: 'color 0.3s ease, text-shadow 0.3s ease'
-                  }}
+                  className="nav-link"
                 >
                   {link.name}
-                </MotionLink>
+                </Link>
               ))}
             </nav>
           </motion.header>

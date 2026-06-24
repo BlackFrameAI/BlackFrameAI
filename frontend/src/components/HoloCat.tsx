@@ -72,7 +72,9 @@ function SceneLayout() {
 
   return (
     <>
-      <Sparkles count={40} scale={15} size={1} speed={0.1} opacity={0.05} noise={0.1} color="#1a3b4c" />
+      <Float speed={0.5} rotationIntensity={0.1} floatIntensity={0.2}>
+        <Sparkles count={60} scale={18} size={2} speed={0.2} opacity={0.4} noise={0.2} color="#5ccdf5" />
+      </Float>
       {!isMobile && (
         <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
           <CatMesh modelPath="/assets/cat_lowpoly.glb" position={position} baseRotationY={-0.54} scale={scale} />

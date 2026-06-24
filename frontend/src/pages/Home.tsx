@@ -50,19 +50,8 @@ export default function Home() {
             The world's first AI-generated dual use engine, with Codex writing the scaffolding, architecture, and subsystems while our team enforced audits, policy, direction, and red-team gates that kept the build verifiable.
           </motion.p>
 
-          <Link to="/vault" style={{ textDecoration: 'none' }}>
-            <motion.button
-              whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(53, 192, 255, 0.4)" }}
-              whileTap={{ scale: 0.95 }}
-              style={{
-                marginTop: '40px', padding: '16px 32px', background: 'transparent',
-                border: '1px solid var(--hud-accent)', color: 'var(--hud-accent)',
-                fontFamily: 'var(--font-display)', fontSize: '1rem', letterSpacing: '0.1em',
-                cursor: 'pointer', outline: 'none', transition: 'box-shadow 0.3s ease'
-              }}
-            >
-              EXPLORE THE VAULT
-            </motion.button>
+          <Link to="/vault" className="vault-btn">
+            EXPLORE THE VAULT
           </Link>
         </motion.div>
       </section>
@@ -70,10 +59,10 @@ export default function Home() {
       {/* Spacer for scrolling */}
       <section style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ type: "spring", stiffness: 100, damping: 20, mass: 1 }}
           style={{ maxWidth: '800px', width: '100%' }}
         >
           <SpotlightCard>
