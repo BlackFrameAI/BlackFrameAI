@@ -21,8 +21,6 @@ function ScrollToTop() {
   return null;
 }
 
-const MotionLink = motion(Link);
-
 function App() {
   const containerRef = useRef<HTMLDivElement>(null);
 
