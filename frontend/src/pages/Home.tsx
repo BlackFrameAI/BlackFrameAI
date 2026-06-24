@@ -19,10 +19,7 @@ export default function Home() {
     <div ref={containerRef}>
       {/* Hero Section */}
       <section style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', position: 'relative' }}>
-        <motion.div style={{ y: yBg, position: 'absolute', top: '10%', zIndex: -1 }}>
-          <img src="/assets/blackflamelogo.png" alt="BlackFrame" style={{ width: '600px', opacity: 0.1, filter: 'blur(10px)' }} />
-        </motion.div>
-        
+        {/* Background logo removed to maintain professional minimalist aesthetic against WebGL */}
         <motion.div style={{ y: yText, opacity: opacityText }}>
           <motion.div 
             initial={{ scale: 0.9, opacity: 0 }}
