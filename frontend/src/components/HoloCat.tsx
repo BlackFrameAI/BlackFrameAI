@@ -89,9 +89,9 @@ function QuantumParticles({ count = 60 }: { count?: number }) {
       const yIdx = i * 3 + 1
       const xIdx = i * 3
       
-      // Slow elegant upward drift + wave oscillation
-      posAttr.array[yIdx] += 0.008 + Math.sin(time * 0.5 + phases[i]) * 0.002
-      posAttr.array[xIdx] += Math.cos(time * 0.2 + phases[i]) * 0.003
+      // Slow elegant upward drift + wave oscillation (cut by ~50% for high subtlety)
+      posAttr.array[yIdx] += 0.0035 + Math.sin(time * 0.5 + phases[i]) * 0.0008
+      posAttr.array[xIdx] += Math.cos(time * 0.2 + phases[i]) * 0.0012
       
       // Wrap boundaries
       if (posAttr.array[yIdx] > 10) posAttr.array[yIdx] = -10
@@ -132,7 +132,7 @@ function QuantumParticles({ count = 60 }: { count?: number }) {
         sizeAttenuation={true}
         map={circleTexture}
         transparent={true}
-        opacity={0.25}
+        opacity={0.14}
         depthWrite={false}
         blending={THREE.NormalBlending}
       />

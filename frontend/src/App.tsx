@@ -52,16 +52,7 @@ function App() {
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            style={{ 
-              display: 'flex', justifyContent: 'space-between', alignItems: 'center', 
-              padding: '20px 24px', borderBottom: '1px solid rgba(53, 192, 255, 0.15)',
-              position: 'sticky', top: 0, zIndex: 100, 
-              background: 'rgba(3, 5, 8, 0.75)',
-              backdropFilter: 'blur(16px)',
-              WebkitBackdropFilter: 'blur(16px)',
-              flexWrap: 'wrap', gap: '16px',
-              margin: '0 -24px'
-            }}
+            className="hud-header"
           >
             <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '16px', textDecoration: 'none' }}>
               <Shield color="var(--hud-accent)" size={28} />
