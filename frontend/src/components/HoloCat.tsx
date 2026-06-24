@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useMemo } from 'react'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { Canvas, useFrame } from '@react-three/fiber'
 import { Environment, Float, useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
 import Loader from './Loader'
@@ -41,11 +41,17 @@ function CatMesh({ modelPath, position, baseRotationY = 0, scale = 1.5 }: { mode
     });
   }, [scene]);
 
-  useFrame(() => {
+  useFrame((state) => {
     if (meshRef.current) {
+      const time = state.clock.getElapsedTime();
+      
+      // Subtle idle animation so it's never static (especially on mobile)
+      const idleY = Math.sin(time * 0.4) * 0.12;
+      const idleX = Math.cos(time * 0.25) * 0.04;
+      
       // Mouse parallax tracking anchored around the exact base rotation dialed in by the user
-      const targetX = baseRotationY + (globalMouse.x * Math.PI) / 8 
-      const targetY = 0.2 + (globalMouse.y * Math.PI) / 16
+      const targetX = baseRotationY + idleY + (globalMouse.x * Math.PI) / 8 
+      const targetY = 0.2 + idleX + (globalMouse.y * Math.PI) / 16
       
       // Horizontal tracking
       meshRef.current.rotation.y += 0.05 * (targetX - meshRef.current.rotation.y)
@@ -141,20 +147,15 @@ function QuantumParticles({ count = 60 }: { count?: number }) {
 }
 
 function SceneLayout() {
-  const { viewport } = useThree()
-  // If viewport is narrow (mobile), we kill the cat entirely.
-  const isMobile = viewport.width < 8;
   const position: [number, number, number] = [-3.20, 0.20, -2];
   const scale = 2.5;
 
   return (
     <>
       <QuantumParticles count={70} />
-      {!isMobile && (
-        <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
-          <CatMesh modelPath="/assets/cat_lowpoly.glb" position={position} baseRotationY={-0.54} scale={scale} />
-        </Float>
-      )}
+      <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
+        <CatMesh modelPath="/assets/cat_lowpoly.glb" position={position} baseRotationY={-0.54} scale={scale} />
+      </Float>
     </>
   )
 }
