@@ -21,6 +21,8 @@ function ScrollToTop() {
   return null;
 }
 
+const MotionLink = motion(Link);
+
 function App() {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -45,7 +47,7 @@ function App() {
         </aside>
 
         {/* Central Core */}
-        <main style={{ position: 'relative', display: 'flex', flexDirection: 'column', width: '100%' }}>
+        <main style={{ position: 'relative', display: 'flex', flexDirection: 'column', width: '100%', minHeight: '100vh' }}>
           
           {/* Header */}
           <motion.header 
@@ -72,26 +74,19 @@ function App() {
                 { name: 'Blog', path: '/blog' },
                 { name: 'Contact', path: '/contact' }
               ].map((link) => (
-                <motion.div key={link.name} whileHover={{ scale: 1.05, y: -2 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-                  <Link 
-                    to={link.path} 
-                    style={{ 
-                      fontFamily: 'var(--font-display)', fontSize: '0.8rem', letterSpacing: '0.1em', 
-                      textTransform: 'uppercase', color: 'var(--text-secondary)', textDecoration: 'none',
-                      display: 'block', padding: '4px 8px', transition: 'color 0.3s ease, text-shadow 0.3s ease'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = '#ffffff';
-                      e.currentTarget.style.textShadow = '0 0 12px rgba(53,192,255,0.8)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.color = 'var(--text-secondary)';
-                      e.currentTarget.style.textShadow = 'none';
-                    }}
-                  >
-                    {link.name}
-                  </Link>
-                </motion.div>
+                <MotionLink 
+                  key={link.name}
+                  to={link.path} 
+                  whileHover={{ scale: 1.1, y: -2, color: '#ffffff', textShadow: '0 0 12px rgba(53,192,255,0.8)' }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  style={{ 
+                    fontFamily: 'var(--font-display)', fontSize: '0.8rem', letterSpacing: '0.1em', 
+                    textTransform: 'uppercase', color: 'var(--text-secondary)', textDecoration: 'none',
+                    display: 'block', padding: '8px 12px', transition: 'color 0.3s ease, text-shadow 0.3s ease'
+                  }}
+                >
+                  {link.name}
+                </MotionLink>
               ))}
             </nav>
           </motion.header>

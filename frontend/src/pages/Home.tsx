@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import SpotlightCard from '../components/SpotlightCard';
 
 export default function Home() {
@@ -49,18 +50,20 @@ export default function Home() {
             The world's first AI-generated dual use engine, with Codex writing the scaffolding, architecture, and subsystems while our team enforced audits, policy, direction, and red-team gates that kept the build verifiable.
           </motion.p>
 
-          <motion.button
-            whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(53, 192, 255, 0.4)" }}
-            whileTap={{ scale: 0.95 }}
-            style={{
-              marginTop: '40px', padding: '16px 32px', background: 'transparent',
-              border: '1px solid var(--hud-accent)', color: 'var(--hud-accent)',
-              fontFamily: 'var(--font-display)', fontSize: '1rem', letterSpacing: '0.1em',
-              cursor: 'pointer', outline: 'none', transition: 'box-shadow 0.3s ease'
-            }}
-          >
-            EXPLORE THE VAULT
-          </motion.button>
+          <Link to="/vault" style={{ textDecoration: 'none' }}>
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(53, 192, 255, 0.4)" }}
+              whileTap={{ scale: 0.95 }}
+              style={{
+                marginTop: '40px', padding: '16px 32px', background: 'transparent',
+                border: '1px solid var(--hud-accent)', color: 'var(--hud-accent)',
+                fontFamily: 'var(--font-display)', fontSize: '1rem', letterSpacing: '0.1em',
+                cursor: 'pointer', outline: 'none', transition: 'box-shadow 0.3s ease'
+              }}
+            >
+              EXPLORE THE VAULT
+            </motion.button>
+          </Link>
         </motion.div>
       </section>
 
