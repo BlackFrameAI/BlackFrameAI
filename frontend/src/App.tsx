@@ -64,12 +64,35 @@ function App() {
               <span style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: '1.2rem', letterSpacing: '0.1em', color: 'var(--hud-text)' }}>BLACKFRAME AI</span>
             </Link>
             <nav className="nav-scroll">
-              <Link to="/" style={{ fontFamily: 'var(--font-display)', fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-secondary)', textDecoration: 'none' }}>Home</Link>
-              <Link to="/services" style={{ fontFamily: 'var(--font-display)', fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-secondary)', textDecoration: 'none' }}>Services</Link>
-              <Link to="/playbooks" style={{ fontFamily: 'var(--font-display)', fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-secondary)', textDecoration: 'none' }}>Playbooks</Link>
-              <Link to="/vault" style={{ fontFamily: 'var(--font-display)', fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-secondary)', textDecoration: 'none' }}>Vault</Link>
-              <Link to="/blog" style={{ fontFamily: 'var(--font-display)', fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-secondary)', textDecoration: 'none' }}>Blog</Link>
-              <Link to="/contact" style={{ fontFamily: 'var(--font-display)', fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-secondary)', textDecoration: 'none' }}>Contact</Link>
+              {[
+                { name: 'Home', path: '/' },
+                { name: 'Services', path: '/services' },
+                { name: 'Playbooks', path: '/playbooks' },
+                { name: 'Vault', path: '/vault' },
+                { name: 'Blog', path: '/blog' },
+                { name: 'Contact', path: '/contact' }
+              ].map((link) => (
+                <motion.div key={link.name} whileHover={{ scale: 1.05, y: -2 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+                  <Link 
+                    to={link.path} 
+                    style={{ 
+                      fontFamily: 'var(--font-display)', fontSize: '0.8rem', letterSpacing: '0.1em', 
+                      textTransform: 'uppercase', color: 'var(--text-secondary)', textDecoration: 'none',
+                      display: 'block', padding: '4px 8px', transition: 'color 0.3s ease, text-shadow 0.3s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = '#ffffff';
+                      e.currentTarget.style.textShadow = '0 0 12px rgba(53,192,255,0.8)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color = 'var(--text-secondary)';
+                      e.currentTarget.style.textShadow = 'none';
+                    }}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
+              ))}
             </nav>
           </motion.header>
 
