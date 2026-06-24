@@ -73,7 +73,7 @@ function SceneLayout() {
   return (
     <>
       <Float speed={0.5} rotationIntensity={0.1} floatIntensity={0.2}>
-        <Sparkles count={60} scale={18} size={1.2} speed={0.2} opacity={0.15} noise={0.2} color="#5ccdf5" />
+        <Sparkles count={40} scale={18} size={1.2} speed={0.2} opacity={0.05} noise={0.2} color="#1c84b5" />
       </Float>
       {!isMobile && (
         <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
@@ -86,7 +86,7 @@ function SceneLayout() {
 
 export default function HoloCat() {
   return (
-    <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: -1, pointerEvents: 'none' }}>
+    <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, pointerEvents: 'none' }}>
       <Canvas camera={{ position: [0, 0, 10], fov: 45 }}>
         <React.Suspense fallback={<Loader />}>
           <ambientLight intensity={0.5} />
