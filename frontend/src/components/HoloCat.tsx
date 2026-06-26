@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useMemo } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Environment, Float, useGLTF } from '@react-three/drei'
+import { useLocation } from 'react-router-dom'
 import * as THREE from 'three'
 import Loader from './Loader'
 
@@ -161,6 +162,11 @@ function QuantumParticles({ count = 60 }: { count?: number }) {
 
 function SceneLayout() {
   const { viewport } = useThree()
+  const location = useLocation()
+  
+  // Hide the cat entirely on Vault and Blog pages to prevent overlapping layout text
+  const isVaultOrBlog = location.pathname.startsWith('/vault') || location.pathname.startsWith('/blog');
+  
   // Centered at the top on mobile, on the left on desktop
   const isMobile = viewport.width < 8;
   const position: [number, number, number] = isMobile 
@@ -171,9 +177,11 @@ function SceneLayout() {
   return (
     <>
       <QuantumParticles count={70} />
-      <Float speed={isMobile ? 1.5 : 2} rotationIntensity={0.2} floatIntensity={isMobile ? 0.3 : 0.5}>
-        <CatMesh modelPath="/assets/cat_lowpoly.glb" position={position} baseRotationY={isMobile ? -0.2 : -0.54} scale={scale} />
-      </Float>
+      {!isVaultOrBlog && (
+        <Float speed={isMobile ? 1.5 : 2} rotationIntensity={0.2} floatIntensity={isMobile ? 0.3 : 0.5}>
+          <CatMesh modelPath="/assets/cat_lowpoly.glb" position={position} baseRotationY={isMobile ? -0.2 : -0.54} scale={scale} />
+        </Float>
+      )}
     </>
   )
 }
